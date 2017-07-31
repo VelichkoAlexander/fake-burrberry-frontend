@@ -253,5 +253,46 @@ button {
         margin: 0;
         font-size: rem(12);
         color: $warm-grey;
+        font-weight: 400;
+    }
+}
+
+.more {
+    padding-right: rem(16);
+    padding-left: rem(16);
+    margin-bottom: rem(56);
+    &__title {
+        display: inline-block;
+        margin: 0;
+        font-family: $lora;
+        font-size: rem(14);
+        color: $black-two;
+        text-transform: uppercase;
+        padding-bottom: 9px;
+        position: relative;
+        margin-bottom: rem(16);
+        &::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 1px;
+            background-color: $black-two;
+        }
+    }
+    &__list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+    &__link {
+        display: block;
+        font-family: $lora;
+        font-style: italic;
+        font-size: rem(14); 
+        color: #171717;
+        text-decoration: none; 
+        padding: rem(8) 0 ;
     }
 }
