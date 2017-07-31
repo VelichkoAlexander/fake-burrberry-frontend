@@ -1,15 +1,26 @@
+
+//fonts
+$font_size: 16px;
+$raleway: 'Raleway', sans-serif;
+$lora: 'Lora', serif;
+
+ @function rem($pixels){
+         @return $pixels / 16 + rem;
+     }
+
 //color
 
-
+html {
+   font-size: 16px; 
+}
 body {
-   min-width: 320px; 
-   font-family: 'Raleway', sans-serif;
+    font-family: $raleway;
 }
 
 .header {
     display: flex;
     justify-content: center;
-    padding: 16px;
-    padding: 16px;
+    padding-top: 16px;
+    padding-bottom: rem(16);
     border: solid 1px #c6c6c6;
 }
