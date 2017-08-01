@@ -12,7 +12,9 @@ html {
   font-size: 16px; }
 
 body {
-  font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+  font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
 
 button {
   border: 0;
@@ -29,36 +31,35 @@ button {
   display: block; }
 
 .product {
-  padding-top: 1rem; }
+  padding-top: 0.9375rem; }
 
 .product-title {
   margin: 0;
   padding: 0;
-  font-family: "Lora", serif;
-  font-size: 1.25rem;
   padding-left: 1rem;
   margin-bottom: 1rem;
+  font-family: "Lora", serif;
+  font-size: 1.25rem;
+  line-height: 1.5rem;
+  font-weight: 400;
   color: #171717; }
 
-.product-list {
+.product-slider {
+  display: flex;
   margin: 0;
   padding: 0;
-  list-style: none;
-  display: flex;
-  overflow: scroll; }
+  overflow-x: scroll; }
 
 .product-item img {
   display: block; }
 
 .product-info {
-  padding-top: 1.125rem;
-  padding-left: 1rem;
-  padding-right: 1rem; }
-
-.product-info-inner {
   display: flex;
   justify-content: space-between;
-  padding-bottom: 1.0625rem; }
+  padding-top: 1.0625rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-bottom: 1.0625rem; }
 
 .product-price {
   margin: 0;
@@ -72,58 +73,72 @@ button {
   font-size: 0.75rem;
   color: #171717; }
 
-.color-title {
+.color {
+  padding-left: 1rem;
+  padding-right: 1rem; }
+
+.color-actual {
   margin: 0;
+  margin-bottom: 1rem;
   font-size: 0.75rem;
-  color: #171717;
+  color: #171717; }
+
+.color-actual {
+  margin: 0;
   margin-bottom: 1rem; }
 
-.color-inner {
+.color-options {
   display: flex;
   padding-bottom: 2rem;
   margin-bottom: 2rem;
   border-bottom: solid 1px #c6c6c6; }
 
 .color-btn {
-  border: 0;
-  padding: 1.1875rem;
-  border-radius: 50%;
+  display: block;
+  padding: 0;
+  width: 2.5rem;
+  height: 2.5rem;
   margin-right: 1rem;
-  border: solid 1px transparent;
-  cursor: pointer;
-  transition: border-color .2s ease-in; }
+  border-radius: 50%;
+  border: solid 1px transparent; }
   .color-btn--black {
     background-color: #232122; }
   .color-btn--honey {
     background-color: #cfa880; }
+  .color-btn--active {
+    border: solid 1px #232122; }
   .color-btn:active {
     border: solid 1px #232122; }
 
 .product-btn-wrap {
   display: flex;
   flex-direction: column;
+  padding-left: 1rem;
+  padding-right: 1rem;
   padding-bottom: 3rem; }
 
 .product-btn {
   display: block;
+  padding: 0;
+  margin-bottom: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 0.75rem;
+  line-height: 1;
+  font-weight: 400;
+  text-align: center;
+  text-transform: uppercase;
   border-radius: 2px;
   border: solid 1px #999999;
-  background-color: #fff;
-  padding-top: 1rem;
-  padding-bottom: 0.9375rem;
-  text-transform: uppercase;
-  font-size: 0.75rem;
-  margin-bottom: 1rem;
-  font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  transition: all .2s ease-out; }
-  .product-btn:last-child {
-    margin-bottom: 1.5rem; }
+  background-color: #fff; }
   .product-btn:active {
     background-color: #171717;
     border: solid 1px #171717;
     color: #fff; }
   .product-btn-black {
     background-color: #171717;
+    border: solid 1px #171717;
     color: #fff; }
 
 .product-help {
@@ -138,7 +153,8 @@ button {
 
 .info-block {
   border-top: solid 1px #c6c6c6;
-  padding: 2rem 1rem; }
+  padding: 2rem 1rem;
+  padding-bottom: 31px; }
   .info-block:last-child {
     border-bottom: solid 1px #c6c6c6; }
   .info-block-header {
@@ -158,19 +174,20 @@ button {
   .info-block-arrow-up {
     display: block;
     padding: 5px;
-    background: url("../image/triangle-up.svg") center no-repeat; }
+    background: url("../image/triangle-down.svg") center no-repeat;
+    transform: rotate(180deg); }
   .info-block-body {
-    padding-top: 32px; }
+    padding-top: 2.0625rem; }
     .info-block-body p {
       margin: 0;
       font-size: 0.875rem;
       font-family: "Lora", serif;
-      line-height: 1.75; }
+      line-height: 1.5rem; }
 
 .suggest {
   padding: 2.75rem 1rem;
   padding-top: 3rem;
-  padding-bottom: 1.0625rem; }
+  padding-bottom: 1rem; }
   .suggest-title {
     display: inline-block;
     margin: 0;
@@ -178,7 +195,7 @@ button {
     font-weight: 500;
     color: #171717;
     text-transform: uppercase;
-    padding-bottom: 9px;
+    padding-bottom: 10px;
     position: relative;
     margin-bottom: 1.5rem; }
     .suggest-title::after {
@@ -225,18 +242,18 @@ button {
 .more {
   padding-right: 1rem;
   padding-left: 1rem;
-  margin-bottom: 3.5rem; }
+  margin-bottom: 3.0625rem; }
   .more-title {
     display: inline-block;
-    margin: 0;
-    font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-weight: 500;
-    font-size: 1rem;
-    color: #171717;
-    text-transform: uppercase;
-    padding-bottom: 9px;
     position: relative;
-    margin-bottom: 1.0625rem; }
+    margin: 0;
+    margin-bottom: 1.5rem;
+    font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    padding-bottom: 10px;
+    color: #171717; }
     .more-title::after {
       content: '';
       position: absolute;
@@ -250,44 +267,48 @@ button {
     padding: 0;
     list-style: none; }
   .more-link {
-    display: block;
+    font-size: 14px;
+    line-height: 1.0625rem;
     font-family: "Lora", serif;
-    font-style: italic;
-    font-size: 0.875rem;
     color: #171717;
     text-decoration: none;
-    padding: 0.5625rem 0; }
+    font-style: italic; }
 
 .more-item {
-  margin-bottom: -1px; }
+  display: inline-block;
+  margin: 0 0 15px; }
 
 .footer {
-  padding: 2rem 1rem;
+  padding: 2.0625rem 1rem;
   background-color: #f3f3f3;
   display: flex;
   flex-direction: column; }
   .footer-link {
     display: block;
+    margin-bottom: 1.125rem;
+    padding: 0;
+    font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    line-height: 1;
     font-size: 0.75rem;
     color: #999999;
     text-decoration: none;
-    margin-bottom: 1rem;
-    background-color: transparent;
     text-align: left;
-    padding: 0; }
+    background-color: transparent; }
   .footer-help {
     margin: 0;
+    padding: 0;
+    margin-top: 0.5625rem;
+    margin-bottom: 1.125rem;
+    font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 1rem;
     font-weight: bold;
-    color: #171717;
     text-align: center;
-    margin-top: 0.625rem;
-    margin-bottom: 1.125rem;
     background: transparent;
-    padding: 0; }
+    line-height: 1;
+    color: #171717; }
   .footer-contacts-us {
     display: block;
-    font-family: lora;
+    font-family: "Lora", serif;
     font-size: 0.875rem;
     font-style: italic;
     text-decoration: none;
