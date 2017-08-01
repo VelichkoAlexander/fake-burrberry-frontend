@@ -22,6 +22,9 @@ $fawn: #cfa880;
      -moz-box-sizing: border-box;
           box-sizing: border-box;
 }
+.hide {
+    display: none;
+}
 
 html {
    font-size: 16px; 
@@ -37,79 +40,82 @@ button {
 .header {
     display: flex;
     justify-content: center;
-    padding-top: 16px;
-    padding-bottom: rem(14);
+    padding-top: rem(16);
+    padding-bottom: rem(16);
     border-bottom: solid 1px #c6c6c6;
+}
+.header-logo {
+    display: block;
 }
 
 .product {
-    padding-top: rem(24);
+    padding-top: rem(16);
     
 }
 
-.product__title {
+.product-title {
     margin: 0;
     padding: 0;
     font-family: $lora;
-    font-size: rem(14);
+    font-size: rem(20);
     padding-left: rem(16);
-    margin-bottom: rem(24);
+    margin-bottom: rem(16);
     color: $black-two;
 }
 
-.product__list {
+.product-list {
     margin: 0;
     padding: 0;
     list-style: none;
     display: flex;
     overflow: scroll;
 }
-.product__item img {
+.product-item img {
     display: block;
 }
 
-.product__info {
-    padding-top: rem(24);
+.product-info {
+    padding-top: rem(18);
     padding-left: rem(16);
     padding-right: rem(16);
 }
 
-.product__info-inner {
+.product-info-inner {
     display: flex;
     justify-content: space-between;
-    padding-bottom: rem(16);
+    padding-bottom: rem(17);
 }
 
-.product__price {
+.product-price {
     margin: 0;
     font-weight: 400;
-    font-size: rem(18);
+    font-size: rem(16);
     color: $black-two;
 }
 
-.product__id {
-    margin-top: rem(4);
-    margin-right: rem(3);
+.product-id {
+    margin-top: rem(3);
+    // margin-right: rem(3);
     margin-bottom: 0;
     font-size: rem(12);
     color: $black;
 }
 
-.color__title {
+.color-title {
     margin: 0;
     font-size: rem(12);
     color: $black;
     margin-bottom: rem(16);
 }
 
-.color__inner {
+.color-inner {
     display: flex;
-    padding-bottom: rem(34);
-    margin-bottom: rem(33);
+    padding-bottom: rem(32);
+    margin-bottom: rem(32);
     border-bottom: solid 1px #c6c6c6;
 }
 
-.color__btn {
+.color-btn {
   border: 0;
   padding: rem(19);
   border-radius: 50%;
@@ -129,18 +135,19 @@ button {
 
 }
 
-.product__btn-wrap {
+.product-btn-wrap {
     display: flex;
     flex-direction: column;
     padding-bottom: rem(48);
 }
 
-.product__btn  {
+.product-btn  {
   display: block;
   border-radius: 2px;
   border: solid 1px $warm-grey;
   background-color: #fff;
-  padding: rem(14);
+  padding-top: rem(16);
+  padding-bottom: rem(15);
   text-transform: uppercase;
   font-size: rem(12);
   margin-bottom: rem(16);
@@ -154,10 +161,14 @@ button {
     border: solid 1px $black;
     color: #fff;
   }
+    &-black {
+        background-color: #171717;
+        color: #fff;    
+    }
 }
 
-.product__help {
-    margin-top: rem(10);
+.product-help {
+    margin-top: rem(9);
     align-self: flex-start;
     background-color: #fff;
     text-transform: uppercase;
@@ -169,34 +180,40 @@ button {
 
 .info-block {
      border-top: solid 1px #c6c6c6;
-     padding: rem(31) rem(16);
+     padding: rem(32) rem(16);
      &:last-child {
          border-bottom: solid 1px #c6c6c6;
      }
-     &__header {
+     &-header {
          display: flex;
          justify-content: space-between;
          cursor: pointer;
      }
-     &__title {
+     &-title {
          margin: 0;
          text-transform: uppercase;
-         font-size: rem(14);
+         font-size: rem(16);
          font-weight: 500;
          color: #171717;
      }
-     &__arrow {
+     &-arrow-down {
          display: block;
          padding: 5px;
-         background: url('../image/triangle.svg') center center no-repeat;
+         background: url('../image/triangle-down.svg') center 2px no-repeat;
      }  
-    &__body {
+     &-arrow-up {
+         display: block;
+         padding: 5px;
+         background: url('../image/triangle-up.svg') center  no-repeat;
+     } 
+    &-body {
         padding-top: 32px;
-        display: none;
+        // display: none;
         p {
             margin: 0;
             font-size: rem(14);
-            line-height: 1.71;
+            font-family: $lora;
+            line-height: 1.75;
         }
     } 
 }
@@ -204,17 +221,18 @@ button {
 
 .suggest {
     padding: rem(44) rem(16);
+    padding-top: rem(48);
     padding-bottom: rem(17);
-    &__title {
+    &-title {
         display: inline-block;
         margin: 0;
-        font-size: rem(14);
+        font-size: rem(16);
         font-weight: 500;
         color: #171717;
         text-transform: uppercase;
         padding-bottom: 9px;
         position: relative;
-        margin-bottom: rem(31);
+        margin-bottom: rem(24);
         &::after {
             content: '';
             position: absolute;
@@ -225,7 +243,7 @@ button {
             background-color: #171717;
         }
     }
-    &__list {
+    &-list {
         margin: 0;
         padding: 0;
         display: flex;
@@ -233,32 +251,32 @@ button {
         justify-content: space-between;
         flex-wrap: wrap;
     }
-    &__item {
+    &-item {
         max-width: calc(50% - 14px);
         display: flex;
         flex-direction: column;
         padding-bottom: 1rem;
         margin-bottom: 1rem;
     }
-    &__link {
+    &-link {
         display: block;
         font-size: rem(16);
         text-decoration: none;
     }
-    &__image {
+    &-image {
         width: 100%;
         height: auto;
-        margin-bottom: rem(9);
+        margin-bottom: rem(6);
     }
-    &__item-title {
+    &-item-title {
         margin: 0;
         font-family: $lora;
         font-size: rem(16);
-        line-height: 1.5;
+        // line-height: 1.5;
         color: $black-two;
-        margin-bottom: 8px;
+        margin-bottom: rem(10);
     }
-    &__price {
+    &-price {
         margin: 0;
         font-size: rem(12);
         color: $warm-grey;
@@ -270,11 +288,12 @@ button {
     padding-right: rem(16);
     padding-left: rem(16);
     margin-bottom: rem(56);
-    &__title {
+    &-title {
         display: inline-block;
         margin: 0;
-        font-family: $lora;
-        font-size: rem(14);
+        font-family: $raleway;
+        font-weight: 500;
+        font-size: rem(16);
         color: $black-two;
         text-transform: uppercase;
         padding-bottom: 9px;
@@ -290,20 +309,24 @@ button {
             background-color: $black-two;
         }
     }
-    &__list {
+    &-list {
         margin: 0;
         padding: 0;
         list-style: none;
     }
-    &__link {
+    &-link {
         display: block;
         font-family: $lora;
         font-style: italic;
         font-size: rem(14); 
         color: #171717;
         text-decoration: none; 
-        padding: rem(8) 0 ;
+        padding: rem(9) 0 ;
     }
+}
+
+.more-item {
+    margin-bottom: -1px;
 }
 
 .footer {
@@ -311,23 +334,28 @@ button {
     background-color: $white;
     display: flex;
     flex-direction: column;
-    &__link {
+    &-link {
         display: block;
         font-size: rem(12);
         color: $warm-grey;
         text-decoration: none;
         margin-bottom: rem(16);
+        background-color: transparent;
+        text-align: left;
+        padding: 0;
     }
-    &__help {
+    &-help {
         margin: 0;
-        font-size: rem(14);
+        font-size: rem(16);
         font-weight: bold;
         color: #171717;
         text-align: center;
-        margin-top: rem(8);
-        margin-bottom: rem(16);
+        margin-top: rem(10);
+        margin-bottom: rem(18);
+        background: transparent;
+        padding: 0;
     }
-    &__contacts-us {
+    &-contacts-us {
         display: block;
         font-family: lora;
         font-size: rem(14);
