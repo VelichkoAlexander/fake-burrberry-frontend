@@ -38,7 +38,7 @@ button {
     display: flex;
     justify-content: center;
     padding-top: 16px;
-    padding-bottom: rem(16);
+    padding-bottom: rem(14);
     border-bottom: solid 1px #c6c6c6;
 }
 
@@ -62,7 +62,10 @@ button {
     padding: 0;
     list-style: none;
     display: flex;
-    overflow: auto;
+    overflow: scroll;
+}
+.product__item img {
+    display: block;
 }
 
 .product__info {
@@ -86,6 +89,8 @@ button {
 
 .product__id {
     margin-top: rem(4);
+    margin-right: rem(3);
+    margin-bottom: 0;
     font-size: rem(12);
     color: $black;
 }
@@ -99,8 +104,8 @@ button {
 
 .color__inner {
     display: flex;
-    padding-bottom: rem(32);
-    margin-bottom: rem(32);
+    padding-bottom: rem(34);
+    margin-bottom: rem(33);
     border-bottom: solid 1px #c6c6c6;
 }
 
@@ -139,7 +144,7 @@ button {
   text-transform: uppercase;
   font-size: rem(12);
   margin-bottom: rem(16);
-  cursor: pointer;
+  font-family: $raleway;
   transition: all .2s ease-out;
   &:last-child {
       margin-bottom: rem(24);
@@ -152,18 +157,19 @@ button {
 }
 
 .product__help {
-    margin-top: 8px;
+    margin-top: rem(10);
     align-self: flex-start;
     background-color: #fff;
     text-transform: uppercase;
     font-size: rem(12);
     color: #171717;
-    cursor: pointer;
+    padding: 0;
+    font-family: $raleway;
 }
 
 .info-block {
      border-top: solid 1px #c6c6c6;
-     padding: rem(29) rem(16);
+     padding: rem(31) rem(16);
      &:last-child {
          border-bottom: solid 1px #c6c6c6;
      }
@@ -197,8 +203,8 @@ button {
 
 
 .suggest {
-    padding: rem(45) rem(16);
-    padding-bottom: rem(16);
+    padding: rem(44) rem(16);
+    padding-bottom: rem(17);
     &__title {
         display: inline-block;
         margin: 0;
@@ -242,11 +248,13 @@ button {
     &__image {
         width: 100%;
         height: auto;
-        margin-bottom: rem(12);
+        margin-bottom: rem(9);
     }
     &__item-title {
         margin: 0;
         font-family: $lora;
+        font-size: rem(16);
+        line-height: 1.5;
         color: $black-two;
         margin-bottom: 8px;
     }
@@ -271,7 +279,7 @@ button {
         text-transform: uppercase;
         padding-bottom: 9px;
         position: relative;
-        margin-bottom: rem(16);
+        margin-bottom: rem(17);
         &::after {
             content: '';
             position: absolute;
