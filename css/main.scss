@@ -198,6 +198,7 @@ button {
 
 .suggest {
     padding: rem(45) rem(16);
+    padding-bottom: rem(16);
     &__title {
         display: inline-block;
         margin: 0;
@@ -300,8 +301,10 @@ button {
 .footer {
     padding: rem(32) rem(16);
     background-color: $white;
+    display: flex;
+    flex-direction: column;
     &__link {
-        display: inline-block;
+        display: block;
         font-size: rem(12);
         color: $warm-grey;
         text-decoration: none;
