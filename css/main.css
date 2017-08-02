@@ -31,7 +31,7 @@ button {
   display: block; }
 
 .product {
-  padding-top: 0.9375rem; }
+  padding-top: 1rem; }
 
 .product-title {
   margin: 0;
@@ -125,7 +125,7 @@ button {
   padding-bottom: 1rem;
   font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 0.75rem;
-  line-height: 1;
+  line-height: 0.875rem;
   font-weight: 400;
   text-align: center;
   text-transform: uppercase;
@@ -153,7 +153,7 @@ button {
 
 .info-block {
   border-top: solid 1px #c6c6c6;
-  padding: 2rem 1rem;
+  padding: 2.0625rem 1rem;
   padding-bottom: 31px; }
   .info-block .info-block-body {
     display: none; }
@@ -170,7 +170,7 @@ button {
     .info-block-header::after {
       content: '';
       position: absolute;
-      top: 0;
+      top: 2px;
       right: 0;
       width: 0.625rem;
       height: 0.75rem;
@@ -211,9 +211,9 @@ button {
     font-weight: 500;
     color: #171717;
     text-transform: uppercase;
-    padding-bottom: 10px;
+    padding-bottom: 9px;
     position: relative;
-    margin-bottom: 1.4375rem; }
+    margin-bottom: 1.5rem; }
     .suggest-title::after {
       content: '';
       position: absolute;
@@ -242,13 +242,15 @@ button {
   .suggest-image {
     width: 100%;
     height: auto;
-    margin-bottom: 0.375rem; }
+    margin-bottom: 0.3125rem; }
   .suggest-item-title {
     margin: 0;
     font-family: "Lora", serif;
+    font-weight: 400;
     font-size: 1rem;
+    line-height: 1.1875rem;
     color: #171717;
-    margin-bottom: 0.625rem; }
+    margin-bottom: 0.5625rem; }
   .suggest-price {
     margin: 0;
     font-size: 0.75rem;
