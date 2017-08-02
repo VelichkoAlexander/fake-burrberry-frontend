@@ -31,6 +31,7 @@ html {
 }
 
 body {
+  //font-size: 16px;
   font-family: $raleway;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -84,10 +85,10 @@ button {
 .product-info {
   display: flex;
   justify-content: space-between;
-  padding-top: rem(17);
+  padding-top: rem(16);
   padding-left: rem(16);
   padding-right: rem(16);
-  margin-bottom: rem(17);
+  margin-bottom: rem(16);
 }
 
 .product-price {
@@ -95,12 +96,14 @@ button {
   font-weight: 400;
   font-size: rem(16);
   color: $black-two;
+  line-height: rem(19);
 }
 
 .product-id {
-  margin-top: rem(3);
+  margin-top: rem(2);
   margin-bottom: 0;
   font-size: rem(12);
+  line-height: 1rem;
   color: $black;
 }
 
@@ -113,6 +116,7 @@ button {
   margin: 0;
   margin-bottom: rem(16);
   font-size: rem(12);
+  line-height: rem(16);
   color: $black;
 }
 
@@ -190,11 +194,12 @@ button {
 }
 
 .product-help {
-  margin-top: rem(9);
+  margin-top: rem(8);
   align-self: flex-start;
   background-color: #fff;
   text-transform: uppercase;
   font-size: rem(12);
+  line-height: rem(16);
   color: #171717;
   padding: 0;
   font-family: $raleway;
@@ -202,8 +207,8 @@ button {
 
 .info-block {
   border-top: solid 1px #c6c6c6;
-  padding: rem(33) rem(16);
-  padding-bottom: 31px;
+  padding: rem(32) rem(16);
+  //padding-bottom: 31px;
   & .info-block-body {
     display: none;
   }
@@ -248,11 +253,12 @@ button {
     margin: 0;
     text-transform: uppercase;
     font-size: rem(16);
+    line-height: rem(20);
     font-weight: 500;
     color: #171717;
   }
   &-body {
-    padding-top: rem(33);
+    padding-top: rem(32);
     p {
       margin: 0;
       font-size: rem(14);
@@ -264,16 +270,17 @@ button {
 
 .suggest {
   padding: rem(44) rem(16);
-  padding-top: rem(49);
+  padding-top: rem(48);
   padding-bottom: rem(16);
   &-title {
     display: inline-block;
     margin: 0;
     font-size: rem(16);
+    line-height: rem(19);
     font-weight: 500;
     color: #171717;
     text-transform: uppercase;
-    padding-bottom: 9px;
+    padding-bottom: rem(8);
     position: relative;
     margin-bottom: rem(24);
     &::after {
@@ -316,7 +323,7 @@ button {
     font-family: $lora;
     font-weight: 400;
     font-size: rem(16);
-     line-height: rem(19);
+    line-height: rem(19);
     color: $black-two;
     margin-bottom: rem(9);
   }
@@ -336,12 +343,13 @@ button {
     display: inline-block;
     position: relative;
     margin: 0;
-    margin-bottom: rem(24);
+    margin-bottom: rem(23);
     font-family: $raleway;
     font-size: rem(16);
+    line-height: rem(19);
     font-weight: 500;
     text-transform: uppercase;
-    padding-bottom: 10px;
+    padding-bottom: rem(9);
     color: $black-two;
     &::after {
       content: '';
