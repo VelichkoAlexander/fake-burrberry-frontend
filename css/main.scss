@@ -222,12 +222,12 @@ button {
   &-arrow-down {
     display: block;
     padding: 5px;
-    background: url('../image/triangle-down.svg') center 2px no-repeat;
+    background: url('../images/triangle-down.svg') center 2px no-repeat;
   }
   &-arrow-up {
     display: block;
     padding: 5px;
-    background: url('../image/triangle-down.svg') center no-repeat;
+    background: url('../images/triangle-down.svg') center no-repeat;
     transform: rotate(180deg);
   }
   &-body {
