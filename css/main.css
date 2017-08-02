@@ -155,27 +155,43 @@ button {
   border-top: solid 1px #c6c6c6;
   padding: 2rem 1rem;
   padding-bottom: 31px; }
+  .info-block .info-block-body {
+    display: none; }
   .info-block:last-child {
     border-bottom: solid 1px #c6c6c6; }
   .info-block-header {
-    display: flex;
-    justify-content: space-between;
-    cursor: pointer; }
+    display: block;
+    padding: 0;
+    position: relative;
+    font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-color: transparent;
+    width: 100%;
+    text-align: left; }
+    .info-block-header::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 0.625rem;
+      height: 0.75rem;
+      background: url("../images/triangle-down.svg") center 2px no-repeat; }
+  .info-block--open .info-block-body {
+    display: block; }
+  .info-block--open .info-block-header::after {
+    content: '';
+    position: absolute;
+    top: 5px;
+    right: 0;
+    width: 0.625rem;
+    height: 0.625rem;
+    background: url("../images/triangle-down.svg") center no-repeat;
+    transform: rotate(180deg); }
   .info-block-title {
     margin: 0;
     text-transform: uppercase;
     font-size: 1rem;
     font-weight: 500;
     color: #171717; }
-  .info-block-arrow-down {
-    display: block;
-    padding: 5px;
-    background: url("../images/triangle-down.svg") center 2px no-repeat; }
-  .info-block-arrow-up {
-    display: block;
-    padding: 5px;
-    background: url("../images/triangle-down.svg") center no-repeat;
-    transform: rotate(180deg); }
   .info-block-body {
     padding-top: 2.0625rem; }
     .info-block-body p {

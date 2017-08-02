@@ -204,13 +204,45 @@ button {
   border-top: solid 1px #c6c6c6;
   padding: rem(32) rem(16);
   padding-bottom: 31px;
+  & .info-block-body {
+    display: none;
+  }
   &:last-child {
     border-bottom: solid 1px #c6c6c6;
   }
   &-header {
-    display: flex;
-    justify-content: space-between;
-    cursor: pointer;
+    display: block;
+    padding: 0;
+    position: relative;
+    font-family: $raleway;
+    background-color: transparent;
+    width: 100%;
+    text-align: left;
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: rem(10);
+      height: rem(12);
+      background: url('../images/triangle-down.svg') center 2px no-repeat;
+
+    }
+  }
+  &--open {
+    & .info-block-body {
+      display: block;
+    }
+    .info-block-header::after {
+      content: '';
+      position: absolute;
+      top: 5px;
+      right: 0;
+      width: rem(10);
+      height: rem(10);
+      background: url('../images/triangle-down.svg') center no-repeat;
+      transform: rotate(180deg);
+    }
   }
   &-title {
     margin: 0;
@@ -218,17 +250,6 @@ button {
     font-size: rem(16);
     font-weight: 500;
     color: #171717;
-  }
-  &-arrow-down {
-    display: block;
-    padding: 5px;
-    background: url('../images/triangle-down.svg') center 2px no-repeat;
-  }
-  &-arrow-up {
-    display: block;
-    padding: 5px;
-    background: url('../images/triangle-down.svg') center no-repeat;
-    transform: rotate(180deg);
   }
   &-body {
     padding-top: rem(33);
