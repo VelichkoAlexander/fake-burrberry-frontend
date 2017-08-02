@@ -243,7 +243,7 @@ button {
 
 .suggest {
   padding: rem(44) rem(16);
-  padding-top: rem(48);
+  padding-top: rem(49);
   padding-bottom: rem(16);
   &-title {
     display: inline-block;
@@ -254,7 +254,7 @@ button {
     text-transform: uppercase;
     padding-bottom: 10px;
     position: relative;
-    margin-bottom: rem(24);
+    margin-bottom: rem(23);
     &::after {
       content: '';
       position: absolute;

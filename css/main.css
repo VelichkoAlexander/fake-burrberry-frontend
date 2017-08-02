@@ -186,7 +186,7 @@ button {
 
 .suggest {
   padding: 2.75rem 1rem;
-  padding-top: 3rem;
+  padding-top: 3.0625rem;
   padding-bottom: 1rem; }
   .suggest-title {
     display: inline-block;
@@ -197,7 +197,7 @@ button {
     text-transform: uppercase;
     padding-bottom: 10px;
     position: relative;
-    margin-bottom: 1.5rem; }
+    margin-bottom: 1.4375rem; }
     .suggest-title::after {
       content: '';
       position: absolute;
