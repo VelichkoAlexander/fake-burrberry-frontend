@@ -205,6 +205,13 @@ button {
       font-size: 0.875rem;
       font-family: "Lora", serif;
       line-height: 1.5rem; }
+    .info-block-body ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      font-size: 0.875rem;
+      font-family: "Lora", serif;
+      line-height: 1.5rem; }
 
 .suggest {
   padding: 2.75rem 1rem;

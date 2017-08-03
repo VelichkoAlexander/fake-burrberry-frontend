@@ -268,6 +268,14 @@ button {
       font-family: $lora;
       line-height: rem(24);
     }
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      font-size: rem(14);
+      font-family: $lora;
+      line-height: rem(24);
+    }
   }
 }
 
