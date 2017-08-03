@@ -14,13 +14,6 @@ $warm-grey: #999999;
 $white: #f3f3f3;
 $fawn: #cfa880;
 
-*,
-*:before,
-*:after {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
 
 .hide {
   display: none;
@@ -31,7 +24,6 @@ html {
 }
 
 body {
-  //font-size: 16px;
   font-family: $raleway;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -55,7 +47,6 @@ button {
 
 .product {
   padding-top: rem(16);
-
 }
 
 .product-title {
@@ -82,14 +73,13 @@ button {
   display: block;
 }
 
-
 .product-info {
   display: flex;
   justify-content: space-between;
   padding-top: rem(16);
   padding-left: rem(8);
   padding-right: rem(8);
-  margin-bottom: rem(16);
+  padding-bottom: rem(16);
 }
 
 .product-price {
@@ -109,8 +99,8 @@ button {
 }
 
 .color {
-  padding-left: rem(8);
-  padding-right: rem(8);
+  margin-left: rem(8);
+  margin-right: rem(8);
 }
 
 .color-actual {
@@ -160,8 +150,8 @@ button {
 .product-btn-wrap {
   display: flex;
   flex-direction: column;
-  padding-left: rem(8);
-  padding-right: rem(8);
+  margin-left: rem(8);
+  margin-right: rem(8);
   padding-bottom: rem(48);
 }
 
@@ -180,9 +170,6 @@ button {
   border-radius: 2px;
   border: solid 1px $warm-grey;
   background-color: #fff;
-  &:last-child {
-    //margin-bottom: rem(24);
-  }
   &:active {
     background-color: $black;
     border: solid 1px $black;
@@ -209,7 +196,9 @@ button {
 
 .info-block {
   border-top: solid 1px #c6c6c6;
-  padding: rem(32) rem(16);
+  padding: rem(32) 0;
+  margin-left: rem(16);
+  margin-right: rem(16);
   //padding-bottom: 31px;
   & .info-block-body {
     display: none;
@@ -471,24 +460,21 @@ button {
   }
   .product-slider {
     margin: 0;
-    margin-left: -8px;
     img {
       vertical-align: bottom;
     }
   }
   .product-info {
     padding: 0;
-    margin-right: rem(-8);
-    margin-left: rem(1);
+    margin-bottom: 1rem;
   }
   .color {
     padding: 0;
-    margin-right: rem(-8);
-    margin-left: rem(1);
+    margin: 0;
   }
   .product-btn-wrap {
     padding: 0;
-    margin-right: rem(-8);
+    margin: 0;
     //margin-left: rem(1);
   }
   .product-help {
@@ -512,11 +498,8 @@ button {
     margin-bottom: rem(24);
     img {
       display: block;
-      margin-left: rem(-8);
     }
     &-right {
-      margin-right: rem(-8);
-      margin-left: rem(1);
     }
     &-title {
       margin: 0;
@@ -602,7 +585,7 @@ button {
       list-style: none;
       & li {
         display: block;
-       margin-bottom: rem(12);
+        margin-bottom: rem(12);
       }
     }
     &-mnu-link {
