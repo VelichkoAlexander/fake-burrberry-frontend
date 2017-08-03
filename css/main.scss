@@ -488,6 +488,53 @@ button {
   .info-block-header::after {
     display: none;
   }
+  //delivery
+  .delivery {
+    img {
+      display: block;
+      margin-left: rem(-8);
+    }
+    &-right {
+      margin-right: rem(-8);
+      margin-left: rem(1);
+    }
+    &-title {
+      margin: 0;
+      padding: 0;
+      margin-bottom: rem(16);
+      font-family: $raleway;
+      font-weight: 500;
+      font-size: rem(16);
+      line-height: rem(19);
+      text-transform: uppercase;
+      color: #171717;
+    }
+    &-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    &-item {
+      margin: 0;
+      padding: 0;
+      margin-bottom: rem(24);
+      display: block;
+      &-title {
+        margin: 0;
+        padding: 0;
+        margin-bottom: rem(4);
+        font-weight: bold;
+        font-size:rem(12);
+        line-height: rem(14);
+        color: #171717;
+      }
+      &-desc {
+        font-size: rem(12);
+        line-height: rem(16);
+        color: #171717;
+      }
+    }
+  }
 }
 
 /* Medium Devices, Desktops */

@@ -389,7 +389,45 @@ button {
     padding-top: 1rem; }
 
   .info-block-header::after {
-    display: none; } }
+    display: none; }
+
+  .delivery img {
+    display: block;
+    margin-left: -0.5rem; }
+  .delivery-right {
+    margin-right: -0.5rem;
+    margin-left: 0.0625rem; }
+  .delivery-title {
+    margin: 0;
+    padding: 0;
+    margin-bottom: 1rem;
+    font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 1.1875rem;
+    text-transform: uppercase;
+    color: #171717; }
+  .delivery-list {
+    margin: 0;
+    padding: 0;
+    list-style: none; }
+  .delivery-item {
+    margin: 0;
+    padding: 0;
+    margin-bottom: 1.5rem;
+    display: block; }
+    .delivery-item-title {
+      margin: 0;
+      padding: 0;
+      margin-bottom: 0.25rem;
+      font-weight: bold;
+      font-size: 0.75rem;
+      line-height: 0.875rem;
+      color: #171717; }
+    .delivery-item-desc {
+      font-size: 0.75rem;
+      line-height: 1rem;
+      color: #171717; } }
 /* Medium Devices, Desktops */
 /* Large Devices, Wide Screens */
 
