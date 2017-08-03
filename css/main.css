@@ -40,7 +40,7 @@ body {
   margin: 0 -0.5rem;
   overflow-x: scroll; }
 
-.product-slider img {
+.product-image {
   display: block; }
 
 .product-info {
@@ -370,8 +370,6 @@ body {
 
   .product-slider {
     margin: 0; }
-    .product-slider img {
-      vertical-align: bottom; }
 
   .product-info {
     padding: 0;
@@ -403,7 +401,7 @@ body {
 
   .delivery {
     margin-bottom: 1.5rem; }
-    .delivery img {
+    .delivery-image {
       display: block; }
     .delivery-title {
       margin: 0;
