@@ -14,6 +14,7 @@
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
   <link href="https://fonts.googleapis.com/css?family=Lora:400,400i|Raleway:400,500,700" rel="stylesheet">
+  <link rel="stylesheet" href="//unpkg.com/flexboxgrid2">
   <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
@@ -26,75 +27,108 @@
 
 <section class="product">
   <h1 class="product-title">Long Cotton Gabardine Car Coat</h1>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-7">
+        <div class="product-slider">
+          <picture>
+            <source media="(min-width:760px)" srcset="images/content/product/tablet-front.jpg 1x,
+                          images/content/product/tablet-front@2x.jpg 2x,
+                          images/content/product/tablet-front@3x.jpg 3x">
+            <source media="(min-width:640px)" srcset="images/content/product/mobile-front.jpg 1x,
+                          images/content/product/mobile-front@2x.jpg 2x,
+                          images/content/product/mobile-front@3x.jpg 3x">
+            <img src="images/content/product/mobile-front.jpg" alt="Long Cotton Gabardine Car Coat - front">
+          </picture>
+          <picture>
+            <source srcset="images/content/product/mobile-detail1.jpg 1x,
+                          images/content/product/mobile-detail1@2x.jpg 2x,
+                          images/content/product/mobile-detail1@3x.jpg 3x">
+            <img src="images/content/product/mobile-detail1.jpg" alt="Long Cotton Gabardine Car Coat - collar detail 1">
+          </picture>
+          <picture>
+            <source srcset="images/content/product/mobile-detail2.jpg 1x,
+                          images/content/product/mobile-detail2@2x.jpg 2x,
+                          images/content/product/mobile-detail2@3x.jpg 3x">
+            <img src="images/content/product/mobile-detail2.jpg" alt="Long Cotton Gabardine Car Coat - collar detail 2">
+          </picture>
+          <picture>
+            <source srcset="images/content/product/mobile-back.jpg 1x,
+                          images/content/product/mobile-back@2x.jpg 2x,
+                          images/content/product/mobile-back@3x.jpg 3x">
+            <img src="images/content/product/mobile-back.jpg" alt="Long Cotton Gabardine Car Coat - back">
+          </picture>
+        </div>
+      </div>
 
-  <div class="product-slider">
-    <img src="images/content/product/mobile-front.jpg"
-         srcset="images/content/product/mobile-front@2x.jpg 2x, images/content/product/mobile-front@3x.jpg 3x" alt="Long Cotton Gabardine Car Coat - front">
-    <img src="images/content/product/mobile-detail1.jpg"
-         srcset="images/content/product/mobile-detail1@2x.jpg 2x, images/content/product/mobile-detail1@3x.jpg 3x" alt="Long Cotton Gabardine Car Coat - collar detail 1">
-    <img src="images/content/product/mobile-detail2.jpg"
-         srcset="images/content/product/mobile-detail2@2x.jpg 2x, images/content/product/mobile-detail2@3x.jpg 3x" alt="Long Cotton Gabardine Car Coat - collar detail 2">
-    <img src="images/content/product/mobile-back.jpg"
-         srcset="images/content/product/mobile-back@2x.jpg 2x, images/content/product/mobile-back@3x.jpg 3x" alt="Long Cotton Gabardine Car Coat - back">
+      <div class="col-xs-12 col-sm-5">
+        <div class="product-info">
+          <h2 class="product-price">110 000 руб.</h2>
+          <p class="product-id">Item 39428531</p>
+        </div>
+
+        <div class="color ">
+          <p class="color-actual">Colour: Honey</p>
+          <div class="color-options">
+            <button class="color-btn color-btn--black" type="button">Color black</button>
+            <button class="color-btn color-btn--honey color-btn--active" type="button">Color honey</button>
+          </div>
+        </div>
+
+        <div class="product-btn-wrap">
+          <button class="product-btn product-btn-black" type="button">select a size</button>
+          <button class="product-btn" type="button">Find in store</button>
+          <button class="product-help" type="button">need size help?</button>
+        </div>
+      </div>
+    </div>
   </div>
+  <div class="container">
+    <div class="row">
+      <div class="info-block info-block--open">
+        <button class="info-block-header" type="button">
+          <h2 class="info-block-title">Description</h2>
+        </button>
 
-  <div class="product-info">
-    <h2 class="product-price">110 000 руб.</h2>
-    <p class="product-id">Item 39428531</p>
-  </div>
+        <div class="info-block-body">
+          <p>A refined car coat crafted in protective cotton gabardine.<br> Invented by Thomas Burberry in 1879, cotton
+            gabardine
+            is a tightly woven and breathable fabric that protects against wind and rain.<br> Raglan sleeves and a
+            concealed
+            button closure complement the clean tailored lines.<br> The piece is finished with a distinctive check
+            undercollar.<br><br> Coat length: 98cm/38.6in. This is based on a size UK 48 as proportions change slightly
+            according to size.<br> Outer:
+            100% cotton<br> Check lining: 100% cotton<br> Sleeve lining: 100% viscose<br> Buttons: buffalo horn<br>
+            Specialist
+            dry clean<br> Made in Europe<br> Item 39428531
+          </p>
+        </div>
 
-  <div class="color">
-    <p class="color-actual">Colour: Honey</p>
-    <div class="color-options">
-      <button class="color-btn color-btn--black" type="button">Color black</button>
-      <button class="color-btn color-btn--honey color-btn--active" type="button">Color honey</button>
+      </div>
+
+      <div class="info-block md-hide">
+        <button class="info-block-header" type="button">
+          <h2 class="info-block-title">Shipping & Returns</h2>
+          <span class="info-block-arrow-down"></span>
+        </button>
+
+        <div class="info-block-body">
+          <p>A refined car coat crafted in protective cotton gabardine.<br> Invented by Thomas Burberry in 1879, cotton
+            gabardine
+            is a tightly woven and breathable fabric that protects against wind and rain.<br> Raglan sleeves and a
+            concealed
+            button closure complement the clean tailored lines.<br> The piece is finished with a distinctive check
+            undercollar.<br><br> Coat length: 98cm/38.6in. This is based on a size UK 48 as proportions change slightly
+            according to size.<br> Outer:
+            100% cotton<br> Check lining: 100% cotton<br> Sleeve lining: 100% viscose<br> Buttons: buffalo horn<br>
+            Specialist
+            dry clean<br> Made in Europe<br> Item 39428531
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 
-  <div class="product-btn-wrap">
-    <button class="product-btn product-btn-black" type="button">select a size</button>
-    <button class="product-btn" type="button">Find in store</button>
-    <button class="product-help" type="button">need size help?</button>
-  </div>
-
-  <div class="info-block info-block info-block--open">
-    <button class="info-block-header" type="button">
-      <h2 class="info-block-title">Description</h2>
-    </button>
-
-    <div class="info-block-body">
-      <p>A refined car coat crafted in protective cotton gabardine.<br> Invented by Thomas Burberry in 1879, cotton
-        gabardine
-        is a tightly woven and breathable fabric that protects against wind and rain.<br> Raglan sleeves and a concealed
-        button closure complement the clean tailored lines.<br> The piece is finished with a distinctive check
-        undercollar.<br><br> Coat length: 98cm/38.6in. This is based on a size UK 48 as proportions change slightly
-        according to size.<br> Outer:
-        100% cotton<br> Check lining: 100% cotton<br> Sleeve lining: 100% viscose<br> Buttons: buffalo horn<br>
-        Specialist
-        dry clean<br> Made in Europe<br> Item 39428531
-      </p>
-    </div>
-
-  </div>
-  <div class="info-block">
-    <button class="info-block-header" type="button">
-      <h2 class="info-block-title">Shipping & Returns</h2>
-      <span class="info-block-arrow-down"></span>
-    </button>
-
-    <div class="info-block-body">
-      <p>A refined car coat crafted in protective cotton gabardine.<br> Invented by Thomas Burberry in 1879, cotton
-        gabardine
-        is a tightly woven and breathable fabric that protects against wind and rain.<br> Raglan sleeves and a concealed
-        button closure complement the clean tailored lines.<br> The piece is finished with a distinctive check
-        undercollar.<br><br> Coat length: 98cm/38.6in. This is based on a size UK 48 as proportions change slightly
-        according to size.<br> Outer:
-        100% cotton<br> Check lining: 100% cotton<br> Sleeve lining: 100% viscose<br> Buttons: buffalo horn<br>
-        Specialist
-        dry clean<br> Made in Europe<br> Item 39428531
-      </p>
-    </div>
-  </div>
 
 </section>
 <section class="suggest">

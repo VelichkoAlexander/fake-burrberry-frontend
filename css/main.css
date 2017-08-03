@@ -340,4 +340,57 @@ button {
     color: #171717;
     text-align: center; }
 
+/*==========  Mobile First Method  ==========*/
+/* Custom, iPhone Retina */
+/* Extra Small Devices, Phones */
+/* Small Devices, Tablets */
+@media only screen and (min-width: 768px) {
+  .md-hide {
+    display: none; }
+
+  .header {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem; }
+
+  .product {
+    padding-top: 1.5rem; }
+
+  .product-title {
+    padding-left: 0.4375rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    line-height: 1.8125rem;
+    color: #111111; }
+
+  .product-slider {
+    margin-left: -8px; }
+    .product-slider img {
+      vertical-align: bottom; }
+
+  .product-info {
+    padding: 0;
+    margin-right: -8px; }
+
+  .color {
+    padding: 0;
+    margin-right: -8px; }
+
+  .product-btn-wrap {
+    padding: 0;
+    margin-right: -8px; }
+
+  .info-block {
+    padding: 0;
+    padding-top: 1.5rem;
+    border-top: 0;
+    margin-bottom: 1.5rem; }
+
+  .info-block-body {
+    padding-top: 1rem; }
+
+  .info-block-header::after {
+    display: none; } }
+/* Medium Devices, Desktops */
+/* Large Devices, Wide Screens */
+
 /*# sourceMappingURL=main.css.map */
