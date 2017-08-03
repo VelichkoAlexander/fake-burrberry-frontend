@@ -460,32 +460,32 @@ body {
       margin-bottom: 2rem;
       line-height: 1rem;
       border: 0; }
-    .footer-mnu {
+    .footer-menu {
       margin-bottom: 32px;
       margin-left: -8px;
       margin-right: -8px; }
-    .footer-mnu-title {
+    .footer-menu-title {
       margin-bottom: 1rem;
       font-size: 0.75rem;
       line-height: 1;
       font-weight: bold;
       text-transform: uppercase;
       color: #171717; }
-    .footer-mnu-list {
+    .footer-menu-list {
       padding: 0;
       margin: 0;
       list-style: none; }
-      .footer-mnu-list li {
+      .footer-menu-list li {
         display: block;
         margin-bottom: 0.75rem; }
-    .footer-mnu-link {
+    .footer-menu-link {
       display: block;
       font-size: 0.75rem;
       line-height: 1rem;
       font-weight: 600;
       color: #999999;
       text-decoration: none; }
-      .footer-mnu-link:last-child {
+      .footer-menu-link:last-child {
         margin-bottom: 0; }
 
   .footer-links {

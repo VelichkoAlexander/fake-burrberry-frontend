@@ -557,12 +557,12 @@ body {
       line-height: 1rem;
       border: 0;
     }
-    &-mnu {
+    &-menu {
       margin-bottom: 32px;
       margin-left: -8px;
       margin-right: -8px;
     }
-    &-mnu-title {
+    &-menu-title {
       margin-bottom: 1rem;
       font-size: 0.75rem;
       line-height: 1;
@@ -570,7 +570,7 @@ body {
       text-transform: uppercase;
       color: #171717;
     }
-    &-mnu-list {
+    &-menu-list {
       padding: 0;
       margin: 0;
       list-style: none;
@@ -579,7 +579,7 @@ body {
         margin-bottom: 0.75rem;
       }
     }
-    &-mnu-link {
+    &-menu-link {
       display: block;
       font-size: 0.75rem;
       line-height: 1rem;
