@@ -13,7 +13,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/touch-icon-180x180.png">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
-  <link href="https://fonts.googleapis.com/css?family=Lora:400,400i|Raleway:400,500,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lora:400,400i|Raleway:400,500,600,700" rel="stylesheet">
   <link rel="stylesheet" href="//unpkg.com/flexboxgrid2">
   <link rel="stylesheet" href="css/main.css">
 </head>
@@ -83,49 +83,45 @@
       </div>
     </div>
   </div>
-  <div class="container">
-    <div class="row">
-      <div class="info-block info-block--open">
-        <button class="info-block-header" type="button">
-          <h2 class="info-block-title">Description</h2>
-        </button>
+  <div class="info-block info-block--open">
+    <button class="info-block-header" type="button">
+      <h2 class="info-block-title">Description</h2>
+    </button>
 
-        <div class="info-block-body">
-          <p>A refined car coat crafted in protective cotton gabardine.<br> Invented by Thomas Burberry in 1879, cotton
-            gabardine
-            is a tightly woven and breathable fabric that protects against wind and rain.<br> Raglan sleeves and a
-            concealed
-            button closure complement the clean tailored lines.<br> The piece is finished with a distinctive check
-            undercollar.<br><br> Coat length: 98cm/38.6in. This is based on a size UK 48 as proportions change slightly
-            according to size.<br> Outer:
-            100% cotton<br> Check lining: 100% cotton<br> Sleeve lining: 100% viscose<br> Buttons: buffalo horn<br>
-            Specialist
-            dry clean<br> Made in Europe<br> Item 39428531
-          </p>
-        </div>
+    <div class="info-block-body">
+      <p>A refined car coat crafted in protective cotton gabardine.<br> Invented by Thomas Burberry in 1879, cotton
+        gabardine
+        is a tightly woven and breathable fabric that protects against wind and rain.<br> Raglan sleeves and a
+        concealed
+        button closure complement the clean tailored lines.<br> The piece is finished with a distinctive check
+        undercollar.<br><br> Coat length: 98cm/38.6in. This is based on a size UK 48 as proportions change slightly
+        according to size.<br> Outer:
+        100% cotton<br> Check lining: 100% cotton<br> Sleeve lining: 100% viscose<br> Buttons: buffalo horn<br>
+        Specialist
+        dry clean<br> Made in Europe<br> Item 39428531
+      </p>
+    </div>
 
-      </div>
+  </div>
 
-      <div class="info-block md-hide">
-        <button class="info-block-header" type="button">
-          <h2 class="info-block-title">Shipping & Returns</h2>
-          <span class="info-block-arrow-down"></span>
-        </button>
+  <div class="info-block md-hide">
+    <button class="info-block-header" type="button">
+      <h2 class="info-block-title">Shipping & Returns</h2>
+      <span class="info-block-arrow-down"></span>
+    </button>
 
-        <div class="info-block-body">
-          <p>A refined car coat crafted in protective cotton gabardine.<br> Invented by Thomas Burberry in 1879, cotton
-            gabardine
-            is a tightly woven and breathable fabric that protects against wind and rain.<br> Raglan sleeves and a
-            concealed
-            button closure complement the clean tailored lines.<br> The piece is finished with a distinctive check
-            undercollar.<br><br> Coat length: 98cm/38.6in. This is based on a size UK 48 as proportions change slightly
-            according to size.<br> Outer:
-            100% cotton<br> Check lining: 100% cotton<br> Sleeve lining: 100% viscose<br> Buttons: buffalo horn<br>
-            Specialist
-            dry clean<br> Made in Europe<br> Item 39428531
-          </p>
-        </div>
-      </div>
+    <div class="info-block-body">
+      <p>A refined car coat crafted in protective cotton gabardine.<br> Invented by Thomas Burberry in 1879, cotton
+        gabardine
+        is a tightly woven and breathable fabric that protects against wind and rain.<br> Raglan sleeves and a
+        concealed
+        button closure complement the clean tailored lines.<br> The piece is finished with a distinctive check
+        undercollar.<br><br> Coat length: 98cm/38.6in. This is based on a size UK 48 as proportions change slightly
+        according to size.<br> Outer:
+        100% cotton<br> Check lining: 100% cotton<br> Sleeve lining: 100% viscose<br> Buttons: buffalo horn<br>
+        Specialist
+        dry clean<br> Made in Europe<br> Item 39428531
+      </p>
     </div>
   </div>
 
@@ -133,7 +129,12 @@
     <div class="container">
       <div class="row">
         <div class="col-md-7">
-          <img src="http://via.placeholder.com/432x324" alt="delivery boxes">
+          <picture>
+            <source srcset="images/decor/tablet-delivery.jpg 1x,
+                            images/decor/tablet-delivery@2x.jpg 2x,
+                            images/decor/tablet-delivery@3x.jpg 3x">
+            <img src="images/decor/tablet-delivery.jpg" alt="delivery boxes">
+          </picture>
         </div>
         <div class="col-md-5">
           <div class="delivery-right">
@@ -166,7 +167,6 @@
   </div>
 </section>
 <section class="suggest">
-
   <h2 class="suggest-title">We recommend</h2>
 
   <ul class="suggest-list">
@@ -195,15 +195,17 @@
     </li>
     <li class="suggest-item">
       <a href="javascript:void(0);" class="suggest-link">
-        <img class="suggest-image" src="images/content/recommend/Leather_Wingtip_Check.jpg" alt="Leather Wingtip Check">
+        <img class="suggest-image" src="images/content/recommend/Leather_Wingtip_Check.jpg"
+             alt="Leather Wingtip Check">
         <h3 class="suggest-item-title">Leather Wingtip Check</h3>
         <h5 class="suggest-price">46 000 руб</h5>
       </a>
     </li>
-  </ul>
 
+  </ul>
+  </div>
 </section>
-<section class="more">
+<section class="more md-hide">
 
   <h2 class="more-title">More for you</h2>
 
@@ -222,12 +224,87 @@
 </section>
 
 <footer class="footer">
+  <div class="container">
+    <div class="footer-mnu">
+      <div class="row">
+        <div class="col-sm-3">
+          <h2 class="footer-mnu-title">Customer service</h2>
+          <ul class="footer-mnu-list">
+            <li>
+              <a href="javascript:void(0);" class="footer-mnu-link">Contact Us</a>
+            </li>
+            <li>
+              <a href="javascript:void(0);" class="footer-mnu-link">Payment</a>
+            </li>
+            <li>
+              <a href="javascript:void(0);" class="footer-mnu-link">Shipping</a>
+            </li>
+            <li>
+              <a href="javascript:void(0);" class="footer-mnu-link">Returns</a>
+            </li>
+            <li>
+              <a href="javascript:void(0);" class="footer-mnu-link">Faqs</a>
+            </li>
+            <li>
+              <a href="javascript:void(0);" class="footer-mnu-link">Live Chat</a>
+            </li>
+            <li>
+              <a href="javascript:void(0);" class="footer-mnu-link">The Burberry App</a>
+            </li>
+            <li>
+              <a href="javascript:void(0);" class="footer-mnu-link">Store Locator</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-sm-3">
+          <h2 class="footer-mnu-title">Our company</h2>
+          <ul class="footer-mnu-list">
+            <li>
+              <a href="javascript:void(0);" class="footer-mnu-link">Our History</a>
+            </li>
+            <li>
+              <a href="javascript:void(0);" class="footer-mnu-link">Burberry Group Plc</a>
+            </li>
+            <li>
+              <a href="javascript:void(0);" class="footer-mnu-link">Careers</a>
+            </li>
+            <li>
+              <a href="javascript:void(0);" class="footer-mnu-link">Corporate Responsibility</a>
+            </li>
+            <li>
+              <a href="javascript:void(0);" class="footer-mnu-link">Site Map</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-sm-4">
+          <h2 class="footer-mnu-title">Legal & cookies</h2>
+          <ul class="footer-mnu-list">
+            <li>
+              <a href="javascript:void(0);" class="footer-mnu-link">Terms & Conditions</a>
+            </li>
+            <li>
+              <a href="javascript:void(0);" class="footer-mnu-link">Privacy Policy</a>
+            </li>
+            <li>
+              <a href="javascript:void(0);" class="footer-mnu-link">Cookie Policy</a>
+            </li>
+            <li>
+              <a href="javascript:void(0);" class="footer-mnu-link">Accessibility Statement</a>
+            </li>
+            <li>
+              <a href="javascript:void(0);" class="footer-mnu-link">Japan Only - SCTL indications</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
-  <button class="footer-link" type="button">Shipping country: Russian Federation</button>
-  <button class="footer-link" type="button">Language: English</button>
-  <h2 class="footer-help">Need help?</h2>
-  <a href="javascript:void(0);" class="footer-contacts-us">Find out more and contact us</a>
 
+    <button class="footer-link" type="button">Shipping country: Russian Federation</button>
+    <button class="footer-link" type="button">Language: English</button>
+    <h2 class="footer-help md-hide">Need help?</h2>
+    <a href="javascript:void(0);" class="footer-contacts-us md-hide">Find out more and contact us</a>
+  </div>
 </footer>
 
 </body>
