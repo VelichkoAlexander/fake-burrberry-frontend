@@ -389,7 +389,10 @@ body {
     border-top: 0; }
 
   .info-block-body {
-    padding-top: 1rem; }
+    padding-top: 1rem;
+    font-size: 0.875rem;
+    font-family: "Lora", serif;
+    line-height: 1.5rem; }
 
   .info-block-header::after {
     display: none; }
