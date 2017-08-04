@@ -284,15 +284,14 @@ body {
     padding: 0;
     list-style: none; }
   .more-link {
+    display: block;
+    margin: 0 0 0.9375rem;
     font-size: 0.875rem;
-    line-height: 1.063rem;
     font-family: "Lora", serif;
-    color: #171717;
+    font-style: italic;
+    line-height: 1.063rem;
     text-decoration: none;
-    font-style: italic; }
-
-.more-item {
-  margin: 0 0 0.9375rem; }
+    color: #171717; }
 
 .footer {
   padding: 2.063rem 0.5rem;
@@ -470,15 +469,9 @@ body {
       font-weight: bold;
       text-transform: uppercase;
       color: #171717; }
-    .footer-menu-list {
-      padding: 0;
-      margin: 0;
-      list-style: none; }
-      .footer-menu-list li {
-        display: block;
-        margin-bottom: 0.75rem; }
     .footer-menu-link {
       display: block;
+      margin-bottom: 0.75rem;
       font-size: 0.75rem;
       line-height: 1rem;
       font-weight: 600;
