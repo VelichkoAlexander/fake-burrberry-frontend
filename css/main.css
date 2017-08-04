@@ -25,7 +25,7 @@ body {
 .product-title {
   margin: 0;
   padding: 0;
-  padding-left: 1rem;
+  padding-left: 0.5rem;
   margin-bottom: 1rem;
   font-family: "Lora", serif;
   font-size: 1.25rem;
@@ -147,15 +147,17 @@ body {
   border: 0;
   font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif; }
 
+.divine-line {
+  margin: 0;
+  border: 0;
+  border-top: solid 0.0625rem #c6c6c6; }
+
 .info-block {
-  border-top: solid 0.0625rem #c6c6c6;
   padding: 2rem 0;
-  margin-left: 1rem;
-  margin-right: 1rem; }
+  margin-left: 0.5rem;
+  margin-right: 0.5rem; }
   .info-block .info-block-body {
     display: none; }
-  .info-block--border-bottom {
-    border-bottom: solid 0.0625rem #c6c6c6; }
   .info-block-header {
     display: block;
     padding: 0;
@@ -207,9 +209,10 @@ body {
       line-height: 1.5rem; }
 
 .suggest {
-  padding: 2.75rem 1rem;
   padding-top: 3rem;
-  padding-bottom: 1rem; }
+  padding-bottom: 1rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem; }
   .suggest-title {
     display: inline-block;
     margin: 0;
@@ -229,21 +232,9 @@ body {
       width: 100%;
       height: 0.0625rem;
       background-color: #171717; }
-  .suggest-list {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    list-style: none;
-    justify-content: space-between;
-    flex-wrap: wrap; }
-  .suggest-item {
-    max-width: calc(50% - 0.875rem);
-    display: flex;
-    flex-direction: column;
-    padding-bottom: 1rem;
-    margin-bottom: 1rem; }
   .suggest-link {
     display: block;
+    margin-bottom: 2rem;
     font-size: 1rem;
     text-decoration: none; }
   .suggest-image {
@@ -304,7 +295,7 @@ body {
   margin: 0 0 0.9375rem; }
 
 .footer {
-  padding: 2.063rem 1rem;
+  padding: 2.063rem 0.5rem;
   background-color: #f3f3f3;
   display: flex;
   flex-direction: column; }
@@ -318,6 +309,7 @@ body {
     color: #999999;
     text-decoration: none;
     text-align: left;
+    border: 0;
     background-color: transparent; }
   .footer-help {
     margin: 0;
@@ -348,6 +340,9 @@ body {
 /* Extra Small Devices, Phones */
 /* Small Devices, Tablets */
 @media only screen and (min-width: 768px) {
+  .divine-line {
+    display: none; }
+
   .hidden-xs {
     display: block; }
 
@@ -362,7 +357,7 @@ body {
     padding-top: 1.5rem; }
 
   .product-title {
-    padding-left: 0.5rem;
+    padding-left: 0;
     margin-bottom: 1.5rem;
     font-size: 1.5rem;
     line-height: 1.75rem;
@@ -384,12 +379,12 @@ body {
     margin: 0; }
 
   .product-help {
-    margin-left: 0.0625rem; }
+    margin-top: 7px; }
 
   .info-block {
     padding: 0;
+    margin: 0;
     padding-top: 1.5rem;
-    margin: 0 0.5rem;
     margin-bottom: 1.5rem;
     border-top: 0; }
 
@@ -402,7 +397,8 @@ body {
   .delivery {
     margin-bottom: 1.5rem; }
     .delivery-image {
-      display: block; }
+      display: block;
+      width: 100%; }
     .delivery-title {
       margin: 0;
       padding: 0;
@@ -425,7 +421,7 @@ body {
       .delivery-item-title {
         margin: 0;
         padding: 0;
-        margin-bottom: rem(4);
+        margin-bottom: 0.25rem;
         font-weight: bold;
         font-size: 0.75rem;
         line-height: 0.875rem;
@@ -437,9 +433,9 @@ body {
 
   .suggest {
     padding: 0;
+    margin: 0;
     margin-bottom: 2rem; }
     .suggest-title {
-      margin-left: 0.5rem;
       margin-bottom: 1rem; }
     .suggest-list {
       justify-content: space-around; }
@@ -451,7 +447,8 @@ body {
   .footer {
     padding-top: 2rem;
     padding-left: 0;
-    padding-right: 0; }
+    padding-right: 0;
+    padding-bottom: 0; }
     .footer-link {
       display: inline-block;
       margin-right: 1.5rem;
