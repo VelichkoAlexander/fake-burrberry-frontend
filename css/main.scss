@@ -253,6 +253,7 @@ body {
     ul {
       margin: 0;
       padding: 0;
+      margin-top: 1.5rem;
       list-style: none;
       font-size: 0.875rem;
       font-family: $lora;
@@ -269,12 +270,12 @@ body {
   &-title {
     display: inline-block;
     margin: 0;
+    padding-bottom: 0.5625rem;
     font-size: 1rem;
     line-height: 1.188rem;
     font-weight: 500;
     color: #171717;
     text-transform: uppercase;
-    padding-bottom: 0.5rem;
     position: relative;
     margin-bottom: 1.5rem;
     &::after {
@@ -323,7 +324,7 @@ body {
     display: inline-block;
     position: relative;
     margin: 0;
-    margin-bottom: 1.438rem;
+    margin-bottom: 1.5rem;
     font-family: $raleway;
     font-size: 1rem;
     line-height: 1.188rem;
@@ -348,52 +349,60 @@ body {
   }
   &-link {
     display: block;
-    margin: 0 0 0.9375rem;
+    margin: 0 0 1rem;
     font-size: 0.875rem;
     font-family: $lora;
     font-style: italic;
     line-height: 1.063rem;
     text-decoration: none;
     color: #171717;
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 }
 
-
 .footer {
-  padding: 2.063rem 0.5rem;
+  padding: 2rem 0.5rem;
   background-color: $white;
   display: flex;
   flex-direction: column;
   &-link {
     display: block;
-    margin-bottom: 1.125rem;
+    margin-bottom: 1rem;
     padding: 0;
     font-family: $raleway;
-    line-height: 1;
+    line-height: 1rem;
     font-size: 0.75rem;
     color: $warm-grey;
     text-decoration: none;
     text-align: left;
     border: 0;
     background-color: transparent;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  &-links {
+    margin-bottom: 1.5rem;
   }
   &-help {
     margin: 0;
     padding: 0;
-    margin-top: 0.5625rem;
-    margin-bottom: 1.125rem;
+    margin-bottom: 1rem;
     font-family: $raleway;
     font-size: 1rem;
+    line-height: 1.188rem;
     font-weight: bold;
     text-align: center;
     background: transparent;
-    line-height: 1;
     color: #171717;
   }
   &-contacts-us {
     display: block;
     font-family: $lora;
     font-size: 0.875rem;
+    line-height: 1.063rem;
     font-style: italic;
     text-decoration: none;
     color: #171717;
@@ -531,12 +540,6 @@ body {
       margin-bottom: 1rem;
       padding-bottom: 9px;
     }
-    &-list {
-      justify-content: space-around;
-    }
-    &-item {
-      max-width: calc(25% - 16px);
-    }
     &-item-title {
       margin-bottom: 0.5rem;
     }
@@ -548,18 +551,17 @@ body {
     padding-bottom: 0;
 
     &-link {
-      display: inline-block;
-      margin-right: 1.5rem;
+      display: inline;
+      margin-right: 1.25rem;
       margin-bottom: 2rem;
       line-height: 1rem;
       border: 0;
     }
     &-menu {
-      margin-bottom: 32px;
-      margin-left: -8px;
-      margin-right: -8px;
+      margin-bottom: 1.813rem;
     }
     &-menu-title {
+      margin: 0;
       margin-bottom: 1rem;
       font-size: 0.75rem;
       line-height: 1;
@@ -571,6 +573,7 @@ body {
     &-menu-link {
       display: block;
       margin-bottom: 0.75rem;
+      margin-right: 1.25rem;
       font-size: 0.75rem;
       line-height: 1rem;
       font-weight: 600;
