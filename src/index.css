@@ -429,6 +429,10 @@ body {
     margin-bottom: 1.5rem;
     border-top: 0;
   }
+  
+  .info-block .info-block-body{
+    display: block;
+  }
   .info-block-body {
     padding-top: 1rem;
     font-size: 0.875rem;

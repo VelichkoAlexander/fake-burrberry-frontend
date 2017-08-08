@@ -1,5 +1,7 @@
 import React from 'react';
 import SliderItem from './SliderItem';
+import ProducInfo from './ProductInfo';
+import InfoBlock from './InfoBlock';
 export default () => {
   return (
     <section className="product">
@@ -16,11 +18,7 @@ export default () => {
           </div>
         
           <div className="col-xs-12 col-sm-5">
-            <div className="product-info">
-              <h2 className="product-price">110 000 руб.</h2>
-              <p className="product-id">Item 39428531</p>
-            </div>
-          
+            <ProducInfo price="110 000" id="39428531"/>
             <div className="color ">
               <p className="color-actual">Colour: Honey</p>
               <div className="color-options">
@@ -39,64 +37,11 @@ export default () => {
       </div>
       <hr className="divine-line"/>
         <div className="container">
-          <div className="info-block info-block--open">
-            <button className="info-block-header" type="button">
-              <h2 className="info-block-title">Description</h2>
-            </button>
-          
-            <div className="info-block-body">
-              <p>A refined car coat crafted in protective cotton gabardine.</p>
-              <p>Invented by Thomas Burberry in 1879, cotton gabardine
-                 is a tightly woven and breathable fabric that protects against wind and rain.</p>
-              <p>Raglan sleeves and a concealed button closure complement the clean tailored lines.</p>
-              <p>The piece is finished with a distinctive check
-                 undercollar.</p>
-              <ul>
-                <li>
-                  Coat length: 98cm/38.6in. This is based on a size UK 48 as proportions change slightly
-                  according to size.
-                </li>
-                <li>Outer: 100% cotton</li>
-                <li>Check lining: 100% cotton</li>
-                <li>Sleeve lining: 100% viscose</li>
-                <li>Buttons: buffalo horn</li>
-                <li>Specialist dry clean</li>
-                <li>Made in Europe</li>
-                <li>Item 39428531</li>
-              </ul>
-          
-            </div>
-          </div>
+        <InfoBlock title="Description" />
         </div>
         <hr className="divine-line"/>
           <div className="container">
-            <div className="info-block info-block--border-bottom md-hide">
-              <button className="info-block-header" type="button">
-                <h2 className="info-block-title">Shipping & Returns</h2>
-              </button>
-            
-              <div className="info-block-body">
-                <p>A refined car coat crafted in protective cotton gabardine.</p>
-                <p>Invented by Thomas Burberry in 1879, cotton gabardine
-                   is a tightly woven and breathable fabric that protects against wind and rain.</p>
-                <p>Raglan sleeves and a concealed button closure complement the clean tailored lines.</p>
-                <p>The piece is finished with a distinctive check
-                   undercollar.</p>
-                <ul>
-                  <li>
-                    Coat length: 98cm/38.6in. This is based on a size UK 48 as proportions change slightly
-                    according to size.
-                  </li>
-                  <li>Outer: 100% cotton</li>
-                  <li>Check lining: 100% cotton</li>
-                  <li>Sleeve lining: 100% viscose</li>
-                  <li>Buttons: buffalo horn</li>
-                  <li>Specialist dry clean</li>
-                  <li>Made in Europe</li>
-                  <li>Item 39428531</li>
-                </ul>
-              </div>
-            </div>
+            <InfoBlock title="Shipping & Returns" additionalClass="md-hide" />
           </div>
           <hr className="divine-line"/>
             <div className="delivery hidden-xs">
