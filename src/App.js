@@ -6,7 +6,7 @@ import More from './More/More';
 import Footer from './Footer/Footer';
 const linksForMore = [{href:'/',title: 'Men’s Black Trench Coats'},{href:'/',title: 'Men’s Short Trench Coats'},{href:'/',title: 'Men’s Long Trench Coats'}];
 const title = 'Long Cotton Gabardine Car Coat | Men - Burberry';
-const description =  'Explore the full men’s collection comprising classic coats and jackets, tailoring, Heritage Trench Coats, casual weekend-wear and more';
+const description =  'Blending the lines between style and function, a reversible car coat in English-woven, showerproof cotton gabardine and Donegal wool tweed.';
 class App extends Component {
   render() {
     return (
