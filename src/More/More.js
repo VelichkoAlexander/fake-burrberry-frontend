@@ -1,7 +1,7 @@
 import React from 'react';
 export default (props) => {
   const links = props.links.map((link,index)=> {
-    return <a className="more-link" href={link.href}>{link.title}</a>;
+    return <a className="more-link" href={link.href} key={index}>{link.title}</a>;
   });
   return(
     <section className="more md-hide">
