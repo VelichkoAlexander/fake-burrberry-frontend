@@ -4,15 +4,14 @@ import React, {Component} from 'react';
 class InfoBlock extends Component {
   state = {isOpened: false};
   
-  // handleClick = this.handleClick.bind(this);
-  handleClick() {
+  handleClick = () => {
     this.setState({isOpened: !this.state.isOpened});
-  }
+  };
   
   render() {
     return (
       <div className={`info-block ${this.props.additionalClass} ${this.state.isOpened ? 'info-block--open' : ' '}`}>
-        <button className="info-block-header" type="button" onClick={this.handleClick.bind(this)}>
+        <button className="info-block-header" type="button" onClick={this.handleClick}>
           <h2 className="info-block-title">{this.props.title}</h2>
         </button>
         

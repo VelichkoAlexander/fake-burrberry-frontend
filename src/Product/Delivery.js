@@ -7,10 +7,10 @@ export default () => {
         <div className="row">
           <div className="col-md-7">
             <picture>
-              <source srcset="images/decor/tablet-delivery.jpg 1x,
+              <source srcSet="images/decor/tablet-delivery.jpg 1x,
                             images/decor/tablet-delivery@2x.jpg 2x,
                             images/decor/tablet-delivery@3x.jpg 3x"/>
-                <img class="delivery-image" src="images/decor/tablet-delivery.jpg" alt="delivery boxes"/>
+                <img className="delivery-image" src="images/decor/tablet-delivery.jpg" alt="delivery boxes"/>
             </picture>
           </div>
           <div className="col-md-5">

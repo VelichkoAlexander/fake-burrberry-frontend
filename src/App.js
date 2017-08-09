@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import Header from './Header';
-import Product from './Product';
-import Suggest from './Suggest';
-import More from './More';
-import Footer from './Footer';
+import Header from './Header/Header';
+import Product from './Product/Product';
+import Suggest from './Suggest/Suggest';
+import More from './More/More';
+import Footer from './Footer/Footer';
 
 class App extends Component {
   render() {
