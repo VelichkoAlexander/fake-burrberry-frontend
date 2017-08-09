@@ -1,6 +1,8 @@
 import React from 'react';
 import SliderItem from './SliderItem';
-import ProducInfo from './ProductInfo';
+import Info from './Info';
+import Color from './Color';
+import Buttons from './Buttons';
 import InfoBlock from './InfoBlock';
 import Delivery from './Delivery';
 
@@ -20,20 +22,9 @@ export default () => {
           </div>
           
           <div className="col-xs-12 col-sm-5">
-            <ProducInfo price="110 000" id="39428531"/>
-            <div className="color ">
-              <p className="color-actual">Colour: Honey</p>
-              <div className="color-options">
-                <button className="color-btn color-btn--black" type="button">Color black</button>
-                <button className="color-btn color-btn--honey color-btn--active" type="button">Color honey</button>
-              </div>
-            </div>
-            
-            <div className="product-btn-wrap">
-              <button className="product-btn product-btn-black" type="button">select a size</button>
-              <button className="product-btn" type="button">Find in store</button>
-              <button className="product-help" type="button">need size help?</button>
-            </div>
+            <Info price="110 000" id="39428531"/>
+            <Color currentColor="Honey"/>
+            <Buttons/>
           </div>
         </div>
       </div>

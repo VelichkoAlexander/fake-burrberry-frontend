@@ -1,14 +1,12 @@
 import React from 'react';
-export default () => {
+export default (props) => {
+  const links = props.links.map((link,index)=> {
+    return <a className="more-link" href={link.href}>{link.title}</a>;
+  });
   return(
     <section className="more md-hide">
-    
-      <h2 className="more-title">More for you</h2>
-    
-      <a className="more-link" href="javascript:void(0);">Men’s Black Trench Coats</a>
-      <a className="more-link" href="javascript:void(0);">Men’s Short Trench Coats</a>
-      <a className="more-link" href="javascript:void(0);">Men’s Long Trench Coats</a>
-  
+      <h2 className="more-title">{props.title}</h2>
+      {links}
     </section>
   )
 }

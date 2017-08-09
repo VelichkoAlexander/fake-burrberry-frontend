@@ -4,6 +4,7 @@ import Product from './Product/Product';
 import Suggest from './Suggest/Suggest';
 import More from './More/More';
 import Footer from './Footer/Footer';
+const linksForMore = [{href:'/',title: 'Men’s Black Trench Coats'},{href:'/',title: 'Men’s Short Trench Coats'},{href:'/',title: 'Men’s Long Trench Coats'}];
 
 class App extends Component {
   render() {
@@ -12,7 +13,7 @@ class App extends Component {
         <Header/>
         <Product/>
         <Suggest/>
-        <More/>
+        <More title="More for you" links={linksForMore}/>
         <Footer/>
       </div>
     );
