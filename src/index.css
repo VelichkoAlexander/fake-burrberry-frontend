@@ -210,11 +210,11 @@ body {
   padding-top: 2rem;
 }
 .info-block-body p {
-  margin: 0;
-  font-size: 0.875rem;
-  font-family: "Lora", serif;
-  line-height: 1.5rem;
-}
+   margin: 0;
+   font-size: 0.875rem;
+   font-family: "Lora", serif;
+   line-height: 1.5rem;
+ }
 .info-block-body ul {
   margin: 0;
   padding: 0;

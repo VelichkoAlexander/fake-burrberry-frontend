@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
+import styled from 'styled-components';
 
 
 class InfoBlock extends Component {
+  
   state = {isOpened: false};
   
   handleClick = () => {
@@ -9,13 +11,83 @@ class InfoBlock extends Component {
   };
   
   render() {
+    const Info = styled.div `
+    padding: 2rem 0;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    @media only screen and (min-width: 768px) {
+      display: ${props => this.props.hide ? 'none' : 'block'};
+    }
+  `;
+    
+    const Header = styled.button `
+     display: block;
+     padding: 0;
+     position: relative;
+     font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+     background-color: transparent;
+     width: 100%;
+     border: 0;
+     text-align: left;
+     &::after {
+      content: '';
+      position: absolute;
+      top: 0.125rem;
+      right: 0;
+      width: 0.625rem;
+      height: 0.75rem;
+      background: url("../images/triangle-down.svg") center 0.125rem no-repeat;
+      transform: rotate(${this.state.isOpened ? '180' : '0'}deg);
+      }
+      @media only screen and (min-width: 768px) {
+      &::after {
+        display: none;
+        }
+      }
+  `;
+    
+    const Title = styled.h2 `
+     margin: 0;
+     text-transform: uppercase;
+     font-size: 1rem;
+     line-height: 1.25rem;
+     font-weight: 500;
+     color: #171717;
+  `;
+    
+    const Body = styled.div `
+     padding-top: 2rem;
+     & > p {
+      margin: 0;
+      font-size: 0.875rem;
+      font-family: "Lora", serif;
+      line-height: 1.5rem;
+      }
+     & > ul {
+       margin: 0;
+       padding: 0;
+       margin-top: 1.5rem;
+       list-style: none;
+       font-size: 0.875rem;
+       font-family: "Lora", serif;
+       line-height: 1.5rem;
+     }
+    
+     
+     @media only screen and (min-width: 768px) {
+      display: block;
+     }
+     display: ${this.state.isOpened ? 'block' : 'none'}
+  `;
+    
+    
     return (
-      <div className={`info-block ${this.props.additionalClass} ${this.state.isOpened ? 'info-block--open' : ' '}`}>
-        <button className="info-block-header" type="button" onClick={this.handleClick}>
-          <h2 className="info-block-title">{this.props.title}</h2>
-        </button>
+      <Info>
+        <Header type="button" onClick={this.handleClick}>
+          <Title>{this.props.title}</Title>
+        </Header>
         
-        <div className="info-block-body">
+        <Body>
           <p>A refined car coat crafted in protective cotton gabardine.</p>
           <p>Invented by Thomas Burberry in 1879, cotton gabardine
              is a tightly woven and breathable fabric that protects against wind and rain.</p>
@@ -36,8 +108,8 @@ class InfoBlock extends Component {
             <li>Item 39428531</li>
           </ul>
         
-        </div>
-      </div>
+        </Body>
+      </Info>
     )
   }
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from './Link';
-
+import styled from 'styled-components';
 const costomerServiceLinks = [
   {
     href: '/',
@@ -66,8 +66,14 @@ const legalCookiesLinks = [
 ];
 
 export default () => {
+  const Footer = styled.footer `
+    padding-top: 2rem;
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+  `;
   return (
-    <footer className="footer">
+    <Footer>
       <div className="footer-menu hidden-xs">
         <div className="container">
           <div className="row">
@@ -91,6 +97,6 @@ export default () => {
       </div>
       <h2 className="footer-help md-hide">Need help?</h2>
       <a href="javascript:void(0);" className="footer-contacts-us md-hide">Find out more and contact us</a>
-    </footer>
+    </Footer>
   );
 }

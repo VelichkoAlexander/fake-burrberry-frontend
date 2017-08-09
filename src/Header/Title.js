@@ -2,7 +2,6 @@ import React from "react";
 import {Helmet} from "react-helmet";
 
 export default (props) => {
-  console.log(props);
   return (
     <div className="application">
       <Helmet>
