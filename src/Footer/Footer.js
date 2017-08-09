@@ -67,10 +67,10 @@ const legalCookiesLinks = [
 
 export default () => {
   const Footer = styled.footer `
-    padding-top: 2rem;
-    padding-left: 0;
-    padding-right: 0;
-    padding-bottom: 0;
+  padding: 2rem 0.5rem;
+  background-color: #f3f3f3;
+  display: flex;
+  flex-direction: column;
   `;
   return (
     <Footer>
