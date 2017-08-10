@@ -51,10 +51,10 @@ const Link = styled.a `
 export default () => {
   return (
     <Section>
-        <Title>More for you</Title>
-        <Link href="#">Men’s Black Trench Coats</Link>
-        <Link href="#">Men’s Short Trench Coats</Link>
-        <Link href="#">Men’s Long Trench Coats</Link>
+      <Title>More for you</Title>
+      <Link href="#">Men’s Black Trench Coats</Link>
+      <Link href="#">Men’s Short Trench Coats</Link>
+      <Link href="#">Men’s Long Trench Coats</Link>
     </Section>
   )
 }
