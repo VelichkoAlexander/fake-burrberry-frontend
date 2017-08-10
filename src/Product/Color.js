@@ -40,12 +40,12 @@ const Button = styled.button`
 
 export default (props) => {
   return (
-    <div className="color ">
+    <Color>
       <Current>Colour: {props.currentColor}</Current>
       <Options>
         <Button type="button" black>Color black</Button>
         <Button type="button" active>Color honey</Button>
       </Options>
-    </div>
+    </Color>
   )
 }
