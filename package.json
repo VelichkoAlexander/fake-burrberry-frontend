@@ -1,5 +1,5 @@
 {
-  "name": "app",
+  "name": "fake-burrberry-frontend",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

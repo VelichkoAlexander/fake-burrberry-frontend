@@ -1,4 +1,4 @@
-# Burrberry shop
+# Fake burrberry frontend
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 ### Install and Run project
@@ -19,3 +19,4 @@ yarn run build
 - [Normalize.css](https://github.com/necolas/normalize.css)
 - [flexboxgrid2](https://github.com/evgenyrodionov/flexboxgrid2)
 - [react-helmet](https://github.com/nfl/react-helmet)
+- [styled-components](https://github.com/styled-components/styled-components)
