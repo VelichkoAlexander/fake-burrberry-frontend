@@ -3,9 +3,7 @@ import styled from 'styled-components';
 
 import SuggestItem from './SuggestItem';
 
-export default () => {
-  
-  const Section = styled.section `
+const Section = styled.section `
     padding-top: 3rem;
     padding-bottom: 1rem;
     margin-left: 0.5rem;
@@ -16,8 +14,8 @@ export default () => {
       margin-bottom: 2rem;
     }
   `;
-  
-  const Title = styled.h2 `
+
+const Title = styled.h2 `
     display: inline-block;
     margin: 0;
     padding-bottom: 0.5625rem;
@@ -41,7 +39,8 @@ export default () => {
       }
     }
   `;
-  
+
+export default () => {
   return (
     <Section>
       <div className="container">

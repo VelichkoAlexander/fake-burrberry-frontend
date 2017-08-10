@@ -8,11 +8,10 @@ import Buttons from './Buttons';
 import InfoBlock from './InfoBlock';
 import Delivery from './Delivery';
 
-export default () => {
-  const Product = styled.section `
+const Product = styled.section `
     padding-top: 1.5rem;
   `;
-  const Title = styled.h1 `
+const Title = styled.h1 `
     margin: 0;
     padding: 0;
     padding-left: 0.5rem;
@@ -30,8 +29,8 @@ export default () => {
       color: #111111;
     }
   `;
-  
-  const Slider = styled.div `
+
+const Slider = styled.div `
     display: flex;
     margin: 0;
     padding: 0;
@@ -41,7 +40,7 @@ export default () => {
       margin: 0;
     }
   `;
-  const Line = styled.hr `
+const Line = styled.hr `
     margin: 0;
     border: 0;
     border-top: solid 0.0625rem #c6c6c6;
@@ -49,6 +48,8 @@ export default () => {
       display: none;
     }
   `;
+
+export default () => {
   return (
     <Product>
       <div className="container">

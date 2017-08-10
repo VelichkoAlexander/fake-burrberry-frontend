@@ -4,14 +4,13 @@ import styled from 'styled-components';
 import Menu from './Menu';
 import Help from './Help';
 
-export default () => {
-  const Footer = styled.footer `
+const Footer = styled.footer `
     padding: 2rem 0.5rem;
     background-color: #f3f3f3;
     display: flex;
     flex-direction: column;
   `;
-  const Button = styled.button `
+const Button = styled.button `
     display: block;
     margin-bottom: 1rem;
     padding: 0;
@@ -34,6 +33,7 @@ export default () => {
       border: 0;
     }
   `;
+export default () => {
   return (
     <Footer>
       <Menu/>

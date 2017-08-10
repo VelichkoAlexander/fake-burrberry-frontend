@@ -1,12 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
-export default (props) => {
-  
-  const Img = styled.img `
+const Img = styled.img `
    display: block;
   `;
-  
+
+export default (props) => {
   return (
     <picture>
       <source media="(min-width: 48rem)"

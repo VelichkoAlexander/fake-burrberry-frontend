@@ -1,8 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-export default () => {
-  const Title = styled.h2 `
+const Title = styled.h2 `
     margin: 0;
     padding: 0;
     margin-bottom: 1rem;
@@ -17,8 +16,8 @@ export default () => {
       display: none;
     }
   `;
-  
-  const Link = styled.a `
+
+const Link = styled.a `
     display: block;
     font-family: "Lora", serif;
     font-size: 0.875rem;
@@ -31,6 +30,8 @@ export default () => {
       display: none;
     }
   `;
+
+export default () => {
   return (
     <div>
       <Title>Need help?</Title>

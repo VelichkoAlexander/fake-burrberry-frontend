@@ -1,22 +1,20 @@
 import React from 'react';
 import styled from 'styled-components';
 
-export default (props) => {
-  
-  const Link = styled.a `
+const Link = styled.a `
    display: block;
    margin-bottom: 2rem;
    font-size: 1rem;
    text-decoration: none;
   `;
-  
-  const Img = styled.img `
+
+const Img = styled.img `
    width: 100%;
    height: auto;
    margin-bottom: 0.3125rem;
   `;
-  
-  const Title = styled.h3 `
+
+const Title = styled.h3 `
    margin: 0;
    font-family: "Lora", serif;
    font-weight: 400;
@@ -29,14 +27,15 @@ export default (props) => {
     padding-bottom: 9px;
    }
   `;
-  
-  const Price = styled.h5 `
+
+const Price = styled.h5 `
    margin: 0;
    font-size: 0.75rem;
    color: #999999;
    font-weight: 400;
   `;
-  
+
+export default (props) => {
   return (
     <Link href={props.link}>
       <Img src={`${process.env.PUBLIC_URL}/images/content/recommend/${props.src}.jpg`} alt={props.title}/>

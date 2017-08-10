@@ -3,9 +3,7 @@ import styled from 'styled-components';
 
 import logo from '../images/logo.svg';
 
-export default () => {
-  
-  const Header = styled.header `
+const Header = styled.header `
     display: flex;
     justify-content: center;
     padding-top: 1rem;
@@ -16,11 +14,12 @@ export default () => {
       padding-bottom: 1.5rem;
    }
   `;
-  
-  const Logo = styled.img `
+
+const Logo = styled.img `
    display: block;
   `;
-  
+
+export default () => {
   return (
     <Header>
       <a href="/">

@@ -1,8 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-export default () => {
-  const Wrap = styled.div `
+const Wrap = styled.div `
     display: flex;
     flex-direction: column;
     margin-left: 0.5rem;
@@ -13,8 +12,8 @@ export default () => {
       margin: 0;
     }
   `;
-  
-  const Button = styled.button `
+
+const Button = styled.button `
     display: block;
     padding: 0;
     margin-bottom: 1rem;
@@ -32,7 +31,8 @@ export default () => {
     color: ${props => props.black ? 'white' : '#000'};
     border-color: ${props => props.black ? '#171717' : '#999999'};
   `;
-  const Help = styled.button `
+
+const Help = styled.button `
     margin-top: 0.5rem;
     align-self: flex-start;
     background-color: #fff;
@@ -44,7 +44,8 @@ export default () => {
     border: 0;
     font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
   `;
-  
+
+export default () => {
   return (
     <Wrap>
       <Button type="button" black>select a size</Button>

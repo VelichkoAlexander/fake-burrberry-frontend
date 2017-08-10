@@ -1,9 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-export default () => {
-  
-  const Section = styled.section `
+const Section = styled.section `
     padding-right: 1rem;
     padding-left: 1rem;
     margin-bottom: 4rem;
@@ -12,8 +10,8 @@ export default () => {
       display: none;
     }
   `;
-  
-  const Title = styled.h2 `
+
+const Title = styled.h2 `
     display: inline-block;
     position: relative;
     margin: 0;
@@ -35,8 +33,8 @@ export default () => {
       background-color: #171717;
     }
   `;
-  
-  const Link = styled.a `
+
+const Link = styled.a `
     display: block;
     margin: 0 0 1rem;
     font-size: 0.875rem;
@@ -49,7 +47,8 @@ export default () => {
       margin-bottom: 0;
     }
   `;
-  
+
+export default () => {
   return (
     <Section>
         <Title>More for you</Title>

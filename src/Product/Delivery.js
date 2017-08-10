@@ -1,22 +1,20 @@
 import React from 'react';
 import styled from 'styled-components';
 
-export default () => {
-  
-  const Delivery = styled.div `
+const Delivery = styled.div `
     margin-bottom: 1.5rem;
      display: none;
     @media(min-width: 48rem) {
       display: block;
     }
   `;
-  
-  const Img = styled.img `
+
+const Img = styled.img `
     display: block;
     width: 100%;
   `;
-  
-  const Title = styled.h2 `
+
+const Title = styled.h2 `
     margin: 0;
     padding: 0;
     margin-bottom: 1rem;
@@ -27,20 +25,20 @@ export default () => {
     text-transform: uppercase;
     color: #171717;
   `;
-  
-  const List = styled.ul `
+
+const List = styled.ul `
     margin: 0;
     padding: 0;
     list-style: none;
   `;
-  
-  const Item = styled.li`
+
+const Item = styled.li`
     margin: 0;
     padding: 0;
     margin-bottom: 1.5rem;
     display: block;
   `;
-  const ItemTitle = styled.h3 `
+const ItemTitle = styled.h3 `
     margin: 0;
     padding: 0;
     margin-bottom: 0.25rem;
@@ -49,12 +47,13 @@ export default () => {
     line-height: 0.875rem;
     color: #171717;
   `;
-  const ItemDescr = styled.div `
+const ItemDescr = styled.div `
     font-size: 0.75rem;
     line-height: 1rem;
     color: #171717;
   `;
-  
+
+export default () => {
   return (
     <Delivery>
       <div className="container">
