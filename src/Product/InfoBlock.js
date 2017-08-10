@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import styled from 'styled-components';
 
+import triangle from  '../images/triangle-down.svg';
+
 
 class InfoBlock extends Component {
   
@@ -36,7 +38,7 @@ class InfoBlock extends Component {
       right: 0;
       width: 0.625rem;
       height: 0.75rem;
-      background: url("../images/triangle-down.svg") center 0.125rem no-repeat;
+      background: url(${triangle}) center 0.125rem no-repeat;
       transform: rotate(${this.state.isOpened ? '180' : '0'}deg);
       }
       @media(min-width: 48rem) {
