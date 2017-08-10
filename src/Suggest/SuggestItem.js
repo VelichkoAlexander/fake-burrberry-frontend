@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+
 export default (props) => {
   
   const Link = styled.a `
@@ -15,7 +16,7 @@ export default (props) => {
    margin-bottom: 0.3125rem;
   `;
   
-  const Title =  styled.h3 `
+  const Title = styled.h3 `
    margin: 0;
    font-family: "Lora", serif;
    font-weight: 400;
@@ -37,8 +38,8 @@ export default (props) => {
   `;
   
   return (
-    <Link  href={props.link} >
-      <Img  src={`/images/content/recommend/${props.src}.jpg`} alt={props.title}/>
+    <Link href={props.link}>
+      <Img src={`/images/content/recommend/${props.src}.jpg`} alt={props.title}/>
       <Title>{props.title}</Title>
       <Price>{props.price} руб</Price>
     </Link>
