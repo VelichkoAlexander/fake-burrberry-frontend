@@ -3,36 +3,36 @@ import styled from 'styled-components';
 
 
 const Menu = styled.div `
-    display: none;
-    @media (min-width: 48rem) {
-    display: block;
-    margin-bottom: 1.875rem;
+  display: none;
+  @media (min-width: 48rem) {
+  display: block;
+  margin-bottom: 1.875rem;
   }
   `;
 
 const Link = styled.a `
-    display: block;
-    margin-bottom: 0.75rem;
-    margin-right: 1.25rem;
-    font-size: 0.75rem;
-    line-height: 1rem;
-    font-weight: 600;
-    color: #999999;
-    text-decoration: none;
-    &:last-child {
-      margin-bottom: 0;
-    }
-  `;
+  display: block;
+  margin-bottom: 0.75rem;
+  margin-right: 1.25rem;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 600;
+  color: #999999;
+  text-decoration: none;
+  &:last-child {
+    margin-bottom: 0;
+  }
+`;
 
 const Title = styled.h2 `
-    margin: 0;
-    margin-bottom: 1rem;
-    font-size: 0.75rem;
-    line-height: 1;
-    font-weight: bold;
-    text-transform: uppercase;
-    color: #171717;
-  `;
+  margin: 0;
+  margin-bottom: 1rem;
+  font-size: 0.75rem;
+  line-height: 1;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #171717;
+`;
 
 export default () => {
   return (
