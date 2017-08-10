@@ -6,10 +6,9 @@ export default (props) => {
   const Color = styled.div `
     margin-left: 0.5rem;
     margin-right: 0.5rem;
-    
-    @media (min-width: 768px) {
-     padding: 0;
-     margin: 0;
+    @media(min-width: 48rem) {
+      padding: 0;
+      margin: 0;
   }
   `;
   
@@ -29,16 +28,16 @@ export default (props) => {
   `;
   
   const Button = styled.button`
-   display: block;
-   padding: 0;
-   width: 2.5rem;
-   height: 2.5rem;
-   margin-right: 1rem;
-   font-size: 0;
-   border-radius: 50%;
-   border: solid 0.0625rem transparent;
-   background: ${props => props.black ? '#232122' : '#cfa880'};
-   border-color: ${props => props.active ? '#232122' : 'transparent'}
+    display: block;
+    padding: 0;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-right: 1rem;
+    font-size: 0;
+    border-radius: 50%;
+    border: solid 0.0625rem transparent;
+    background: ${props => props.black ? '#232122' : '#cfa880'};
+    border-color: ${props => props.active ? '#232122' : 'transparent'}
   `;
   
   return (

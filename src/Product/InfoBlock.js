@@ -15,7 +15,7 @@ class InfoBlock extends Component {
     padding: 2rem 0;
     margin-left: 0.5rem;
     margin-right: 0.5rem;
-    @media only screen and (min-width: 768px) {
+    @media(min-width: 48rem) {
       display: ${props => this.props.hide ? 'none' : 'block'};
     }
   `;
@@ -39,7 +39,7 @@ class InfoBlock extends Component {
       background: url("../images/triangle-down.svg") center 0.125rem no-repeat;
       transform: rotate(${this.state.isOpened ? '180' : '0'}deg);
       }
-      @media only screen and (min-width: 768px) {
+      @media(min-width: 48rem) {
       &::after {
         display: none;
         }
@@ -74,7 +74,7 @@ class InfoBlock extends Component {
      }
     
      
-     @media only screen and (min-width: 768px) {
+     @media(min-width: 48rem) {
       display: block;
      }
      display: ${this.state.isOpened ? 'block' : 'none'}
