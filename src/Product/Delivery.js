@@ -61,10 +61,10 @@ export default () => {
         <div className="row">
           <div className="col-md-7">
             <picture>
-              <source srcSet="images/decor/tablet-delivery.jpg 1x,
-                            images/decor/tablet-delivery@2x.jpg 2x,
-                            images/decor/tablet-delivery@3x.jpg 3x"/>
-              <Img src="images/decor/tablet-delivery.jpg" alt="delivery boxes"/>
+              <source srcSet={`${process.env.PUBLIC_URL}/images/decor/tablet-delivery.jpg 1x,
+                            ${process.env.PUBLIC_URL}/images/decor/tablet-delivery@2x.jpg 2x,
+                            ${process.env.PUBLIC_URL}/images/decor/tablet-delivery@3x.jpg 3x`}/>
+              <Img src={`${process.env.PUBLIC_URL}/images/decor/tablet-delivery.jpg`} alt="delivery boxes"/>
             </picture>
           </div>
           <div className="col-md-5">

@@ -39,7 +39,7 @@ export default (props) => {
   
   return (
     <Link href={props.link}>
-      <Img src={`/images/content/recommend/${props.src}.jpg`} alt={props.title}/>
+      <Img src={`${process.env.PUBLIC_URL}/images/content/recommend/${props.src}.jpg`} alt={props.title}/>
       <Title>{props.title}</Title>
       <Price>{props.price} руб</Price>
     </Link>
