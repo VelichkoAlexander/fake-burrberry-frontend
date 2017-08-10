@@ -26,19 +26,13 @@ const Title = styled.h2 `
     color: #171717;
   `;
 
-const List = styled.ul `
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  `;
-
-const Item = styled.li`
+const Feature = styled.div`
     margin: 0;
     padding: 0;
     margin-bottom: 1.5rem;
     display: block;
   `;
-const ItemTitle = styled.h3 `
+const Caption = styled.h3 `
     margin: 0;
     padding: 0;
     margin-bottom: 0.25rem;
@@ -47,7 +41,7 @@ const ItemTitle = styled.h3 `
     line-height: 0.875rem;
     color: #171717;
   `;
-const ItemDescr = styled.div `
+const Text = styled.div `
     font-size: 0.75rem;
     line-height: 1rem;
     color: #171717;
@@ -68,29 +62,24 @@ export default () => {
           </div>
           <div className="col-md-5">
             <Title>Delivery</Title>
-            <List>
-              <Item>
-                <ItemTitle>Free Next Day Delivery</ItemTitle>
-                <ItemDescr>Order before 7pm Monday to Thursday for delivery the next day
-                </ItemDescr>
-              </Item>
-              <Item>
-                <ItemTitle>Collect-in-Store</ItemTitle>
-                <ItemDescr>Order online today and pick up your items in store as early as
-                           tomorrow
-                </ItemDescr>
-              </Item>
-              <Item>
-                <ItemTitle>Free Returns</ItemTitle>
-                <ItemDescr>Enjoy free returns on your order</ItemDescr>
-              </Item>
-              <Item>
-                <ItemTitle>Free Gift Packaging</ItemTitle>
-                <ItemDescr>Discover our gift packaging, a gold lined box tied with a coloured
-                           ribbon
-                </ItemDescr>
-              </Item>
-            </List>
+            <Feature>
+              <Caption>Free Next Day Delivery</Caption>
+              <Text>Order before 7pm Monday to Thursday for delivery the next day</Text>
+            </Feature>
+            <Feature>
+              <Caption>Collect-in-Store</Caption>
+              <Text>Order online today and pick up your items in store as early as tomorrow</Text>
+            </Feature>
+            <Feature>
+              <Caption>Free Returns</Caption>
+              <Text>Enjoy free returns on your order</Text>
+            </Feature>
+            <Feature>
+              <Caption>Free Gift Packaging</Caption>
+              <Text>Discover our gift packaging, a gold lined box tied with a coloured
+                    ribbon
+              </Text>
+            </Feature>
           </div>
         </div>
       </div>
