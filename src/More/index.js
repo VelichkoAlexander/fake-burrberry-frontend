@@ -52,9 +52,9 @@ export default () => {
   return (
     <Section>
         <Title>More for you</Title>
-        <Link href="javascript:void(0);">Men’s Black Trench Coats</Link>
-        <Link href="javascript:void(0);">Men’s Short Trench Coats</Link>
-        <Link href="javascript:void(0);">Men’s Long Trench Coats</Link>
+        <Link href="#">Men’s Black Trench Coats</Link>
+        <Link href="#">Men’s Short Trench Coats</Link>
+        <Link href="#">Men’s Long Trench Coats</Link>
     </Section>
   )
 }

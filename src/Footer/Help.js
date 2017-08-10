@@ -35,7 +35,7 @@ export default () => {
   return (
     <div>
       <Title>Need help?</Title>
-      <Link href="javascript:void(0);">Find out more and contact us</Link>
+      <Link href="#">Find out more and contact us</Link>
     </div>
   )
 }

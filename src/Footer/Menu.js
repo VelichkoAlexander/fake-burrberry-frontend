@@ -41,30 +41,30 @@ export default () => {
         <div className="row">
           <div className="col-sm-3 col-md-3">
             <Title>Customer service</Title>
-            <Link href="javascript:void(0);">Contact Us</Link>
-            <Link href="javascript:void(0);">Payment</Link>
-            <Link href="javascript:void(0);">Shipping</Link>
-            <Link href="javascript:void(0);">Returns</Link>
-            <Link href="javascript:void(0);">Faqs</Link>
-            <Link href="javascript:void(0);">Live Chat</Link>
-            <Link href="javascript:void(0);">The Burberry App</Link>
-            <Link href="javascript:void(0);">Store Locator</Link>
+            <Link href="#">Contact Us</Link>
+            <Link href="#">Payment</Link>
+            <Link href="#">Shipping</Link>
+            <Link href="#">Returns</Link>
+            <Link href="#">Faqs</Link>
+            <Link href="#">Live Chat</Link>
+            <Link href="#">The Burberry App</Link>
+            <Link href="#">Store Locator</Link>
           </div>
           <div className="col-sm-3">
             <Title>Our company</Title>
-            <Link href="javascript:void(0);">Our History</Link>
-            <Link href="javascript:void(0);">Burberry Group Plc</Link>
-            <Link href="javascript:void(0);">Careers</Link>
-            <Link href="javascript:void(0);">Corporate Responsibility</Link>
-            <Link href="javascript:void(0);">Site Map</Link>
+            <Link href="#">Our History</Link>
+            <Link href="#">Burberry Group Plc</Link>
+            <Link href="#">Careers</Link>
+            <Link href="#">Corporate Responsibility</Link>
+            <Link href="#">Site Map</Link>
           </div>
           <div className="col-sm-4">
             <Title>Legal & cookies</Title>
-            <Link href="javascript:void(0);">Terms & Conditions</Link>
-            <Link href="javascript:void(0);">Privacy Policy</Link>
-            <Link href="javascript:void(0);">Cookie Policy</Link>
-            <Link href="javascript:void(0);">Accessibility Statement</Link>
-            <Link href="javascript:void(0);">Japan Only - SCTL indications</Link>
+            <Link href="#">Terms & Conditions</Link>
+            <Link href="#">Privacy Policy</Link>
+            <Link href="#">Cookie Policy</Link>
+            <Link href="#">Accessibility Statement</Link>
+            <Link href="#">Japan Only - SCTL indications</Link>
           </div>
         </div>
       </div>
