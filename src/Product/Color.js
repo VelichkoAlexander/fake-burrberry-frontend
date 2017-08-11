@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import Button from './ColorButton';
+
 const Color = styled.div`
   margin-left: 0.5rem;
   margin-right: 0.5rem;
@@ -25,19 +27,6 @@ const Options = styled.div`
   border-bottom: solid 0.0625rem #c6c6c6;
 `;
 
-const Button = styled.button`
-  display: block;
-  padding: 0;
-  width: 2.5rem;
-  height: 2.5rem;
-  margin-right: 1rem;
-  font-size: 0;
-  border-radius: 50%;
-  border: solid 0.0625rem transparent;
-  background: ${props => (props.black ? '#232122' : '#cfa880')};
-  border-color: ${props => (props.active ? '#232122' : 'transparent')};
-`;
-
 export default props => {
   return (
     <Color>
@@ -45,12 +34,8 @@ export default props => {
         Colour: {props.currentColor}
       </Current>
       <Options>
-        <Button type="button" black>
-          Color black
-        </Button>
-        <Button type="button" active>
-          Color honey
-        </Button>
+        <Button name="black" color="#232122" />
+        <Button name="honey" color="#cfa880" active />
       </Options>
     </Color>
   );

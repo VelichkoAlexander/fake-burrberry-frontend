@@ -27,9 +27,9 @@ const Button = styled.button`
   text-transform: uppercase;
   border-radius: 0.125rem;
   border: solid 0.0625rem #999999;
-  background: ${props => (props.black ? '#171717' : '#fff')};
-  color: ${props => (props.black ? 'white' : '#000')};
-  border-color: ${props => (props.black ? '#171717' : '#999999')};
+  background: ${props => (props.primary ? '#171717' : '#fff')};
+  color: ${props => (props.primary ? 'white' : '#000')};
+  border-color: ${props => (props.primary ? '#171717' : '#999999')};
 `;
 
 const Help = styled.button`
@@ -48,11 +48,11 @@ const Help = styled.button`
 export default () => {
   return (
     <Wrap>
-      <Button type="button" black>
-        select a size
+      <Button type="button" primary>
+        Select a size
       </Button>
       <Button type="button">Find in store</Button>
-      <Help type="button">need size help?</Help>
+      <Help type="button">Need size help?</Help>
     </Wrap>
   );
 };
