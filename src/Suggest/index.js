@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import SuggestItem from './SuggestItem';
+import SuggestItem from './Card';
 
 const Section = styled.section`
   padding-top: 3rem;
@@ -39,7 +39,7 @@ export default () => {
               link="#"
               src="Emroided_hooded"
               title="Emroided Hooded"
-              price="27 000"
+              price={27000}
             />
           </div>
           <div className="col-xs-6 col-md-3">
@@ -47,7 +47,7 @@ export default () => {
               link="#"
               src="Relaxed_Fit_Stretch_Jeans"
               title="Relaxed Fit Stretch Jeans"
-              price="22 500"
+              price={22500}
             />
           </div>
           <div className="col-xs-6 col-md-3">
@@ -55,7 +55,7 @@ export default () => {
               link="#"
               src="Leather_and_House_Check"
               title="Leather and House Check"
-              price="120 000 "
+              price={120000}
             />
           </div>
           <div className="col-xs-6 col-md-3">
@@ -63,7 +63,7 @@ export default () => {
               link="#"
               src="Leather_Wingtip_Check"
               title="Leather Wingtip Check"
-              price="46 000 "
+              price={46000}
             />
           </div>
         </div>

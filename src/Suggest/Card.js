@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { FormattedNumber } from 'react-intl';
 
 const Link = styled.a`
   display: block;
@@ -47,7 +48,12 @@ export default props => {
         {props.title}
       </Title>
       <Price>
-        {props.price} руб
+        <FormattedNumber
+          value={props.price}
+          style="currency"
+          currency="RUB"
+          minimumFractionDigits={0}
+        />
       </Price>
     </Link>
   );
