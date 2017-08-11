@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Delivery = styled.div `
-    margin-bottom: 1.5rem;
+    margin-bottom: 3rem;
      display: none;
     @media(min-width: 48rem) {
       display: block;

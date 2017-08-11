@@ -18,25 +18,13 @@ const Section = styled.section `
 const Title = styled.h2 `
     display: inline-block;
     margin: 0;
-    padding-bottom: 0.5625rem;
     font-size: 1rem;
     line-height: 1.188rem;
     font-weight: 500;
     color: #171717;
     text-transform: uppercase;
     position: relative;
-    margin-bottom: 1.5rem;
-      &::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 100%;
-      height: 0.0625rem;
-      background-color: #171717;
-      @media (min-width: 48rem) {
-        margin-bottom: 0.5rem;
-      }
+    margin-bottom: 1rem;
     }
   `;
 

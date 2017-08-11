@@ -20,6 +20,7 @@ class InfoBlock extends Component {
     margin-left: 0.5rem;
     margin-right: 0.5rem;
     @media(min-width: 48rem) {
+      padding-bottom: 3rem;
       display: ${props => this.props.hide ? 'none' : 'block'};
     }
   `;

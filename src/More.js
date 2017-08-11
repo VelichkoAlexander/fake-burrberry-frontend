@@ -15,23 +15,13 @@ const Title = styled.h2 `
     display: inline-block;
     position: relative;
     margin: 0;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 1rem;
     line-height: 1.188rem;
     font-weight: 500;
     text-transform: uppercase;
-    padding-bottom: 0.5625rem;
     color: #171717;
-    &::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 100%;
-      height: 0.0625rem;
-      background-color: #171717;
-    }
   `;
 
 const Link = styled.a `
