@@ -9,7 +9,9 @@ class InfoBlock extends Component {
   state = {isOpened: false};
   
   handleClick = () => {
-    this.setState({isOpened: !this.state.isOpened});
+    this.setState(function(prevState, props){
+      return {isOpened: !prevState.isOpened}
+    });
   };
   
   render() {

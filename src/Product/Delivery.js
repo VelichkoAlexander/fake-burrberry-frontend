@@ -76,9 +76,7 @@ export default () => {
             </Feature>
             <Feature>
               <Caption>Free Gift Packaging</Caption>
-              <Text>Discover our gift packaging, a gold lined box tied with a coloured
-                    ribbon
-              </Text>
+              <Text>Discover our gift packaging, a gold lined box tied with a coloured ribbon</Text>
             </Feature>
           </div>
         </div>
