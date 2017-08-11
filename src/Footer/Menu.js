@@ -1,16 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
 
-
-const Menu = styled.div `
+const Menu = styled.div`
   display: none;
   @media (min-width: 48rem) {
-  display: block;
-  margin-bottom: 1.875rem;
+    display: block;
+    margin-bottom: 1.875rem;
   }
-  `;
+`;
 
-const Link = styled.a `
+const Link = styled.a`
   display: block;
   margin-bottom: 0.75rem;
   margin-right: 1.25rem;
@@ -24,7 +23,7 @@ const Link = styled.a `
   }
 `;
 
-const Title = styled.h2 `
+const Title = styled.h2`
   margin: 0;
   margin-bottom: 1rem;
   font-size: 0.75rem;
@@ -69,5 +68,5 @@ export default () => {
         </div>
       </div>
     </Menu>
-  )
-}
+  );
+};

@@ -3,19 +3,19 @@ import styled from 'styled-components';
 
 import SuggestItem from './SuggestItem';
 
-const Section = styled.section `
-    padding-top: 3rem;
-    padding-bottom: 1rem;
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
-    @media (min-width: 48rem) {
-      padding: 0;
-      margin: 0;
-      margin-bottom: 2rem;
-    }
-  `;
+const Section = styled.section`
+  padding-top: 3rem;
+  padding-bottom: 1rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  @media (min-width: 48rem) {
+    padding: 0;
+    margin: 0;
+    margin-bottom: 2rem;
+  }
+`;
 
-const Title = styled.h2 `
+const Title = styled.h2`
     display: inline-block;
     margin: 0;
     font-size: 1rem;
@@ -35,19 +35,39 @@ export default () => {
         <Title>We recommend</Title>
         <div className="row">
           <div className="col-xs-6 col-md-3">
-            <SuggestItem link="#" src="Emroided_hooded" title="Emroided Hooded" price="27 000"/>
+            <SuggestItem
+              link="#"
+              src="Emroided_hooded"
+              title="Emroided Hooded"
+              price="27 000"
+            />
           </div>
           <div className="col-xs-6 col-md-3">
-            <SuggestItem link="#" src="Relaxed_Fit_Stretch_Jeans" title="Relaxed Fit Stretch Jeans" price="22 500"/>
+            <SuggestItem
+              link="#"
+              src="Relaxed_Fit_Stretch_Jeans"
+              title="Relaxed Fit Stretch Jeans"
+              price="22 500"
+            />
           </div>
           <div className="col-xs-6 col-md-3">
-            <SuggestItem link="#" src="Leather_and_House_Check" title="Leather and House Check" price="120 000 "/>
+            <SuggestItem
+              link="#"
+              src="Leather_and_House_Check"
+              title="Leather and House Check"
+              price="120 000 "
+            />
           </div>
           <div className="col-xs-6 col-md-3">
-            <SuggestItem link="#" src="Leather_Wingtip_Check" title="Leather Wingtip Check" price="46 000 "/>
+            <SuggestItem
+              link="#"
+              src="Leather_Wingtip_Check"
+              title="Leather Wingtip Check"
+              price="46 000 "
+            />
           </div>
         </div>
       </div>
     </Section>
   );
-}
+};

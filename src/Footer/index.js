@@ -4,21 +4,21 @@ import styled from 'styled-components';
 import Menu from './Menu';
 import Help from './Help';
 
-const Links = styled.div `
+const Links = styled.div`
   margin-bottom: 1.5rem;
-  @media(min-width: 48rem) {
+  @media (min-width: 48rem) {
     margin-bottom: 0;
   }
 `;
 
-const Footer = styled.footer `
+const Footer = styled.footer`
   padding: 2rem 0.5rem;
   background-color: #f3f3f3;
   display: flex;
   flex-direction: column;
 `;
 
-const Button = styled.button `
+const Button = styled.button`
   display: block;
   margin-bottom: 1rem;
   padding: 0;
@@ -45,14 +45,14 @@ const Button = styled.button `
 export default () => {
   return (
     <Footer>
-      <Menu/>
+      <Menu />
       <Links>
         <div className="container">
           <Button type="button">Shipping country: Russian Federation</Button>
           <Button type="button">Language: English</Button>
         </div>
       </Links>
-      <Help/>
+      <Help />
     </Footer>
   );
-}
+};

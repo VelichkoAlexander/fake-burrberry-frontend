@@ -1,5 +1,5 @@
 import React from 'react';
-import {Helmet} from 'react-helmet';
+import { Helmet } from 'react-helmet';
 
 import Header from './Header';
 import Product from './Product';
@@ -12,13 +12,13 @@ export default () => {
     <div className="App">
       <Helmet>
         <title>Long Cotton Gabardine Car Coat | Men - Burberry</title>
-        <meta name="description" content="Long Cotton Gabardine Car Coat"/>
+        <meta name="description" content="Long Cotton Gabardine Car Coat" />
       </Helmet>
-      <Header/>
-      <Product/>
-      <Suggest/>
-      <More/>
-      <Footer/>
+      <Header />
+      <Product />
+      <Suggest />
+      <More />
+      <Footer />
     </div>
   );
-}
+};
