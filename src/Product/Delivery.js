@@ -7,6 +7,9 @@ const Delivery = styled.div`
   @media (min-width: 48rem) {
     display: block;
   }
+  @media (min-width: 62rem) {
+    margin-bottom: 4rem;
+  }
 `;
 
 const Img = styled.img`
@@ -24,6 +27,9 @@ const Title = styled.h2`
   line-height: 1.188rem;
   text-transform: uppercase;
   color: #171717;
+  @media (min-width: 62rem) {
+    margin-top: 4.125rem;
+  }
 `;
 
 const Feature = styled.div`
@@ -52,9 +58,19 @@ export default () => {
     <Delivery>
       <div className="container">
         <div className="row">
-          <div className="col-md-7">
+          <div className="col-md-7 col-lg-7">
             <picture>
               <source
+                media="(min-width: 62rem)"
+                srcSet={`${process.env
+                  .PUBLIC_URL}/images/decor/desktop-delivery.jpg 1x,
+                            ${process.env
+                              .PUBLIC_URL}/images/decor/desktop-delivery@2x.jpg 2x,
+                            ${process.env
+                              .PUBLIC_URL}/images/decor/desktop-delivery@3x.jpg 3x`}
+              />
+              <source
+                media="(min-width: 48rem)"
                 srcSet={`${process.env
                   .PUBLIC_URL}/images/decor/tablet-delivery.jpg 1x,
                             ${process.env
@@ -69,7 +85,7 @@ export default () => {
               />
             </picture>
           </div>
-          <div className="col-md-5">
+          <div className="col-md-5 col-lg-offset-1 col-lg-4">
             <Title>Delivery</Title>
             <Feature>
               <Caption>Free Next Day Delivery</Caption>
