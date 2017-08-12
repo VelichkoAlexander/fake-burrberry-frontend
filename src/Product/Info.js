@@ -1,5 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
+import Responsive from 'react-responsive';
+
+const Mobile = ({ children }) =>
+  <Responsive maxWidth={992} children={children} />;
 
 const Info = styled.div`
   display: flex;
@@ -8,9 +12,12 @@ const Info = styled.div`
   padding-left: 0.5rem;
   padding-right: 0.5rem;
   padding-bottom: 1rem;
-  @media (min-width: 768px) {
+  @media (min-width: 48rem) {
     padding: 0;
     margin-bottom: 1rem;
+  }
+  @media (min-width: 62rem) {
+    margin-bottom: 3rem;
   }
 `;
 const Price = styled.h2`
@@ -35,9 +42,11 @@ export default props => {
       <Price>
         {props.price} руб.
       </Price>
-      <Id>
-        Item {props.id}
-      </Id>
+      <Mobile>
+        <Id>
+          Item {props.id}
+        </Id>
+      </Mobile>
     </Info>
   );
 };

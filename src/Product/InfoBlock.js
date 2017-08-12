@@ -50,13 +50,13 @@ const Title = styled.h2`
 
 const Body = styled.div`
   padding-top: 2rem;
-  & > p {
+  &  p {
     margin: 0;
     font-size: 0.875rem;
     font-family: "Lora", serif;
     line-height: 1.5rem;
   }
-  & > ul {
+  &  ul {
     margin: 0;
     padding: 0;
     margin-top: 1.5rem;
