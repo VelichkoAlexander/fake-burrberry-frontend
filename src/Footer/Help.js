@@ -1,5 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
+import Responsive from 'react-responsive';
+
+const Mobile = ({ children }) =>
+  <Responsive maxWidth={768} children={children} />;
 
 const Title = styled.h2`
   margin: 0;
@@ -12,9 +16,6 @@ const Title = styled.h2`
   text-align: center;
   background: transparent;
   color: #171717;
-  @media (min-width: 48rem) {
-    display: none;
-  }
 `;
 
 const Link = styled.a`
@@ -26,16 +27,13 @@ const Link = styled.a`
   text-decoration: none;
   color: #171717;
   text-align: center;
-  @media (min-width: 48rem) {
-    display: none;
-  }
 `;
 
 export default () => {
   return (
-    <div>
+    <Mobile>
       <Title>Need help?</Title>
       <Link href="#">Find out more and contact us</Link>
-    </div>
+    </Mobile>
   );
 };
