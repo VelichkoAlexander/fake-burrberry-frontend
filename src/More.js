@@ -1,14 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
+import Responsive from 'react-responsive';
+
+const Mobile = ({ children }) =>
+  <Responsive maxWidth={768} children={children} />;
 
 const Section = styled.section`
   padding-right: 1rem;
   padding-left: 1rem;
   margin-bottom: 4rem;
-
-  @media (min-width: 48rem) {
-    display: none;
-  }
 `;
 
 const Title = styled.h2`
@@ -40,11 +40,13 @@ const Link = styled.a`
 
 export default () => {
   return (
-    <Section>
-      <Title>More for you</Title>
-      <Link href="#">Men’s Black Trench Coats</Link>
-      <Link href="#">Men’s Short Trench Coats</Link>
-      <Link href="#">Men’s Long Trench Coats</Link>
-    </Section>
+    <Mobile>
+      <Section>
+        <Title>More for you</Title>
+        <Link href="#">Men’s Black Trench Coats</Link>
+        <Link href="#">Men’s Short Trench Coats</Link>
+        <Link href="#">Men’s Long Trench Coats</Link>
+      </Section>
+    </Mobile>
   );
 };
