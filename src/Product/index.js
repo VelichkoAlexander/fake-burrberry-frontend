@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { Xs } from '../common/responsive';
 
 import Header from './Header';
-import InfoImage from './InfoImage';
+import Image from './InfoImage';
 import InfoBlock from './InfoBlock';
 import Delivery from './Delivery';
 
@@ -18,31 +18,39 @@ const Line = styled.hr`
     display: none;
   }
 `;
+const Wraper = styled.div`
+  .col-lg-4:nth-child(3) img {
+    margin-top: 2rem;
+  }
+  .col-lg-4:nth-child(4) img {
+    margin-top: 6rem;
+  }
+`;
 
 export default () => {
   return (
     <Product>
       <Header />
       <Line />
-      <div className="container">
+      <Wraper className="container">
         <div className="row">
           <div className="col-xs-12 col-sm-12 col-md-12 col-lg-4">
             <InfoBlock title="Description" />
           </div>
           <div className="col-lg-8">
-            <InfoImage nameItem="1" />
+            <Image nameItem="1" />
           </div>
           <div className="col-lg-4">
-            <InfoImage nameItem="2" margin="2" />
+            <Image nameItem="2" />
           </div>
           <div className="col-lg-4">
-            <InfoImage nameItem="3" margin="6" />
+            <Image nameItem="3" />
           </div>
           <div className="col-lg-4">
-            <InfoImage nameItem="4" />
+            <Image nameItem="4" />
           </div>
         </div>
-      </div>
+      </Wraper>
       <Line />
       <div className="container">
         <Xs>

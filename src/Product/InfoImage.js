@@ -4,12 +4,11 @@ import styled from 'styled-components';
 import { Lg } from '../common/responsive';
 
 const Img = styled.img`
-display: block;
-width: 100%;
-height: auto;
-margin-bottom: 4rem;
-margin-top: ${props => (props.margin ? props.margin : '0')}rem;
-}
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-bottom: 4rem;
+  margin-top: ${props => (props.margin ? props.margin : '0')}rem;
 `;
 
 export default props => {

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import SliderItem from './SliderItem';
+import Image from './SliderItem';
 import Info from './Info';
 import Color from './Color';
 import Size from './Size';
@@ -76,7 +76,7 @@ export default () => {
           <div className="col-xs-12 col-sm-7">
             <Lg>
               <Slider className="product-slider">
-                <SliderItem
+                <Image
                   nameItem="front"
                   alt="Long Cotton Gabardine Car Coat - front"
                 />
@@ -84,19 +84,19 @@ export default () => {
             </Lg>
             <Sm>
               <Slider className="product-slider">
-                <SliderItem
+                <Image
                   nameItem="front"
                   alt="Long Cotton Gabardine Car Coat - front"
                 />
-                <SliderItem
+                <Image
                   nameItem="detail1"
                   alt="Long Cotton Gabardine Car Coat - collar detail 1"
                 />
-                <SliderItem
+                <Image
                   nameItem="detail2"
                   alt="Long Cotton Gabardine Car Coat - collar detail 2"
                 />
-                <SliderItem
+                <Image
                   nameItem="back"
                   alt="Long Cotton Gabardine Car Coat - back"
                 />
