@@ -49,7 +49,7 @@ export default () => {
             <Link href="#">The Burberry App</Link>
             <Link href="#">Store Locator</Link>
           </div>
-          <div className="col-sm-3">
+          <div className="col-sm-3 col-md-3">
             <Title>Our company</Title>
             <Link href="#">Our History</Link>
             <Link href="#">Burberry Group Plc</Link>
@@ -57,7 +57,7 @@ export default () => {
             <Link href="#">Corporate Responsibility</Link>
             <Link href="#">Site Map</Link>
           </div>
-          <div className="col-sm-4">
+          <div className="col-sm-4 col-md-3">
             <Title>Legal & cookies</Title>
             <Link href="#">Terms & Conditions</Link>
             <Link href="#">Privacy Policy</Link>

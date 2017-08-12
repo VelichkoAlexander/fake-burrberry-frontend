@@ -16,6 +16,10 @@ const Footer = styled.footer`
   background-color: #f3f3f3;
   display: flex;
   flex-direction: column;
+  @media (min-width: 62em) {
+    padding-top: 4rem;
+    padding-bottom: 0;
+  }
 `;
 
 const Button = styled.button`
@@ -33,12 +37,15 @@ const Button = styled.button`
   &::last-child {
     margin-bottom: 0;
   }
-  @media only screen and (min-width: 768px) {
+  @media (min-width: 48rem) {
     display: inline;
     margin-right: 1.25rem;
     margin-bottom: 2rem;
     line-height: 1rem;
     border: 0;
+  }
+  @media (min-width: 62em) {
+    margin-bottom: 4rem;
   }
 `;
 
