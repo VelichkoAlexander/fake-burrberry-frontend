@@ -1,9 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import Responsive from 'react-responsive';
 
-const Default = ({ children }) =>
-  <Responsive minWidth={768} children={children} />;
+import { Xl } from '../common/responsive';
 
 const Delivery = styled.div`
   margin-bottom: 3rem;
@@ -59,7 +57,7 @@ const Text = styled.div`
 
 export default () => {
   return (
-    <Default>
+    <Xl>
       <Delivery>
         <div className="container">
           <div className="row">
@@ -120,6 +118,6 @@ export default () => {
           </div>
         </div>
       </Delivery>
-    </Default>
+    </Xl>
   );
 };

@@ -38,10 +38,8 @@ export default props => {
   return (
     <Color>
       <Current>
-        {`Colour: `}
-        <Name>
-          {props.currentColor}
-        </Name>
+        Colour:&nbsp;
+        <Name>{props.currentColor}</Name>
       </Current>
       <Options>
         <Button name="black" color="#232122" />
