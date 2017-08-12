@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Xs } from './common/responsive';
+import { XsOnly } from './common/responsive';
 
 const Section = styled.section`
   padding-right: 1rem;
@@ -37,13 +37,13 @@ const Link = styled.a`
 
 export default () => {
   return (
-    <Xs>
+    <XsOnly>
       <Section>
         <Title>More for you</Title>
         <Link href="#">Men’s Black Trench Coats</Link>
         <Link href="#">Men’s Short Trench Coats</Link>
         <Link href="#">Men’s Long Trench Coats</Link>
       </Section>
-    </Xs>
+    </XsOnly>
   );
 };

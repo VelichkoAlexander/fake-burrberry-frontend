@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Xs } from '../common/responsive';
+import { XsOnly } from '../common/responsive';
 
 const Title = styled.h2`
   margin: 0;
@@ -29,9 +29,9 @@ const Link = styled.a`
 
 export default () => {
   return (
-    <Xs>
+    <XsOnly>
       <Title>Need help?</Title>
       <Link href="#">Find out more and contact us</Link>
-    </Xs>
+    </XsOnly>
   );
 };

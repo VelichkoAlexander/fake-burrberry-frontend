@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Lg, Md, Sm, Xs } from '../common/responsive';
+import { Lg, MdOnly, Sm, XsOnly } from '../common/responsive';
 
 const Wrap = styled.div`
   display: flex;
@@ -71,12 +71,12 @@ export default () => {
         </Button>
       </Lg>
       <Button type="button">Find in store</Button>
-      <Md>
+      <MdOnly>
         <Help type="button">Need size help?</Help>
-      </Md>
-      <Xs>
+      </MdOnly>
+      <XsOnly>
         <Help type="button">Need size help?</Help>
-      </Xs>
+      </XsOnly>
     </Wrap>
   );
 };

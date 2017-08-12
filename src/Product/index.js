@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Xs } from '../common/responsive';
+import { XsOnly } from '../common/responsive';
 
 import Header from './Header';
 import Image from './InfoImage';
@@ -53,9 +53,9 @@ export default () => {
       </Wraper>
       <Line />
       <div className="container">
-        <Xs>
+        <XsOnly>
           <InfoBlock title="Delivery" />
-        </Xs>
+        </XsOnly>
       </div>
       <Line />
       <Delivery />
