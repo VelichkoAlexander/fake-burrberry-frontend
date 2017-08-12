@@ -16,7 +16,7 @@ const Footer = styled.footer`
   background-color: #f3f3f3;
   display: flex;
   flex-direction: column;
-  @media (min-width: 62em) {
+  @media (min-width: 62rem) {
     padding-top: 4rem;
     padding-bottom: 0;
   }
@@ -44,7 +44,7 @@ const Button = styled.button`
     line-height: 1rem;
     border: 0;
   }
-  @media (min-width: 62em) {
+  @media (min-width: 62rem) {
     margin-bottom: 4rem;
   }
 `;

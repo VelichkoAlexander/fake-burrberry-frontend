@@ -26,6 +26,11 @@ const Title = styled.h2`
     position: relative;
     margin-bottom: 1rem;
     }
+    @media (min-width: 62rem) {
+      display: block;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
   `;
 
 export default () => {

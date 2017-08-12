@@ -13,6 +13,9 @@ const Img = styled.img`
   width: 100%;
   height: auto;
   margin-bottom: 0.3125rem;
+  @media (min-width: 62rem) {
+    margin-bottom: 1rem;
+  }
 `;
 
 const Title = styled.h3`
@@ -23,9 +26,17 @@ const Title = styled.h3`
   line-height: 1.188rem;
   color: #171717;
   margin-bottom: 0.5625rem;
-  @media only screen and (min-width: 768px) {
+  @media (min-width: 48rem) {
     margin-bottom: 1rem;
     padding-bottom: 9px;
+  }
+  @media (min-width: 62rem) {
+    padding-bottom: 0;
+    margin-bottom: 0.5rem;
+    font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 0.75rem;
+    line-height: 1.25rem;
+    font-weight: 600;
   }
 `;
 
