@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { Xs } from '../common/responsive';
 
 import Header from './Header';
+import InfoImage from './InfoImage';
 import InfoBlock from './InfoBlock';
 import Delivery from './Delivery';
 
@@ -27,6 +28,18 @@ export default () => {
         <div className="row">
           <div className="col-xs-12 col-sm-12 col-md-12 col-lg-4">
             <InfoBlock title="Description" />
+          </div>
+          <div className="col-lg-8">
+            <InfoImage nameItem="1" />
+          </div>
+          <div className="col-lg-4">
+            <InfoImage nameItem="2" margin="2" />
+          </div>
+          <div className="col-lg-4">
+            <InfoImage nameItem="3" margin="6" />
+          </div>
+          <div className="col-lg-4">
+            <InfoImage nameItem="4" />
           </div>
         </div>
       </div>

@@ -58,7 +58,12 @@ const Text = styled.p`
   line-height: 1.33;
 `;
 
-const Wrapper = styled.div`@media (min-width: 62rem) {background: #d4bdad;}`;
+const Wrapper = styled.div`
+  @media (min-width: 62rem) {
+    background: #d4bdad;
+    margin-bottom: 4rem;
+  }
+`;
 
 export default () => {
   return (
@@ -115,12 +120,12 @@ export default () => {
               </Lg>
             </div>
             <Buttons />
-            <Xl>
+            <Lg>
               <Caption>Free Next Day Delivery</Caption>
               <Text>
                 Order before 7pm Monday to Thursday for delivery the next day
               </Text>
-            </Xl>
+            </Lg>
           </div>
         </div>
       </div>

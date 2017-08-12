@@ -1,9 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import Responsive from 'react-responsive';
 
-const Mobile = ({ children }) =>
-  <Responsive maxWidth={992} children={children} />;
+import { Sm } from '../common/responsive';
 
 const Info = styled.div`
   display: flex;
@@ -42,11 +40,11 @@ export default props => {
       <Price>
         {props.price} руб.
       </Price>
-      <Mobile>
+      <Sm>
         <Id>
           Item {props.id}
         </Id>
-      </Mobile>
+      </Sm>
     </Info>
   );
 };
