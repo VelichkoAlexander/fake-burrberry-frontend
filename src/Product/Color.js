@@ -27,11 +27,14 @@ const Options = styled.div`
   border-bottom: solid 0.0625rem #c6c6c6;
 `;
 
+const ColorName = styled.span`font-weight: 700;`;
+
 export default props => {
   return (
     <Color>
       <Current>
-        Colour: {props.currentColor}
+        Colour:
+        <ColorName>{props.currentColor}</ColorName>
       </Current>
       <Options>
         <Button name="black" color="#232122" />
