@@ -1,9 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import Responsive from 'react-responsive';
 
-const Default = ({ children }) =>
-  <Responsive minWidth={768} children={children} />;
+import { Xl } from '../common/responsive';
 
 const Menu = styled.div`@media (min-width: 48rem) {margin-bottom: 1.875rem;}`;
 
@@ -33,7 +31,7 @@ const Title = styled.h2`
 
 export default () => {
   return (
-    <Default>
+    <Xl>
       <Menu>
         <div className="container">
           <div className="row">
@@ -67,6 +65,6 @@ export default () => {
           </div>
         </div>
       </Menu>
-    </Default>
+    </Xl>
   );
 };

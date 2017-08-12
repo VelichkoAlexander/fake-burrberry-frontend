@@ -1,9 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import Responsive from 'react-responsive';
 
-const Mobile = ({ children }) =>
-  <Responsive maxWidth={768} children={children} />;
+import { Xs } from '../common/responsive';
 
 const Title = styled.h2`
   margin: 0;
@@ -31,9 +29,9 @@ const Link = styled.a`
 
 export default () => {
   return (
-    <Mobile>
+    <Xs>
       <Title>Need help?</Title>
       <Link href="#">Find out more and contact us</Link>
-    </Mobile>
+    </Xs>
   );
 };

@@ -1,11 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { Xs } from '../common/responsive';
+
 import Header from './Header';
 import InfoBlock from './InfoBlock';
 import Delivery from './Delivery';
 
 const Product = styled.section`padding-top: 1.5rem;`;
+
 const Line = styled.hr`
   margin: 0;
   border: 0;
@@ -21,13 +24,17 @@ export default () => {
       <Header />
       <Line />
       <div className="container">
-        <div className="col-md-12 col-lg-4">
-          <InfoBlock title="Description" />
+        <div className="row">
+          <div className="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+            <InfoBlock title="Description" />
+          </div>
         </div>
       </div>
       <Line />
       <div className="container">
-        <InfoBlock title="Delivery" hide />
+        <Xs>
+          <InfoBlock title="Delivery" />
+        </Xs>
       </div>
       <Line />
       <Delivery />

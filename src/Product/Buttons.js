@@ -1,11 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import Responsive from 'react-responsive';
 
-const Desktop = ({ children }) =>
-  <Responsive minWidth={992} children={children} />;
-const Mobile = ({ children }) =>
-  <Responsive maxWidth={992} children={children} />;
+import { Lg, Md, Sm, Xs } from '../common/responsive';
 
 const Wrap = styled.div`
   display: flex;
@@ -20,6 +16,7 @@ const Wrap = styled.div`
   @media only screen and (min-width: 62rem) {
     flex-direction: row;
     justify-content: space-between;
+    margin-bottom: 1.5rem;
   }
 `;
 
@@ -43,6 +40,7 @@ const Button = styled.button`
   @media only screen and (min-width: 62rem) {
     flex-basis: calc((100% - 1rem) / 2);
     border-color: #171717;
+    margin-bottom: 0;
   }
 `;
 
@@ -62,20 +60,23 @@ const Help = styled.button`
 export default () => {
   return (
     <Wrap>
-      <Mobile>
+      <Sm>
         <Button type="button" primary>
           Select a size
         </Button>
-      </Mobile>
-      <Desktop>
+      </Sm>
+      <Lg>
         <Button type="button" primary>
           Add to bag
         </Button>
-      </Desktop>
+      </Lg>
       <Button type="button">Find in store</Button>
-      <Mobile>
+      <Md>
         <Help type="button">Need size help?</Help>
-      </Mobile>
+      </Md>
+      <Xs>
+        <Help type="button">Need size help?</Help>
+      </Xs>
     </Wrap>
   );
 };

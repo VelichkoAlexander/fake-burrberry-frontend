@@ -1,5 +1,4 @@
 import React from 'react';
-import Responsive from 'react-responsive';
 import styled from 'styled-components';
 
 import SliderItem from './SliderItem';
@@ -8,10 +7,7 @@ import Color from './Color';
 import Size from './Size';
 import Buttons from './Buttons';
 
-const Default = ({ children }) =>
-  <Responsive minWidth={992} children={children} />;
-const Mobile = ({ children }) =>
-  <Responsive maxWidth={992} children={children} />;
+import { Sm, Lg, Xl } from '../common/responsive';
 
 const Title = styled.h1`
   margin: 0;
@@ -48,6 +44,19 @@ const Slider = styled.div`
     margin: 0;
   }
 `;
+const Caption = styled.h3`
+  margin: 0 0 0.3125rem;
+  font-family: Raleway, sans-serif;
+  font-size: 0.75rem;
+  line-height: 1.1667;
+`;
+
+const Text = styled.p`
+  margin: 0;
+  font-family: Raleway, sans-serif;
+  font-size: 0.75rem;
+  line-height: 1.33;
+`;
 
 const Wrapper = styled.div`@media (min-width: 62rem) {background: #d4bdad;}`;
 
@@ -55,20 +64,20 @@ export default () => {
   return (
     <Wrapper>
       <div className="container">
-        <Mobile>
+        <Sm>
           <Title>Long Cotton Gabardine Car Coat</Title>
-        </Mobile>
+        </Sm>
         <div className="row">
           <div className="col-xs-12 col-sm-7">
-            <Default>
+            <Lg>
               <Slider className="product-slider">
                 <SliderItem
                   nameItem="front"
                   alt="Long Cotton Gabardine Car Coat - front"
                 />
               </Slider>
-            </Default>
-            <Mobile>
+            </Lg>
+            <Sm>
               <Slider className="product-slider">
                 <SliderItem
                   nameItem="front"
@@ -87,25 +96,31 @@ export default () => {
                   alt="Long Cotton Gabardine Car Coat - back"
                 />
               </Slider>
-            </Mobile>
+            </Sm>
           </div>
 
           <div className="col-xs-12 col-sm-5">
-            <Default>
+            <Lg>
               <Title>Long Cotton Gabardine Car Coat Coat Coat Coat Coat</Title>
-            </Default>
+            </Lg>
             <Info price="110 000" id="39428531" />
             <div className="row">
-              <div className="col-md-12 col-lg-6">
+              <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6">
                 <Color currentColor="Honey" />
               </div>
-              <Default>
-                <div className="col-md-12 col-lg-6">
+              <Lg>
+                <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6">
                   <Size />
                 </div>
-              </Default>
+              </Lg>
             </div>
             <Buttons />
+            <Xl>
+              <Caption>Free Next Day Delivery</Caption>
+              <Text>
+                Order before 7pm Monday to Thursday for delivery the next day
+              </Text>
+            </Xl>
           </div>
         </div>
       </div>
