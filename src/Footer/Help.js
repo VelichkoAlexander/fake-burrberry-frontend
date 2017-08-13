@@ -1,8 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { XsOnly } from '../common/responsive';
-
 const Title = styled.h2`
   margin: 0;
   padding: 0;
@@ -29,9 +27,9 @@ const Link = styled.a`
 
 export default () => {
   return (
-    <XsOnly>
+    <div>
       <Title>Need help?</Title>
       <Link href="#">Find out more and contact us</Link>
-    </XsOnly>
+    </div>
   );
 };

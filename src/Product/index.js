@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { XsOnly } from '../common/responsive';
+import { XsOnly, Xl, Lg } from '../common/responsive';
 
 import Header from './Header';
 import Image from './InfoImage';
@@ -38,16 +38,24 @@ export default () => {
             <InfoBlock title="Description" />
           </div>
           <div className="col-lg-8">
-            <Image nameItem="1" />
+            <Lg>
+              <Image nameItem="1" />
+            </Lg>
           </div>
           <div className="col-lg-4">
-            <Image nameItem="2" />
+            <Lg>
+              <Image nameItem="2" />
+            </Lg>
           </div>
           <div className="col-lg-4">
-            <Image nameItem="3" />
+            <Lg>
+              <Image nameItem="3" />
+            </Lg>
           </div>
           <div className="col-lg-4">
-            <Image nameItem="4" />
+            <Lg>
+              <Image nameItem="4" />
+            </Lg>
           </div>
         </div>
       </Wraper>
@@ -58,7 +66,9 @@ export default () => {
         </XsOnly>
       </div>
       <Line />
-      <Delivery />
+      <Xl>
+        <Delivery />
+      </Xl>
     </Product>
   );
 };

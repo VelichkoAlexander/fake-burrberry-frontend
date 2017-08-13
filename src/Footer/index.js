@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { XsOnly } from '../common/responsive';
+
 import Menu from './Menu';
 import Help from './Help';
 
@@ -59,7 +61,9 @@ export default () => {
           <Button type="button">Language: English</Button>
         </div>
       </Links>
-      <Help />
+      <XsOnly>
+        <Help />
+      </XsOnly>
     </Footer>
   );
 };

@@ -1,8 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Xl } from '../common/responsive';
-
 const Delivery = styled.div`
   margin-bottom: 3rem;
   display: none;
@@ -57,67 +55,65 @@ const Text = styled.div`
 
 export default () => {
   return (
-    <Xl>
-      <Delivery>
-        <div className="container">
-          <div className="row">
-            <div className="col-md-7 col-lg-7">
-              <picture>
-                <source
-                  media="(min-width: 62rem)"
-                  srcSet={`${process.env
-                    .PUBLIC_URL}/images/decor/desktop-delivery.jpg 1x,
+    <Delivery>
+      <div className="container">
+        <div className="row">
+          <div className="col-md-7 col-lg-7">
+            <picture>
+              <source
+                media="(min-width: 62rem)"
+                srcSet={`${process.env
+                  .PUBLIC_URL}/images/decor/desktop-delivery.jpg 1x,
                             ${process.env
                               .PUBLIC_URL}/images/decor/desktop-delivery@2x.jpg 2x,
                             ${process.env
                               .PUBLIC_URL}/images/decor/desktop-delivery@3x.jpg 3x`}
-                />
-                <source
-                  media="(min-width: 48rem)"
-                  srcSet={`${process.env
-                    .PUBLIC_URL}/images/decor/tablet-delivery.jpg 1x,
+              />
+              <source
+                media="(min-width: 48rem)"
+                srcSet={`${process.env
+                  .PUBLIC_URL}/images/decor/tablet-delivery.jpg 1x,
                             ${process.env
                               .PUBLIC_URL}/images/decor/tablet-delivery@2x.jpg 2x,
                             ${process.env
                               .PUBLIC_URL}/images/decor/tablet-delivery@3x.jpg 3x`}
-                />
-                <Img
-                  src={`${process.env
-                    .PUBLIC_URL}/images/decor/tablet-delivery.jpg`}
-                  alt="delivery boxes"
-                />
-              </picture>
-            </div>
-            <div className="col-md-5 col-lg-offset-1 col-lg-4">
-              <Title>Delivery</Title>
-              <Feature>
-                <Caption>Free Next Day Delivery</Caption>
-                <Text>
-                  Order before 7pm Monday to Thursday for delivery the next day
-                </Text>
-              </Feature>
-              <Feature>
-                <Caption>Collect-in-Store</Caption>
-                <Text>
-                  Order online today and pick up your items in store as early as
-                  tomorrow
-                </Text>
-              </Feature>
-              <Feature>
-                <Caption>Free Returns</Caption>
-                <Text>Enjoy free returns on your order</Text>
-              </Feature>
-              <Feature>
-                <Caption>Free Gift Packaging</Caption>
-                <Text>
-                  Discover our gift packaging, a gold lined box tied with a
-                  coloured ribbon
-                </Text>
-              </Feature>
-            </div>
+              />
+              <Img
+                src={`${process.env
+                  .PUBLIC_URL}/images/decor/tablet-delivery.jpg`}
+                alt="delivery boxes"
+              />
+            </picture>
+          </div>
+          <div className="col-md-5 col-lg-offset-1 col-lg-4">
+            <Title>Delivery</Title>
+            <Feature>
+              <Caption>Free Next Day Delivery</Caption>
+              <Text>
+                Order before 7pm Monday to Thursday for delivery the next day
+              </Text>
+            </Feature>
+            <Feature>
+              <Caption>Collect-in-Store</Caption>
+              <Text>
+                Order online today and pick up your items in store as early as
+                tomorrow
+              </Text>
+            </Feature>
+            <Feature>
+              <Caption>Free Returns</Caption>
+              <Text>Enjoy free returns on your order</Text>
+            </Feature>
+            <Feature>
+              <Caption>Free Gift Packaging</Caption>
+              <Text>
+                Discover our gift packaging, a gold lined box tied with a
+                coloured ribbon
+              </Text>
+            </Feature>
           </div>
         </div>
-      </Delivery>
-    </Xl>
+      </div>
+    </Delivery>
   );
 };
