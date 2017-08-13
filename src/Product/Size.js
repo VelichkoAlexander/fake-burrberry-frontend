@@ -62,8 +62,7 @@ export default function() {
     <Size>
       <Wrapper>
         <Current>
-          Size:
-          <Name>XL</Name>
+          Size: <Name>XL</Name>
         </Current>
         <Help help type="button">
           Need Size Help?
