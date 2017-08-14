@@ -73,13 +73,14 @@ const Body = styled.div`
 `;
 
 class InfoBlock extends Component {
-  state = { isOpened: false };
-
-  handleClick = () => {
-    this.setState((prevState, props) => {
-      return { isOpened: !prevState.isOpened };
-    });
-  };
+  constructor(props) {
+    super(props);
+    this.state = { isOpened: false };
+    this.handleClick = this.handleClick.bind(this);
+  }
+  handleClick() {
+    this.setState(prevState => ({ isOpened: !prevState.isOpened }));
+  }
 
   render() {
     return (

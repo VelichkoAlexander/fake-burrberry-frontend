@@ -34,17 +34,14 @@ const Id = styled.p`
   color: #171717;
 `;
 
-export default props => {
-  return (
-    <Info>
-      <Price>
-        {props.price} руб.
-      </Price>
-      <Sm>
-        <Id>
-          Item {props.id}
-        </Id>
-      </Sm>
-    </Info>
-  );
-};
+export default props =>
+  <Info>
+    <Price>
+      {props.price} руб.
+    </Price>
+    <Sm>
+      <Id>
+        Item {props.id}
+      </Id>
+    </Sm>
+  </Info>;

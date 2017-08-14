@@ -47,25 +47,22 @@ const Price = styled.h5`
   font-weight: 400;
 `;
 
-export default props => {
-  return (
-    <Link href={props.link}>
-      <Img
-        src={`${process.env
-          .PUBLIC_URL}/images/content/recommend/${props.src}.jpg`}
-        alt={props.title}
+export default props =>
+  <Link href={props.link}>
+    <Img
+      src={`${process.env
+        .PUBLIC_URL}/images/content/recommend/${props.src}.jpg`}
+      alt={props.title}
+    />
+    <Title>
+      {props.title}
+    </Title>
+    <Price>
+      <FormattedNumber
+        value={props.price}
+        style="currency"
+        currency="RUB"
+        minimumFractionDigits={0}
       />
-      <Title>
-        {props.title}
-      </Title>
-      <Price>
-        <FormattedNumber
-          value={props.price}
-          style="currency"
-          currency="RUB"
-          minimumFractionDigits={0}
-        />
-      </Price>
-    </Link>
-  );
-};
+    </Price>
+  </Link>;

@@ -14,10 +14,7 @@ const Button = styled.button`
   border-color: ${props => (props.active ? '#232122' : 'transparent')};
 `;
 
-export default props => {
-  return (
-    <Button type="button" active={props.active} value={props.color}>
-      Color {props.name}
-    </Button>
-  );
-};
+export default props =>
+  <Button type="button" active={props.active} value={props.color}>
+    Color {props.name}
+  </Button>;

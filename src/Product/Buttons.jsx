@@ -57,26 +57,23 @@ const Help = styled.button`
   font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
 `;
 
-export default () => {
-  return (
-    <Wrap>
-      <Sm>
-        <Button type="button" primary>
-          Select a size
-        </Button>
-      </Sm>
-      <Lg>
-        <Button type="button" primary>
-          Add to bag
-        </Button>
-      </Lg>
-      <Button type="button">Find in store</Button>
-      <MdOnly>
-        <Help type="button">Need size help?</Help>
-      </MdOnly>
-      <XsOnly>
-        <Help type="button">Need size help?</Help>
-      </XsOnly>
-    </Wrap>
-  );
-};
+export default () =>
+  <Wrap>
+    <Sm>
+      <Button type="button" primary>
+        Select a size
+      </Button>
+    </Sm>
+    <Lg>
+      <Button type="button" primary>
+        Add to bag
+      </Button>
+    </Lg>
+    <Button type="button">Find in store</Button>
+    <MdOnly>
+      <Help type="button">Need size help?</Help>
+    </MdOnly>
+    <XsOnly>
+      <Help type="button">Need size help?</Help>
+    </XsOnly>
+  </Wrap>;
