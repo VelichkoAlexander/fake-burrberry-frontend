@@ -112,11 +112,11 @@ export default () =>
             <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6">
               <Color currentColor="Honey" />
             </div>
-            <Lg>
-              <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+            <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+              <Lg>
                 <Size />
-              </div>
-            </Lg>
+              </Lg>
+            </div>
           </div>
           <Buttons />
           <Lg>

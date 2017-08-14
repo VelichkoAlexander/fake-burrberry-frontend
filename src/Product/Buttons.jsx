@@ -19,9 +19,16 @@ const Wrap = styled.div`
     margin-bottom: 1.5rem;
   }
 `;
-
+const ButtonContainer = styled.div `
+  flex-basis: calc((100% - 1rem) / 2);
+  & div {
+  width: 100%;
+  }
+  
+`;
 const Button = styled.button`
   display: block;
+  width: 100%;
   padding: 0;
   margin-bottom: 1rem;
   padding-top: 1rem;
@@ -64,11 +71,13 @@ export default () =>
         Select a size
       </Button>
     </Sm>
-    <Lg>
-      <Button type="button" primary>
+    <ButtonContainer>
+      <Lg>
+        <Button type="button" primary>
         Add to bag
-      </Button>
-    </Lg>
+        </Button>
+      </Lg>
+    </ButtonContainer>
     <Button type="button">Find in store</Button>
     <MdOnly>
       <Help type="button">Need size help?</Help>
