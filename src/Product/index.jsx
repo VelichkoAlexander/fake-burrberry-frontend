@@ -28,7 +28,7 @@ const Wraper = styled.div`
 `;
 
 export default () =>
-  <Product>
+  (<Product>
     <Header />
     <Line />
     <Wraper className="container">
@@ -68,4 +68,4 @@ export default () =>
     <Xl>
       <Delivery />
     </Xl>
-  </Product>;
+  </Product>);

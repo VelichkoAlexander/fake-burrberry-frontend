@@ -26,7 +26,7 @@ const Link = styled.a`
 `;
 
 export default () =>
-  <div>
+  (<div>
     <Title>Need help?</Title>
     <Link href="#">Find out more and contact us</Link>
-  </div>;
+  </div>);

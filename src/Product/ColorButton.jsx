@@ -15,6 +15,6 @@ const Button = styled.button`
 `;
 
 export default props =>
-  <Button type="button" active={props.active} value={props.color}>
+  (<Button type="button" active={props.active} value={props.color}>
     Color {props.name}
-  </Button>;
+  </Button>);

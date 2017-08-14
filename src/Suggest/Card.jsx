@@ -1,3 +1,5 @@
+/* eslint-disable react/style-prop-object */
+
 import React from 'react';
 import styled from 'styled-components';
 import { FormattedNumber } from 'react-intl';
@@ -48,7 +50,7 @@ const Price = styled.h5`
 `;
 
 export default props =>
-  <Link href={props.link}>
+  (<Link href={props.link}>
     <Img
       src={`${process.env
         .PUBLIC_URL}/images/content/recommend/${props.src}.jpg`}
@@ -65,4 +67,4 @@ export default props =>
         minimumFractionDigits={0}
       />
     </Price>
-  </Link>;
+  </Link>);

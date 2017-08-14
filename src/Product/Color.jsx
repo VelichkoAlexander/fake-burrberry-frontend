@@ -35,7 +35,7 @@ const Options = styled.div`
 const Name = styled.span`font-weight: 700;`;
 
 export default props =>
-  <Color>
+  (<Color>
     <Current>
       Colour: <Name>{props.currentColor}</Name>
     </Current>
@@ -43,4 +43,4 @@ export default props =>
       <Button name="black" color="#232122" />
       <Button name="honey" color="#cfa880" active />
     </Options>
-  </Color>;
+  </Color>);

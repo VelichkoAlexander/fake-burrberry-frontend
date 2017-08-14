@@ -66,7 +66,7 @@ const Wrapper = styled.div`
 `;
 
 export default () =>
-  <Wrapper>
+  (<Wrapper>
     <div className="container">
       <Sm>
         <Title>Long Cotton Gabardine Car Coat</Title>
@@ -128,4 +128,4 @@ export default () =>
         </div>
       </div>
     </div>
-  </Wrapper>;
+  </Wrapper>);

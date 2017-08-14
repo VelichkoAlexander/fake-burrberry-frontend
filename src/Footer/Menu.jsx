@@ -30,7 +30,7 @@ const Title = styled.h2`
 `;
 
 export default () =>
-  <Xl>
+  (<Xl>
     <Menu>
       <div className="container">
         <div className="row">
@@ -64,4 +64,4 @@ export default () =>
         </div>
       </div>
     </Menu>
-  </Xl>;
+  </Xl>);

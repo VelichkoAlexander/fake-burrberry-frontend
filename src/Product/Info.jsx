@@ -35,7 +35,7 @@ const Id = styled.p`
 `;
 
 export default props =>
-  <Info>
+  (<Info>
     <Price>
       {props.price} руб.
     </Price>
@@ -44,4 +44,4 @@ export default props =>
         Item {props.id}
       </Id>
     </Sm>
-  </Info>;
+  </Info>);

@@ -52,7 +52,7 @@ const Button = styled.button`
 `;
 
 export default () =>
-  <Footer>
+  (<Footer>
     <Menu />
     <Links>
       <div className="container">
@@ -63,4 +63,4 @@ export default () =>
     <XsOnly>
       <Help />
     </XsOnly>
-  </Footer>;
+  </Footer>);

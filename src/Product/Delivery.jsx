@@ -54,7 +54,7 @@ const Text = styled.div`
 `;
 
 export default () =>
-  <Delivery>
+  (<Delivery>
     <div className="container">
       <div className="row">
         <div className="col-md-7 col-lg-7">
@@ -64,18 +64,18 @@ export default () =>
               srcSet={`${process.env
                 .PUBLIC_URL}/images/decor/desktop-delivery.jpg 1x,
                             ${process.env
-                              .PUBLIC_URL}/images/decor/desktop-delivery@2x.jpg 2x,
+      .PUBLIC_URL}/images/decor/desktop-delivery@2x.jpg 2x,
                             ${process.env
-                              .PUBLIC_URL}/images/decor/desktop-delivery@3x.jpg 3x`}
+      .PUBLIC_URL}/images/decor/desktop-delivery@3x.jpg 3x`}
             />
             <source
               media="(min-width: 48rem)"
               srcSet={`${process.env
                 .PUBLIC_URL}/images/decor/tablet-delivery.jpg 1x,
                             ${process.env
-                              .PUBLIC_URL}/images/decor/tablet-delivery@2x.jpg 2x,
+      .PUBLIC_URL}/images/decor/tablet-delivery@2x.jpg 2x,
                             ${process.env
-                              .PUBLIC_URL}/images/decor/tablet-delivery@3x.jpg 3x`}
+      .PUBLIC_URL}/images/decor/tablet-delivery@3x.jpg 3x`}
             />
             <Img
               src={`${process.env.PUBLIC_URL}/images/decor/tablet-delivery.jpg`}
@@ -112,4 +112,4 @@ export default () =>
         </div>
       </div>
     </div>
-  </Delivery>;
+  </Delivery>);

@@ -58,7 +58,7 @@ const Help = styled.button`
 `;
 
 export default () =>
-  <Wrap>
+  (<Wrap>
     <Sm>
       <Button type="button" primary>
         Select a size
@@ -76,4 +76,4 @@ export default () =>
     <XsOnly>
       <Help type="button">Need size help?</Help>
     </XsOnly>
-  </Wrap>;
+  </Wrap>);
