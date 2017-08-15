@@ -9,7 +9,7 @@ const Img = styled.img`
   margin-bottom: 4rem;
 `;
 
-export default function infoImage(props) {
+export default function InfoImage(props) {
   return (<picture>
     <source
       media="(min-width: 62rem)"
@@ -27,10 +27,10 @@ export default function infoImage(props) {
   </picture>);
 }
 
-infoImage.propTypes = {
+InfoImage.propTypes = {
   nameItem: PropTypes.string,
 };
 
-infoImage.defaultProps = {
+InfoImage.defaultProps = {
   nameItem: '2',
 };

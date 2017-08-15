@@ -50,7 +50,7 @@ const Price = styled.h5`
   font-weight: 400;
 `;
 
-export default function card(props) {
+export default function Card(props) {
   return (<Link href={props.link}>
     <Img
       src={`${process.env
@@ -71,14 +71,14 @@ export default function card(props) {
   </Link>);
 }
 
-card.propTypes = {
+Card.propTypes = {
   link: PropTypes.string,
   src: PropTypes.string,
   title: PropTypes.string,
   price: PropTypes.number,
 };
 
-card.defaultProps = {
+Card.defaultProps = {
   link: '',
   src: '',
   title: 'title',

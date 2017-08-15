@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 import Button from './ColorButton';
 
-const Color = styled.div`
+const Wrapper = styled.div`
   margin-left: 0.5rem;
   margin-right: 0.5rem;
   @media (min-width: 48rem) {
@@ -35,8 +35,8 @@ const Options = styled.div`
 
 const Name = styled.span`font-weight: 700;`;
 
-export default function color(props) {
-  return (<Color>
+export default function Color(props) {
+  return (<Wrapper>
     <Current>
       Colour: <Name>{props.currentColor}</Name>
     </Current>
@@ -44,11 +44,11 @@ export default function color(props) {
       <Button name="black" color="#232122" />
       <Button name="honey" color="#cfa880" active />
     </Options>
-  </Color>);
+  </Wrapper>);
 }
-color.propTypes = {
+Color.propTypes = {
   currentColor: PropTypes.string,
 };
-color.defaultProps = {
+Color.defaultProps = {
   currentColor: 'Honey',
 };

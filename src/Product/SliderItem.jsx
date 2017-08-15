@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 const Img = styled.img`display: block;`;
 
-export default function image(props) {
+export default function SliderItem(props) {
   return (<picture>
     <source
       media="(min-width: 62rem)"
@@ -41,12 +41,12 @@ export default function image(props) {
   </picture>);
 }
 
-image.propTypes = {
+SliderItem.propTypes = {
   nameItem: PropTypes.string,
   alt: PropTypes.string,
 };
 
-image.defaultProps = {
+SliderItem.defaultProps = {
   nameItem: '2',
   alt: '',
 };

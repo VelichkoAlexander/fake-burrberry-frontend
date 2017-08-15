@@ -7,7 +7,7 @@ import { FormattedNumber } from 'react-intl';
 
 import { Sm } from '../common/responsive';
 
-const Info = styled.div`
+const Wraper = styled.div`
   display: flex;
   justify-content: space-between;
   padding-top: 1rem;
@@ -38,8 +38,8 @@ const Id = styled.p`
   color: #171717;
 `;
 
-export default function info(props) {
-  return (<Info>
+export default function Info(props) {
+  return (<Wraper>
     <Price>
       <FormattedNumber
         value={props.price}
@@ -53,15 +53,15 @@ export default function info(props) {
         Item {props.id}
       </Id>
     </Sm>
-  </Info>);
+  </Wraper>);
 }
-info.propTypes = {
+Info.propTypes = {
   price: PropTypes.number,
   id: PropTypes.number,
 
 };
 
-info.defaultProps = {
+Info.defaultProps = {
   price: 0,
   id: 1,
 
