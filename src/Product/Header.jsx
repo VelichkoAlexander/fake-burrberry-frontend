@@ -107,7 +107,7 @@ export default () =>
           <Lg>
             <Title>Long Cotton Gabardine Car Coat Coat Coat Coat Coat</Title>
           </Lg>
-          <Info price="110 000" id="39428531" />
+          <Info price={110000} id={39428531} />
           <div className="row">
             <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6">
               <Color currentColor="Honey" />

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import Button from './ColorButton';
@@ -34,8 +35,8 @@ const Options = styled.div`
 
 const Name = styled.span`font-weight: 700;`;
 
-export default props =>
-  (<Color>
+export default function color(props) {
+  return (<Color>
     <Current>
       Colour: <Name>{props.currentColor}</Name>
     </Current>
@@ -44,3 +45,10 @@ export default props =>
       <Button name="honey" color="#cfa880" active />
     </Options>
   </Color>);
+}
+color.propTypes = {
+  currentColor: PropTypes.string,
+};
+color.defaultProps = {
+  currentColor: 'Honey',
+};

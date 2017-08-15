@@ -1,10 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const Img = styled.img`display: block;`;
 
-export default props =>
-  (<picture>
+export default function image(props) {
+  return (<picture>
     <source
       media="(min-width: 62rem)"
       srcSet={`${process.env
@@ -38,3 +39,14 @@ export default props =>
       alt={props.alt}
     />
   </picture>);
+}
+
+image.propTypes = {
+  nameItem: PropTypes.string,
+  alt: PropTypes.string,
+};
+
+image.defaultProps = {
+  nameItem: '2',
+  alt: '',
+};

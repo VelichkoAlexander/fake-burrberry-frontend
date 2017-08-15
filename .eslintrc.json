@@ -6,10 +6,8 @@
     "import"
   ],
   "env": {
-    "browser": true
-  },
-  "rules": {
-    "react/prop-types": 0,
-    "global-require": 0
+    "browser": true,
+    "node": true,
+    "mocha": true
   }
 }

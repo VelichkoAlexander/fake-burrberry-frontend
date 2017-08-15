@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const Img = styled.img`
@@ -6,11 +7,10 @@ const Img = styled.img`
   width: 100%;
   height: auto;
   margin-bottom: 4rem;
-  margin-top: ${props => (props.margin ? props.margin : '0')}rem;
 `;
 
-export default props =>
-  (<picture>
+export default function infoImage(props) {
+  return (<picture>
     <source
       media="(min-width: 62rem)"
       srcSet={`${process.env
@@ -21,8 +21,16 @@ export default props =>
       .PUBLIC_URL}/images/content/product/desktop/${props.nameItem}.jpg@3x.jpg 3x`}
     />
     <Img
-      margin={props.margin}
       src={`${process.env
         .PUBLIC_URL}/images/content/product/desktop/${props.nameItem}.jpg`}
     />
   </picture>);
+}
+
+infoImage.propTypes = {
+  nameItem: PropTypes.string,
+};
+
+infoImage.defaultProps = {
+  nameItem: '2',
+};

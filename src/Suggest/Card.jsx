@@ -2,6 +2,7 @@
 
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import { FormattedNumber } from 'react-intl';
 
 const Link = styled.a`
@@ -49,8 +50,8 @@ const Price = styled.h5`
   font-weight: 400;
 `;
 
-export default props =>
-  (<Link href={props.link}>
+export default function card(props) {
+  return (<Link href={props.link}>
     <Img
       src={`${process.env
         .PUBLIC_URL}/images/content/recommend/${props.src}.jpg`}
@@ -68,3 +69,18 @@ export default props =>
       />
     </Price>
   </Link>);
+}
+
+card.propTypes = {
+  link: PropTypes.string,
+  src: PropTypes.string,
+  title: PropTypes.string,
+  price: PropTypes.number,
+};
+
+card.defaultProps = {
+  link: '',
+  src: '',
+  title: 'title',
+  price: 0,
+};

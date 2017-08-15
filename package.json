@@ -13,6 +13,7 @@
     "lint-staged": "^4.0.3",
     "normalize.css": "^7.0.0",
     "prettier": "^1.5.3",
+    "prop-types": "^15.5.10",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-helmet": "^5.1.3",

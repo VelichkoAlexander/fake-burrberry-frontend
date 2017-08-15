@@ -1,5 +1,3 @@
-/* eslint-disable react/jsx-filename-extension */
-
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import ruLocaleData from 'react-intl/locale-data/ru';

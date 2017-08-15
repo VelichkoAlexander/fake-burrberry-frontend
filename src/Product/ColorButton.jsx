@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const Button = styled.button`
@@ -14,7 +15,21 @@ const Button = styled.button`
   border-color: ${props => (props.active ? '#232122' : 'transparent')};
 `;
 
-export default props =>
-  (<Button type="button" active={props.active} value={props.color}>
+export default function ColorButton(props) {
+  return (<Button type="button" active={props.active} value={props.color}>
     Color {props.name}
   </Button>);
+}
+
+ColorButton.propTypes = {
+  active: PropTypes.bool,
+  name: PropTypes.string,
+  color: PropTypes.string,
+};
+
+ColorButton.defaultProps = {
+  active: false,
+  name: 'black',
+  color: '#232122',
+};
+

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import triangle from '../images/triangle-down.svg';
@@ -124,5 +125,14 @@ class InfoBlock extends Component {
     );
   }
 }
+InfoBlock.propTypes = {
+  title: PropTypes.string,
+  hide: PropTypes.bool,
+};
+
+InfoBlock.defaultProps = {
+  title: 'Description',
+  hide: false,
+};
 
 export default InfoBlock;
