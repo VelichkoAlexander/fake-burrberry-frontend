@@ -1,9 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
+
 import { XsOnly, Xl, Lg } from '../common/responsive';
 
 import Header from './Header';
+import Menu from '../common//Menu';
 import Image from './InfoImage';
 import InfoBlock from './InfoBlock';
 import Delivery from './Delivery';
@@ -11,7 +13,6 @@ import Suggest from '../Suggest';
 import More from './More';
 
 const Product = styled.section`
-    border-top: solid 0.0625rem #c6c6c6;
     padding-top: 1.5rem;
 `;
 
@@ -35,7 +36,9 @@ const Wraper = styled.div`
 export default () =>
   (<Product>
     <Header />
-    <Line />
+    <Xl>
+      <Menu />
+    </Xl>
     <Wraper className="container">
       <div className="row">
         <div className="col-xs-12 col-sm-12 col-md-12 col-lg-4">

@@ -117,7 +117,7 @@ class Card extends Component {
               srcSet={`${this.state.src}.jpg${imageXs} 1x`}
             />
             <Img
-              src={`${this.state.src}.jpg${imageXs}`}
+              src={`${this.state.src}.jpg${imageLg}`}
               alt={this.props.title}
             />
           </picture>

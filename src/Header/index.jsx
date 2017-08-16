@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { XsOnly, MdOnly } from '../common/responsive';
+import { XsOnly, Xl } from '../common/responsive';
 
 import logo from '../images/logo.svg';
 import hamburger from '../images/hamburger.svg';
@@ -80,9 +80,9 @@ export default () =>
     <XsOnly>
       <Hamburger type="button" />
     </XsOnly>
-    <MdOnly>
+    <Xl>
       <Country>Shopping in: United Kingdom (£)</Country>
-    </MdOnly>
+    </Xl>
     <Wrapper href="/">
       <Logo src={logo} alt="logo" />
     </Wrapper>
