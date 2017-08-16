@@ -35,15 +35,12 @@ const Link = styled.a`
   }
 `;
 
-export default () => {
-  return (
-    <XsOnly>
-      <Section>
-        <Title>More for you</Title>
-        <Link href="#">Men’s Black Trench Coats</Link>
-        <Link href="#">Men’s Short Trench Coats</Link>
-        <Link href="#">Men’s Long Trench Coats</Link>
-      </Section>
-    </XsOnly>
-  );
-};
+export default () =>
+  (<XsOnly>
+    <Section>
+      <Title>More for you</Title>
+      <Link href="#">Men’s Black Trench Coats</Link>
+      <Link href="#">Men’s Short Trench Coats</Link>
+      <Link href="#">Men’s Long Trench Coats</Link>
+    </Section>
+  </XsOnly>);

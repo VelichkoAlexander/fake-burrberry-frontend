@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import triangle from '../images/triangle-down.svg';
@@ -73,13 +74,14 @@ const Body = styled.div`
 `;
 
 class InfoBlock extends Component {
-  state = { isOpened: false };
-
-  handleClick = () => {
-    this.setState((prevState, props) => {
-      return { isOpened: !prevState.isOpened };
-    });
-  };
+  constructor(props) {
+    super(props);
+    this.state = { isOpened: false };
+    this.handleClick = this.handleClick.bind(this);
+  }
+  handleClick() {
+    this.setState(prevState => ({ isOpened: !prevState.isOpened }));
+  }
 
   render() {
     return (
@@ -123,5 +125,14 @@ class InfoBlock extends Component {
     );
   }
 }
+InfoBlock.propTypes = {
+  title: PropTypes.string,
+  hide: PropTypes.bool,
+};
+
+InfoBlock.defaultProps = {
+  title: 'Description',
+  hide: false,
+};
 
 export default InfoBlock;

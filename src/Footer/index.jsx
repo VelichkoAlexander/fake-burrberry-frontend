@@ -51,19 +51,16 @@ const Button = styled.button`
   }
 `;
 
-export default () => {
-  return (
-    <Footer>
-      <Menu />
-      <Links>
-        <div className="container">
-          <Button type="button">Shipping country: Russian Federation</Button>
-          <Button type="button">Language: English</Button>
-        </div>
-      </Links>
-      <XsOnly>
-        <Help />
-      </XsOnly>
-    </Footer>
-  );
-};
+export default () =>
+  (<Footer>
+    <Menu />
+    <Links>
+      <div className="container">
+        <Button type="button">Shipping country: Russian Federation</Button>
+        <Button type="button">Language: English</Button>
+      </div>
+    </Links>
+    <XsOnly>
+      <Help />
+    </XsOnly>
+  </Footer>);

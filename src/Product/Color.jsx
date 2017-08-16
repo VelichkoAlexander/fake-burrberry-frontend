@@ -1,9 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import Button from './ColorButton';
 
-const Color = styled.div`
+const Wrapper = styled.div`
   margin-left: 0.5rem;
   margin-right: 0.5rem;
   @media (min-width: 48rem) {
@@ -34,16 +35,20 @@ const Options = styled.div`
 
 const Name = styled.span`font-weight: 700;`;
 
-export default props => {
-  return (
-    <Color>
-      <Current>
-        Colour: <Name>{props.currentColor}</Name>
-      </Current>
-      <Options>
-        <Button name="black" color="#232122" />
-        <Button name="honey" color="#cfa880" active />
-      </Options>
-    </Color>
-  );
+export default function Color(props) {
+  return (<Wrapper>
+    <Current>
+      Colour: <Name>{props.currentColor}</Name>
+    </Current>
+    <Options>
+      <Button name="black" color="#232122" />
+      <Button name="honey" color="#cfa880" active />
+    </Options>
+  </Wrapper>);
+}
+Color.propTypes = {
+  currentColor: PropTypes.string,
+};
+Color.defaultProps = {
+  currentColor: 'Honey',
 };

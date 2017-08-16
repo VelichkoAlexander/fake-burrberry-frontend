@@ -1,5 +1,8 @@
+/* eslint-disable react/style-prop-object */
+
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import { FormattedNumber } from 'react-intl';
 
 const Link = styled.a`
@@ -47,25 +50,37 @@ const Price = styled.h5`
   font-weight: 400;
 `;
 
-export default props => {
-  return (
-    <Link href={props.link}>
-      <Img
-        src={`${process.env
-          .PUBLIC_URL}/images/content/recommend/${props.src}.jpg`}
-        alt={props.title}
+export default function Card(props) {
+  return (<Link href={props.link}>
+    <Img
+      src={`${process.env
+        .PUBLIC_URL}/images/content/recommend/${props.src}.jpg`}
+      alt={props.title}
+    />
+    <Title>
+      {props.title}
+    </Title>
+    <Price>
+      <FormattedNumber
+        value={props.price}
+        style="currency"
+        currency="RUB"
+        minimumFractionDigits={0}
       />
-      <Title>
-        {props.title}
-      </Title>
-      <Price>
-        <FormattedNumber
-          value={props.price}
-          style="currency"
-          currency="RUB"
-          minimumFractionDigits={0}
-        />
-      </Price>
-    </Link>
-  );
+    </Price>
+  </Link>);
+}
+
+Card.propTypes = {
+  link: PropTypes.string,
+  src: PropTypes.string,
+  title: PropTypes.string,
+  price: PropTypes.number,
+};
+
+Card.defaultProps = {
+  link: '',
+  src: '',
+  title: 'title',
+  price: 0,
 };

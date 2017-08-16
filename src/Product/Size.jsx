@@ -57,7 +57,7 @@ const Size = styled.div``;
 
 const Name = styled.span`font-weight: 700;`;
 
-export default function() {
+export default function () {
   return (
     <Size>
       <Wrapper>

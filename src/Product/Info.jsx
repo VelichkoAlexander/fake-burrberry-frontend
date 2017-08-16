@@ -1,9 +1,13 @@
+/* eslint-disable react/style-prop-object */
+
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { FormattedNumber } from 'react-intl';
 
 import { Sm } from '../common/responsive';
 
-const Info = styled.div`
+const Wraper = styled.div`
   display: flex;
   justify-content: space-between;
   padding-top: 1rem;
@@ -34,17 +38,31 @@ const Id = styled.p`
   color: #171717;
 `;
 
-export default props => {
-  return (
-    <Info>
-      <Price>
-        {props.price} руб.
-      </Price>
-      <Sm>
-        <Id>
-          Item {props.id}
-        </Id>
-      </Sm>
-    </Info>
-  );
+export default function Info(props) {
+  return (<Wraper>
+    <Price>
+      <FormattedNumber
+        value={props.price}
+        style="currency"
+        currency="RUB"
+        minimumFractionDigits={0}
+      />
+    </Price>
+    <Sm>
+      <Id>
+        Item {props.id}
+      </Id>
+    </Sm>
+  </Wraper>);
+}
+Info.propTypes = {
+  price: PropTypes.number,
+  id: PropTypes.number,
+
+};
+
+Info.defaultProps = {
+  price: 0,
+  id: 1,
+
 };

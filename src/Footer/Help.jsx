@@ -25,11 +25,8 @@ const Link = styled.a`
   text-align: center;
 `;
 
-export default () => {
-  return (
-    <div>
-      <Title>Need help?</Title>
-      <Link href="#">Find out more and contact us</Link>
-    </div>
-  );
-};
+export default () =>
+  (<div>
+    <Title>Need help?</Title>
+    <Link href="#">Find out more and contact us</Link>
+  </div>);
