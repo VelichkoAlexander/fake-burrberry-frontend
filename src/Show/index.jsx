@@ -7,8 +7,13 @@ import Header from './Header';
 import Image from './InfoImage';
 import InfoBlock from './InfoBlock';
 import Delivery from './Delivery';
+import Suggest from '../Suggest';
+import More from './More';
 
-const Product = styled.section`padding-top: 1.5rem;`;
+const Product = styled.section`
+    border-top: solid 0.0625rem #c6c6c6;
+    padding-top: 1.5rem;
+`;
 
 const Line = styled.hr`
   margin: 0;
@@ -68,4 +73,6 @@ export default () =>
     <Xl>
       <Delivery />
     </Xl>
+    <Suggest />
+    <More />
   </Product>);

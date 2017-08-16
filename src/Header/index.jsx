@@ -11,7 +11,6 @@ const Header = styled.header`
   padding-bottom: 1.125rem;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
-  border-bottom: solid 0.0625rem #c6c6c6;
   @media (min-width: 48rem) {
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
