@@ -55,7 +55,7 @@ export default () =>
         <a href="/sweatshirts">sweatshirts</a>, artist overalls and oversized
         cabans feature alongside our signature trench coat in both heritage and
         seasonal…<MdOnly>
-          <More>More</More>
+          <More href="/products">More</More>
         </MdOnly>
       </Content>
       <Menu />

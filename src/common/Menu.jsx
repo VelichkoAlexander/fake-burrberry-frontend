@@ -25,11 +25,11 @@ export default function Menu() {
   return (
     <Wraper>
       <Inner>
-        <Link href="#">Women</Link>
-        <Link active href="#">Men</Link>
-        <Link href="#">Children</Link>
-        <Link href="#">Beauty</Link>
-        <Link href="#">Experience</Link>
+        <Link href="/products">Women</Link>
+        <Link active href="/products">Men</Link>
+        <Link href="/products">Children</Link>
+        <Link href="/products">Beauty</Link>
+        <Link href="/products">Experience</Link>
       </Inner>
     </Wraper>
   );
