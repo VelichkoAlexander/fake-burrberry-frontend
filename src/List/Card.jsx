@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import { FormattedNumber } from 'react-intl';
 
 import hart from '../images/hart.svg';
+import hartBlack from '../images/hart_black.svg';
 import { imageUrl, imageLg, imageMd, imageXs } from '../common/imageResponsive';
 
 const Wraper = styled.div`
@@ -44,7 +45,13 @@ const Favourite = styled.button`
     border: none;
     width: 0.875rem;
     height: 0.875rem;
-    background: url(${hart}) center no-repeat;
+    cursor: pointer;
+    background: url(${props => (props.fill ? `${hartBlack}` : `${hart}`)
+}
+  )
+  center no-repeat
+
+  ;
 `;
 
 const Title = styled.a`
@@ -76,16 +83,26 @@ const ColorLink = styled.a`
 class Card extends Component {
   constructor(props) {
     super(props);
-    this.state = { src: `${imageUrl}${props.src}` };
-    this.Hover = this.Hover.bind(this);
+    this.state = {
+      src: `${imageUrl}${props.src}`,
+      favourite: false,
+    };
+    this.handleHover = this.handleHover.bind(this);
+    this.handleFavourite = this.handleFavourite.bind(this);
   }
-  Hover() {
+
+  handleHover() {
     this.setState(() => ({ src: (this.state.src === `${imageUrl}${this.props.src2}`) ? `${imageUrl}${this.props.src}` : `${imageUrl}${this.props.src2}` }));
   }
+
+  handleFavourite() {
+    this.setState(() => ({ favourite: !this.state.favourite }));
+  }
+
   render() {
     return (
       <Wraper>
-        <Link href={`/products/${this.props.id}`} onMouseOver={this.Hover} onMouseOut={this.Hover}>
+        <Link href={`/products/${this.props.id}`} onMouseOver={this.handleHover} onMouseOut={this.handleHover}>
           <picture>
             <source
               media="(min-width: 62rem)"
@@ -109,7 +126,12 @@ class Card extends Component {
           <Type>
             {this.props.type}
           </Type>
-          <Favourite>Favourite</Favourite>
+          <Favourite
+            onClick={this.handleFavourite}
+            fill={this.state.favourite}
+          >
+            Favourite
+          </Favourite>
         </Inner>
         <Title href={`/products/${this.props.id}`}>
           {this.props.title}
