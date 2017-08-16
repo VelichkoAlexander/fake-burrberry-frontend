@@ -31,32 +31,36 @@ export default () =>
       <div className="row">
         <div className="col-xs-6 col-md-3">
           <Card
-            link="/products/1"
-            src="61209850e00103530a1f7fcc7253515330cfaea8"
+            id={1}
+            src="995466e7e1113f3b2f6484ceb090072e1c9062dc"
+            src2="61209850e00103530a1f7fcc7253515330cfaea8"
             title="The Westminster – Long Heritage Trench Coat"
             price={27000}
           />
         </div>
         <div className="col-xs-6 col-md-3">
           <Card
-            link="/products/1"
-            src="61209850e00103530a1f7fcc7253515330cfaea8"
+            id={2}
+            src="995466e7e1113f3b2f6484ceb090072e1c9062dc"
+            src2="61209850e00103530a1f7fcc7253515330cfaea8"
             title="The Westminster – Long Heritage Trench Coat"
             price={27000}
           />
         </div>
         <div className="col-xs-6 col-md-3">
           <Card
-            link="/products/1"
-            src="https://assets.burberry.com/is/image/Burberryltd/61209850e00103530a1f7fcc7253515330cfaea8.jpg"
+            id={3}
+            src="995466e7e1113f3b2f6484ceb090072e1c9062dc"
+            src2="61209850e00103530a1f7fcc7253515330cfaea8"
             title="The Westminster – Long Heritage Trench Coat"
             price={27000}
           />
         </div>
         <div className="col-xs-6 col-md-3">
           <Card
-            link="/products/1"
-            src="https://assets.burberry.com/is/image/Burberryltd/61209850e00103530a1f7fcc7253515330cfaea8.jpg"
+            id={4}
+            src="995466e7e1113f3b2f6484ceb090072e1c9062dc"
+            src2="61209850e00103530a1f7fcc7253515330cfaea8"
             title="The Westminster – Long Heritage Trench Coat"
             price={27000}
           />

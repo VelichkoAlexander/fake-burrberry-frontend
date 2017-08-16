@@ -1,6 +1,6 @@
 /* eslint-disable react/style-prop-object */
 
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { FormattedNumber } from 'react-intl';
@@ -9,120 +9,132 @@ import hart from '../images/hart.svg';
 import { imageUrl, imageLg, imageMd, imageXs } from '../common/imageResponsive';
 
 const Wraper = styled.div`
-  margin-bottom: 2rem;
-  font-size: 0.75rem;
-  line-height: 1rem;
+    margin-bottom: 2rem;
+    font-size: 0.75rem;
+    line-height: 1rem;
 `;
 
 const Link = styled.a`
     display: block;
     margin-bottom: 1rem;
-  @media (min-width: 48rem) {
 `;
 
 const Img = styled.img`
-  width: 100%;
-  height: auto;
-  display: block;
+    width: 100%;
+    height: auto;
+    display: block;
 `;
 
 const Inner = styled.div`
-  display: flex;
-  margin-bottom: 0.5rem;
-  justify-content: space-between;
-  align-items: center;
+    display: flex;
+    margin-bottom: 0.5rem;
+    justify-content: space-between;
+    align-items: center;
 `;
 
 const Type = styled.div`
-  font-size: 0.75rem;
-  line-height: 1rem;
+    font-size: 0.75rem;
+    line-height: 1rem;
 `;
 
 const Favourite = styled.button`
-  padding: 0;
-  font-size: 0;
-  background-color: transparent;
-  border: none;
-  width: 0.875rem;
-  height: 0.875rem;
-  background: url(${hart}) center no-repeat;
+    padding: 0;
+    font-size: 0;
+    background-color: transparent;
+    border: none;
+    width: 0.875rem;
+    height: 0.875rem;
+    background: url(${hart}) center no-repeat;
 `;
 
-const Title = styled.h3`
-  margin: 0;
-  padding-bottom: 0.5rem;
-  font-size: 0.75rem;
-  line-height: 1rem;
-  font-weight: 600;
-  color: #171717;
-  @media (min-width: 48rem) {
-    font-size: 0.875rem;
-    line-height: 1.25rem;
-  }
-  @media (min-width: 62rem) {
-    font-size: 1.5rem;
-    line-height: 1.5rem;
-  }
+const Title = styled.a`
+    margin: 0;
+    padding-bottom: 0.5rem;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    text-decoration: none;
+    font-weight: 600;
+    color: #171717;
+    @media (min-width: 48rem) {
+      font-size: 0.875rem;
+      line-height: 1.25rem;
+    }
+
+    @media (min-width: 62rem) {
+      font-size: 1rem;
+      line-height: 1.25rem;
+    }
 `;
 
 const Price = styled.div`margin-bottom: 1rem;`;
 const Availability = styled.div`margin-bottom: 0.3125rem;`;
 const ColorLink = styled.a`
-  color: #171717;
-  line-height: 1rem;
+    color: #171717;
+    line-height: 1rem;
 `;
 
-export default function Card(props) {
-  return (
-    <Wraper>
-      <Link href={props.link}>
-        <picture>
-          <source
-            media="(min-width: 62rem)"
-            srcSet={`${imageUrl}${props.src}.jpg${imageLg} 1x`}
+class Card extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { src: `${imageUrl}${props.src}` };
+    this.Hover = this.Hover.bind(this);
+  }
+  Hover() {
+    this.setState(() => ({ src: (this.state.src === `${imageUrl}${this.props.src2}`) ? `${imageUrl}${this.props.src}` : `${imageUrl}${this.props.src2}` }));
+  }
+  render() {
+    return (
+      <Wraper>
+        <Link href={`/products/${this.props.id}`} onMouseOver={this.Hover} onMouseOut={this.Hover}>
+          <picture>
+            <source
+              media="(min-width: 62rem)"
+              srcSet={`${this.state.src}.jpg${imageLg} 1x`}
+            />
+            <source
+              media="(min-width: 48rem)"
+              srcSet={`${this.state.src}.jpg${imageMd} 1x`}
+            />
+            <source
+              media="(min-width: 48rem)"
+              srcSet={`${this.state.src}.jpg${imageXs} 1x`}
+            />
+            <Img
+              src={`${this.state.src}.jpg${imageXs}`}
+              alt={this.props.title}
+            />
+          </picture>
+        </Link>
+        <Inner>
+          <Type>
+            {this.props.type}
+          </Type>
+          <Favourite>Favourite</Favourite>
+        </Inner>
+        <Title href={`/products/${this.props.id}`}>
+          {this.props.title}
+        </Title>
+        <Availability>
+          Available in{' '}
+          <ColorLink href={`/products/${this.props.id}`}>{this.props.colors} colours</ColorLink>
+        </Availability>
+        <Price>
+          <FormattedNumber
+            value={this.props.price}
+            style="currency"
+            currency="RUB"
+            minimumFractionDigits={0}
           />
-          <source
-            media="(min-width: 48rem)"
-            srcSet={`${imageUrl}${props.src}.jpg${imageMd} 1x`}
-          />
-          <source
-            media="(min-width: 48rem)"
-            srcSet={`${imageUrl}${props.src}${imageXs} 1x`}
-          />
-          <Img
-            src={`${imageUrl}${props.src}.jpg${imageXs}`}
-            alt={props.title}
-          />
-        </picture>
-      </Link>
-      <Inner>
-        <Type>
-          {props.type}
-        </Type>
-        <Favourite>Favourite</Favourite>
-      </Inner>
-      <Title>
-        {props.title}
-      </Title>
-      <Availability>
-        Available in{' '}
-        <ColorLink href={props.link}>{props.colors} colours</ColorLink>
-      </Availability>
-      <Price>
-        <FormattedNumber
-          value={props.price}
-          style="currency"
-          currency="RUB"
-          minimumFractionDigits={0}
-        />
-      </Price>
-    </Wraper>
-  );
+        </Price>
+      </Wraper>
+    );
+  }
 }
 
 Card.propTypes = {
-  link: PropTypes.string,
+  id: PropTypes.number,
   src: PropTypes.string,
+  src2: PropTypes.string,
   type: PropTypes.string,
   title: PropTypes.string,
   price: PropTypes.number,
@@ -130,10 +142,14 @@ Card.propTypes = {
 };
 
 Card.defaultProps = {
-  link: '',
+  id: 1,
   src: '',
+  src2: '',
   type: 'Classic fit',
   title: 'title',
   price: 0,
   colors: 3,
 };
+
+
+export default Card;
