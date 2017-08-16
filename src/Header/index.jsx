@@ -54,4 +54,5 @@ export default () =>
     <Wrapper href="/">
       <Logo src={logo} alt="logo" />
     </Wrapper>
-  </Header>);
+  </Header>
+  );

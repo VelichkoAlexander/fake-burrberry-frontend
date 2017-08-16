@@ -27,6 +27,7 @@
   },
   "scripts": {
     "eslint": "eslint --ext .jsx,.js src/",
+    "precommit":"eslint --fix --ext .jsx,.js src/",
     "prepush": "yarn eslint",
     "start": "react-scripts start",
     "build": "react-scripts build",
