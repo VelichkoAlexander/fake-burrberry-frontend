@@ -13,7 +13,6 @@ const Wrapper = styled.div`
 
 const Inner = styled.div`
   display: flex;
-  min-width: 260px;
   width: 100%;
   overflow-x: auto;
 `;
@@ -44,11 +43,19 @@ const Button = styled.button`
   }
   &:last-child {
     margin-right: 0;
+    padding-right: 1.75rem;
+    &::after {
+      right: 0.5rem;
+    }
   }
   @media (min-width: 48rem) {
     margin-right: 3rem;
     &:last-child {
       margin-left: auto;
+      padding-right: 1.25rem;
+      &::after {
+        right: 0;
+      }
     }
   }
 `;
