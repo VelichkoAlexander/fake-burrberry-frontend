@@ -17,7 +17,7 @@ export const Sm = ({ children }) =>
   <Responsive maxWidth={992}> {children}</Responsive>;
 
 Lg.propTypes = {
-  children: PropTypes.string,
+  children: PropTypes.node.isRequired,
 };
 
 Lg.defaultProps = {
@@ -25,7 +25,7 @@ Lg.defaultProps = {
 };
 
 MdOnly.propTypes = {
-  children: PropTypes.string,
+  children: PropTypes.node.isRequired,
 };
 
 MdOnly.defaultProps = {
@@ -33,7 +33,7 @@ MdOnly.defaultProps = {
 };
 
 XsOnly.propTypes = {
-  children: PropTypes.string,
+  children: PropTypes.node.isRequired,
 };
 
 XsOnly.defaultProps = {
@@ -41,7 +41,7 @@ XsOnly.defaultProps = {
 };
 
 Xl.propTypes = {
-  children: PropTypes.string,
+  children: PropTypes.node.isRequired,
 };
 
 Xl.defaultProps = {
@@ -49,7 +49,7 @@ Xl.defaultProps = {
 };
 
 Sm.propTypes = {
-  children: PropTypes.string,
+  children: PropTypes.node.isRequired,
 };
 
 Sm.defaultProps = {
