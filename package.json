@@ -24,11 +24,14 @@
     "styled-components": "^2.1.2"
   },
   "lint-staged": {
-    "src/**/*.{js,jsx}": "eslint"
+    "src/**/*.{js,jsx}": [
+      "eslint --fix",
+      "git add"
+    ]
   },
   "scripts": {
     "eslint": "eslint --ext .jsx,.js src/",
-    "precommit": "eslint --fix --ext .jsx,.js src/",
+    "precommit": "lint-staged",
     "prepush": "yarn eslint",
     "start": "react-scripts start",
     "build": "react-scripts build",
