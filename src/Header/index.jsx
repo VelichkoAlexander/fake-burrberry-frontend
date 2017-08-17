@@ -9,7 +9,8 @@ import arrow from '../images/arrow.svg';
 
 const Header = styled.header`
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
+  width: 100%;
   position: relative;
   padding-top: 1.125rem;
   padding-bottom: 1.125rem;

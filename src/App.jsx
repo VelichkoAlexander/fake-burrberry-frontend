@@ -23,7 +23,11 @@ export default () =>
             <title>Long Cotton Gabardine Car Coat | Men - Burberry</title>
             <meta name="description" content="Long Cotton Gabardine Car Coat" />
           </Helmet>
-          <Header />
+          <div className="container">
+            <div className="row">
+              <Header />
+            </div>
+          </div>
           <Route exact path="/" component={List} />
           <Route path="/products/:id" component={Show} />
           <Footer />
