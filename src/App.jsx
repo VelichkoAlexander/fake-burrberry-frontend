@@ -15,17 +15,18 @@ import Footer from './Footer';
 addLocaleData(ruLocaleData);
 
 export default () =>
-  (<Router>
+  (
     <IntlProvider locale="ru">
-      <div className="App">
-        <Helmet>
-          <title>Long Cotton Gabardine Car Coat | Men - Burberry</title>
-          <meta name="description" content="Long Cotton Gabardine Car Coat" />
-        </Helmet>
-        <Header />
-        <Route exact path="/" component={List} />
-        <Route path="/products/:id" component={Show} />
-        <Footer />
-      </div>
-    </IntlProvider>
-  </Router>);
+      <Router>
+        <div className="App">
+          <Helmet>
+            <title>Long Cotton Gabardine Car Coat | Men - Burberry</title>
+            <meta name="description" content="Long Cotton Gabardine Car Coat" />
+          </Helmet>
+          <Header />
+          <Route exact path="/" component={List} />
+          <Route path="/products/:id" component={Show} />
+          <Footer />
+        </div>
+      </Router>
+    </IntlProvider>);

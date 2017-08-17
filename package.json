@@ -8,7 +8,7 @@
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^5.1.1",
     "eslint-plugin-react": "^7.2.1",
-    "flexboxgrid2": "^7.0.0-alpha6",
+    "flexboxgrid2": "^7.0.0-alpha7",
     "husky": "^0.14.3",
     "lint-staged": "^4.0.3",
     "normalize.css": "^7.0.0",

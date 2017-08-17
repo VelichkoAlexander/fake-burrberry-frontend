@@ -19,7 +19,7 @@ export const XsOnly = ({ children }) =>
 // Default (desktop, tablet) and mobile setup
 export const Xl = ({ children }) =>
   (<Responsive minWidth={768}>
-    {' '}{children}
+    {children}
   </Responsive>);
 export const Sm = ({ children }) =>
   (<Responsive maxWidth={992}>

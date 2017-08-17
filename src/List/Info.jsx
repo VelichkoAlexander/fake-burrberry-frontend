@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { MdOnly } from '../common/responsive';
+import { Xl } from '../common/responsive';
 
 import Menu from './InfoMenu';
 
@@ -55,9 +55,9 @@ export default () =>
         Explore our menswear collection for the season. Sculptural knitwear,{' '}
         <a href="/sweatshirts">sweatshirts</a>, artist overalls and oversized
         cabans feature alongside our signature trench coat in both heritage and
-        seasonal…<MdOnly>
+        seasonal…<Xl>
           <More href="/products">More</More>
-        </MdOnly>
+        </Xl>
       </Content>
       <Menu />
     </div>

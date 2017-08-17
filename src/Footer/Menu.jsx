@@ -2,32 +2,57 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-import { Xl } from '../common/responsive';
+import { Xl, Lg } from '../common/responsive';
 
-const Menu = styled.div`@media (min-width: 48rem) {margin-bottom: 1.875rem;}`;
+const Menu = styled.div`@media (min-width: 48rem) {
+  margin-bottom: 1.875rem;
+}`;
 
 const Ref = styled(Link)`
-  display: block;
-  margin-bottom: 0.75rem;
-  margin-right: 1.25rem;
-  font-size: 0.75rem;
-  line-height: 1rem;
-  font-weight: 600;
-  color: #999999;
-  text-decoration: none;
-  &:last-child {
-    margin-bottom: 0;
-  }
+    display: block;
+    margin-bottom: 0.75rem;
+    margin-right: 1.25rem;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    font-weight: 600;
+    color: #999999;
+    text-decoration: none;
+    &:last-child {
+      margin-bottom: 0;
+    }
 `;
 
 const Title = styled.h2`
-  margin: 0;
-  margin-bottom: 1rem;
-  font-size: 0.75rem;
-  line-height: 1;
-  font-weight: bold;
-  text-transform: uppercase;
-  color: #171717;
+    margin: 0;
+    margin-bottom: 1rem;
+    font-size: 0.75rem;
+    line-height: 1;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #171717;
+`;
+
+const NavLink = styled(Link) `
+    position: relative;
+    padding-bottom: 0.0625rem;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: #171717;
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background-color: #171717;
+    }
+`;
+const Img = styled.img `
+    margin-bottom: 1rem;
+    display: block;
 `;
 
 export default () =>
@@ -62,7 +87,16 @@ export default () =>
             <Ref to="/">Accessibility Statement</Ref>
             <Ref to="/">Japan Only - SCTL indications</Ref>
           </div>
+          <div className="col-sm-4 col-md-3">
+            <Lg>
+              <Img
+                src="https://assets.burberry.com/is/image/Burberryltd/933f04c94a361dfd816c77528ec0e7286921051b.jpg?$BBY_V2_BASIC$&wid=232"
+              />
+              <NavLink to="/store-locator/">Find a store</NavLink>
+            </Lg>
+          </div>
         </div>
       </div>
     </Menu>
-  </Xl>);
+  </Xl>
+  );
