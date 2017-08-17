@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import { XsOnly } from '../../common/responsive';
 
 const Section = styled.section`
@@ -21,7 +22,7 @@ const Title = styled.h2`
   color: #171717;
 `;
 
-const Link = styled.a`
+const NavLink = styled(Link)`
   display: block;
   margin: 0 0 1rem;
   font-size: 0.875rem;
@@ -39,8 +40,8 @@ export default () =>
   (<XsOnly>
     <Section>
       <Title>More for you</Title>
-      <Link href="#">Men’s Black Trench Coats</Link>
-      <Link href="#">Men’s Short Trench Coats</Link>
-      <Link href="#">Men’s Long Trench Coats</Link>
+      <NavLink href="#">Men’s Black Trench Coats</NavLink>
+      <NavLink href="#">Men’s Short Trench Coats</NavLink>
+      <NavLink href="#">Men’s Long Trench Coats</NavLink>
     </Section>
   </XsOnly>);

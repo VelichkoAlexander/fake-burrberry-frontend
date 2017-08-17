@@ -3,9 +3,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { FormattedNumber } from 'react-intl';
 
-const Link = styled.a`
+const NavLink = styled(Link)`
   display: block;
   margin-bottom: 2rem;
   font-size: 1rem;
@@ -51,7 +52,7 @@ const Price = styled.h5`
 `;
 
 export default function Card(props) {
-  return (<Link href={props.link}>
+  return (<NavLink href={props.link}>
     <Img
       src={`${process.env
         .PUBLIC_URL}/images/content/recommend/${props.src}.jpg`}
@@ -68,7 +69,7 @@ export default function Card(props) {
         minimumFractionDigits={0}
       />
     </Price>
-  </Link>);
+  </NavLink>);
 }
 
 Card.propTypes = {
