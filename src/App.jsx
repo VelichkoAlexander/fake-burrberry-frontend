@@ -2,6 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import ruLocaleData from 'react-intl/locale-data/ru';
 import { IntlProvider, addLocaleData } from 'react-intl';
+
 import {
   BrowserRouter as Router,
   Route,
@@ -10,6 +11,7 @@ import {
 import Header from './Header';
 import Show from './Products/Show';
 import List from './Products/List';
+
 import Footer from './Footer';
 
 addLocaleData(ruLocaleData);
@@ -30,3 +32,4 @@ export default () =>
         </div>
       </Router>
     </IntlProvider>);
+
