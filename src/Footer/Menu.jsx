@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-
 import { Link } from 'react-router-dom';
 
 import { Xl, Lg } from '../common/responsive';
@@ -101,4 +100,3 @@ export default () =>
     </Menu>
   </Xl>
   );
-
