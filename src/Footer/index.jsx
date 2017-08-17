@@ -17,6 +17,7 @@ const Footer = styled.footer`
   padding: 2rem 0.5rem;
   background-color: #f3f3f3;
   display: flex;
+  margin-top: auto;
   flex-direction: column;
   @media (min-width: 62rem) {
     padding-top: 4rem;

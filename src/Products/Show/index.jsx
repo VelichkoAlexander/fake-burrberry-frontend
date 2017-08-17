@@ -5,7 +5,6 @@ import styled from 'styled-components';
 import { XsOnly, Xl, Lg } from '../../common/responsive';
 
 import Header from './Header';
-import Menu from '../../common//Menu';
 import Image from './InfoImage';
 import InfoBlock from './InfoBlock';
 import Delivery from './Delivery';
@@ -31,9 +30,6 @@ const Wraper = styled.div`
 
 export default () =>
   (<div>
-    <Xl>
-      <Menu />
-    </Xl>
     <Header />
     <Wraper className="container">
       <div className="row">

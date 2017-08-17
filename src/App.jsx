@@ -8,9 +8,12 @@ import {
 } from 'react-router-dom';
 
 import Header from './Header';
+import Menu from './common/Menu';
 import Show from './Products/Show';
 import List from './Products/List';
 import Footer from './Footer';
+import ScrollToTop from './common/ScrollToTop';
+import { Xl } from './common/responsive';
 
 addLocaleData(ruLocaleData);
 
@@ -18,19 +21,24 @@ export default () =>
   (
     <IntlProvider locale="ru">
       <Router>
-        <div className="App">
-          <Helmet>
-            <title>Long Cotton Gabardine Car Coat | Men - Burberry</title>
-            <meta name="description" content="Long Cotton Gabardine Car Coat" />
-          </Helmet>
-          <div className="container">
-            <div className="row">
-              <Header />
+        <ScrollToTop>
+          <div className="App">
+            <Helmet>
+              <title>Long Cotton Gabardine Car Coat | Men - Burberry</title>
+              <meta name="description" content="Long Cotton Gabardine Car Coat" />
+            </Helmet>
+            <div className="container">
+              <div className="row">
+                <Header />
+                <Xl>
+                  <Menu />
+                </Xl>
+              </div>
             </div>
+            <Route exact path="/" component={List} />
+            <Route path="/products/:id" component={Show} />
+            <Footer />
           </div>
-          <Route exact path="/" component={List} />
-          <Route path="/products/:id" component={Show} />
-          <Footer />
-        </div>
+        </ScrollToTop>
       </Router>
     </IntlProvider>);

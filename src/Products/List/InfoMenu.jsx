@@ -31,6 +31,7 @@ const Button = styled.button`
   font-weight: 400;
   color: #171717;
   white-space: nowrap;
+  cursor: pointer;
   &::after {
     content: '';
     position: absolute;

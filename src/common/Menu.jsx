@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 const Wraper = styled.div `
   display: flex;
   justify-content: center;
+  flex-grow: 1;
 `;
 
 const Inner = styled.div `

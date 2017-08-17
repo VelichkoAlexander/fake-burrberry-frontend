@@ -1,8 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Xl } from '../../common/responsive';
-import Menu from '../../common//Menu';
 import Info from './Info';
 import Category from './Category';
 import More from './ViewMore';
@@ -18,9 +16,6 @@ const Line = styled.hr `
 export default () =>
   (
     <div>
-      <Xl>
-        <Menu />
-      </Xl>
       <Info />
       <Category />
       <div className="container">
