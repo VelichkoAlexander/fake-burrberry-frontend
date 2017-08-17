@@ -52,7 +52,7 @@ const Price = styled.h5`
 `;
 
 export default function Card(props) {
-  return (<NavLink href={props.link}>
+  return (<NavLink to={props.link}>
     <Img
       src={`${process.env
         .PUBLIC_URL}/images/content/recommend/${props.src}.jpg`}

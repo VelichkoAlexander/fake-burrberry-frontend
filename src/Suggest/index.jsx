@@ -25,7 +25,6 @@ const Title = styled.h2`
     text-transform: uppercase;
     position: relative;
     margin-bottom: 1rem;
-    }
     @media (min-width: 62rem) {
       display: block;
       margin-bottom: 2rem;

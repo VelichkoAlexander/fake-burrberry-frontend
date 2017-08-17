@@ -40,8 +40,8 @@ export default () =>
   (<XsOnly>
     <Section>
       <Title>More for you</Title>
-      <NavLink href="#">Men’s Black Trench Coats</NavLink>
-      <NavLink href="#">Men’s Short Trench Coats</NavLink>
-      <NavLink href="#">Men’s Long Trench Coats</NavLink>
+      <NavLink to="/">Men’s Black Trench Coats</NavLink>
+      <NavLink to="/">Men’s Short Trench Coats</NavLink>
+      <NavLink to="/">Men’s Long Trench Coats</NavLink>
     </Section>
   </XsOnly>);
