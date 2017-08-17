@@ -24,7 +24,7 @@ export default () =>
         </Helmet>
         <Header />
         <Route exact path="/" component={List} />
-        <Route path="/:id" component={Show} />
+        <Route path="/products/:id" component={Show} />
         <Footer />
       </div>
     </IntlProvider>

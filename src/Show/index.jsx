@@ -12,10 +12,6 @@ import Delivery from './Delivery';
 import Suggest from '../Suggest';
 import More from './More';
 
-const Product = styled.section`
-    padding-top: 1.5rem;
-`;
-
 const Line = styled.hr`
   margin: 0;
   border: 0;
@@ -34,11 +30,11 @@ const Wraper = styled.div`
 `;
 
 export default () =>
-  (<Product>
-    <Header />
+  (<div>
     <Xl>
       <Menu />
     </Xl>
+    <Header />
     <Wraper className="container">
       <div className="row">
         <div className="col-xs-12 col-sm-12 col-md-12 col-lg-4">
@@ -78,4 +74,4 @@ export default () =>
     </Xl>
     <Suggest />
     <More />
-  </Product>);
+  </div>);

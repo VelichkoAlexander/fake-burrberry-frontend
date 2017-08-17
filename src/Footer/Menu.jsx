@@ -1,11 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 import { Xl } from '../common/responsive';
 
 const Menu = styled.div`@media (min-width: 48rem) {margin-bottom: 1.875rem;}`;
 
-const Link = styled.a`
+const Ref = styled(Link)`
   display: block;
   margin-bottom: 0.75rem;
   margin-right: 1.25rem;
@@ -36,30 +37,30 @@ export default () =>
         <div className="row">
           <div className="col-sm-3 col-md-3">
             <Title>Customer service</Title>
-            <Link href="/">Contact Us</Link>
-            <Link href="/">Payment</Link>
-            <Link href="/">Shipping</Link>
-            <Link href="/">Returns</Link>
-            <Link href="/">Faqs</Link>
-            <Link href="/">Live Chat</Link>
-            <Link href="/">The Burberry App</Link>
-            <Link href="/">Store Locator</Link>
+            <Ref to="/">Contact Us</Ref>
+            <Ref to="/">Payment</Ref>
+            <Ref to="/">Shipping</Ref>
+            <Ref to="/">Returns</Ref>
+            <Ref to="/">Faqs</Ref>
+            <Ref to="/">Live Chat</Ref>
+            <Ref to="/">The Burberry App</Ref>
+            <Ref to="/">Store Locator</Ref>
           </div>
           <div className="col-sm-3 col-md-3">
             <Title>Our company</Title>
-            <Link href="/">Our History</Link>
-            <Link href="/">Burberry Group Plc</Link>
-            <Link href="/">Careers</Link>
-            <Link href="/">Corporate Responsibility</Link>
-            <Link href="/">Site Map</Link>
+            <Ref to="/">Our History</Ref>
+            <Ref to="/">Burberry Group Plc</Ref>
+            <Ref to="/">Careers</Ref>
+            <Ref to="/">Corporate Responsibility</Ref>
+            <Ref to="/">Site Map</Ref>
           </div>
           <div className="col-sm-4 col-md-3">
             <Title>Legal & cookies</Title>
-            <Link href="/">Terms & Conditions</Link>
-            <Link href="/">Privacy Policy</Link>
-            <Link href="/">Cookie Policy</Link>
-            <Link href="/">Accessibility Statement</Link>
-            <Link href="/">Japan Only - SCTL indications</Link>
+            <Ref to="/">Terms & Conditions</Ref>
+            <Ref to="/">Privacy Policy</Ref>
+            <Ref to="/">Cookie Policy</Ref>
+            <Ref to="/">Accessibility Statement</Ref>
+            <Ref to="/">Japan Only - SCTL indications</Ref>
           </div>
         </div>
       </div>

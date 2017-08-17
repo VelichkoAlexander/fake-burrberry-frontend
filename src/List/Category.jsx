@@ -15,6 +15,7 @@ const Title = styled.h2`
     margin: 0;
     margin-bottom: 1rem;
     font-family: "Lora", serif;
+    font-weight: 400;
     font-size: 1rem;
     line-height: 1.1875rem;
     @media (min-width: 48rem) {

@@ -32,6 +32,7 @@ const Content = styled.div`
   }
 
   @media (min-width: 48rem) {
+    margin-bottom: 1rem;
     max-width: 37.75rem;
     & a {
       text-decoration: underline;

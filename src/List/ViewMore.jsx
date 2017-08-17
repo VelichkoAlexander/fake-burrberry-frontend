@@ -27,6 +27,7 @@ const Button = styled.button`
   border-radius: 0.125rem;
   border: solid 1px #171717;
   background-color: transparent;
+  cursor: pointer;
 `;
 
 export default () =>

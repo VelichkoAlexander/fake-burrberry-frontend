@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import { XsOnly, Xl } from '../common/responsive';
 
 import logo from '../images/logo.svg';
@@ -49,7 +50,9 @@ const Hamburger = styled.button`
   background: url(${hamburger}) center no-repeat;
 `;
 
-const Wrapper = styled.a`margin: auto;`;
+const NavLink = styled(Link)`
+    margin: auto;
+`;
 
 const Country = styled.button`
   padding: 0;
@@ -83,7 +86,7 @@ export default () =>
     <Xl>
       <Country>Shopping in: United Kingdom (£)</Country>
     </Xl>
-    <Wrapper href="/">
+    <NavLink to="/">
       <Logo src={logo} alt="logo" />
-    </Wrapper>
+    </NavLink>
   </Header>);

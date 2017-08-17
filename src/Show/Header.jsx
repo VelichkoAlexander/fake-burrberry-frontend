@@ -19,6 +19,7 @@ const Title = styled.h1`
   line-height: 1.5rem;
   font-weight: 400;
   color: #171717;
+  margin-top: 1.5rem;
   @media (min-width: 48rem) {
     padding-left: 0;
     margin-bottom: 1.5rem;

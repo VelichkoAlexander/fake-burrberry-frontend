@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { FormattedNumber } from 'react-intl';
+import { Link } from 'react-router-dom';
 
 import hart from '../images/hart.svg';
 import hartBlack from '../images/hart_black.svg';
@@ -15,7 +16,7 @@ const Wraper = styled.div`
     line-height: 1rem;
 `;
 
-const Link = styled.a`
+const NavLink = styled(Link)`
     display: block;
     margin-bottom: 1rem;
 `;
@@ -46,12 +47,7 @@ const Favourite = styled.button`
     width: 0.875rem;
     height: 0.875rem;
     cursor: pointer;
-    background: url(${props => (props.fill ? `${hartBlack}` : `${hart}`)
-}
-  )
-  center no-repeat
-
-  ;
+    background: url(${props => (props.fill ? `${hartBlack}` : `${hart}`)}) center no-repeat;
 `;
 
 const Title = styled.a`
@@ -102,7 +98,7 @@ class Card extends Component {
   render() {
     return (
       <Wraper>
-        <Link href={`/products/${this.props.id}`} onMouseOver={this.handleHover} onMouseOut={this.handleHover}>
+        <NavLink to={`/products/${this.props.id}`} onMouseOver={this.handleHover} onMouseOut={this.handleHover}>
           <picture>
             <source
               media="(min-width: 62rem)"
@@ -117,11 +113,11 @@ class Card extends Component {
               srcSet={`${this.state.src}.jpg${imageXs} 1x`}
             />
             <Img
-              src={`${this.state.src}.jpg${imageLg}`}
+              src={`${this.state.src}.jpg${imageXs}`}
               alt={this.props.title}
             />
           </picture>
-        </Link>
+        </NavLink>
         <Inner>
           <Type>
             {this.props.type}
