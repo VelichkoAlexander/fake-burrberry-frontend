@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import triangle from '../images/triangle-down.svg';
+import triangle from '../../images/triangle-down.svg';
 
 const Info = styled.div`
   padding: 2rem 0;

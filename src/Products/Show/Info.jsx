@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { FormattedNumber } from 'react-intl';
 
-import { Sm } from '../common/responsive';
+import { Sm } from '../../common/responsive';
 
 const Wraper = styled.div`
   display: flex;

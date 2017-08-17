@@ -2,14 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 
 
-import { XsOnly, Xl, Lg } from '../common/responsive';
+import { XsOnly, Xl, Lg } from '../../common/responsive';
 
 import Header from './Header';
-import Menu from '../common//Menu';
+import Menu from '../../common//Menu';
 import Image from './InfoImage';
 import InfoBlock from './InfoBlock';
 import Delivery from './Delivery';
-import Suggest from '../Suggest';
+import Suggest from '../../Suggest/index';
 import More from './More';
 
 const Line = styled.hr`

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Xl } from '../common/responsive';
+import { Xl } from '../../common/responsive';
 
 import Menu from './InfoMenu';
 

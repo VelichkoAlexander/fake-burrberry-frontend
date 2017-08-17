@@ -8,8 +8,8 @@ import {
 } from 'react-router-dom';
 
 import Header from './Header';
-import Show from './Show';
-import List from './List';
+import Show from './Products/Show';
+import List from './Products/List';
 import Footer from './Footer';
 
 addLocaleData(ruLocaleData);

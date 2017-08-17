@@ -6,11 +6,13 @@ import PropTypes from 'prop-types';
 import { FormattedNumber } from 'react-intl';
 import { Link } from 'react-router-dom';
 
-import hart from '../images/hart.svg';
-import hartBlack from '../images/hart_black.svg';
-import { imageUrl, imageLg, imageMd, imageXs } from '../common/imageResponsive';
+import hart from '../../images/hart.svg';
+import hartBlack from '../../images/hart_black.svg';
+import { imageUrl, imageLg, imageMd, imageXs } from '../../common/imageResponsive';
 
 const Wraper = styled.div`
+  display: flex;
+  flex-direction: column;
     margin-bottom: 2rem;
     font-size: 0.75rem;
     line-height: 1rem;
@@ -69,7 +71,13 @@ const Title = styled.a`
     }
 `;
 
-const Price = styled.div`margin-bottom: 1rem;`;
+const Price = styled.div`
+    margin-bottom: 1rem;
+    @media (min-width: 62rem) {
+      margin-bottom: 0;
+    }
+  
+`;
 const Availability = styled.div`margin-bottom: 0.3125rem;`;
 const ColorLink = styled.a`
     color: #171717;

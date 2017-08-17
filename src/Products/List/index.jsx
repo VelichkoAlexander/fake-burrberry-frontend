@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Xl } from '../common/responsive';
-import Menu from '../common//Menu';
+import { Xl } from '../../common/responsive';
+import Menu from '../../common//Menu';
 import Info from './Info';
 import Category from './Category';
 import More from './ViewMore';
