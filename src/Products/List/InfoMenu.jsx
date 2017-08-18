@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { XsOnly } from '../../common/responsive';
+import { XsOnly } from '../../common/Responsive';
 
 import arrow from '../../images/arrow.svg';
 

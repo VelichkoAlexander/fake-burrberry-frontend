@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { XsOnly, Xl } from '../common/responsive';
+import { XsOnly, Xl } from '../common/Responsive';
 
 import logo from '../images/logo.svg';
 import hamburger from '../images/hamburger.svg';

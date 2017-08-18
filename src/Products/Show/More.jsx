@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { XsOnly } from '../../common/responsive';
+import { XsOnly } from '../../common/Responsive';
 
 const Section = styled.section`
   padding-right: 1rem;

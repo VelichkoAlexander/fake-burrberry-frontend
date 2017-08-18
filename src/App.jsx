@@ -13,7 +13,7 @@ import Show from './Products/Show';
 import List from './Products/List';
 import Footer from './Footer';
 import ScrollToTop from './common/ScrollToTop';
-import { Xl } from './common/responsive';
+import { Xl } from './common/Responsive';
 
 addLocaleData(ruLocaleData);
 

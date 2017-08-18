@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-import { Xl, Lg } from '../common/responsive';
+import { Xl, Lg } from '../common/Responsive';
 
 const Menu = styled.div`@media (min-width: 48rem) {
   margin-bottom: 1.875rem;

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Lg, MdOnly, Sm, XsOnly } from '../../common/responsive';
+import { Lg, MdOnly, Sm, XsOnly } from '../../common/Responsive';
 
 const Wrap = styled.div`
   display: flex;

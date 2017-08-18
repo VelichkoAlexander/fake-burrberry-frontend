@@ -7,7 +7,7 @@ import Color from './Color';
 import Size from './Size';
 import Buttons from './Buttons';
 
-import { Sm, Lg } from '../../common/responsive';
+import { Sm, Lg } from '../../common/Responsive';
 
 const Title = styled.h1`
   margin: 0;

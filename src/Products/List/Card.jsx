@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 
 import hart from '../../images/hart.svg';
 import hartBlack from '../../images/hart_black.svg';
-import { imageUrl, imageLg, imageMd, imageXs } from '../../common/imageResponsive';
+import { imageUrl, imageLg, imageMd, imageXs } from '../../common/ImageResponsive';
 
 const Wraper = styled.div`
   display: flex;
