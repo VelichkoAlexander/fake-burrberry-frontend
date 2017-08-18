@@ -6,14 +6,19 @@ import PropTypes from 'prop-types';
 import { FormattedNumber } from 'react-intl';
 import { Link } from 'react-router-dom';
 
-import { imageUrl, imageLg, imageMd, imageXs } from '../../common/ImageResponsive';
+import {
+  imageUrl,
+  imageLg,
+  imageMd,
+  imageXs,
+} from '../../common/ImageResponsive';
 
 const Wraper = styled.div`
   display: flex;
   flex-direction: column;
-    margin-bottom: 2rem;
-    font-size: 0.75rem;
-    line-height: 1rem;
+  margin-bottom: 2rem;
+  font-size: 0.75rem;
+  line-height: 1rem;
 `;
 
 const NavLink = styled(Link)`
@@ -22,70 +27,68 @@ const NavLink = styled(Link)`
 `;
 
 const Img = styled.img`
-    width: 100%;
-    height: auto;
-    display: block;
+  width: 100%;
+  height: auto;
+  display: block;
 `;
 
 const Inner = styled.div`
-    display: flex;
-    margin-bottom: 0.5rem;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  margin-bottom: 0.5rem;
+  justify-content: space-between;
+  align-items: center;
 `;
 
 const Type = styled.div`
-    font-size: 0.75rem;
-    line-height: 1rem;
+  font-size: 0.75rem;
+  line-height: 1rem;
 `;
 
 const Favourite = styled.button`
-    padding: 0;
-    font-size: 0;
-    background-color: transparent;
-    border: none;
-    width: 0.875rem;
-    height: 0.875rem;
-    cursor: pointer;
+  padding: 0;
+  font-size: 0;
+  background-color: transparent;
+  border: none;
+  width: 0.875rem;
+  height: 0.875rem;
+  cursor: pointer;
 `;
 
-const Path = styled.path `
-    fill: ${props => (props.fill ? '#000' : 'none')};
-    stroke: #000;
-    stroke-width: 1px;
+const Path = styled.path`
+  fill: ${props => (props.fill ? '#000' : 'none')};
+  stroke: #000;
+  stroke-width: 1px;
 `;
-
 
 const Title = styled.a`
-    margin: 0;
-    padding-bottom: 0.5rem;
-    font-size: 0.75rem;
-    line-height: 1rem;
-    text-decoration: none;
-    font-weight: 600;
-    color: #171717;
-    @media (min-width: 48rem) {
-      font-size: 0.875rem;
-      line-height: 1.25rem;
-    }
+  margin: 0;
+  padding-bottom: 0.5rem;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  text-decoration: none;
+  font-weight: 600;
+  color: #171717;
+  @media (min-width: 48rem) {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
 
-    @media (min-width: 62rem) {
-      font-size: 1rem;
-      line-height: 1.25rem;
-    }
+  @media (min-width: 62rem) {
+    font-size: 1rem;
+    line-height: 1.25rem;
+  }
 `;
 
 const Price = styled.div`
-    margin-bottom: 1rem;
-    @media (min-width: 62rem) {
-      margin-bottom: 0;
-    }
-  
+  margin-bottom: 1rem;
+  @media (min-width: 62rem) {
+    margin-bottom: 0;
+  }
 `;
 const Availability = styled.div`margin-bottom: 0.3125rem;`;
 const ColorLink = styled.a`
-    color: #171717;
-    line-height: 1rem;
+  color: #171717;
+  line-height: 1rem;
 `;
 
 class Card extends Component {
@@ -95,12 +98,7 @@ class Card extends Component {
       src: `${imageUrl}${props.src}`,
       favourite: false,
     };
-    this.handleHover = this.handleHover.bind(this);
     this.handleFavourite = this.handleFavourite.bind(this);
-  }
-
-  handleHover() {
-    this.setState(() => ({ src: (this.state.src === `${imageUrl}${this.props.src2}`) ? `${imageUrl}${this.props.src}` : `${imageUrl}${this.props.src2}` }));
   }
 
   handleFavourite() {
@@ -110,22 +108,26 @@ class Card extends Component {
   render() {
     return (
       <Wraper>
-        <NavLink to={`/products/${this.props.id}`} onMouseOver={this.handleHover} onMouseOut={this.handleHover}>
+        <NavLink
+          to={`/mens-coats/${this.props.id}`}
+          onMouseOver={this.handleHover}
+          onMouseOut={this.handleHover}
+        >
           <picture>
             <source
               media="(min-width: 62rem)"
-              srcSet={`${this.state.src}.jpg${imageLg} 1x`}
+              srcSet={`${imageUrl}${this.props.src}.jpg${imageLg} 1x`}
             />
             <source
               media="(min-width: 48rem)"
-              srcSet={`${this.state.src}.jpg${imageMd} 1x`}
+              srcSet={`${imageUrl}${this.props.src}.jpg${imageMd} 1x`}
             />
             <source
               media="(min-width: 48rem)"
-              srcSet={`${this.state.src}.jpg${imageXs} 1x`}
+              srcSet={`${imageUrl}${this.props.src}.jpg${imageXs} 1x`}
             />
             <Img
-              src={`${this.state.src}.jpg${imageXs}`}
+              src={`${imageUrl}${this.props.src}.jpg${imageLg}`}
               alt={this.props.title}
             />
           </picture>
@@ -134,10 +136,13 @@ class Card extends Component {
           <Type>
             {this.props.type}
           </Type>
-          <Favourite
-            onClick={this.handleFavourite}
-          >
-            <svg width="14" height="14" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg">
+          <Favourite onClick={this.handleFavourite}>
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 14 14"
+              xmlns="http://www.w3.org/2000/svg"
+            >
               <Path
                 fill={this.state.favourite}
                 d="M1.724 7.342l5.3 5.71 5.32-5.732c1.403-1.512
@@ -149,12 +154,14 @@ class Card extends Component {
             Favourite
           </Favourite>
         </Inner>
-        <Title href={`/products/${this.props.id}`}>
+        <Title href={`/mens-coats/${this.props.id}`}>
           {this.props.title}
         </Title>
         <Availability>
           Available in{' '}
-          <ColorLink href={`/products/${this.props.id}`}>{this.props.colors} colours</ColorLink>
+          <ColorLink href={`/mens-coats/${this.props.id}`}>
+            {this.props.colors} colours
+          </ColorLink>
         </Availability>
         <Price>
           <FormattedNumber
@@ -172,7 +179,6 @@ class Card extends Component {
 Card.propTypes = {
   id: PropTypes.number,
   src: PropTypes.string,
-  src2: PropTypes.string,
   type: PropTypes.string,
   title: PropTypes.string,
   price: PropTypes.number,
@@ -182,12 +188,10 @@ Card.propTypes = {
 Card.defaultProps = {
   id: 1,
   src: '',
-  src2: '',
   type: 'Classic fit',
   title: 'title',
   price: 0,
   colors: 3,
 };
-
 
 export default Card;
