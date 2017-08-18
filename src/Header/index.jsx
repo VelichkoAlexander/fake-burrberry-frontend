@@ -79,13 +79,17 @@ const Country = styled.button`
 
 export default () =>
   (<Header>
-    <XsOnly>
-      <Hamburger type="button" />
-    </XsOnly>
-    <Xl>
-      <Country>Shopping in: United Kingdom (£)</Country>
-    </Xl>
-    <NavLink to="/">
-      <Logo src={logo} alt="logo" />
-    </NavLink>
+    <div className="container">
+      <div className="row">
+        <XsOnly>
+          <Hamburger type="button" />
+        </XsOnly>
+        <Xl>
+          <Country>Shopping in: United Kingdom (£)</Country>
+        </Xl>
+        <NavLink to="/">
+          <Logo src={logo} alt="logo" />
+        </NavLink>
+      </div>
+    </div>
   </Header>);

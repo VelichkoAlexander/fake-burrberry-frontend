@@ -28,9 +28,9 @@ export default () =>
                         polos and jeans."
             />
           </Helmet>
+          <Header />
           <div className="container">
             <div className="row">
-              <Header />
               <Xl>
                 <Menu />
               </Xl>
