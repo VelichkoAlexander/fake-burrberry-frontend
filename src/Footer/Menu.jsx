@@ -4,11 +4,9 @@ import { Link } from 'react-router-dom';
 
 import { Xl, Lg } from '../common/Responsive';
 
-const Menu = styled.div`@media (min-width: 48rem) {
-  margin-bottom: 1.875rem;
-}`;
+const Menu = styled.div`@media (min-width: 48rem) {margin-bottom: 1.875rem;}`;
 
-const Ref = styled(Link)`
+const NavLink = styled(Link)`
     display: block;
     margin-bottom: 0.75rem;
     margin-right: 1.25rem;
@@ -23,16 +21,16 @@ const Ref = styled(Link)`
 `;
 
 const Title = styled.h2`
-    margin: 0;
-    margin-bottom: 1rem;
-    font-size: 0.75rem;
-    line-height: 1;
-    font-weight: bold;
-    text-transform: uppercase;
-    color: #171717;
+  margin: 0;
+  margin-bottom: 1rem;
+  font-size: 0.75rem;
+  line-height: 1;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #171717;
 `;
 
-const NavLink = styled(Link) `
+const FindLink = styled(Link)`
     position: relative;
     padding-bottom: 0.0625rem;
     font-size: 0.75rem;
@@ -50,9 +48,9 @@ const NavLink = styled(Link) `
       background-color: #171717;
     }
 `;
-const Img = styled.img `
-    margin-bottom: 1rem;
-    display: block;
+const Img = styled.img`
+  margin-bottom: 1rem;
+  display: block;
 `;
 
 export default () =>
@@ -62,41 +60,38 @@ export default () =>
         <div className="row">
           <div className="col-sm-3 col-md-3">
             <Title>Customer service</Title>
-            <Ref to="/">Contact Us</Ref>
-            <Ref to="/">Payment</Ref>
-            <Ref to="/">Shipping</Ref>
-            <Ref to="/">Returns</Ref>
-            <Ref to="/">Faqs</Ref>
-            <Ref to="/">Live Chat</Ref>
-            <Ref to="/">The Burberry App</Ref>
-            <Ref to="/">Store Locator</Ref>
+            <NavLink to="/">Contact Us</NavLink>
+            <NavLink to="/">Payment</NavLink>
+            <NavLink to="/">Shipping</NavLink>
+            <NavLink to="/">Returns</NavLink>
+            <NavLink to="/">Faqs</NavLink>
+            <NavLink to="/">Live Chat</NavLink>
+            <NavLink to="/">The Burberry App</NavLink>
+            <NavLink to="/">Store Locator</NavLink>
           </div>
           <div className="col-sm-3 col-md-3">
             <Title>Our company</Title>
-            <Ref to="/">Our History</Ref>
-            <Ref to="/">Burberry Group Plc</Ref>
-            <Ref to="/">Careers</Ref>
-            <Ref to="/">Corporate Responsibility</Ref>
-            <Ref to="/">Site Map</Ref>
+            <NavLink to="/">Our History</NavLink>
+            <NavLink to="/">Burberry Group Plc</NavLink>
+            <NavLink to="/">Careers</NavLink>
+            <NavLink to="/">Corporate Responsibility</NavLink>
+            <NavLink to="/">Site Map</NavLink>
           </div>
           <div className="col-sm-4 col-md-3">
             <Title>Legal & cookies</Title>
-            <Ref to="/">Terms & Conditions</Ref>
-            <Ref to="/">Privacy Policy</Ref>
-            <Ref to="/">Cookie Policy</Ref>
-            <Ref to="/">Accessibility Statement</Ref>
-            <Ref to="/">Japan Only - SCTL indications</Ref>
+            <NavLink to="/">Terms & Conditions</NavLink>
+            <NavLink to="/">Privacy Policy</NavLink>
+            <NavLink to="/">Cookie Policy</NavLink>
+            <NavLink to="/">Accessibility Statement</NavLink>
+            <NavLink to="/">Japan Only - SCTL indications</NavLink>
           </div>
           <div className="col-sm-4 col-md-3">
             <Lg>
-              <Img
-                src="https://assets.burberry.com/is/image/Burberryltd/933f04c94a361dfd816c77528ec0e7286921051b.jpg?$BBY_V2_BASIC$&wid=232"
-              />
-              <NavLink to="/store-locator/">Find a store</NavLink>
+              <Img src="https://assets.burberry.com/is/image/Burberryltd/933f04c94a361dfd816c77528ec0e7286921051b.jpg?$BBY_V2_BASIC$&wid=232" />
+              <FindLink to="/store-locator/">Find a store</FindLink>
             </Lg>
           </div>
         </div>
       </div>
     </Menu>
-  </Xl>
-  );
+  </Xl>);
