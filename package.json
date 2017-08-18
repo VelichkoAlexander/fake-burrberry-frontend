@@ -24,6 +24,8 @@
     "styled-components": "^2.1.2"
   },
   "lint-staged": {
+    "src/**/*.{js,jsx,json,css}":
+      "prettier --single-quote --write",
     "src/**/*.{js,jsx}": [
       "eslint --fix",
       "git add"

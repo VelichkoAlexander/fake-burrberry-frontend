@@ -2,10 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import ruLocaleData from 'react-intl/locale-data/ru';
 import { IntlProvider, addLocaleData } from 'react-intl';
-import {
-  BrowserRouter as Router,
-  Route,
-} from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import Header from './Header';
 import Menu from './common/Menu';
@@ -18,27 +15,31 @@ import { Xl } from './common/Responsive';
 addLocaleData(ruLocaleData);
 
 export default () =>
-  (
-    <IntlProvider locale="ru">
-      <Router>
-        <ScrollToTop>
-          <div className="App">
-            <Helmet>
-              <title>Long Cotton Gabardine Car Coat | Men - Burberry</title>
-              <meta name="description" content="Long Cotton Gabardine Car Coat" />
-            </Helmet>
-            <div className="container">
-              <div className="row">
-                <Header />
-                <Xl>
-                  <Menu />
-                </Xl>
-              </div>
+  (<IntlProvider locale="ru">
+    <Router>
+      <ScrollToTop>
+        <div className="App">
+          <Helmet>
+            <title>Men’s Clothing | Burberry</title>
+            <meta
+              name="description"
+              content="Shop from the current men’s clothing collection.
+                       Sartorial suits, shirts and trousers feature as well as casual T-shirts,
+                        polos and jeans."
+            />
+          </Helmet>
+          <div className="container">
+            <div className="row">
+              <Header />
+              <Xl>
+                <Menu />
+              </Xl>
             </div>
-            <Route exact path="/" component={List} />
-            <Route path="/products/:id" component={Show} />
-            <Footer />
           </div>
-        </ScrollToTop>
-      </Router>
-    </IntlProvider>);
+          <Route exact path="/" component={List} />
+          <Route path="/mens-coats/:id" component={Show} />
+          <Footer />
+        </div>
+      </ScrollToTop>
+    </Router>
+  </IntlProvider>);
