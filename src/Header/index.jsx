@@ -30,10 +30,8 @@ const Header = styled.header`
 
 const Logo = styled.img`
   display: block;
-  width: 10.375rem;
   height: 0.75rem;
   @media (min-width: 48rem) {
-    width: 13.8125rem;
     height: 1rem;
   }
 `;
