@@ -10,7 +10,7 @@ import {
   imageUrl,
   imageLg,
   imageMd,
-  imageXs,
+  imageXs
 } from '../../common/ImageResponsive';
 
 const Wraper = styled.div`
@@ -95,8 +95,7 @@ class Card extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      src: `${imageUrl}${props.src}`,
-      favourite: false,
+      favourite: false
     };
     this.handleFavourite = this.handleFavourite.bind(this);
   }
@@ -182,7 +181,7 @@ Card.propTypes = {
   type: PropTypes.string,
   title: PropTypes.string,
   price: PropTypes.number,
-  colors: PropTypes.number,
+  colors: PropTypes.number
 };
 
 Card.defaultProps = {
@@ -191,7 +190,7 @@ Card.defaultProps = {
   type: 'Classic fit',
   title: 'title',
   price: 0,
-  colors: 3,
+  colors: 3
 };
 
 export default Card;
