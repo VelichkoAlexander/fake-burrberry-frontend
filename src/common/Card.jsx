@@ -55,7 +55,7 @@ const Path = styled.path`
   stroke-width: 1px;
 `;
 
-const Title = styled.a`
+const Title = styled(Link)`
   margin: 0;
   padding-bottom: 0.5rem;
   font-size: 0.75rem;
@@ -78,7 +78,7 @@ const Title = styled.a`
 
 const Price = styled.div`margin-bottom: 0;`;
 const Availability = styled.div`margin-bottom: 0.3125rem;`;
-const ColorLink = styled.a`
+const ColorLink = styled(Link)`
   color: #171717;
   line-height: 1rem;
 
@@ -146,12 +146,12 @@ class Card extends Component {
             Favourite
           </Favourite>
         </Inner>
-        <Title href={`/mens-clothing/mens-coats/${this.props.id}`}>
+        <Title to={`/mens-clothing/mens-coats/${this.props.id}`}>
           {this.props.title}
         </Title>
         <Availability>
           Available in{' '}
-          <ColorLink href={`/mens-clothing/mens-coats/${this.props.id}`}>
+          <ColorLink to={`/mens-clothing/mens-coats/${this.props.id}`}>
             {this.props.colors} colours
           </ColorLink>
         </Availability>

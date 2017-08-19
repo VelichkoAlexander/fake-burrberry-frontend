@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import { Xl } from '../../common/Responsive';
 
 import Menu from './InfoMenu';
@@ -40,7 +41,7 @@ const Content = styled.div`
   }
 `;
 
-const More = styled.a`
+const More = styled(Link)`
   font-size: 0.75rem;
   font-weight: 500;
   text-decoration: underline;
@@ -55,7 +56,7 @@ export default () =>
         Explore our menswear collection for the season. Sculptural knitwear,{' '}
         <a href="/sweatshirts">sweatshirts</a>, artist overalls and oversized
         cabans feature alongside our signature trench coat in both heritage.<Xl>
-          <More href="/products">More</More>
+          <More to="/products">More</More>
         </Xl>
       </Content>
       <Menu />
