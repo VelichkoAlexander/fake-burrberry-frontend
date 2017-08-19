@@ -26,31 +26,21 @@ const Link = styled(NavLink)`
     color: #171717;
     border-bottom: 1px  #171717 solid;
   }
+  &.active{
+    color: #171717;
+    border-bottom: 1px  #171717 solid;
+  }
 `;
-const linkActiveStyle = {
-  color: '#171717',
-  borderBottom: '1px  #171717 solid',
-};
 
 export default function Menu() {
   return (
     <Wraper>
       <Inner>
-        <Link activeStyle={linkActiveStyle} to="/women">
-          Women
-        </Link>
-        <Link activeStyle={linkActiveStyle} to="/mens-clothing">
-          Men
-        </Link>
-        <Link activeStyle={linkActiveStyle} to="/children">
-          Children
-        </Link>
-        <Link activeStyle={linkActiveStyle} to="/beauty">
-          Beauty
-        </Link>
-        <Link activeStyle={linkActiveStyle} to="/experience">
-          Experience
-        </Link>
+        <Link to="/women">Women</Link>
+        <Link to="/mens-clothing">Men</Link>
+        <Link to="/children">Children</Link>
+        <Link to="/beauty">Beauty</Link>
+        <Link to="/experience">Experience</Link>
       </Inner>
     </Wraper>
   );
