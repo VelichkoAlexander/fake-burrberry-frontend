@@ -5,7 +5,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 5rem;
+  margin-bottom: 5.0625rem;
   @media (min-width: 48rem) {
     margin-top: 3rem;
   }
@@ -25,6 +25,7 @@ const Showing = styled.div`
 const Button = styled.button`
   padding: calc(1rem - 0.0625rem) calc(2rem - 0.0625rem);
   font-size: 0.75rem;
+  font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
   line-height: 1rem;
   border-radius: 0.125rem;
   border: solid 1px #171717;

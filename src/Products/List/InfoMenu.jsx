@@ -9,7 +9,6 @@ const Wrapper = styled.div`
   align-items: center;
   margin-right: -0.5rem;
   overflow: hidden;
-  margin-bottom: 2rem;
   @media (min-width: 48rem) {
     margin-right: 0;
   }

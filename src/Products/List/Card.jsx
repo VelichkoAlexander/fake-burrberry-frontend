@@ -76,6 +76,7 @@ const Title = styled.a`
   @media (min-width: 62rem) {
     font-size: 1rem;
     line-height: 1.25rem;
+    max-width: 12.5rem;
   }
 `;
 

@@ -38,6 +38,7 @@ const Hamburger = styled.button`
 const Country = styled.button`
   padding: 0;
   padding-right: 1.4375rem;
+  display: block;
   border: none;
   position: relative;
   background-color: transparent;
