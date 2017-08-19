@@ -12,6 +12,7 @@ const Inner = styled.div`display: flex;`;
 
 const NavLink = styled(Link)`
   padding: 1rem;
+  padding-bottom: 0.9375rem;
   font-size: 0.75rem;
   font-weight: 600;
   text-transform: uppercase;

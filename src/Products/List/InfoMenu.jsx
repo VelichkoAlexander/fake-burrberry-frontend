@@ -9,6 +9,10 @@ const Wrapper = styled.div`
   align-items: center;
   margin-right: -0.5rem;
   overflow: hidden;
+  margin-bottom: 2rem;
+  @media (min-width: 48rem) {
+    margin-right: 0;
+  }
 `;
 
 const Inner = styled.div`
@@ -55,6 +59,9 @@ const Button = styled.button`
     transform: translateY(-50%);
     background: url(${arrow}) center no-repeat;
     background-size: cover;
+  }
+  @media (min-width: 48rem) {
+    margin-right: 3rem;
   }
 `;
 

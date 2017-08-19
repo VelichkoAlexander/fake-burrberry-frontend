@@ -10,6 +10,7 @@ const Header = styled.header`
   position: relative;
   padding-top: 1.125rem;
   padding-bottom: 1.125rem;
+  line-height: 1rem;
   @media (min-width: 48rem) {
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
@@ -38,8 +39,10 @@ const Country = styled.button`
   padding: 0;
   padding-right: 1.25rem;
   border: none;
+  position: relative;
   background-color: transparent;
   font-size: 0.75rem;
+  font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
   line-height: 1rem;
   font-weight: 500;
   color: #999999;

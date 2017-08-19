@@ -81,7 +81,7 @@ const Title = styled.a`
 
 const Price = styled.div`
   margin-bottom: 0.9375rem;
-  @media (min-width: 62rem) {
+  @media (min-width: 48rem) {
     margin-bottom: 0;
   }
 `;

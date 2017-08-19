@@ -6,10 +6,11 @@ import { Xl } from '../../common/Responsive';
 import Card from './Card';
 
 const Wraper = styled.div`
-  padding-top: 2rem;
+  padding-top: 1rem;
   padding-bottom: 1rem;
   @media (min-width: 48rem) {
-    padding-top: 4rem;
+    padding-top: 2rem;
+    padding-bottom: 1.875rem;
   }
 `;
 
@@ -47,7 +48,8 @@ export default function Categoty(props) {
             <Card
               id={2}
               src="90dd344122ccf1884fce63c4fc775bd6baa7a11f"
-              title="The Westminster – Long Heritage Trench Coat"
+              title="The Kensington – Mid-Length Heritage Trench Coat"
+              type="Classic fit"
               price={27000}
             />
           </div>
@@ -56,6 +58,7 @@ export default function Categoty(props) {
               id={3}
               src="fb6adea94455f2a73e97b5cf2d7811d9135dcbe2"
               title="The Westminster – Long Heritage Trench Coat"
+              type="Toilered fit"
               price={27000}
             />
           </div>
@@ -65,6 +68,7 @@ export default function Categoty(props) {
               src="a2fa084eae958434c326685fc8ff19dfce9fe430"
               src2="61209850e00103530a1f7fcc7253515330cfaea8"
               title="The Westminster – Long Heritage Trench Coat"
+              type="Slim fit"
               price={27000}
             />
           </div>

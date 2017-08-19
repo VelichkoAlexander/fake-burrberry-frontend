@@ -6,6 +6,9 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   margin-bottom: 5rem;
+  @media (min-width: 48rem) {
+    margin-top: 3rem;
+  }
 `;
 
 const Showing = styled.div`
