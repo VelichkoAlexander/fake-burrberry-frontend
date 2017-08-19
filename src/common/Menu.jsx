@@ -20,7 +20,7 @@ const Link = styled(NavLink)`
   line-height: 1rem;
   letter-spacing: 0.09375rem;
   border-bottom: 1px solid transparent ;
-  color: #171717;
+  color: #999999;
   transition: color .15s ease-in-out, border-color .15s ease-in-out;
   &:hover {
     color: #171717;
