@@ -52,14 +52,19 @@ const Button = styled.button`
     margin-right: 3rem;
   }
 `;
+const Value = styled.span`color: #171717;`;
 
 export default () =>
   (<Footer>
     <Menu />
     <Links>
       <div className="container">
-        <Button type="button">Shipping country: Russian Federation</Button>
-        <Button type="button">Language: English</Button>
+        <Button type="button">
+          Shipping country: <Value>Russian Federation</Value>
+        </Button>
+        <Button type="button">
+          Language: <Value>English</Value>
+        </Button>
       </div>
     </Links>
     <XsOnly>
