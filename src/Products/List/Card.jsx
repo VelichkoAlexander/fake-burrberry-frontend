@@ -69,6 +69,7 @@ const Title = styled.a`
   font-weight: 600;
   color: #171717;
   @media (min-width: 48rem) {
+    width: 8.5rem;
     font-size: 0.875rem;
     line-height: 1.25rem;
   }

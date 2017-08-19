@@ -37,12 +37,12 @@ const Button = styled.button`
   text-align: left;
   border: 0;
   background-color: transparent;
-  &::last-child {
+  &:last-child {
     margin-bottom: 0;
   }
   @media (min-width: 48rem) {
     display: inline;
-    margin-right: 1.25rem;
+    margin-right: 1.5rem;
     margin-bottom: 2rem;
     line-height: 1rem;
     border: 0;

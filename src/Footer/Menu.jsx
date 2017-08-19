@@ -77,7 +77,7 @@ export default () =>
             <NavLink to="/">Corporate Responsibility</NavLink>
             <NavLink to="/">Site Map</NavLink>
           </div>
-          <div className="col-sm-4 col-md-3">
+          <div className="col-sm-4 col-md-4 col-lx-3">
             <Title>Legal & cookies</Title>
             <NavLink to="/">Terms & Conditions</NavLink>
             <NavLink to="/">Privacy Policy</NavLink>

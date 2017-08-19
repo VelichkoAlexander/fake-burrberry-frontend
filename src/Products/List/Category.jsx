@@ -9,11 +9,10 @@ const Wraper = styled.div`
   padding-top: 2rem;
   padding-bottom: 1rem;
   @media (min-width: 48rem) {
-    padding-top: 2rem;
+    padding-top: 4rem;
     padding-bottom: 1.875rem;
   }
   @media (min-width: 62rem) {
-    padding-top: 4rem;
     padding-bottom: 1.875rem;
   }
 `;

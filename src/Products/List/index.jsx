@@ -13,6 +13,10 @@ const Line = styled.hr`
   height: 1px;
   border: none;
   background-color: #c6c6c6;
+  @media (min-width: 48rem) {
+    margin-top: 0.125rem;
+    margin-bottom: 0;
+  }
 `;
 
 export default () =>
