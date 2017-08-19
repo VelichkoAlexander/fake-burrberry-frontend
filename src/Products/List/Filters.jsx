@@ -20,15 +20,6 @@ const Inner = styled.div`
   overflow-x: auto;
   flex-wrap: nowrap;
   justify-content: space-between;
-  @media (min-width: 48rem) {
-    & > button {
-      margin-right: 0;
-      padding-right: 1.25rem;
-      &::after {
-        right: 0;
-      }
-    }
-  }
 `;
 const Filters = styled.div`display: flex;`;
 
@@ -63,6 +54,15 @@ const Button = styled.button`
     margin-right: 3rem;
   }
 `;
+const SortButton = styled(Button)`
+  @media (min-width: 48rem) {
+    margin-right: 0;
+    padding-right: 1.25rem;
+    &::after {
+      right: 0;
+    }
+  }
+`;
 
 const Title = styled.div`
   margin-right: 2rem;
@@ -82,6 +82,6 @@ export default () =>
         <Button type="button">Colour</Button>
         <Button type="button">Size</Button>
       </Filters>
-      <Button type="button">Sort by price</Button>
+      <SortButton type="button">Sort by price</SortButton>
     </Inner>
   </Wrapper>);
