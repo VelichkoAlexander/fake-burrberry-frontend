@@ -14,17 +14,17 @@ const Menu = styled.div`
 `;
 
 const NavLink = styled(Link)`
-    display: block;
-    margin-bottom: 0.75rem;
-    margin-right: 1.25rem;
-    font-size: 0.75rem;
-    line-height: 1rem;
-    font-weight: 600;
-    color: #999999;
-    text-decoration: none;
-    &:last-child {
-      margin-bottom: 0;
-    }
+  display: block;
+  margin-bottom: 0.75rem;
+  margin-right: 1.25rem;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 600;
+  color: #999999;
+  text-decoration: none;
+  &:last-child {
+    margin-bottom: 0;
+  }
 `;
 
 const Title = styled.h2`
@@ -38,22 +38,22 @@ const Title = styled.h2`
 `;
 
 const FindLink = styled(Link)`
-    position: relative;
-    padding-bottom: 0.0625rem;
-    font-size: 0.75rem;
-    line-height: 1rem;
-    font-weight: 600;
-    text-decoration: none;
-    color: #171717;
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 1px;
-      background-color: #171717;
-    }
+  position: relative;
+  padding-bottom: 0.0625rem;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: #171717;
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #171717;
+  }
 `;
 const Img = styled.img`
   margin-bottom: 1rem;
