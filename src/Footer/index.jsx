@@ -7,14 +7,14 @@ import Menu from './Menu';
 import Help from './Help';
 
 const Links = styled.div`
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.5rem;
   @media (min-width: 48rem) {
     margin-bottom: 0;
   }
 `;
 
 const Footer = styled.footer`
-  padding: 2rem 0.5rem;
+  padding: 2rem 0;
   background-color: #f3f3f3;
   display: flex;
   margin-top: auto;

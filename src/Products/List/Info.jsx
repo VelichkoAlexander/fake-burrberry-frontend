@@ -50,12 +50,11 @@ const More = styled.a`
 export default () =>
   (<Wraper>
     <div className="container">
-      <Title>Men’s clothing</Title>
+      <Title>Men’s Clothing</Title>
       <Content>
         Explore our menswear collection for the season. Sculptural knitwear,{' '}
         <a href="/sweatshirts">sweatshirts</a>, artist overalls and oversized
-        cabans feature alongside our signature trench coat in both heritage and
-        seasonal…<Xl>
+        cabans feature alongside our signature trench coat in both heritage.<Xl>
           <More href="/products">More</More>
         </Xl>
       </Content>

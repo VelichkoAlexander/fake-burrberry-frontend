@@ -5,14 +5,13 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 2rem;
   margin-bottom: 5rem;
 `;
 
-const Sowing = styled.div`
+const Showing = styled.div`
   margin-bottom: 1rem;
   font-size: 1rem;
-  line-height: 1.875;
+  line-height: 19px;
   font-family: "Lora", serif;
   @media (min-width: 48rem) {
     font-size: 1.25rem;
@@ -21,7 +20,7 @@ const Sowing = styled.div`
   }
 `;
 const Button = styled.button`
-  padding: 1rem 2rem;
+  padding: calc(1rem - 0.0625rem) calc(2rem - 0.0625rem);
   font-size: 0.75rem;
   line-height: 1rem;
   border-radius: 0.125rem;
@@ -32,6 +31,6 @@ const Button = styled.button`
 
 export default () =>
   (<Wrapper>
-    <Sowing>Showing 8 of 17</Sowing>
+    <Showing>Showing 8 of 17</Showing>
     <Button type="button">View 9 more</Button>
   </Wrapper>);

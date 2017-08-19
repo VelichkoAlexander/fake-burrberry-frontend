@@ -39,6 +39,7 @@ const Button = styled.button`
   border: none;
   background-color: transparent;
   font-size: 0.75rem;
+  font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
   line-height: 1rem;
   font-weight: 400;
   color: #171717;
@@ -53,6 +54,7 @@ const Button = styled.button`
     height: 0.375rem;
     transform: translateY(-50%);
     background: url(${arrow}) center no-repeat;
+    background-size: cover;
   }
 `;
 

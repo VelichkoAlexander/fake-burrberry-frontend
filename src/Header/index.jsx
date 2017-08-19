@@ -1,21 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 import { XsOnly, Xl } from '../common/Responsive';
 
-import logo from '../images/logo.svg';
 import hamburger from '../images/hamburger.svg';
 import arrow from '../images/arrow.svg';
+import Logo from './Logo';
 
 const Header = styled.header`
-  display: flex;
-  justify-content: center;
-  width: 100%;
   position: relative;
   padding-top: 1.125rem;
   padding-bottom: 1.125rem;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
   @media (min-width: 48rem) {
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
@@ -28,20 +22,11 @@ const Header = styled.header`
   }
 `;
 
-const Logo = styled.img`
-  display: block;
-  height: 0.75rem;
-  @media (min-width: 48rem) {
-    height: 1rem;
-  }
-`;
-
 const Hamburger = styled.button`
   display: block;
+  padding: 0;
   align-self: center;
   justify-self: flex-start;
-  position: absolute;
-  left: 8px;
   width: 1rem;
   height: 0.625rem;
   border: 0;
@@ -49,15 +34,9 @@ const Hamburger = styled.button`
   background: url(${hamburger}) center no-repeat;
 `;
 
-const NavLink = styled(Link)`
-    margin: auto;
-`;
-
 const Country = styled.button`
   padding: 0;
   padding-right: 1.25rem;
-  position: absolute;
-  left: 8px;
   border: none;
   background-color: transparent;
   font-size: 0.75rem;
@@ -81,15 +60,21 @@ export default () =>
   (<Header>
     <div className="container">
       <div className="row">
-        <XsOnly>
-          <Hamburger type="button" />
-        </XsOnly>
-        <Xl>
-          <Country>Shopping in: United Kingdom (£)</Country>
-        </Xl>
-        <NavLink to="/">
-          <Logo src={logo} alt="logo" />
-        </NavLink>
+        <div className="col-xs-12">
+          <div className="row middle-xs">
+            <div className="col-xs-2 col-md-4">
+              <XsOnly>
+                <Hamburger type="button" />
+              </XsOnly>
+              <Xl>
+                <Country>Shopping in: United Kingdom (£)</Country>
+              </Xl>
+            </div>
+            <div className="col-xs-8 col-md-4">
+              <Logo />
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </Header>);

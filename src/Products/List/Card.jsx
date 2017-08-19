@@ -80,7 +80,7 @@ const Title = styled.a`
 `;
 
 const Price = styled.div`
-  margin-bottom: 1rem;
+  margin-bottom: 0.9375rem;
   @media (min-width: 62rem) {
     margin-bottom: 0;
   }
@@ -89,6 +89,9 @@ const Availability = styled.div`margin-bottom: 0.3125rem;`;
 const ColorLink = styled.a`
   color: #171717;
   line-height: 1rem;
+
+  border-bottom: 1px solid #171717;
+  text-decoration: none;
 `;
 
 class Card extends Component {
@@ -120,7 +123,7 @@ class Card extends Component {
               srcSet={`${imageUrl}${this.props.src}.jpg${imageMd} 1x`}
             />
             <source
-              media="(min-width: 48rem)"
+              media="(min-width: 20rem)"
               srcSet={`${imageUrl}${this.props.src}.jpg${imageXs} 1x`}
             />
             <Img
@@ -185,7 +188,7 @@ Card.propTypes = {
 Card.defaultProps = {
   id: 1,
   src: '',
-  type: 'Classic fit',
+  type: 'Relaxed fit',
   title: 'title',
   price: 0,
   colors: 3,
