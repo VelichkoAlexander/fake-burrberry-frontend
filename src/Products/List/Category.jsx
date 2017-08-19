@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-import { Xl } from '../../common/Responsive';
 import Card from '../../common/Card';
 
 const Wraper = styled.div`
@@ -31,33 +30,17 @@ const Title = styled.h2`
   }
 `;
 
-export default function Categoty(props) {
-  const list = props.data.map((item, i) => {
-    if (i < 4) {
-      return (
-        <div className="col-xs-6 col-md-3" key={i.toString()}>
-          <Card
-            src={item.src}
-            title={item.title}
-            colors={item.colors}
-            price={item.price}
-          />
-        </div>
-      );
-    }
-    return (
-      <div className="col-xs-6 col-md-3" key={i.toString()}>
-        <Xl>
-          <Card
-            src={item.src}
-            title={item.title}
-            colors={item.colors}
-            price={item.price}
-          />
-        </Xl>
-      </div>
-    );
-  });
+export default function Category(props) {
+  const list = props.data.map((item, i) =>
+    (<div className="col-xs-6 col-md-3" key={i.toString()}>
+      <Card
+        src={item.src}
+        title={item.title}
+        colors={item.colors}
+        price={item.price}
+      />
+    </div>),
+  );
 
   return (
     <Wraper>
@@ -73,12 +56,12 @@ export default function Categoty(props) {
   );
 }
 
-Categoty.propTypes = {
+Category.propTypes = {
   title: PropTypes.string,
   data: PropTypes.arrayOf(PropTypes.object),
 };
 
-Categoty.defaultProps = {
-  title: 'title',
+Category.defaultProps = {
+  title: 'Category',
   data: [],
 };
