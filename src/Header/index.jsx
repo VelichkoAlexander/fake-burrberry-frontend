@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Menu from '../common/Menu';
 import { XsOnly, Xl } from '../common/Responsive';
 
 import hamburger from '../images/hamburger.svg';
@@ -61,24 +62,33 @@ const Country = styled.button`
 `;
 
 export default () =>
-  (<Header>
-    <div className="container">
-      <div className="row">
-        <div className="col-xs-12">
-          <div className="row middle-xs">
-            <div className="col-xs-2 col-md-4">
-              <XsOnly>
-                <Hamburger type="button" />
-              </XsOnly>
-              <Xl>
-                <Country>Shopping in: United Kingdom (£)</Country>
-              </Xl>
-            </div>
-            <div className="col-xs-8 col-md-4">
-              <Logo />
+  (<div>
+    <Header>
+      <div className="container">
+        <div className="row">
+          <div className="col-xs-12">
+            <div className="row middle-xs">
+              <div className="col-xs-2 col-md-4">
+                <XsOnly>
+                  <Hamburger type="button" />
+                </XsOnly>
+                <Xl>
+                  <Country>Shopping in: United Kingdom (£)</Country>
+                </Xl>
+              </div>
+              <div className="col-xs-8 col-md-4">
+                <Logo />
+              </div>
             </div>
           </div>
         </div>
       </div>
+    </Header>
+    <div className="container">
+      <div className="row">
+        <Xl>
+          <Menu />
+        </Xl>
+      </div>
     </div>
-  </Header>);
+  </div>);

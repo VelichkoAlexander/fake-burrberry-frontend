@@ -5,12 +5,11 @@ import { IntlProvider, addLocaleData } from 'react-intl';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import Header from './Header';
-import Menu from './common/Menu';
+
 import Show from './Products/Show';
 import List from './Products/List';
 import Footer from './Footer';
 import ScrollToTop from './common/ScrollToTop';
-import { Xl } from './common/Responsive';
 
 addLocaleData(ruLocaleData);
 
@@ -30,13 +29,6 @@ export default () =>
           </Helmet>
           <Header />
 
-          <div className="container">
-            <div className="row">
-              <Xl>
-                <Menu />
-              </Xl>
-            </div>
-          </div>
           <Route exact path="/" component={List} />
           <Route exact path="/mens-clothing" component={List} />
           <Route path="/mens-clothing/:categoryName/:id" component={Show} />
