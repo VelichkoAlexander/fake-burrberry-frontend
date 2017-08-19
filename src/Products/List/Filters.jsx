@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { XsOnly } from '../../common/Responsive';
 
 import arrow from '../../images/arrow.svg';
 
@@ -64,18 +63,8 @@ const SortButton = styled(Button)`
   }
 `;
 
-const Title = styled.div`
-  margin-right: 2rem;
-  font-size: 0.75rem;
-  line-height: 1rem;
-  white-space: nowrap;
-`;
-
 export default () =>
   (<Wrapper>
-    <XsOnly>
-      <Title>Refine by</Title>
-    </XsOnly>
     <Inner>
       <Filters>
         <Button type="button">Category</Button>
