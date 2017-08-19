@@ -1,13 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Card from '../common/Card';
+import Card from '../../common/Card';
 
 const Section = styled.section`
   padding-top: 3rem;
   padding-bottom: 1rem;
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
   @media (min-width: 48rem) {
     padding: 0;
     margin: 0;

@@ -6,8 +6,6 @@ import triangle from '../../images/triangle-down.svg';
 
 const Info = styled.div`
   padding: 2rem 0;
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
   @media (min-width: 48rem) {
     padding-bottom: 3rem;
     display: ${props => (props.hide ? 'none' : 'block')};

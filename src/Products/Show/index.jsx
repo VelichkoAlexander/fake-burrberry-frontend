@@ -7,7 +7,7 @@ import Header from './Header';
 import Image from './InfoImage';
 import InfoBlock from './InfoBlock';
 import Delivery from './Delivery';
-import Suggest from '../../Suggest/index';
+import Suggest from './Suggest';
 import More from './More';
 
 const Line = styled.hr`
@@ -22,6 +22,7 @@ const Wraper = styled.div`
   .col-lg-4:nth-child(3) img {
     margin-top: 2rem;
   }
+
   .col-lg-4:nth-child(4) img {
     margin-top: 6rem;
   }
@@ -68,5 +69,11 @@ export default () =>
       <Delivery />
     </Xl>
     <Suggest />
-    <More />
+    <div className="container">
+      <div className="row">
+        <div className="col-xs-12">
+          <More />
+        </div>
+      </div>
+    </div>
   </div>);

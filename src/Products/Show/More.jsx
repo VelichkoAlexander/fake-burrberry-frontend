@@ -3,11 +3,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { XsOnly } from '../../common/Responsive';
 
-const Section = styled.section`
-  padding-right: 1rem;
-  padding-left: 1rem;
-  margin-bottom: 4rem;
-`;
+const Section = styled.section`margin-bottom: 4rem;`;
 
 const Title = styled.h2`
   display: inline-block;

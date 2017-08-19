@@ -11,8 +11,6 @@ const Wraper = styled.div`
   display: flex;
   justify-content: space-between;
   padding-top: 1rem;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
   padding-bottom: 1rem;
   @media (min-width: 48rem) {
     padding: 0;

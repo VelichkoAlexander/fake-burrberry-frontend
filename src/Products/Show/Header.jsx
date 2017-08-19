@@ -12,7 +12,6 @@ import { Sm, Lg } from '../../common/Responsive';
 const Title = styled.h1`
   margin: 0;
   padding: 0;
-  padding-left: 0.5rem;
   margin-bottom: 1rem;
   font-family: "Lora", serif;
   font-size: 1.25rem;

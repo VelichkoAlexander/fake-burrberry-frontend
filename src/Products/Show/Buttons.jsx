@@ -6,8 +6,6 @@ import { Lg, MdOnly, Sm, XsOnly } from '../../common/Responsive';
 const Wrap = styled.div`
   display: flex;
   flex-direction: column;
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
   padding-bottom: 3rem;
   @media (min-width: 48rem) {
     padding: 0;
