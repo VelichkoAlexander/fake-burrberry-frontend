@@ -6,7 +6,7 @@ import { Xl } from '../../common/Responsive';
 import Card from './Card';
 
 const Wraper = styled.div`
-  padding-top: 1rem;
+  padding-top: 2rem;
   padding-bottom: 1rem;
   @media (min-width: 48rem) {
     padding-top: 2rem;

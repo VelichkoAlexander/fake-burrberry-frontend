@@ -80,12 +80,7 @@ const Title = styled.a`
   }
 `;
 
-const Price = styled.div`
-  margin-bottom: 0.9375rem;
-  @media (min-width: 48rem) {
-    margin-bottom: 0;
-  }
-`;
+const Price = styled.div`margin-bottom: 0;`;
 const Availability = styled.div`margin-bottom: 0.3125rem;`;
 const ColorLink = styled.a`
   color: #171717;
