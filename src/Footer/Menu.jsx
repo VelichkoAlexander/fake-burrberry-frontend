@@ -4,7 +4,14 @@ import { Link } from 'react-router-dom';
 
 import { Xl, Lg } from '../common/Responsive';
 
-const Menu = styled.div`@media (min-width: 48rem) {margin-bottom: 1.875rem;}`;
+const Menu = styled.div`
+  @media (min-width: 48rem) {
+    margin-bottom: 1.875rem;
+  }
+  @media (min-width: 62rem) {
+    margin-bottom: 2.875rem;
+  }
+`;
 
 const NavLink = styled(Link)`
     display: block;
@@ -77,7 +84,7 @@ export default () =>
             <NavLink to="/">Corporate Responsibility</NavLink>
             <NavLink to="/">Site Map</NavLink>
           </div>
-          <div className="col-sm-4 col-md-4 col-lx-3">
+          <div className="col-sm-4 col-md-4 col-lg-3">
             <Title>Legal & cookies</Title>
             <NavLink to="/">Terms & Conditions</NavLink>
             <NavLink to="/">Privacy Policy</NavLink>

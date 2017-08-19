@@ -7,7 +7,7 @@ import Menu from './Menu';
 import Help from './Help';
 
 const Links = styled.div`
-  margin-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
   @media (min-width: 48rem) {
     margin-bottom: 0;
   }
@@ -49,6 +49,7 @@ const Button = styled.button`
   }
   @media (min-width: 62rem) {
     margin-bottom: 4rem;
+    margin-right: 3rem;
   }
 `;
 

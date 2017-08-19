@@ -10,7 +10,7 @@ import {
   imageUrl,
   imageLg,
   imageMd,
-  imageXs,
+  imageXs
 } from '../../common/ImageResponsive';
 
 const Wraper = styled.div`
@@ -69,7 +69,7 @@ const Title = styled.a`
   font-weight: 600;
   color: #171717;
   @media (min-width: 48rem) {
-    width: 8.5rem;
+    max-width: 8.5rem;
     font-size: 0.875rem;
     line-height: 1.25rem;
   }
@@ -179,7 +179,7 @@ Card.propTypes = {
   type: PropTypes.string,
   title: PropTypes.string,
   price: PropTypes.number,
-  colors: PropTypes.number,
+  colors: PropTypes.number
 };
 
 Card.defaultProps = {
@@ -188,7 +188,7 @@ Card.defaultProps = {
   type: 'Relaxed fit',
   title: 'title',
   price: 0,
-  colors: 3,
+  colors: 3
 };
 
 export default Card;
