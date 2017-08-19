@@ -19,12 +19,11 @@ const Wrap = styled.div`
     margin-bottom: 1.5rem;
   }
 `;
-const ButtonContainer = styled.div `
+const ButtonContainer = styled.div`
   flex-basis: calc((100% - 1rem) / 2);
   & div {
-  width: 100%;
+    width: 100%;
   }
-  
 `;
 const Button = styled.button`
   display: block;
@@ -74,7 +73,7 @@ export default () =>
     <ButtonContainer>
       <Lg>
         <Button type="button" primary>
-        Add to bag
+          Add to bag
         </Button>
       </Lg>
     </ButtonContainer>

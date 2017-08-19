@@ -52,24 +52,26 @@ const Price = styled.h5`
 `;
 
 export default function Card(props) {
-  return (<NavLink to={props.link}>
-    <Img
-      src={`${process.env
-        .PUBLIC_URL}/images/content/recommend/${props.src}.jpg`}
-      alt={props.title}
-    />
-    <Title>
-      {props.title}
-    </Title>
-    <Price>
-      <FormattedNumber
-        value={props.price}
-        style="currency"
-        currency="RUB"
-        minimumFractionDigits={0}
+  return (
+    <NavLink to={props.link}>
+      <Img
+        src={`${process.env
+          .PUBLIC_URL}/images/content/recommend/${props.src}.jpg`}
+        alt={props.title}
       />
-    </Price>
-  </NavLink>);
+      <Title>
+        {props.title}
+      </Title>
+      <Price>
+        <FormattedNumber
+          value={props.price}
+          style="currency"
+          currency="RUB"
+          minimumFractionDigits={0}
+        />
+      </Price>
+    </NavLink>
+  );
 }
 
 Card.propTypes = {

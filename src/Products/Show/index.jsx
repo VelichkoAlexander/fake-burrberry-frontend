@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-
 import { XsOnly, Xl, Lg } from '../../common/Responsive';
 
 import Header from './Header';

@@ -16,21 +16,21 @@ const Section = styled.section`
 `;
 
 const Title = styled.h2`
-    display: inline-block;
-    margin: 0;
-    font-size: 1rem;
-    line-height: 1.188rem;
-    font-weight: 500;
-    color: #171717;
-    text-transform: uppercase;
-    position: relative;
-    margin-bottom: 1rem;
-    @media (min-width: 62rem) {
-      display: block;
-      margin-bottom: 2rem;
-      text-align: center;
-    }
-  `;
+  display: inline-block;
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.188rem;
+  font-weight: 500;
+  color: #171717;
+  text-transform: uppercase;
+  position: relative;
+  margin-bottom: 1rem;
+  @media (min-width: 62rem) {
+    display: block;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+`;
 
 export default () =>
   (<Section>

@@ -39,30 +39,30 @@ const Id = styled.p`
 `;
 
 export default function Info(props) {
-  return (<Wraper>
-    <Price>
-      <FormattedNumber
-        value={props.price}
-        style="currency"
-        currency="RUB"
-        minimumFractionDigits={0}
-      />
-    </Price>
-    <Sm>
-      <Id>
-        Item {props.id}
-      </Id>
-    </Sm>
-  </Wraper>);
+  return (
+    <Wraper>
+      <Price>
+        <FormattedNumber
+          value={props.price}
+          style="currency"
+          currency="RUB"
+          minimumFractionDigits={0}
+        />
+      </Price>
+      <Sm>
+        <Id>
+          Item {props.id}
+        </Id>
+      </Sm>
+    </Wraper>
+  );
 }
 Info.propTypes = {
   price: PropTypes.number,
   id: PropTypes.number,
-
 };
 
 Info.defaultProps = {
   price: 0,
   id: 1,
-
 };
