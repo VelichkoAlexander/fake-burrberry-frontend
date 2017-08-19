@@ -36,7 +36,7 @@ const Hamburger = styled.button`
   background: url(${hamburger}) center no-repeat;
 `;
 
-const Country = styled.button`
+const CountrySelect = styled.button`
   padding: 0;
   padding-right: 1.4375rem;
   display: block;
@@ -73,7 +73,7 @@ export default () =>
                   <Hamburger type="button" />
                 </XsOnly>
                 <Xl>
-                  <Country>Shopping in: United Kingdom (£)</Country>
+                  <CountrySelect>Shopping in: United Kingdom (£)</CountrySelect>
                 </Xl>
               </div>
               <div className="col-xs-8 col-md-4">

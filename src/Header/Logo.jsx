@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import logo from '../images/logo.svg';
 
 const LogoLink = styled(Link)`
-    margin: auto;
+  margin: auto;
 `;
 
 const Logo = styled.img`
