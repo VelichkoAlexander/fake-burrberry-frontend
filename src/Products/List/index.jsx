@@ -22,10 +22,14 @@ const Line = styled.hr`
 export default () =>
   (<div>
     <Info />
-    <Category title="Heritage Trench Coats" data={dataSet1} />
     <div className="container">
-      <Line />
+      <div className="row">
+        <Category title="Heritage Trench Coats" data={dataSet1} />
+        <div className="col-md-12">
+          <Line />
+        </div>
+        <Category title="Single Breasted Trench Coats" data={dataSet2} />
+      </div>
     </div>
-    <Category title="Single Breasted Trench Coats" data={dataSet2} />
     <More />
   </div>);

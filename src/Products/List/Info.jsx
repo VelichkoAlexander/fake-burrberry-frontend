@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { Xl } from '../../common/Responsive';
 
-import Menu from './InfoMenu';
+import Menu from './Filters';
 
 const Wraper = styled.div`
   background-color: #f3f3f3;
@@ -36,7 +36,7 @@ const Content = styled.div`
     margin-bottom: 1rem;
     max-width: 37.75rem;
     & a {
-      text-decoration: underline;
+      border-bottom: 1px solid #171717;
     }
   }
 `;
