@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Card from '../../common/Card';
+import Card from '../ProductCard';
 
 const Section = styled.section`
   padding-top: 3rem;

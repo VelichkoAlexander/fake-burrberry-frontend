@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import { FormattedNumber } from 'react-intl';
 import { Link } from 'react-router-dom';
 
-import { imageUrl, imageLg, imageMd, imageXs } from './ImageResponsive';
+import { imageUrl, imageLg, imageMd, imageXs } from '../common/ImageResponsive';
 
 const Wraper = styled.div`
   display: flex;

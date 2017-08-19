@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-import Card from '../../common/Card';
+import Card from '../ProductCard';
 
 const Wraper = styled.div`
   padding-top: 2rem;
