@@ -6,12 +6,7 @@ import PropTypes from 'prop-types';
 import { FormattedNumber } from 'react-intl';
 import { Link } from 'react-router-dom';
 
-import {
-  imageUrl,
-  imageLg,
-  imageMd,
-  imageXs
-} from '../../common/ImageResponsive';
+import { imageUrl, imageLg, imageMd, imageXs } from './ImageResponsive';
 
 const Wraper = styled.div`
   display: flex;
@@ -179,7 +174,7 @@ Card.propTypes = {
   type: PropTypes.string,
   title: PropTypes.string,
   price: PropTypes.number,
-  colors: PropTypes.number
+  colors: PropTypes.number,
 };
 
 Card.defaultProps = {
@@ -188,7 +183,7 @@ Card.defaultProps = {
   type: 'Relaxed fit',
   title: 'title',
   price: 0,
-  colors: 3
+  colors: 3,
 };
 
 export default Card;

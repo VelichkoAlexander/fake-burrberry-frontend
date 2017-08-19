@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Card from './Card';
+import Card from '../common/Card';
 
 const Section = styled.section`
   padding-top: 3rem;
@@ -39,34 +39,38 @@ export default () =>
       <div className="row">
         <div className="col-xs-6 col-md-3">
           <Card
-            link="#"
-            src="Emroided_hooded"
-            title="Emroided Hooded"
-            price={27000}
-          />
-        </div>
-        <div className="col-xs-6 col-md-3">
-          <Card
-            link="#"
-            src="Relaxed_Fit_Stretch_Jeans"
-            title="Relaxed Fit Stretch Jeans"
-            price={22500}
-          />
-        </div>
-        <div className="col-xs-6 col-md-3">
-          <Card
-            link="#"
-            src="Leather_and_House_Check"
-            title="Leather and House Check"
+            src="995466e7e1113f3b2f6484ceb090072e1c9062dc"
+            title="The Westminster – Long Heritage Trench Coat"
+            type="Relaxed fit"
+            colors={3}
             price={120000}
           />
         </div>
         <div className="col-xs-6 col-md-3">
           <Card
-            link="#"
-            src="Leather_Wingtip_Check"
-            title="Leather Wingtip Check"
-            price={46000}
+            src="995466e7e1113f3b2f6484ceb090072e1c9062dc"
+            title="The Westminster – Long Heritage Trench Coat"
+            type="Relaxed fit"
+            colors={3}
+            price={120000}
+          />
+        </div>
+        <div className="col-xs-6 col-md-3">
+          <Card
+            src="995466e7e1113f3b2f6484ceb090072e1c9062dc"
+            title="The Westminster – Long Heritage Trench Coat"
+            type="Relaxed fit"
+            colors={3}
+            price={120000}
+          />
+        </div>
+        <div className="col-xs-6 col-md-3">
+          <Card
+            src="995466e7e1113f3b2f6484ceb090072e1c9062dc"
+            title="The Westminster – Long Heritage Trench Coat"
+            type="Relaxed fit"
+            colors={3}
+            price={120000}
           />
         </div>
       </div>

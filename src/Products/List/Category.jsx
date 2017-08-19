@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 import { Xl } from '../../common/Responsive';
-import Card from './Card';
+import Card from '../../common/Card';
 
 const Wraper = styled.div`
   padding-top: 2rem;
