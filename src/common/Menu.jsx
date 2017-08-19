@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const Wraper = styled.div`
   display: flex;
@@ -10,7 +10,7 @@ const Wraper = styled.div`
 
 const Inner = styled.div`display: flex;`;
 
-const NavLink = styled(Link)`
+const Link = styled(NavLink)`
   padding: 1rem;
   padding-bottom: 0.9375rem;
   font-size: 0.75rem;
@@ -19,27 +19,38 @@ const NavLink = styled(Link)`
   text-decoration: none;
   line-height: 1rem;
   letter-spacing: 0.09375rem;
-  color:${props => (props.active ? '#171717' : '#999999')};
-  border-bottom: ${props =>
-    (props.active ? '1px  #171717 solid' : 'transparent')};
+  border-bottom: 1px solid transparent ;
+  color: #171717;
   transition: color .15s ease-in-out, border-color .15s ease-in-out;
   &:hover {
     color: #171717;
     border-bottom: 1px  #171717 solid;
   }
 `;
+const linkActiveStyle = {
+  color: '#171717',
+  borderBottom: '1px  #171717 solid',
+};
 
 export default function Menu() {
   return (
     <Wraper>
       <Inner>
-        <NavLink to="/products">Women</NavLink>
-        <NavLink active to="/products">
+        <Link activeStyle={linkActiveStyle} to="/women">
+          Women
+        </Link>
+        <Link activeStyle={linkActiveStyle} to="/mens-clothing">
           Men
-        </NavLink>
-        <NavLink to="/products">Children</NavLink>
-        <NavLink to="/products">Beauty</NavLink>
-        <NavLink to="/products">Experience</NavLink>
+        </Link>
+        <Link activeStyle={linkActiveStyle} to="/children">
+          Children
+        </Link>
+        <Link activeStyle={linkActiveStyle} to="/beauty">
+          Beauty
+        </Link>
+        <Link activeStyle={linkActiveStyle} to="/experience">
+          Experience
+        </Link>
       </Inner>
     </Wraper>
   );

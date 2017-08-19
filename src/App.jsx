@@ -38,7 +38,8 @@ export default () =>
             </div>
           </div>
           <Route exact path="/" component={List} />
-          <Route path="/mens-coats/:id" component={Show} />
+          <Route exact path="/mens-clothing" component={List} />
+          <Route path="/mens-clothing/:categoryName/:id" component={Show} />
           <Footer />
         </div>
       </ScrollToTop>

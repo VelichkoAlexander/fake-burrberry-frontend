@@ -101,7 +101,7 @@ class Card extends Component {
     return (
       <Wraper>
         <NavLink
-          to={`/mens-coats/${this.props.id}`}
+          to={`/mens-clothing/mens-coats/${this.props.id}`}
           onMouseOver={this.handleHover}
           onMouseOut={this.handleHover}
         >
@@ -146,12 +146,12 @@ class Card extends Component {
             Favourite
           </Favourite>
         </Inner>
-        <Title href={`/mens-coats/${this.props.id}`}>
+        <Title href={`/mens-clothing/mens-coats/${this.props.id}`}>
           {this.props.title}
         </Title>
         <Availability>
           Available in{' '}
-          <ColorLink href={`/mens-coats/${this.props.id}`}>
+          <ColorLink href={`/mens-clothing/mens-coats/${this.props.id}`}>
             {this.props.colors} colours
           </ColorLink>
         </Availability>
