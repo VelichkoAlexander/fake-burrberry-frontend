@@ -1,13 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Lg, MdOnly, Sm, XsOnly } from '../common/responsive';
+import { Lg, MdOnly, Sm, XsOnly } from '../../common/Responsive';
 
 const Wrap = styled.div`
   display: flex;
   flex-direction: column;
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
   padding-bottom: 3rem;
   @media (min-width: 48rem) {
     padding: 0;
@@ -19,12 +17,11 @@ const Wrap = styled.div`
     margin-bottom: 1.5rem;
   }
 `;
-const ButtonContainer = styled.div `
+const ButtonContainer = styled.div`
   flex-basis: calc((100% - 1rem) / 2);
   & div {
-  width: 100%;
+    width: 100%;
   }
-  
 `;
 const Button = styled.button`
   display: block;
@@ -74,7 +71,7 @@ export default () =>
     <ButtonContainer>
       <Lg>
         <Button type="button" primary>
-        Add to bag
+          Add to bag
         </Button>
       </Lg>
     </ButtonContainer>

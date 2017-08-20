@@ -8,7 +8,7 @@
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^5.1.1",
     "eslint-plugin-react": "^7.2.1",
-    "flexboxgrid2": "^7.0.0-alpha6",
+    "flexboxgrid2": "^7.0.0-alpha7",
     "husky": "^0.14.3",
     "lint-staged": "^4.0.3",
     "normalize.css": "^7.0.0",
@@ -19,18 +19,26 @@
     "react-helmet": "^5.1.3",
     "react-intl": "^2.3.0",
     "react-responsive": "^1.3.4",
+    "react-router-dom": "^4.1.2",
     "react-scripts": "1.0.10",
     "styled-components": "^2.1.2"
   },
   "lint-staged": {
-    "src/**/*.{js,jsx}": "eslint"
+    "src/**/**/*.{js,jsx,json,css}":
+      "prettier --single-quote --trailing-comma es5 --write",
+    "src/**/**/*.{js,jsx}": [
+      "eslint --fix",
+      "git add"
+    ]
   },
   "scripts": {
     "eslint": "eslint --ext .jsx,.js src/",
+    "precommit": "lint-staged",
     "prepush": "yarn eslint",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "yarn build && now build --public"
   }
 }

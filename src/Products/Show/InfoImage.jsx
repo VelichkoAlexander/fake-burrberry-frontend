@@ -10,21 +10,23 @@ const Img = styled.img`
 `;
 
 export default function InfoImage(props) {
-  return (<picture>
-    <source
-      media="(min-width: 62rem)"
-      srcSet={`${process.env
-        .PUBLIC_URL}/images/content/product/desktop/${props.nameItem}.jpg 1x,
+  return (
+    <picture>
+      <source
+        media="(min-width: 62rem)"
+        srcSet={`${process.env
+          .PUBLIC_URL}/images/content/product/desktop/${props.nameItem}.jpg 1x,
                           ${process.env
       .PUBLIC_URL}/images/content/product/desktop/${props.nameItem}.jpg@2x.jpg 2x,
                           ${process.env
       .PUBLIC_URL}/images/content/product/desktop/${props.nameItem}.jpg@3x.jpg 3x`}
-    />
-    <Img
-      src={`${process.env
-        .PUBLIC_URL}/images/content/product/desktop/${props.nameItem}.jpg`}
-    />
-  </picture>);
+      />
+      <Img
+        src={`${process.env
+          .PUBLIC_URL}/images/content/product/desktop/${props.nameItem}.jpg`}
+      />
+    </picture>
+  );
 }
 
 InfoImage.propTypes = {

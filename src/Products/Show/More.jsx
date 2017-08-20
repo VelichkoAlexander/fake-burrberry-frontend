@@ -1,12 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import { XsOnly } from './common/responsive';
+import { Link } from 'react-router-dom';
+import { XsOnly } from '../../common/Responsive';
 
-const Section = styled.section`
-  padding-right: 1rem;
-  padding-left: 1rem;
-  margin-bottom: 4rem;
-`;
+const Section = styled.section`margin-bottom: 4rem;`;
 
 const Title = styled.h2`
   display: inline-block;
@@ -21,7 +18,7 @@ const Title = styled.h2`
   color: #171717;
 `;
 
-const Link = styled.a`
+const NavLink = styled(Link)`
   display: block;
   margin: 0 0 1rem;
   font-size: 0.875rem;
@@ -39,8 +36,8 @@ export default () =>
   (<XsOnly>
     <Section>
       <Title>More for you</Title>
-      <Link href="#">Men’s Black Trench Coats</Link>
-      <Link href="#">Men’s Short Trench Coats</Link>
-      <Link href="#">Men’s Long Trench Coats</Link>
+      <NavLink to="/">Men’s Black Trench Coats</NavLink>
+      <NavLink to="/">Men’s Short Trench Coats</NavLink>
+      <NavLink to="/">Men’s Long Trench Coats</NavLink>
     </Section>
   </XsOnly>);

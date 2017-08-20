@@ -1,14 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { XsOnly, Xl, Lg } from '../common/responsive';
+import { XsOnly, Xl, Lg } from '../../common/Responsive';
 
 import Header from './Header';
 import Image from './InfoImage';
 import InfoBlock from './InfoBlock';
 import Delivery from './Delivery';
-
-const Product = styled.section`padding-top: 1.5rem;`;
+import Suggest from './Suggest';
+import More from './More';
 
 const Line = styled.hr`
   margin: 0;
@@ -22,15 +22,15 @@ const Wraper = styled.div`
   .col-lg-4:nth-child(3) img {
     margin-top: 2rem;
   }
+
   .col-lg-4:nth-child(4) img {
     margin-top: 6rem;
   }
 `;
 
 export default () =>
-  (<Product>
+  (<div>
     <Header />
-    <Line />
     <Wraper className="container">
       <div className="row">
         <div className="col-xs-12 col-sm-12 col-md-12 col-lg-4">
@@ -68,4 +68,12 @@ export default () =>
     <Xl>
       <Delivery />
     </Xl>
-  </Product>);
+    <Suggest />
+    <div className="container">
+      <div className="row">
+        <div className="col-xs-12">
+          <More />
+        </div>
+      </div>
+    </div>
+  </div>);

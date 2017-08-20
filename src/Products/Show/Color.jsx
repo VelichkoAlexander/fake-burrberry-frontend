@@ -5,8 +5,6 @@ import styled from 'styled-components';
 import Button from './ColorButton';
 
 const Wrapper = styled.div`
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
   @media (min-width: 48rem) {
     padding: 0;
     margin: 0;
@@ -36,15 +34,17 @@ const Options = styled.div`
 const Name = styled.span`font-weight: 700;`;
 
 export default function Color(props) {
-  return (<Wrapper>
-    <Current>
-      Colour: <Name>{props.currentColor}</Name>
-    </Current>
-    <Options>
-      <Button name="black" color="#232122" />
-      <Button name="honey" color="#cfa880" active />
-    </Options>
-  </Wrapper>);
+  return (
+    <Wrapper>
+      <Current>
+        Colour: <Name>{props.currentColor}</Name>
+      </Current>
+      <Options>
+        <Button name="black" color="#232122" />
+        <Button name="honey" color="#cfa880" active />
+      </Options>
+    </Wrapper>
+  );
 }
 Color.propTypes = {
   currentColor: PropTypes.string,

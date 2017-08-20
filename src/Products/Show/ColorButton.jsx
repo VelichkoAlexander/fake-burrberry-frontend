@@ -16,9 +16,11 @@ const Button = styled.button`
 `;
 
 export default function ColorButton(props) {
-  return (<Button type="button" active={props.active} value={props.color}>
-    Color {props.name}
-  </Button>);
+  return (
+    <Button type="button" active={props.active} value={props.color}>
+      Color {props.name}
+    </Button>
+  );
 }
 
 ColorButton.propTypes = {
@@ -32,4 +34,3 @@ ColorButton.defaultProps = {
   name: 'black',
   color: '#232122',
 };
-

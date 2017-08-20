@@ -7,18 +7,18 @@ import Color from './Color';
 import Size from './Size';
 import Buttons from './Buttons';
 
-import { Sm, Lg } from '../common/responsive';
+import { Sm, Lg } from '../../common/Responsive';
 
 const Title = styled.h1`
   margin: 0;
   padding: 0;
-  padding-left: 0.5rem;
   margin-bottom: 1rem;
   font-family: "Lora", serif;
   font-size: 1.25rem;
   line-height: 1.5rem;
   font-weight: 400;
   color: #171717;
+  margin-top: 1.5rem;
   @media (min-width: 48rem) {
     padding-left: 0;
     margin-bottom: 1.5rem;

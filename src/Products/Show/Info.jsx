@@ -5,14 +5,12 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { FormattedNumber } from 'react-intl';
 
-import { Sm } from '../common/responsive';
+import { Sm } from '../../common/Responsive';
 
 const Wraper = styled.div`
   display: flex;
   justify-content: space-between;
   padding-top: 1rem;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
   padding-bottom: 1rem;
   @media (min-width: 48rem) {
     padding: 0;
@@ -39,30 +37,30 @@ const Id = styled.p`
 `;
 
 export default function Info(props) {
-  return (<Wraper>
-    <Price>
-      <FormattedNumber
-        value={props.price}
-        style="currency"
-        currency="RUB"
-        minimumFractionDigits={0}
-      />
-    </Price>
-    <Sm>
-      <Id>
-        Item {props.id}
-      </Id>
-    </Sm>
-  </Wraper>);
+  return (
+    <Wraper>
+      <Price>
+        <FormattedNumber
+          value={props.price}
+          style="currency"
+          currency="RUB"
+          minimumFractionDigits={0}
+        />
+      </Price>
+      <Sm>
+        <Id>
+          Item {props.id}
+        </Id>
+      </Sm>
+    </Wraper>
+  );
 }
 Info.propTypes = {
   price: PropTypes.number,
   id: PropTypes.number,
-
 };
 
 Info.defaultProps = {
   price: 0,
   id: 1,
-
 };
