@@ -12,16 +12,15 @@ script:
 deploy:
   # deploy develop to the staging environment
   - provider: script
-    script:
-    - yarn deploy
+    script: now alias $(now build -t=$NOW_TOKEN --public) $URL_DEV -t=$NOW_TOKEN
     skip_cleanup: true
     on:
       branch: develop
   # deploy master to production
   - provider: script
-    script:
-    - yarn deploy
+    script: now alias $(now build -t=$NOW_TOKEN --public) $URL_PROD -t=$NOW_TOKEN
     skip_cleanup: true
     on:
       branch: master
 #
+avelichko-burberry-fake-shop-for-study
