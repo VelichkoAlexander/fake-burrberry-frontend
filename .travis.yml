@@ -14,11 +14,13 @@ deploy:
   - provider: script
     script:
     - yarn deploy
+    skip_cleanup: true
     on:
       branch: feat/deployFromTravis
   # deploy master to production
   - provider: script
     script:
     - yarn deploy
+    skip_cleanup: true
     on:
       branch: master
