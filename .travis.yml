@@ -9,3 +9,16 @@ install:
   - yarn install
 script:
   - yarn eslint
+deploy:
+  # deploy develop to the staging environment
+  - provider: script
+    script:
+    - yarn deploy
+    on:
+      branch: feat/deployFromTravis
+  # deploy master to production
+  - provider: script
+    script:
+    - yarn deploy
+    on:
+      branch: master
