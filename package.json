@@ -39,6 +39,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "deploy": "yarn build && now build --public"
+    "deploy": "yarn build && now --public"
+  },
+  "devDependencies": {
+    "now":"^7.3.1"
   }
 }
