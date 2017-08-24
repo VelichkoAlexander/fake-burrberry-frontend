@@ -1,14 +1,16 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 
-import arrow from '../../images/arrow.svg';
+import Filter from './Filter';
 
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
-  margin-right: -0.5rem;
-  overflow: hidden;
+  overflow-x: hidden;
+  background-color: #f3f3f3;
+  position: relative;
   @media (min-width: 48rem) {
+    overflow-x: visible;
     margin-right: 0;
   }
 `;
@@ -16,61 +18,63 @@ const Wrapper = styled.div`
 const Inner = styled.div`
   display: flex;
   width: 100%;
-  overflow-x: auto;
   flex-wrap: nowrap;
   justify-content: space-between;
 `;
-const Filters = styled.div`display: flex;`;
+const FiltersWrap = styled.div`display: flex;`;
 
-const Button = styled.button`
-  padding: 0;
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
-  padding-right: 1.25rem;
-  margin-right: 1rem;
-  position: relative;
-  border: none;
-  background-color: transparent;
-  font-size: 0.75rem;
-  font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  line-height: 1rem;
-  font-weight: 400;
-  color: #171717;
-  white-space: nowrap;
-  cursor: pointer;
-  &::after {
-    content: '';
-    position: absolute;
-    right: 0;
-    top: 50%;
-    width: 0.75rem;
-    height: 0.375rem;
-    transform: translateY(-50%);
-    background: url(${arrow}) center no-repeat;
-    background-size: cover;
-  }
-  @media (min-width: 48rem) {
-    margin-right: 3rem;
-  }
-`;
-const SortButton = styled(Button)`
+const SortButton = styled(Filter)`
   @media (min-width: 48rem) {
     margin-right: 0;
-    padding-right: 1.25rem;
     &::after {
       right: 0;
     }
   }
 `;
 
-export default () =>
-  (<Wrapper>
-    <Inner>
-      <Filters>
-        <Button type="button">Category</Button>
-        <Button type="button">Colour</Button>
-        <Button type="button">Size</Button>
-      </Filters>
-      <SortButton type="button">Sort by price</SortButton>
-    </Inner>
-  </Wrapper>);
+const Overflow = styled.div`
+  position: absolute;
+  top: 4rem;
+  left: 0;
+  z-index: 500;
+  visibility: ${props => (props.hover ? 'none' : 'hidden')};
+  width: 100%;
+  height: 200vh;
+  background: #171717;
+  opacity: .3;
+`;
+
+class Filters extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { dropdownEvent: false };
+    this.handleDropdown = this.handleDropdown.bind(this);
+  }
+
+  handleDropdown(value) {
+    this.setState(() => ({ dropdownEvent: value }));
+  }
+  render() {
+    return (
+      <Wrapper>
+        <div className="container">
+          <Inner>
+            <FiltersWrap>
+              <Filter onDropdown={this.handleDropdown} name="Category" />
+              <Filter onDropdown={this.handleDropdown} name="Colour" />
+              <Filter onDropdown={this.handleDropdown} name="Size" />
+            </FiltersWrap>
+            <SortButton
+              onDropdown={this.handleDropdown}
+              name="Sort by price"
+              right
+            />
+          </Inner>
+        </div>
+        <Overflow hover={this.state.dropdownEvent} />
+      </Wrapper>
+    );
+  }
+}
+
+export default Filters;

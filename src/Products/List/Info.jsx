@@ -9,6 +9,7 @@ const Wraper = styled.div`
   background-color: #f3f3f3;
   padding-top: 2rem;
   color: #171717;
+  z-index: 9999;
   @media (min-width: 48rem) {
     padding-top: 4rem;
   }
@@ -59,6 +60,6 @@ export default () =>
           <More to="/products">More</More>
         </Xl>
       </Content>
-      <Menu />
     </div>
+    <Menu />
   </Wraper>);

@@ -100,11 +100,7 @@ class Card extends Component {
   render() {
     return (
       <Wraper>
-        <NavLink
-          to={`/mens-clothing/mens-coats/${this.props.id}`}
-          onMouseOver={this.handleHover}
-          onMouseOut={this.handleHover}
-        >
+        <NavLink to={`/mens-clothing/mens-coats/${this.props.id}`}>
           <picture>
             <source
               media="(min-width: 62rem)"
