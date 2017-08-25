@@ -42,7 +42,7 @@ const FilterHeader = styled.div`
     background-size: cover;
     background-color: #171717;
     ${props =>
-    (props.active ? 'background-color: #999999' : 'background-color:#171717')};
+      props.active ? 'background-color: #999999' : 'background-color:#171717'};
     ${props => (props.show ? 'background-color:#171717' : '')};
   }
   @media (min-width: 48rem) {
@@ -92,7 +92,7 @@ class Filter extends Component {
     if (e === undefined) {
       return;
     }
-    if (this.Dropdown === e.target) {
+    if (this.Dropdown.contains(e.target)) {
       return;
     }
     this.setState(() => ({ showDropdown: false }));
@@ -104,7 +104,7 @@ class Filter extends Component {
     return (
       <Wrapper isSort={this.props.sort}>
         <FilterHeader
-          onClick={(e) => {
+          onClick={e => {
             this.onShow(e);
           }}
           show={this.state.showDropdown}
@@ -116,7 +116,9 @@ class Filter extends Component {
         <Dropdown
           isSort={this.props.sort}
           show={this.state.showDropdown}
-          innerRef={(node) => { this.Dropdown = node; }}
+          innerRef={node => {
+            this.Dropdown = node;
+          }}
         >
           <p>
             Content content content content content content content content

@@ -58,7 +58,7 @@ const filters = [
   { name: 'Size' },
   { name: 'Colour' },
   { name: 'Size' },
-  { name: 'Sort by price', type: 'true' },
+  { name: 'Sort by price', sort: true },
 ];
 
 class Filters extends Component {
@@ -82,7 +82,7 @@ class Filters extends Component {
                 (<Filter
                   onDropdown={this.handleDropdown}
                   name={filter.name}
-                  sort={filter.type}
+                  sort={filter.sort}
                   id={index}
                   key={index.toString()}
                   active={this.state.dropdownEvent}
