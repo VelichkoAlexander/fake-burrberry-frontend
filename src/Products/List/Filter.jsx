@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import enhanceWithClickOutside from 'react-click-outside';
 
 import arrow from '../../images/arrow.svg';
 
@@ -22,6 +23,7 @@ const FilterHeader = styled.div`
   color: #171717;
   white-space: nowrap;
   cursor: pointer;
+  z-index: 800;
   &::after {
     content: '';
     position: absolute;
@@ -29,7 +31,8 @@ const FilterHeader = styled.div`
     top: 50%;
     width: 0.75rem;
     height: 0.375rem;
-    transform: translateY(-50%);
+    transform: translateY(-50%)
+      rotate(${props => (props.show ? '180deg' : '0')});
     background: url(${arrow}) center no-repeat;
     background-size: cover;
   }
@@ -47,8 +50,8 @@ const Dropdown = styled.div`
   width: 20.5625rem;
   position: absolute;
   z-index: 9999;
-  ${props => (props.right ? 'right:0;' : 'left:0;')} display: ${props =>
-  (props.show ? 'block' : 'none')};
+  ${props => (props.right ? 'right:0' : 'left:0')};
+  display: ${props => (props.show ? 'block' : 'none')};
   font-size: 0.75rem;
   line-height: 1rem;
   background-color: #f3f3f3;
@@ -58,50 +61,34 @@ class Filter extends Component {
   constructor(props) {
     super(props);
     this.state = { showDropdown: false };
+    this.onShow = this.onShow.bind(this);
     this.handleClickOutside = this.handleClickOutside.bind(this);
   }
-  componentWillMount() {
-    document.addEventListener('click', this.handleClickOutside, false);
+
+  onShow(event) {
+    this.handleClickOutside(event);
+    this.setState(() => ({ showDropdown: true }));
+    this.props.onDropdown(true);
   }
-  componentWillUnmount() {
-    document.removeEventListener('click', this.handleClickOutside, false);
-  }
-  onShow() {
-    this.setState(() => ({ showDropdown: !this.state.showDropdown }));
-    this.props.onDropdown(!this.state.showDropdown);
-  }
-  handleClickOutside(event) {
-    const domNode = this.node;
-    if (!domNode || !domNode.contains(event.target)) {
-      this.setState({
-        showDropdown: false,
-      });
-    }
+  handleClickOutside() {
+    this.setState({ showDropdown: false });
+    this.props.onDropdown(false);
   }
   render() {
     return (
-      <div
-        tabIndex={0}
-        role="button"
-        onClick={() => this.onShow()}
-        ref={(node) => {
-          this.node = node;
-        }}
-      >
-        <Wrapper>
-          <FilterHeader>
-            {this.props.name}
-          </FilterHeader>
-          <Dropdown right={this.props.right} show={this.state.showDropdown}>
-            Content content content content content content content content
-            content content content content content content content content
-            content content content content content content content content
-            content content content content content content content content
-            content content content content content content content content
-            content content
-          </Dropdown>
-        </Wrapper>
-      </div>
+      <Wrapper onClick={() => this.onShow()}>
+        <FilterHeader show={this.state.showDropdown}>
+          {this.props.name}
+        </FilterHeader>
+        <Dropdown right={this.props.right} show={this.state.showDropdown}>
+          Content content content content content content content content
+          content content content content content content content content
+          content content content content content content content content
+          content content content content content content content content
+          content content content content content content content content
+          content content
+        </Dropdown>
+      </Wrapper>
     );
   }
 }
@@ -109,13 +96,13 @@ class Filter extends Component {
 Filter.propTypes = {
   onDropdown: PropTypes.func,
   name: PropTypes.string,
-  right: PropTypes.string,
+  right: PropTypes.bool,
 };
 
 Filter.defaultProps = {
   onDropdown: () => '',
   name: 'MenuItem',
-  right: '',
+  right: false,
 };
 
-export default Filter;
+export default enhanceWithClickOutside(Filter);

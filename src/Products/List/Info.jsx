@@ -1,9 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { Xl } from '../../common/Responsive';
 
-import Menu from './Filters';
+import { Xl } from '../../common/Responsive';
 
 const Wraper = styled.div`
   background-color: #f3f3f3;
@@ -25,7 +24,7 @@ const Title = styled.h1`
 `;
 
 const Content = styled.div`
-  margin-bottom: 0.5rem;
+  padding-bottom: 0.5rem;
   font-size: 0.75em;
   line-height: 1.25rem;
   & a {
@@ -34,7 +33,7 @@ const Content = styled.div`
   }
 
   @media (min-width: 48rem) {
-    margin-bottom: 1rem;
+    padding-bottom: 1rem;
     max-width: 37.75rem;
     & a {
       border-bottom: 1px solid #171717;
@@ -61,5 +60,4 @@ export default () =>
         </Xl>
       </Content>
     </div>
-    <Menu />
   </Wraper>);

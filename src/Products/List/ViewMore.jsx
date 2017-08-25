@@ -5,11 +5,11 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 5rem;
-  margin-top: 2rem;
+  padding-bottom: 5rem;
+  padding-top: 2rem;
   @media (min-width: 48rem) {
-    margin-top: 1.125rem;
-    margin-bottom: 5.125rem;
+    padding-top: 1.125rem;
+    padding-bottom: 5.125rem;
   }
 `;
 
