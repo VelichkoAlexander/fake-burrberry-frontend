@@ -22,7 +22,7 @@ const Line = styled.hr`
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
-  overflow-x: hidden;
+  //overflow-x: hidden;
   background-color: #f3f3f3;
   position: relative;
   @media (min-width: 48rem) {
@@ -35,18 +35,10 @@ const Inner = styled.div`
   display: flex;
   width: 100%;
   flex-wrap: nowrap;
-  justify-content: space-between;
+  //justify-content: space-between;
+  color: ${props => (props.overflowShow ? '#999999' : '#171717')};
 `;
-const FiltersWrap = styled.div`display: flex;`;
 
-const SortButton = styled(Filter)`
-  @media (min-width: 48rem) {
-    margin-right: 0;
-    &::after {
-      right: 0;
-    }
-  }
-`;
 const ProductsWrapper = styled.div`
   position: relative;
   &:after {
@@ -62,6 +54,13 @@ const ProductsWrapper = styled.div`
   }
 `;
 
+const filters = [
+  { name: 'Size' },
+  { name: 'Colour' },
+  { name: 'Size' },
+  { name: 'Sort by price', type: 'true' },
+];
+
 class Filters extends Component {
   constructor(props) {
     super(props);
@@ -69,8 +68,8 @@ class Filters extends Component {
     this.handleDropdown = this.handleDropdown.bind(this);
   }
 
-  handleDropdown(value) {
-    this.setState(() => ({ dropdownEvent: value }));
+  handleDropdown() {
+    this.setState(() => ({ dropdownEvent: !this.state.dropdownEvent }));
   }
 
   render() {
@@ -78,17 +77,17 @@ class Filters extends Component {
       <div>
         <Wrapper>
           <div className="container">
-            <Inner>
-              <FiltersWrap>
-                <Filter onDropdown={this.handleDropdown} name="Category" />
-                <Filter onDropdown={this.handleDropdown} name="Colour" />
-                <Filter onDropdown={this.handleDropdown} name="Size" />
-              </FiltersWrap>
-              <SortButton
-                onDropdown={this.handleDropdown}
-                name="Sort by price"
-                right
-              />
+            <Inner overflowShow={this.state.dropdownEvent}>
+              {filters.map((filter, index) =>
+                (<Filter
+                  onDropdown={this.handleDropdown}
+                  name={filter.name}
+                  sort={filter.type}
+                  id={index}
+                  key={index.toString()}
+                  active={this.state.dropdownEvent}
+                />),
+              )}
             </Inner>
           </div>
         </Wrapper>

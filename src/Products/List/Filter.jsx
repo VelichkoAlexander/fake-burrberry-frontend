@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import enhanceWithClickOutside from 'react-click-outside';
 
 import arrow from '../../images/arrow.svg';
 
-const Wrapper = styled.div`position: relative;`;
+const Wrapper = styled.div`
+  @media (min-width: 48rem) {
+    margin-left: ${props => (props.isSort ? 'auto' : '0')};
+    position: relative;
+  }
+`;
 
 const FilterHeader = styled.div`
   padding: 0;
@@ -20,7 +24,7 @@ const FilterHeader = styled.div`
   font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
   line-height: 1rem;
   font-weight: 400;
-  color: #171717;
+  color: ${props => (props.show ? '#171717' : 'inherit')};
   white-space: nowrap;
   cursor: pointer;
   z-index: 800;
@@ -33,11 +37,16 @@ const FilterHeader = styled.div`
     height: 0.375rem;
     transform: translateY(-50%)
       rotate(${props => (props.show ? '180deg' : '0')});
-    background: url(${arrow}) center no-repeat;
+    -webkit-mask: url(${arrow}) center no-repeat;
+    mask: url(${arrow}) center no-repeat;
     background-size: cover;
+    background-color: #171717;
+    ${props =>
+    (props.active ? 'background-color: #999999' : 'background-color:#171717')};
+    ${props => (props.show ? 'background-color:#171717' : '')};
   }
   @media (min-width: 48rem) {
-    margin-right: 3rem;
+    margin-right: ${props => (props.isSort ? '0' : '3rem')};
     &:last-child {
       margin-right: 0;
     }
@@ -47,14 +56,21 @@ const FilterHeader = styled.div`
 const Dropdown = styled.div`
   padding: 1rem 1.5rem;
   padding-bottom: 1.5rem;
-  width: 20.5625rem;
   position: absolute;
   z-index: 9999;
-  ${props => (props.right ? 'right:0' : 'left:0')};
+  box-sizing: border-box;
+  left: 0;
+  width: 100%;
   display: ${props => (props.show ? 'block' : 'none')};
   font-size: 0.75rem;
   line-height: 1rem;
   background-color: #f3f3f3;
+  color: #171717;
+  @media (min-width: 48rem) {
+    left: auto;
+    width: 23.5625rem;
+    ${props => (props.isSort ? 'right:-1.5rem' : 'left:-1.5rem')};
+  }
 `;
 
 class Filter extends Component {
@@ -66,27 +82,50 @@ class Filter extends Component {
   }
 
   onShow(event) {
-    this.handleClickOutside(event);
-    this.setState(() => ({ showDropdown: true }));
-    this.props.onDropdown(true);
+    if (!this.state.showDropdown) {
+      this.setState(() => ({ showDropdown: true }));
+      this.props.onDropdown(event.target.id);
+      document.addEventListener('click', this.handleClickOutside);
+    }
   }
-  handleClickOutside() {
-    this.setState({ showDropdown: false });
+  handleClickOutside(e) {
+    if (e === undefined) {
+      return;
+    }
+    if (this.Dropdown === e.target) {
+      return;
+    }
+    this.setState(() => ({ showDropdown: false }));
     this.props.onDropdown(false);
+    document.removeEventListener('click', this.handleClickOutside);
   }
+
   render() {
     return (
-      <Wrapper onClick={() => this.onShow()}>
-        <FilterHeader show={this.state.showDropdown}>
+      <Wrapper isSort={this.props.sort}>
+        <FilterHeader
+          onClick={(e) => {
+            this.onShow(e);
+          }}
+          show={this.state.showDropdown}
+          isSort={this.props.sort}
+          active={this.props.active}
+        >
           {this.props.name}
         </FilterHeader>
-        <Dropdown right={this.props.right} show={this.state.showDropdown}>
-          Content content content content content content content content
-          content content content content content content content content
-          content content content content content content content content
-          content content content content content content content content
-          content content content content content content content content
-          content content
+        <Dropdown
+          isSort={this.props.sort}
+          show={this.state.showDropdown}
+          innerRef={(node) => { this.Dropdown = node; }}
+        >
+          <p>
+            Content content content content content content content content
+            content content content content content content content content
+            content content content content content content content content
+            content content content content content content content content
+            content content content content content content content content
+            content content
+          </p>
         </Dropdown>
       </Wrapper>
     );
@@ -96,13 +135,15 @@ class Filter extends Component {
 Filter.propTypes = {
   onDropdown: PropTypes.func,
   name: PropTypes.string,
-  right: PropTypes.bool,
+  sort: PropTypes.bool,
+  active: PropTypes.bool,
 };
 
 Filter.defaultProps = {
   onDropdown: () => '',
   name: 'MenuItem',
-  right: false,
+  sort: false,
+  active: false,
 };
 
-export default enhanceWithClickOutside(Filter);
+export default Filter;
