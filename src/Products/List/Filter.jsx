@@ -28,6 +28,7 @@ const FilterHeader = styled.div`
   white-space: nowrap;
   cursor: pointer;
   z-index: 800;
+  transition: all .2s linear;
   &::after {
     content: '';
     position: absolute;
@@ -35,6 +36,7 @@ const FilterHeader = styled.div`
     top: 50%;
     width: 0.75rem;
     height: 0.375rem;
+    transition: all .15s linear;
     transform: translateY(-50%)
       rotate(${props => (props.show ? '180deg' : '0')});
     -webkit-mask: url(${arrow}) center no-repeat;
@@ -42,7 +44,7 @@ const FilterHeader = styled.div`
     background-size: cover;
     background-color: #171717;
     ${props =>
-      props.active ? 'background-color: #999999' : 'background-color:#171717'};
+    (props.active ? 'background-color: #999999' : 'background-color:#171717')};
     ${props => (props.show ? 'background-color:#171717' : '')};
   }
   @media (min-width: 48rem) {
@@ -88,6 +90,7 @@ class Filter extends Component {
       document.addEventListener('click', this.handleClickOutside);
     }
   }
+
   handleClickOutside(e) {
     if (e === undefined) {
       return;
@@ -104,7 +107,7 @@ class Filter extends Component {
     return (
       <Wrapper isSort={this.props.sort}>
         <FilterHeader
-          onClick={e => {
+          onClick={(e) => {
             this.onShow(e);
           }}
           show={this.state.showDropdown}
@@ -116,7 +119,7 @@ class Filter extends Component {
         <Dropdown
           isSort={this.props.sort}
           show={this.state.showDropdown}
-          innerRef={node => {
+          innerRef={(node) => {
             this.Dropdown = node;
           }}
         >

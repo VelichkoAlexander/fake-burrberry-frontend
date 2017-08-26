@@ -4,8 +4,9 @@ import Menu from '../common/Menu';
 import { XsOnly, Xl } from '../common/Responsive';
 
 import hamburger from '../images/hamburger.svg';
-import arrow from '../images/arrow.svg';
+
 import Logo from './Logo';
+import CountrySelect from './ContrySelect';
 
 const Header = styled.header`
   position: relative;
@@ -36,32 +37,7 @@ const Hamburger = styled.button`
   background: url(${hamburger}) center no-repeat;
 `;
 
-const CountrySelect = styled.button`
-  padding: 0;
-  padding-right: 1.4375rem;
-  display: block;
-  border: none;
-  position: relative;
-  background-color: transparent;
-  font-size: 0.75rem;
-  font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  line-height: 1rem;
-  font-weight: 500;
-  color: #999999;
-  white-space: nowrap;
-  &::after {
-    content: '';
-    position: absolute;
-    right: 0;
-    top: 50%;
-    width: 0.75rem;
-    height: 0.375rem;
-    transform: translateY(-50%);
-    background: url(${arrow}) center no-repeat;
-  }
-`;
-
-export default () =>
+export default props =>
   (<div>
     <Header>
       <div className="container">
@@ -73,7 +49,7 @@ export default () =>
                   <Hamburger type="button" />
                 </XsOnly>
                 <Xl>
-                  <CountrySelect>Shopping in: United Kingdom (£)</CountrySelect>
+                  <CountrySelect {...props} />
                 </Xl>
               </div>
               <div className="col-xs-8 col-md-4">
