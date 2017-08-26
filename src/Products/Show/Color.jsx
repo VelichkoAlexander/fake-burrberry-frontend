@@ -34,8 +34,8 @@ const Options = styled.div`
 const Name = styled.span`font-weight: 700;`;
 
 const colors = [
-  { name: 'honey', color: '#cfa880' },
-  { name: 'black', color: '#232122' },
+  { name: 'honey', color: '#cfa880', img: '1' },
+  { name: 'black', color: '#232122', img: '2' },
 ];
 
 class Color extends Component {
@@ -45,7 +45,9 @@ class Color extends Component {
     this.onActiveColor = this.onActiveColor.bind(this);
   }
   onActiveColor(e) {
-    this.setState({ selectedColorIndex: +e.target.id });
+    const id = +e.target.id;
+    this.setState({ selectedColorIndex: id });
+    this.props.handelColorChange(colors[id].img);
   }
   render() {
     return (
@@ -72,9 +74,11 @@ class Color extends Component {
 }
 
 Color.propTypes = {
+  handelColorChange: PropTypes.func,
   currentColor: PropTypes.string,
 };
 Color.defaultProps = {
+  handelColorChange: () => '',
   currentColor: 'Honey',
 };
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 
 import Image from './SliderItem';
@@ -60,72 +60,93 @@ const Text = styled.p`
 
 const Wrapper = styled.div`
   @media (min-width: 62rem) {
-    background: #d4bdad;
+    //background: #d4bdad;
     margin-bottom: 4rem;
   }
 `;
 
-export default () =>
-  (<Wrapper>
-    <div className="container">
-      <Sm>
-        <Title>Long Cotton Gabardine Car Coat</Title>
-      </Sm>
-      <div className="row">
-        <div className="col-xs-12 col-sm-7">
-          <Lg>
-            <Slider className="product-slider">
-              <Image
-                nameItem="front"
-                alt="Long Cotton Gabardine Car Coat - front"
-              />
-            </Slider>
-          </Lg>
-          <Sm>
-            <Slider className="product-slider">
-              <Image
-                nameItem="front"
-                alt="Long Cotton Gabardine Car Coat - front"
-              />
-              <Image
-                nameItem="detail1"
-                alt="Long Cotton Gabardine Car Coat - collar detail 1"
-              />
-              <Image
-                nameItem="detail2"
-                alt="Long Cotton Gabardine Car Coat - collar detail 2"
-              />
-              <Image
-                nameItem="back"
-                alt="Long Cotton Gabardine Car Coat - back"
-              />
-            </Slider>
-          </Sm>
-        </div>
+class Header extends Component {
+  constructor() {
+    super();
+    this.state = { colorState: '1' };
+    this.handelColorChange = this.handelColorChange.bind(this);
+  }
 
-        <div className="col-xs-12 col-sm-5">
-          <Lg>
-            <Title>Long Cotton Gabardine Car Coat Coat Coat Coat Coat</Title>
-          </Lg>
-          <Info price={110000} id={39428531} />
+  handelColorChange(event) {
+    this.setState(() => ({ colorState: event }));
+  }
+
+  render() {
+    return (
+      <Wrapper>
+        <div className="container">
+          <Sm>
+            <Title>Long Cotton Gabardine Car Coat</Title>
+          </Sm>
           <div className="row">
-            <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6">
-              <Color currentColor="Honey" />
-            </div>
-            <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+            <div className="col-xs-12 col-sm-7">
               <Lg>
-                <Size />
+                <Slider className="product-slider">
+                  <Image
+                    nameItem={this.state.colorState}
+                    alt="Long Cotton Gabardine Car Coat - front"
+                  />
+                </Slider>
+              </Lg>
+              <Sm>
+                <Slider className="product-slider">
+                  <Image
+                    nameItem="front"
+                    alt="Long Cotton Gabardine Car Coat - front"
+                  />
+                  <Image
+                    nameItem="detail1"
+                    alt="Long Cotton Gabardine Car Coat - collar detail 1"
+                  />
+                  <Image
+                    nameItem="detail2"
+                    alt="Long Cotton Gabardine Car Coat - collar detail 2"
+                  />
+                  <Image
+                    nameItem="back"
+                    alt="Long Cotton Gabardine Car Coat - back"
+                  />
+                </Slider>
+              </Sm>
+            </div>
+            <div className="col-xs-12 col-sm-5">
+              <Lg>
+                <Title>
+                  Long Cotton Gabardine Car Coat Coat Coat Coat Coat
+                </Title>
+              </Lg>
+              <Info price={110000} id={39428531} />
+              <div className="row">
+                <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                  <Color
+                    currentColor="Honey"
+                    handelColorChange={this.handelColorChange}
+                  />
+                </div>
+                <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                  <Lg>
+                    <Size />
+                  </Lg>
+                </div>
+              </div>
+              <Buttons />
+              <Lg>
+                <Caption>Free Next Day Delivery</Caption>
+                <Text>
+                  Order before 7pm Monday to Thursday for delivery the next day
+                </Text>
               </Lg>
             </div>
           </div>
-          <Buttons />
-          <Lg>
-            <Caption>Free Next Day Delivery</Caption>
-            <Text>
-              Order before 7pm Monday to Thursday for delivery the next day
-            </Text>
-          </Lg>
         </div>
-      </div>
-    </div>
-  </Wrapper>);
+      </Wrapper>
+    );
+  }
+}
+
+export default Header;

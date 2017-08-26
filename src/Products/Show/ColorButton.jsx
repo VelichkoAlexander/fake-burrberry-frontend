@@ -36,7 +36,7 @@ ColorButton.propTypes = {
   isActive: PropTypes.bool,
   name: PropTypes.string,
   color: PropTypes.string,
-  id: PropTypes.string,
+  id: PropTypes.number,
 };
 
 ColorButton.defaultProps = {
@@ -44,5 +44,5 @@ ColorButton.defaultProps = {
   isActive: false,
   name: 'black',
   color: '#232122',
-  id: '0',
+  id: 0,
 };

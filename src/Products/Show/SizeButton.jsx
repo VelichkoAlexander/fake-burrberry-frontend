@@ -42,12 +42,12 @@ SizeButton.propTypes = {
   onClick: PropTypes.func,
   isActive: PropTypes.bool,
   name: PropTypes.string,
-  id: PropTypes.string,
+  id: PropTypes.number,
 };
 
 SizeButton.defaultProps = {
   onClick: () => '',
   isActive: false,
   name: 'L',
-  id: '0',
+  id: 0,
 };
