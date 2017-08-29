@@ -55,6 +55,7 @@ export default function Info(props) {
     </Wraper>
   );
 }
+
 Info.propTypes = {
   price: PropTypes.number,
   id: PropTypes.number,
