@@ -45,7 +45,7 @@ const FilterHeader = styled.div`
     background-color: #171717;
     ${props =>
     (props.active ? 'background-color: #999999' : 'background-color:#171717')};
-    ${props => (props.show ? 'background-color:#171717' : '')};
+    ${props => props.show || 'background-color:#171717'};
   }
   @media (min-width: 48rem) {
     margin-right: ${props => (props.isSort ? '0' : '3rem')};
@@ -73,6 +73,11 @@ const Dropdown = styled.div`
     width: 23.5625rem;
     ${props => (props.isSort ? 'right:-1.5rem' : 'left:-1.5rem')};
   }
+`;
+
+const Content = styled.p`
+  margin: 0;
+  padding: 0;
 `;
 
 class Filter extends Component {
@@ -123,14 +128,14 @@ class Filter extends Component {
             this.Dropdown = node;
           }}
         >
-          <p>
+          <Content>
             Content content content content content content content content
             content content content content content content content content
             content content content content content content content content
             content content content content content content content content
             content content content content content content content content
             content content
-          </p>
+          </Content>
         </Dropdown>
       </Wrapper>
     );

@@ -61,7 +61,10 @@ class App extends Component {
               <Route exact path="/" component={List} />
               <Route exact path="/mens-clothing" component={List} />
               <Route path="/mens-clothing/:categoryName/:id" component={Show} />
-              <Footer />
+              <Footer
+                local={this.state.local}
+                hendelLocal={this.handelLocalChange}
+              />
             </div>
           </ScrollToTop>
         </Router>

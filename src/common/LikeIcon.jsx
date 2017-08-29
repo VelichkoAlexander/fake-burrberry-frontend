@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const FavouriteButton = styled.button`
   padding: 0;
@@ -17,7 +18,7 @@ const Path = styled.path`
   stroke-width: 1px;
 `;
 
-class LikeButton extends Component {
+class LikeIcon extends Component {
   constructor(props) {
     super(props);
     this.state = { isLiked: false };
@@ -28,11 +29,14 @@ class LikeButton extends Component {
     this.setState(() => ({ isLiked: !this.state.isLiked }));
   }
   render() {
+    const label = this.state.isLiked
+      ? 'Remove from Favourites'
+      : 'Add to Favourites';
     return (
       <FavouriteButton onClick={this.handleLike}>
         <svg
-          width="14"
-          height="14"
+          width={this.props.width}
+          height={this.props.height}
           viewBox="0 0 14 14"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -44,10 +48,20 @@ class LikeButton extends Component {
                  1.618 7.275l.042.022.063.045z"
           />
         </svg>
-        Favourite
+        {label}
       </FavouriteButton>
     );
   }
 }
 
-export default LikeButton;
+LikeIcon.propTypes = {
+  width: PropTypes.string,
+  height: PropTypes.string,
+};
+
+LikeIcon.defaultProps = {
+  width: '14',
+  height: '14',
+};
+
+export default LikeIcon;

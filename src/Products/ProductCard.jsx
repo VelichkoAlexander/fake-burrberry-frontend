@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { FormattedNumber } from 'react-intl';
 import { Link } from 'react-router-dom';
-import LikeButton from '../common/LikeButton';
+import LikeIcon from '../common/LikeIcon';
 
 import { imageUrl, imageLg, imageMd, imageXs } from '../common/ImageResponsive';
 
@@ -94,7 +94,7 @@ const Card = props =>
       <Type>
         {props.type}
       </Type>
-      <LikeButton />
+      <LikeIcon width="14" height="14" />
     </Inner>
     <Title to={`/mens-clothing/mens-coats/${props.id}`}>
       {props.title}
