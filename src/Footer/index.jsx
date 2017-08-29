@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { XsOnly } from '../common/Responsive';
 
 import Menu from './Menu';
-import FooterSelect from './FooterSelect';
+import FooterSelect from './Select';
 import Help from './Help';
 
 const Links = styled.div`
@@ -26,39 +26,13 @@ const Footer = styled.footer`
   }
 `;
 
-const countries = [
-  {
-    name: 'Russia',
-    value: 'ru',
-  },
-  {
-    name: 'United Kingdom',
-    value: 'en',
-  },
-];
-
-const shippingCountry = [
-  {
-    name: 'Russian Federation',
-    value: 'ru',
-  },
-  {
-    name: 'United Kingdom',
-    value: 'en',
-  },
-];
-
-export default props =>
+export default () =>
   (<Footer>
     <Menu />
     <Links>
       <div className="container">
-        <FooterSelect
-          {...props}
-          label="Shipping country"
-          values={shippingCountry}
-        />
-        <FooterSelect {...props} label="Language" values={countries} />
+        <FooterSelect label="Shipping country" />
+        <FooterSelect label="Language" />
       </div>
     </Links>
     <XsOnly>

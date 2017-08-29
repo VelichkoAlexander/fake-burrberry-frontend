@@ -1,5 +1,4 @@
-/* eslint-disable react/forbid-prop-types */
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
@@ -21,6 +20,7 @@ const SelectWraper = styled.div`
     margin-right: 3rem;
   }
 `;
+
 const Button = styled.select`
   display: inline-block;
   padding: 0;
@@ -45,47 +45,37 @@ const Label = styled.label`
   text-decoration: none;
 `;
 
-class FooterSelect extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { value: this.props.local };
-    this.handleChange = this.handleChange.bind(this);
-  }
-  handleChange(event) {
-    this.setState({ value: event.target.value });
-    this.props.hendelLocal(event.target.value);
-  }
-  render() {
-    return (
-      <SelectWraper>
-        <Label>
-          {`${this.props.label}: `}
-          <Button value={this.state.value} onChange={this.handleChange}>
-            {this.props.values.map((contry, index) =>
-              (<option
-                value={contry.value}
-                key={index.toString()}
-              >{` ${contry.name}`}</option>),
-            )}
-          </Button>
-        </Label>
-      </SelectWraper>
-    );
-  }
-}
+const shippingCountry = [
+  {
+    name: 'Russian Federation',
+    value: 'ru',
+  },
+  {
+    name: 'United Kingdom',
+    value: 'en',
+  },
+];
+
+const FooterSelect = props =>
+  (<SelectWraper>
+    <Label>
+      {props.label}:{' '}
+      <Button value="ru">
+        {shippingCountry.map((country, index) =>
+          (<option value={country.value} key={index.toString()}>
+            {country.name}
+          </option>),
+        )}
+      </Button>
+    </Label>
+  </SelectWraper>);
 
 FooterSelect.propTypes = {
-  hendelLocal: PropTypes.func,
-  local: PropTypes.string,
   label: PropTypes.string,
-  values: PropTypes.array.isRequired,
 };
 
 FooterSelect.defaultProps = {
-  hendelLocal: () => '',
-  local: 'en',
   label: 'Language',
-  values: [],
 };
 
 export default FooterSelect;
