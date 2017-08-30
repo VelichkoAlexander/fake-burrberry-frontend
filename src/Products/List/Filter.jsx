@@ -44,7 +44,7 @@ const FilterHeader = styled.div`
     background-size: cover;
     background-color: #171717;
     ${props =>
-    (props.active ? 'background-color: #999999' : 'background-color:#171717')};
+      props.active ? 'background-color: #999999' : 'background-color:#171717'};
     ${props => props.visibility && 'background-color:#171717'};
   }
   @media (min-width: 48rem) {
@@ -72,7 +72,7 @@ const Dropdown = styled.div`
     left: auto;
     width: auto;
     white-space: nowrap;
-    ${props => (props.right ? 'right:-0.5rem' : 'left:-1.5rem')};
+    ${props => (props.right ? 'right:-1.5rem' : 'left:-1.5rem')};
     padding-right: .5;
   }
 `;
@@ -115,7 +115,7 @@ class Filter extends Component {
     return (
       <Wrapper right={this.props.right}>
         <div
-          ref={(node) => {
+          ref={node => {
             this.Dropdown = node;
           }}
         >
