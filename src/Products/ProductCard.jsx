@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { FormattedNumber } from 'react-intl';
 import { Link } from 'react-router-dom';
-import LikeIcon from '../common/LikeIcon';
+import LikeIcon from './LikeIcon';
 
 import { imageUrl, imageLg, imageMd, imageXs } from '../common/ImageResponsive';
 
