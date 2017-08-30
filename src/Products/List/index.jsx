@@ -55,21 +55,22 @@ const ProductsWrapper = styled.div`
 `;
 
 const filters = [
-  { name: 'Size' },
-  { name: 'Colour' },
-  { name: 'Size' },
-  { name: 'Sort by price', sort: true },
+  { name: 'Category', content: 'Category content' },
+  { name: 'Colour', content: 'Colour content' },
+  { name: 'Size', content: 'Size content' },
+  { name: 'Sort by price', right: true, content: 'Sort by price content' },
 ];
 
 class Filters extends Component {
   constructor(props) {
     super(props);
-    this.state = { dropdownEvent: false };
+    this.state = { isDropdown: false };
     this.handleDropdown = this.handleDropdown.bind(this);
   }
 
-  handleDropdown() {
-    this.setState(() => ({ dropdownEvent: !this.state.dropdownEvent }));
+  handleDropdown(e) {
+    console.log(e);
+    this.setState({ isDropdown: !this.state.isDropdown });
   }
 
   render() {
@@ -78,21 +79,22 @@ class Filters extends Component {
         <Info />
         <Wrapper>
           <div className="container">
-            <Inner overflowShow={this.state.dropdownEvent}>
+            <Inner overflowShow={this.state.isDropdown}>
               {filters.map((filter, index) =>
-                (<Filter
-                  onDropdown={this.handleDropdown}
+                <Filter
+                  isDropdown={this.handleDropdown}
                   name={filter.name}
-                  sort={filter.sort}
+                  right={filter.right}
+                  content={filter.content}
                   id={index}
                   key={index.toString()}
-                  active={this.state.dropdownEvent}
+                  active={this.state.isDropdown}
                 />
-                ))}
+              )}
             </Inner>
           </div>
         </Wrapper>
-        <ProductsWrapper overflowShow={this.state.dropdownEvent}>
+        <ProductsWrapper overflowShow={this.state.isDropdown}>
           <div className="container">
             <div className="row">
               <Category title="Heritage Trench Coats" data={dataSet1} />
