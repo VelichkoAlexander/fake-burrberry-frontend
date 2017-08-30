@@ -37,7 +37,8 @@ const CountrySelect = styled.select`
   z-index: 10;
   cursor: pointer;
 `;
-const Countries = [
+
+const countries = [
   {
     name: 'Russia (RUB)',
     value: 'ru',
@@ -48,7 +49,7 @@ const Countries = [
   },
 ];
 
-class ContrySelect extends Component {
+class Select extends Component {
   constructor(props) {
     super(props);
     this.state = { value: this.props.local };
@@ -63,7 +64,7 @@ class ContrySelect extends Component {
       <div>
         <SelectWrapper>
           <CountrySelect value={this.state.value} onChange={this.handleChange}>
-            {Countries.map((contry, index) =>
+            {countries.map((contry, index) =>
               (<option
                 value={contry.value}
                 key={index.toString()}
@@ -76,14 +77,14 @@ class ContrySelect extends Component {
   }
 }
 
-ContrySelect.propTypes = {
+Select.propTypes = {
   hendelLocal: PropTypes.func,
   local: PropTypes.string,
 };
 
-ContrySelect.defaultProps = {
+Select.defaultProps = {
   hendelLocal: () => '',
   local: 'en',
 };
 
-export default ContrySelect;
+export default Select;

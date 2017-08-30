@@ -6,7 +6,7 @@ import { XsOnly, Xl } from '../common/Responsive';
 import hamburger from '../images/hamburger.svg';
 
 import Logo from './Logo';
-import CountrySelect from './ContrySelect';
+import Select from './Select';
 
 const Header = styled.header`
   position: relative;
@@ -49,7 +49,7 @@ export default props =>
                   <Hamburger type="button" />
                 </XsOnly>
                 <Xl>
-                  <CountrySelect {...props} />
+                  <Select {...props} />
                 </Xl>
               </div>
               <div className="col-xs-8 col-md-4">
