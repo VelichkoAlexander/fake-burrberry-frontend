@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-import Icon from '../common/LikeIcon';
+import Icon from '../../common/LikeIcon';
 
 const FavouriteButton = styled.button`
   padding: 0;

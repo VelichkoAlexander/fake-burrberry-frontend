@@ -88,7 +88,7 @@ class Header extends Component {
               <Lg>
                 <Slider className="product-slider">
                   <Image
-                    nameItem={this.state.colorId}
+                    nameItem={String(this.state.colorId)}
                     alt="Long Cotton Gabardine Car Coat - front"
                   />
                 </Slider>
@@ -123,10 +123,7 @@ class Header extends Component {
               <Info price={110000} id={39428531} />
               <div className="row">
                 <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6">
-                  <Color
-                    currentColor="Honey"
-                    handelColorChange={this.handelColorChange}
-                  />
+                  <Color handelColorChange={this.handelColorChange} />
                 </div>
                 <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6">
                   <Lg>

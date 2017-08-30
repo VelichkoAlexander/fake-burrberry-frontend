@@ -7,7 +7,12 @@ import { FormattedNumber } from 'react-intl';
 import { Link } from 'react-router-dom';
 import LikeIcon from './LikeIcon';
 
-import { imageUrl, imageLg, imageMd, imageXs } from '../common/ImageResponsive';
+import {
+  imageUrl,
+  imageLg,
+  imageMd,
+  imageXs,
+} from '../../common/ImageResponsive';
 
 const Wraper = styled.div`
   display: flex;
