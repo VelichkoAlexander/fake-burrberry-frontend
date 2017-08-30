@@ -34,18 +34,18 @@ const Options = styled.div`
 const Name = styled.span`font-weight: 700;`;
 
 const colors = [
-  { name: 'honey', color: '#cfa880', img: '1' },
-  { name: 'black', color: '#232122', img: '2' },
+  { name: 'Honey', color: '#cfa880', img: '1' },
+  { name: 'Black', color: '#232122', img: '2' },
 ];
 
 class Color extends Component {
   constructor(props) {
     super(props);
     this.state = { selectedColorIndex: 0 };
-    this.onActiveColor = this.onActiveColor.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
-  onActiveColor(e) {
-    const id = +e.target.id;
+  handleClick(e) {
+    const id = Number(e.target.id);
     this.setState({ selectedColorIndex: id });
     this.props.handelColorChange(colors[id].img);
   }
@@ -53,7 +53,7 @@ class Color extends Component {
     return (
       <Wrapper>
         <Current>
-          Colour: <Name>{this.props.currentColor}</Name>
+          Colour: <Name>{colors[this.state.selectedColorIndex].name}</Name>
         </Current>
         <Options>
           {colors.map((color, index) =>
@@ -62,7 +62,7 @@ class Color extends Component {
               color={color.color}
               key={index.toString()}
               id={index}
-              onClick={e => this.onActiveColor(e)}
+              onClick={e => this.handleClick(e)}
             >
               {color.name}
             </ColorButton>),
@@ -74,12 +74,7 @@ class Color extends Component {
 }
 
 Color.propTypes = {
-  handelColorChange: PropTypes.func,
-  currentColor: PropTypes.string,
-};
-Color.defaultProps = {
-  handelColorChange: () => '',
-  currentColor: 'Honey',
+  handelColorChange: PropTypes.func.isRequired,
 };
 
 export default Color;

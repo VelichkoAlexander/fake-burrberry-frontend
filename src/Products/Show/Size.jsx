@@ -46,9 +46,11 @@ class Size extends Component {
     this.state = { selectSizeIndex: 2 };
     this.onActiveSize = this.onActiveSize.bind(this);
   }
+
   onActiveSize(e) {
     this.setState({ selectSizeIndex: +e.target.id });
   }
+
   render() {
     return (
       <div>

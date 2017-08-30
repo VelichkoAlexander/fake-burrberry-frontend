@@ -60,7 +60,7 @@ const Text = styled.p`
 
 const Wrapper = styled.div`
   @media (min-width: 62rem) {
-    //background: #d4bdad;
+    background: #d4bdad;
     margin-bottom: 4rem;
   }
 `;
@@ -68,12 +68,12 @@ const Wrapper = styled.div`
 class Header extends Component {
   constructor() {
     super();
-    this.state = { colorState: '1' };
+    this.state = { colorId: 1 };
     this.handelColorChange = this.handelColorChange.bind(this);
   }
 
-  handelColorChange(event) {
-    this.setState(() => ({ colorState: event }));
+  handelColorChange(id) {
+    this.setState({ colorId: id });
   }
 
   render() {
@@ -88,7 +88,7 @@ class Header extends Component {
               <Lg>
                 <Slider className="product-slider">
                   <Image
-                    nameItem={this.state.colorState}
+                    nameItem={this.state.colorId}
                     alt="Long Cotton Gabardine Car Coat - front"
                   />
                 </Slider>
