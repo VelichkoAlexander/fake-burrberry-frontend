@@ -54,13 +54,6 @@ const ProductsWrapper = styled.div`
   }
 `;
 
-const filters = [
-  { name: 'Category', content: 'Category content' },
-  { name: 'Colour', content: 'Colour content' },
-  { name: 'Size', content: 'Size content' },
-  { name: 'Sort by price', right: true, content: 'Sort by price content' },
-];
-
 class Filters extends Component {
   constructor(props) {
     super(props);
@@ -79,17 +72,39 @@ class Filters extends Component {
         <Wrapper>
           <div className="container">
             <Inner overflowShow={this.state.isDropdown}>
-              {filters.map((filter, index) =>
-                (<Filter
-                  isDropdown={this.handleDropdown}
-                  name={filter.name}
-                  right={filter.right}
-                  content={filter.content}
-                  id={index}
-                  key={index.toString()}
-                  active={this.state.isDropdown}
-                />),
-              )}
+              <Filter
+                isDropdown={this.handleDropdown}
+                name="Category"
+                active={this.state.isDropdown}
+              >
+                <p>Category content</p>
+                <button>Click me</button>
+              </Filter>
+              <Filter
+                isDropdown={this.handleDropdown}
+                name="Colour"
+                active={this.state.isDropdown}
+              >
+                <p>Colour content</p>
+                <button>Click me</button>
+              </Filter>
+              <Filter
+                isDropdown={this.handleDropdown}
+                name="Size"
+                active={this.state.isDropdown}
+              >
+                <p>Size content</p>
+                <button>Click me</button>
+              </Filter>
+              <Filter
+                isDropdown={this.handleDropdown}
+                name="Sort by price"
+                active={this.state.isDropdown}
+                right
+              >
+                <p>Sort by price content</p>
+                <button>Click me</button>
+              </Filter>
             </Inner>
           </div>
         </Wrapper>

@@ -135,7 +135,7 @@ class Filter extends Component {
             visibility={this.state.isDropdown}
           >
             <Content>
-              {this.props.content}
+              {this.props.children}
             </Content>
           </Dropdown>
         </div>
@@ -145,15 +145,14 @@ class Filter extends Component {
 }
 
 Filter.propTypes = {
-  isDropdown: PropTypes.func,
+  isDropdown: PropTypes.func.isRequired,
   name: PropTypes.string,
-  content: PropTypes.string,
+  children: PropTypes.element.isRequired,
   right: PropTypes.bool,
   active: PropTypes.bool,
 };
 
 Filter.defaultProps = {
-  isDropdown: PropTypes.isRequired,
   name: 'MenuItem',
   content: 'content',
   right: false,
