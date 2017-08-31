@@ -22,7 +22,7 @@ const Footer = styled.footer`
   flex-direction: column;
   @media (min-width: 62rem) {
     padding-top: 4rem;
-    padding-bottom: 3rem;
+    padding-bottom: 0;
   }
 `;
 
@@ -32,7 +32,7 @@ export default () =>
     <Links>
       <div className="container">
         <FooterSelect label="Shipping country" />
-        <FooterSelect label="Language" />
+        <FooterSelect label="Language" lang />
       </div>
     </Links>
     <XsOnly>

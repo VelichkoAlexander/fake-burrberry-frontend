@@ -37,7 +37,7 @@ const Hamburger = styled.button`
   background: url(${hamburger}) center no-repeat;
 `;
 
-export default props =>
+export default () =>
   (<div>
     <Header>
       <div className="container">
@@ -49,7 +49,7 @@ export default props =>
                   <Hamburger type="button" />
                 </XsOnly>
                 <Xl>
-                  <Select {...props} />
+                  <Select />
                 </Xl>
               </div>
               <div className="col-xs-8 col-md-4">
