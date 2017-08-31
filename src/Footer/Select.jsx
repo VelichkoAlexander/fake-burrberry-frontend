@@ -69,17 +69,17 @@ class FooterSelect extends Component {
   }
 
   render() {
-    const array = this.props.options;
+    const options = this.props.options;
     return (
       <SelectWraper>
         <Button type="button">
-          {this.props.label}: <Value>{array[this.state.countryId]}</Value>
+          {this.props.label}: <Value>{options[this.state.countryId]}</Value>
         </Button>
         <Select onClick={this.handleChange}>
-          {array.map((option, index) =>
-            (<option key={index.toString()}>
-              {option}
-            </option>),
+          {options.map((option, index) =>
+            <option key={index.toString()}>
+              {this.props.label}: {option}
+            </option>
           )}
         </Select>
       </SelectWraper>
