@@ -1,14 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
-import Menu from '../common/Menu';
-import { XsOnly, Xl } from '../common/Responsive';
+import PropTypes from 'prop-types';
 
+import { XsOnly, Xl } from '../common/Responsive';
 import hamburger from '../images/hamburger.svg';
 
+import Menu from '../common/Menu';
 import Logo from './Logo';
 import Select from './Select';
 
-const Header = styled.header`
+const Wrap = styled.header`
   position: relative;
   padding-top: 1.125rem;
   padding-bottom: 1.125rem;
@@ -37,9 +38,9 @@ const Hamburger = styled.button`
   background: url(${hamburger}) center no-repeat;
 `;
 
-export default () =>
+const Header = props =>
   (<div>
-    <Header>
+    <Wrap>
       <div className="container">
         <div className="row">
           <div className="col-xs-12">
@@ -51,7 +52,9 @@ export default () =>
                 <Xl>
                   <Select
                     label="Shopping in"
-                    options={['Russian Federation (₽)', 'United Kingdom (£)']}
+                    localId={props.localId}
+                    handelLocalChange={props.handelLocalChange}
+                    options={props.options}
                   />
                 </Xl>
               </div>
@@ -62,7 +65,7 @@ export default () =>
           </div>
         </div>
       </div>
-    </Header>
+    </Wrap>
     <div className="container">
       <div className="row">
         <Xl>
@@ -71,3 +74,18 @@ export default () =>
       </div>
     </div>
   </div>);
+
+Header.propTypes = {
+  localId: PropTypes.number,
+  handelLocalChange: PropTypes.func.isRequired,
+  options: PropTypes.arrayOf(PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    value: PropTypes.string.isRequired,
+  })).isRequired,
+};
+
+Header.defaultProps = {
+  localId: 0,
+};
+
+export default Header;

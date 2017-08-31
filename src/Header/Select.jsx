@@ -53,13 +53,14 @@ const CountryButton = styled.button`
 `;
 
 class Select extends Component {
-  constructor() {
-    super();
-    this.state = { selectId: 0 };
+  constructor(props) {
+    super(props);
+    this.state = { selectId: this.props.localId };
     this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange(event) {
+    this.props.handelLocalChange(event.target.selectedIndex);
     this.setState({ selectId: event.target.selectedIndex });
   }
 
@@ -68,12 +69,12 @@ class Select extends Component {
     return (
       <SelectWrapper>
         <CountryButton>
-          {this.props.label}: {options[this.state.selectId]}
+          {this.props.label}: {options[this.state.selectId].name}
         </CountryButton>
-        <CountrySelect onClick={this.handleChange}>
+        <CountrySelect onChange={this.handleChange}>
           {options.map((option, index) =>
-            (<option key={index.toString()}>
-              {this.props.label}: {option}
+            (<option value={index} key={index.toString()}>
+              {this.props.label}: {option.name}
             </option>),
           )}
         </CountrySelect>
@@ -84,11 +85,18 @@ class Select extends Component {
 
 Select.propTypes = {
   label: PropTypes.string,
-  options: PropTypes.arrayOf(PropTypes.string).isRequired,
+  localId: PropTypes.number,
+  handelLocalChange: PropTypes.func.isRequired,
+  options: PropTypes.arrayOf(PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    value: PropTypes.string.isRequired,
+  })).isRequired,
 };
 
 Select.defaultProps = {
   label: 'Language',
+  options: [],
+  localId: 0,
 };
 
 export default Select;
