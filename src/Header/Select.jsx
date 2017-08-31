@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 import arrow from '../images/arrow.svg';
 
@@ -51,36 +52,43 @@ const CountryButton = styled.button`
   }
 `;
 
-const countries = ['Russian Federation (₽)', 'United Kingdom (£)'];
-
 class Select extends Component {
   constructor() {
     super();
-    this.state = { country: 0 };
+    this.state = { selectId: 0 };
     this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange(event) {
-    this.setState({ country: event.target.value });
+    this.setState({ selectId: event.target.selectedIndex });
   }
 
   render() {
+    const options = this.props.options;
     return (
       <SelectWrapper>
         <CountryButton>
-          Shopping in: {countries[this.state.country]}
+          {this.props.label}: {options[this.state.selectId]}
         </CountryButton>
-        <CountrySelect onChange={this.handleChange}>
-          {countries.map((country, index) =>
-            (<option
-              value={index}
-              key={index.toString()}
-            >{`Shopping in: ${country}`}</option>),
+        <CountrySelect onClick={this.handleChange}>
+          {options.map((option, index) =>
+            (<option key={index.toString()}>
+              {this.props.label}: {option}
+            </option>),
           )}
         </CountrySelect>
       </SelectWrapper>
     );
   }
 }
+
+Select.propTypes = {
+  label: PropTypes.string,
+  options: PropTypes.arrayOf(PropTypes.string).isRequired,
+};
+
+Select.defaultProps = {
+  label: 'Language',
+};
 
 export default Select;

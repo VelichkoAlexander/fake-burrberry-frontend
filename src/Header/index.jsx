@@ -49,7 +49,10 @@ export default () =>
                   <Hamburger type="button" />
                 </XsOnly>
                 <Xl>
-                  <Select />
+                  <Select
+                    label="Shopping in"
+                    options={['Russian Federation (₽)', 'United Kingdom (£)']}
+                  />
                 </Xl>
               </div>
               <div className="col-xs-8 col-md-4">
