@@ -35,7 +35,7 @@ class LikeButton extends Component {
         <Icon
           width="14"
           height="14"
-          color={this.state.isLiked ? fillColor : 'none'}
+          fill={this.state.isLiked ? fillColor : 'none'}
         />
         {label}
       </FavouriteButton>
