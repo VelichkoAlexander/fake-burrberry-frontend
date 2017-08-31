@@ -77,9 +77,9 @@ class FooterSelect extends Component {
         </Button>
         <Select onClick={this.handleChange}>
           {options.map((option, index) =>
-            <option key={index.toString()}>
+            (<option key={index.toString()}>
               {this.props.label}: {option}
-            </option>
+            </option>),
           )}
         </Select>
       </SelectWraper>

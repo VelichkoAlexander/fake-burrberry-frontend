@@ -68,8 +68,7 @@ class Filters extends Component {
     this.handleDropdown = this.handleDropdown.bind(this);
   }
 
-  handleDropdown(e) {
-    console.log(e);
+  handleDropdown() {
     this.setState({ isDropdown: !this.state.isDropdown });
   }
 
