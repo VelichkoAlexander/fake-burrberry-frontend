@@ -57,9 +57,6 @@ const Button = styled.button`
 
 const Value = styled.span`color: #171717;`;
 
-const shippingCountry = ['Russian Federation', 'United Kingdom'];
-const language = ['Russian', 'English'];
-
 class FooterSelect extends Component {
   constructor() {
     super();
@@ -68,20 +65,20 @@ class FooterSelect extends Component {
   }
 
   handleChange(event) {
-    this.setState({ countryId: event.target.value });
+    this.setState({ countryId: event.target.selectedIndex });
   }
 
   render() {
-    const array = this.props.lang ? language : shippingCountry;
+    const array = this.props.options;
     return (
       <SelectWraper>
         <Button type="button">
           {this.props.label}: <Value>{array[this.state.countryId]}</Value>
         </Button>
         <Select onClick={this.handleChange}>
-          {array.map((country, index) =>
-            (<option value={index} key={index.toString()}>
-              {country}
+          {array.map((option, index) =>
+            (<option key={index.toString()}>
+              {option}
             </option>),
           )}
         </Select>
@@ -92,12 +89,11 @@ class FooterSelect extends Component {
 
 FooterSelect.propTypes = {
   label: PropTypes.string,
-  lang: PropTypes.bool,
+  options: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 FooterSelect.defaultProps = {
   label: 'Language',
-  lang: false,
 };
 
 export default FooterSelect;

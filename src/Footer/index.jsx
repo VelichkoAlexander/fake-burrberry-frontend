@@ -31,8 +31,11 @@ export default () =>
     <Menu />
     <Links>
       <div className="container">
-        <FooterSelect label="Shipping country" />
-        <FooterSelect label="Language" lang />
+        <FooterSelect
+          label="Shipping country"
+          options={['Russian Federation', 'United Kingdom']}
+        />
+        <FooterSelect label="Language" options={['Russian', 'English']} />
       </div>
     </Links>
     <XsOnly>
