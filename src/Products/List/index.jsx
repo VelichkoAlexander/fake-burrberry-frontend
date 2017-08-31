@@ -80,7 +80,7 @@ class Filters extends Component {
           <div className="container">
             <Inner overflowShow={this.state.isDropdown}>
               {filters.map((filter, index) =>
-                <Filter
+                (<Filter
                   isDropdown={this.handleDropdown}
                   name={filter.name}
                   right={filter.right}
@@ -88,7 +88,7 @@ class Filters extends Component {
                   id={index}
                   key={index.toString()}
                   active={this.state.isDropdown}
-                />
+                />),
               )}
             </Inner>
           </div>
