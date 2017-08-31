@@ -69,7 +69,7 @@ class FooterSelect extends Component {
   }
 
   render() {
-    const options = this.props.options;
+    const { options } = this.props;
     return (
       <SelectWraper>
         <Button type="button">
