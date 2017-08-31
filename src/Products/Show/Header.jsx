@@ -88,7 +88,7 @@ class Header extends Component {
               <Lg>
                 <Slider className="product-slider">
                   <Image
-                    nameItem={String(this.state.colorId)}
+                    nameItem="front"
                     alt="Long Cotton Gabardine Car Coat - front"
                   />
                 </Slider>
