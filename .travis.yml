@@ -20,7 +20,7 @@ deploy:
       branch: master
   # deploy develop from all feat/ branches to the staging environment
   - provider: script
-      skip_cleanup: true
-      script: now alias $(now build -t=$NOW_TOKEN --public) $URL_DEV -t=$NOW_TOKEN
-      on:
-        branch: feat*
+    script: now alias $(now build -t=$NOW_TOKEN --public) $URL_DEV -t=$NOW_TOKEN
+    skip_cleanup: true
+    on:
+      branch: feat*
