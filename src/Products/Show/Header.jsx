@@ -123,7 +123,7 @@ class Header extends Component {
               <Info price={110000} id={39428531} />
               <div className="row">
                 <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6">
-                  <Color handelColorChange={this.handleColorChange} />
+                  <Color handleColorChange={this.handleColorChange} />
                 </div>
                 <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6">
                   <Lg>
