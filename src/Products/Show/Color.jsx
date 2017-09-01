@@ -44,11 +44,13 @@ class Color extends Component {
     this.state = { selectedColorIndex: 0 };
     this.handleColorChange = this.handleColorChange.bind(this);
   }
+
   handleColorChange(e) {
     const id = Number(e.target.id);
     this.setState({ selectedColorIndex: id });
     this.props.handleColorChange(colors[id].img);
   }
+
   render() {
     return (
       <Wrapper>
