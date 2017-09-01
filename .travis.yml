@@ -12,20 +12,20 @@ before_deploy:
 deploy:
   # deploy develop to the staging environment
   - provider: script
-    script: now alias $(now build -t=$NOW_TOKEN --public) $URL_DEV -t=$NOW_TOKEN
     skip_cleanup: true
+    script: now alias $(now build -t=$NOW_TOKEN --public) $URL_DEV -t=$NOW_TOKEN
     on:
       branch: develop
   # deploy master to production
   - provider: script
-    script: now alias $(now build -t=$NOW_TOKEN --public) $URL_PROD -t=$NOW_TOKEN
     skip_cleanup: true
+    script: now alias $(now build -t=$NOW_TOKEN --public) $URL_PROD -t=$NOW_TOKEN
     on:
       branch: master
   # deploy develop from all feat/ branches to the staging environment
   - provider: script
-    script: now alias $(now build -t=$NOW_TOKEN --public) $URL_DEV -t=$NOW_TOKEN
     skip_cleanup: true
+    script: now alias $(now build -t=$NOW_TOKEN --public) $URL_DEV -t=$NOW_TOKEN
     on:
       branch: feat*
 
