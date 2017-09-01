@@ -24,17 +24,17 @@ const supportedLanguages = [
 class App extends Component {
   constructor() {
     super();
-    this.state = { localId: 0 };
-    this.handelLocalChange = this.handelLocalChange.bind(this);
+    this.state = { localeId: 0 };
+    this.handleLocalChange = this.handleLocalChange.bind(this);
   }
 
-  handelLocalChange(id) {
-    this.setState(() => ({ localId: id }));
+  handleLocalChange(id) {
+    this.setState({ localeId: id });
   }
 
   render() {
     return (
-      <IntlProvider locale={supportedLanguages[this.state.localId].value}>
+      <IntlProvider locale={supportedLanguages[this.state.localeId].value}>
         <Router>
           <ScrollToTop>
             <div className="App">
@@ -48,8 +48,8 @@ class App extends Component {
                 />
               </Helmet>
               <Header
-                localId={this.state.localId}
-                handelLocalChange={this.handelLocalChange}
+                localeId={this.state.localeId}
+                handleLocalChange={this.handleLocalChange}
                 options={supportedLanguages}
               />
 
@@ -58,7 +58,7 @@ class App extends Component {
               <Route path="/mens-clothing/:categoryName/:id" component={Show} />
               <Footer
                 local={this.state.local}
-                hendelLocal={this.handelLocalChange}
+                hendelLocal={this.handleLocalChange}
               />
             </div>
           </ScrollToTop>

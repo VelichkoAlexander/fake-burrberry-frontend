@@ -69,10 +69,10 @@ class Header extends Component {
   constructor() {
     super();
     this.state = { colorId: 1 };
-    this.handelColorChange = this.handelColorChange.bind(this);
+    this.handleColorChange = this.handleColorChange.bind(this);
   }
 
-  handelColorChange(id) {
+  handleColorChange(id) {
     this.setState({ colorId: id });
   }
 
@@ -123,7 +123,7 @@ class Header extends Component {
               <Info price={110000} id={39428531} />
               <div className="row">
                 <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6">
-                  <Color handelColorChange={this.handelColorChange} />
+                  <Color handelColorChange={this.handleColorChange} />
                 </div>
                 <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6">
                   <Lg>

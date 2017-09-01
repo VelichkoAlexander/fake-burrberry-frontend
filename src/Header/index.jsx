@@ -52,8 +52,8 @@ const Header = props =>
                 <Xl>
                   <Select
                     label="Shopping in"
-                    localId={props.localId}
-                    handelLocalChange={props.handelLocalChange}
+                    localeId={props.localeId}
+                    handleLocalChange={props.handleLocalChange}
                     options={props.options}
                   />
                 </Xl>
@@ -76,8 +76,8 @@ const Header = props =>
   </div>);
 
 Header.propTypes = {
-  localId: PropTypes.number,
-  handelLocalChange: PropTypes.func.isRequired,
+  localeId: PropTypes.number,
+  handleLocalChange: PropTypes.func.isRequired,
   options: PropTypes.arrayOf(PropTypes.shape({
     name: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired,
@@ -85,7 +85,7 @@ Header.propTypes = {
 };
 
 Header.defaultProps = {
-  localId: 0,
+  localeId: 0,
 };
 
 export default Header;

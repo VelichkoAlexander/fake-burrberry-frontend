@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
@@ -52,41 +52,33 @@ const CountryButton = styled.button`
   }
 `;
 
-class Select extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { selectId: this.props.localId };
-    this.handleChange = this.handleChange.bind(this);
-  }
+const Select = (props) => {
+  const handleChange = (event) => {
+    props.handleLocalChange(event.target.selectedIndex);
+  };
 
-  handleChange(event) {
-    this.props.handelLocalChange(event.target.selectedIndex);
-    this.setState({ selectId: event.target.selectedIndex });
-  }
+  const options = props.options;
 
-  render() {
-    const options = this.props.options;
-    return (
-      <SelectWrapper>
-        <CountryButton>
-          {this.props.label}: {options[this.state.selectId].name}
-        </CountryButton>
-        <CountrySelect onChange={this.handleChange}>
-          {options.map((option, index) =>
-            (<option value={index} key={index.toString()}>
-              {this.props.label}: {option.name}
-            </option>),
-          )}
-        </CountrySelect>
-      </SelectWrapper>
-    );
-  }
-}
+  return (
+    <SelectWrapper>
+      <CountryButton>
+        {props.label}: {options[props.localeId].name}
+      </CountryButton>
+      <CountrySelect onChange={handleChange}>
+        {options.map((option, index) =>
+          (<option value={index} key={index.toString()}>
+            {props.label}: {option.name}
+          </option>),
+        )}
+      </CountrySelect>
+    </SelectWrapper>
+  );
+};
 
 Select.propTypes = {
   label: PropTypes.string,
-  localId: PropTypes.number,
-  handelLocalChange: PropTypes.func.isRequired,
+  localeId: PropTypes.number,
+  handleLocalChange: PropTypes.func.isRequired,
   options: PropTypes.arrayOf(PropTypes.shape({
     name: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired,
@@ -96,7 +88,7 @@ Select.propTypes = {
 Select.defaultProps = {
   label: 'Language',
   options: [],
-  localId: 0,
+  localeId: 0,
 };
 
 export default Select;
