@@ -37,7 +37,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "deploy": "yarn build && now --public"
+    "deployProd": "now alias $(now build -t=$NOW_TOKEN --public) $URL_PROD -t=$NOW_TOKEN",
+    "deployDev": "now alias $(now build -t=$NOW_TOKEN --public) $URL_DEV -t=$NOW_TOKEN"
   },
   "devDependencies": {
     "now": "^7.3.1"
