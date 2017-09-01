@@ -47,7 +47,7 @@ const Header = props =>
             <div className="row middle-xs">
               <div className="col-xs-2 col-md-4">
                 <XsOnly>
-                  <Hamburger type="button" />
+                  <Hamburger type="button" onClick={props.toggleMobileMenu} />
                 </XsOnly>
                 <Xl>
                   <Select
@@ -78,6 +78,7 @@ const Header = props =>
 Header.propTypes = {
   localeId: PropTypes.number,
   handleLocalChange: PropTypes.func.isRequired,
+  toggleMobileMenu: PropTypes.func.isRequired,
   options: PropTypes.arrayOf(PropTypes.shape({
     name: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired,
