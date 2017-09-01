@@ -42,12 +42,12 @@ class Color extends Component {
   constructor(props) {
     super(props);
     this.state = { selectedColorIndex: 0 };
-    this.handelColorChange = this.handelColorChange.bind(this);
+    this.handleColorChange = this.handleColorChange.bind(this);
   }
-  handelColorChange(e) {
+  handleColorChange(e) {
     const id = Number(e.target.id);
     this.setState({ selectedColorIndex: id });
-    this.props.handelColorChange(colors[id].img);
+    this.props.handleColorChange(colors[id].img);
   }
   render() {
     return (
@@ -62,7 +62,7 @@ class Color extends Component {
               color={color.color}
               key={index.toString()}
               id={index}
-              onClick={e => this.handelColorChange(e)}
+              onClick={e => this.handleColorChange(e)}
             >
               {color.name}
             </ColorButton>),
@@ -74,7 +74,7 @@ class Color extends Component {
 }
 
 Color.propTypes = {
-  handelColorChange: PropTypes.func.isRequired,
+  handleColorChange: PropTypes.func.isRequired,
 };
 
 export default Color;
