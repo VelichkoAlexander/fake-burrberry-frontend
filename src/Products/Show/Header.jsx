@@ -13,7 +13,7 @@ const Title = styled.h1`
   margin: 0;
   padding: 0;
   margin-bottom: 1rem;
-  font-family: "Lora", serif;
+  font-family: 'Lora', serif;
   font-size: 1.25rem;
   line-height: 1.5rem;
   font-weight: 400;

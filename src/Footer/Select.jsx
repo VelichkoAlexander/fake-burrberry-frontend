@@ -27,7 +27,7 @@ const Select = styled.select`
   top: 0;
   padding: 0;
   width: 100%;
-  font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Raleway', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   line-height: 1rem;
   font-size: 0.75rem;
   color: #171717;
@@ -44,7 +44,7 @@ const Button = styled.button`
   display: block;
   margin-bottom: 1rem;
   padding: 0;
-  font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Raleway', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   line-height: 1rem;
   font-size: 0.75rem;
   color: #999999;
@@ -76,11 +76,11 @@ class FooterSelect extends Component {
           {this.props.label}: <Value>{options[this.state.countryId]}</Value>
         </Button>
         <Select onClick={this.handleChange}>
-          {options.map((option, index) =>
-            (<option key={index.toString()}>
+          {options.map((option, index) => (
+            <option key={index.toString()}>
               {this.props.label}: {option}
-            </option>),
-          )}
+            </option>
+          ))}
         </Select>
       </SelectWraper>
     );

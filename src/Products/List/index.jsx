@@ -50,7 +50,7 @@ const ProductsWrapper = styled.div`
     height: 100%;
     background-color: #171717;
     opacity: ${props => (props.overflowShow ? '.3' : '0')};
-    transition: visibility 0s, opacity .15s linear;
+    transition: visibility 0s, opacity 0.15s linear;
   }
 `;
 

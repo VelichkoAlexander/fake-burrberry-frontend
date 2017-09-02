@@ -17,7 +17,7 @@ const Wraper = styled.div`
 const Title = styled.h1`
   margin: 0;
   margin-bottom: 1rem;
-  font-family: "Lora", serif;
+  font-family: 'Lora', serif;
   font-size: 1.625rem;
   line-height: 2rem;
   font-weight: 400;
@@ -48,8 +48,8 @@ const More = styled(Link)`
   line-height: 1.25rem;
 `;
 
-export default () =>
-  (<Wraper>
+export default () => (
+  <Wraper>
     <div className="container">
       <Title>Men’s Clothing</Title>
       <Content>
@@ -60,4 +60,5 @@ export default () =>
         </Xl>
       </Content>
     </div>
-  </Wraper>);
+  </Wraper>
+);

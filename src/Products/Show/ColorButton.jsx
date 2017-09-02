@@ -13,7 +13,7 @@ const Button = styled.button`
   border: solid 0.0625rem transparent;
   background: ${props => props.color};
   border-color: ${props => (props.active ? '#232122' : 'transparent')};
-  transition: border-color .2s linear;
+  transition: border-color 0.2s linear;
   cursor: pointer;
 `;
 

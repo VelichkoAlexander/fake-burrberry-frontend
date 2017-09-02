@@ -30,8 +30,8 @@ const Title = styled.h2`
   }
 `;
 
-export default () =>
-  (<Section>
+export default () => (
+  <Section>
     <div className="container">
       <Title>We recommend</Title>
       <div className="row">
@@ -73,4 +73,5 @@ export default () =>
         </div>
       </div>
     </div>
-  </Section>);
+  </Section>
+);

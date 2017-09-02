@@ -21,14 +21,14 @@ const FilterHeader = styled.div`
   border: none;
   background-color: transparent;
   font-size: 0.75rem;
-  font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Raleway', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   line-height: 1rem;
   font-weight: 400;
   color: ${props => (props.visibility ? '#171717' : 'inherit')};
   white-space: nowrap;
   cursor: pointer;
   z-index: 800;
-  transition: all .2s linear;
+  transition: all 0.2s linear;
   &::after {
     content: '';
     position: absolute;
@@ -36,7 +36,7 @@ const FilterHeader = styled.div`
     top: 50%;
     width: 0.75rem;
     height: 0.375rem;
-    transition: all .1s linear;
+    transition: all 0.1s linear;
     transform: translateY(-50%)
       rotate(${props => (props.visibility ? '180deg' : '0')});
     -webkit-mask: url(${arrow}) center no-repeat;
@@ -73,7 +73,7 @@ const Dropdown = styled.div`
     width: auto;
     white-space: nowrap;
     ${props => (props.right ? 'right:-1.5rem' : 'left:-1.5rem')};
-    padding-right: .5;
+    padding-right: 0.5;
   }
 `;
 
@@ -134,9 +134,7 @@ class Filter extends Component {
             right={this.props.right}
             visibility={this.state.isDropdown}
           >
-            <Content>
-              {this.props.children}
-            </Content>
+            <Content>{this.props.children}</Content>
           </Dropdown>
         </div>
       </Wrapper>

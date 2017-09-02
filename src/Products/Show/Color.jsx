@@ -58,8 +58,8 @@ class Color extends Component {
           Colour: <Name>{colors[this.state.selectedColorIndex].name}</Name>
         </Current>
         <Options>
-          {colors.map((color, index) =>
-            (<ColorButton
+          {colors.map((color, index) => (
+            <ColorButton
               isActive={this.state.selectedColorIndex === index}
               color={color.color}
               key={index.toString()}
@@ -67,8 +67,8 @@ class Color extends Component {
               onClick={e => this.handleColorChange(e)}
             >
               {color.name}
-            </ColorButton>),
-          )}
+            </ColorButton>
+          ))}
         </Options>
       </Wrapper>
     );

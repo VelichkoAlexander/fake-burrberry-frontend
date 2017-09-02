@@ -23,8 +23,8 @@ const Wraper = styled.div`
 `;
 
 const NavLink = styled(Link)`
-    display: block;
-    margin-bottom: 1rem;
+  display: block;
+  margin-bottom: 1rem;
 `;
 
 const Img = styled.img`
@@ -76,8 +76,8 @@ const ColorLink = styled(Link)`
   text-decoration: none;
 `;
 
-const Card = props =>
-  (<Wraper>
+const Card = props => (
+  <Wraper>
     <NavLink to={`/mens-clothing/mens-coats/${props.id}`}>
       <picture>
         <source
@@ -96,14 +96,10 @@ const Card = props =>
       </picture>
     </NavLink>
     <Inner>
-      <Type>
-        {props.type}
-      </Type>
+      <Type>{props.type}</Type>
       <LikeIcon width="14" height="14" />
     </Inner>
-    <Title to={`/mens-clothing/mens-coats/${props.id}`}>
-      {props.title}
-    </Title>
+    <Title to={`/mens-clothing/mens-coats/${props.id}`}>{props.title}</Title>
     <Availability>
       Available in{' '}
       <ColorLink to={`/mens-clothing/mens-coats/${props.id}`}>
@@ -118,7 +114,8 @@ const Card = props =>
         minimumFractionDigits={0}
       />
     </Price>
-  </Wraper>);
+  </Wraper>
+);
 
 Card.propTypes = {
   id: PropTypes.number,

@@ -12,7 +12,7 @@ const SubNavigationStyled = styled.div`
   flex-direction: column;
   width: 100%;
   transform: translateX(-17.125rem);
-  transition: .25s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
   background: #fff;
   ${props => props.isOpened && 'transform: translateX(0)'};
 `;
@@ -20,17 +20,17 @@ const SubNavigationStyled = styled.div`
 const BackButton = styled.button`
   position: relative;
   flex-basis: 100%;
-  padding: .9375rem .5rem;
+  padding: 0.9375rem 0.5rem;
   padding-left: 1.375rem;
   font-family: Raleway, sans-serif;
-  font-size: .875rem;
+  font-size: 0.875rem;
   text-align: left;
   color: #171717;
   border: none;
   background-color: transparent;
   cursor: pointer;
   &::before {
-    content: "";
+    content: '';
     position: absolute;
     top: 50%;
     left: 0;
@@ -55,7 +55,7 @@ const Title = styled.h2`
   width: 100%;
   box-sizing: border-box;
   margin: 0;
-  padding: 1rem .5rem;
+  padding: 1rem 0.5rem;
   background-color: rgba(255, 255, 255, 0.7);
   font-family: Lora, serif;
   font-size: 1.25rem;
@@ -67,9 +67,9 @@ const Links = styled.div`padding: 1rem 0.5rem;`;
 
 const Link = styled(NavLink)`
   display: block;
-  padding-top: .5rem;
+  padding-top: 0.5rem;
   padding-bottom: 1rem;
-  font-size: .875rem;
+  font-size: 0.875rem;
   font-weight: 400;
   font-family: Raleway, sans-serif;
   line-height: 1rem;
@@ -83,24 +83,27 @@ const Link = styled(NavLink)`
   }
 `;
 
-const SubNavigation = props =>
-  (<SubNavigationStyled isOpened={props.isOpened}>
+const SubNavigation = props => (
+  <SubNavigationStyled isOpened={props.isOpened}>
     <BackButton type="button" onClick={props.close}>
       Home
     </BackButton>
     <Header image={props.navigation.image}>
-      <Title>
-        {props.navigation.title}
-      </Title>
+      <Title>{props.navigation.title}</Title>
     </Header>
     <Links>
-      {props.navigation.links.map((link, index) =>
-        (<Link to={link.url} onClick={props.toggleSideNav} key={index.toString()}>
+      {props.navigation.links.map((link, index) => (
+        <Link
+          to={link.url}
+          onClick={props.toggleSideNav}
+          key={index.toString()}
+        >
           {link.title}
-        </Link>),
-      )}
+        </Link>
+      ))}
     </Links>
-  </SubNavigationStyled>);
+  </SubNavigationStyled>
+);
 
 SubNavigation.propTypes = {
   navigation: PropTypes.shape({

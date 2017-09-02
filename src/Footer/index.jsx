@@ -26,8 +26,8 @@ const Footer = styled.footer`
   }
 `;
 
-export default () =>
-  (<Footer>
+export default () => (
+  <Footer>
     <Menu />
     <Links>
       <div className="container">
@@ -41,4 +41,5 @@ export default () =>
     <XsOnly>
       <Help />
     </XsOnly>
-  </Footer>);
+  </Footer>
+);

@@ -16,7 +16,7 @@ const Button = styled.button`
   border: 1px solid #171717;
   border-radius: 2px;
   cursor: pointer;
-  transition: all .2s linear;
+  transition: all 0.2s linear;
   &:last-child {
     margin-right: 0;
   }

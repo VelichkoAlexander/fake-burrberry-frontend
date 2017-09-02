@@ -17,7 +17,7 @@ const CountrySelect = styled.select`
   border: none;
   background-color: transparent;
   font-size: 0.75rem;
-  font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Raleway', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   line-height: 1rem;
   font-weight: 500;
   color: #999999;
@@ -35,7 +35,7 @@ const CountryButton = styled.button`
   position: relative;
   background-color: transparent;
   font-size: 0.75rem;
-  font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Raleway', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   line-height: 1rem;
   font-weight: 500;
   color: #999999;
@@ -65,11 +65,11 @@ const Select = (props) => {
         {props.label}: {options[props.localeId].name}
       </CountryButton>
       <CountrySelect onChange={handleChange}>
-        {options.map((option, index) =>
-          (<option value={index} key={index.toString()}>
+        {options.map((option, index) => (
+          <option value={index} key={index.toString()}>
             {props.label}: {option.name}
-          </option>),
-        )}
+          </option>
+        ))}
       </CountrySelect>
     </SelectWrapper>
   );
@@ -79,10 +79,12 @@ Select.propTypes = {
   label: PropTypes.string,
   localeId: PropTypes.number,
   handleLocalChange: PropTypes.func.isRequired,
-  options: PropTypes.arrayOf(PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    value: PropTypes.string.isRequired,
-  })).isRequired,
+  options: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      value: PropTypes.string.isRequired,
+    }),
+  ).isRequired,
 };
 
 Select.defaultProps = {

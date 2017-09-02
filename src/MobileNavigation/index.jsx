@@ -22,72 +22,69 @@ const SideNavigationStyled = styled.section`
 `;
 
 const MainNavigation = styled.div`
-    transition: transform 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
-    transform: translateX(${props => (props.isMenuOpened ? '-274px' : '0')});
-    overflow: auto;
+  transition: transform 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transform: translateX(${props => (props.isMenuOpened ? '-274px' : '0')});
+  overflow: auto;
 `;
 
 const Logo = styled.img`
-    display: block;
-    height: 0.75rem;
-    margin: 1rem auto;
+  display: block;
+  height: 0.75rem;
+  margin: 1rem auto;
 `;
 
 const Block = styled.div`
-    display: flex;
-    flex-direction: column;
-    margin: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  margin: 2rem 0;
 `;
 
 const Subtitle = styled.h3`
-    margin: 0;
-    padding-top: .3rem;
-    padding-left: .5rem;
-    padding-bottom: .4rem;
-    font-family: Raleway, 'Helvetica Neue', Helvetica, Arial;
-    font-size: .75rem;
-    font-weight: 700;
-    text-transform: uppercase;
+  margin: 0;
+  padding-top: 0.3rem;
+  padding-left: 0.5rem;
+  padding-bottom: 0.4rem;
+  font-family: Raleway, 'Helvetica Neue', Helvetica, Arial;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
 `;
 
 const Link = styled(NavLink)`
-    display: block;
-    text-decoration: none;
-    padding: .75rem .5rem;
-    font-family: Raleway, 'Helvetica Neue', Helvetica, Arial;
-    font-size: .875rem;
-    color: #171717;
+  display: block;
+  text-decoration: none;
+  padding: 0.75rem 0.5rem;
+  font-family: Raleway, 'Helvetica Neue', Helvetica, Arial;
+  font-size: 0.875rem;
+  color: #171717;
 `;
 
 const SectionButton = styled.button`
-    display: block;
-    text-decoration: none;
-    padding: .75rem .5rem;
-    font-family: Raleway, 'Helvetica Neue', Helvetica, Arial;
-    font-size: .875rem;
-    text-align: left;
-    border: none;
-    background: transparent;
-    color: #171717;
-    &::after {
-      position: absolute;
-      right: 0.1875rem;
-      width: 0.75rem;
-      height: 1rem;
-      content: '';
-      transform: rotate(-90deg);
-      background: url(${arrowIcon}) no-repeat;
-      background-size: contain;
-      background-position: 0 3px;
-    }
+  display: block;
+  text-decoration: none;
+  padding: 0.75rem 0.5rem;
+  font-family: Raleway, 'Helvetica Neue', Helvetica, Arial;
+  font-size: 0.875rem;
+  text-align: left;
+  border: none;
+  background: transparent;
+  color: #171717;
+  &::after {
+    position: absolute;
+    right: 0.1875rem;
+    width: 0.75rem;
+    height: 1rem;
+    content: '';
+    transform: rotate(-90deg);
+    background: url(${arrowIcon}) no-repeat;
+    background-size: contain;
+    background-position: 0 3px;
+  }
 `;
 
-const LogoLink = styled(NavLink) `
-  display: block;
-`;
+const LogoLink = styled(NavLink)`display: block;`;
 
 const Buttons = Block.extend`margin-top: -.25rem;`;
-
 
 class MobileNavigation extends Component {
   constructor() {
@@ -119,16 +116,16 @@ class MobileNavigation extends Component {
             <Logo alt="Logo" src={logo} />
           </LogoLink>
           <Block>
-            {MobileMenuNavigation.map((navItem, index) =>
-              (<SectionButton
+            {MobileMenuNavigation.map((navItem, index) => (
+              <SectionButton
                 key={index.toString()}
                 onClick={() => {
                   this.toggleSubNav(index);
                 }}
               >
                 {navItem.title}
-              </SectionButton>),
-            )}
+              </SectionButton>
+            ))}
           </Block>
           <Block>
             <Subtitle>Customer service</Subtitle>
@@ -148,7 +145,9 @@ class MobileNavigation extends Component {
               <Link to="/our-history">Our History</Link>
               <Link to="/burberry-group-pic">Burberry Group Pic</Link>
               <Link to="/careers">Careers</Link>
-              <Link to="/corporate-responsibility">Corporate Responsibility</Link>
+              <Link to="/corporate-responsibility">
+                Corporate Responsibility
+              </Link>
               <Link to="/site-map">Site Map</Link>
             </nav>
           </Block>
@@ -175,10 +174,12 @@ class MobileNavigation extends Component {
 MobileNavigation.propTypes = {
   localeId: PropTypes.number,
   handleLocalChange: PropTypes.func.isRequired,
-  options: PropTypes.arrayOf(PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    value: PropTypes.string.isRequired,
-  })).isRequired,
+  options: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      value: PropTypes.string.isRequired,
+    }),
+  ).isRequired,
   isMenuOpened: PropTypes.bool.isRequired,
   toggleMobileMenu: PropTypes.func.isRequired,
 };
@@ -186,6 +187,5 @@ MobileNavigation.propTypes = {
 MobileNavigation.defaultProps = {
   localeId: 0,
 };
-
 
 export default MobileNavigation;

@@ -8,8 +8,8 @@ const Path = styled.path`
   stroke-width: 1px;
 `;
 
-const Icon = props =>
-  (<svg
+const Icon = props => (
+  <svg
     width={props.width}
     height={props.height}
     viewBox="0 0 14 14"
@@ -22,7 +22,8 @@ const Icon = props =>
                 2.06l-.23-.247C5.37.28 3.086.28 1.66 1.768.236 3.258.236 5.74
                  1.618 7.275l.042.022.063.045z"
     />
-  </svg>);
+  </svg>
+);
 
 Icon.propTypes = {
   width: PropTypes.string,

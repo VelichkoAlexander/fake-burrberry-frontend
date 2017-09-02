@@ -16,7 +16,7 @@ const Header = styled.button`
   display: block;
   padding: 0;
   position: relative;
-  font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Raleway', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   background-color: transparent;
   width: 100%;
   border: 0;
@@ -49,19 +49,19 @@ const Title = styled.h2`
 
 const Body = styled.div`
   padding-top: 2rem;
-  &  p {
+  & p {
     margin: 0;
     font-size: 0.875rem;
-    font-family: "Lora", serif;
+    font-family: 'Lora', serif;
     line-height: 1.5rem;
   }
-  &  ul {
+  & ul {
     margin: 0;
     padding: 0;
     margin-top: 1.5rem;
     list-style: none;
     font-size: 0.875rem;
-    font-family: "Lora", serif;
+    font-family: 'Lora', serif;
     line-height: 1.5rem;
   }
 
@@ -89,9 +89,7 @@ class InfoBlock extends Component {
           onClick={this.handleClick}
           opened={this.state.isOpened}
         >
-          <Title>
-            {this.props.title}
-          </Title>
+          <Title>{this.props.title}</Title>
         </Header>
 
         <Body opened={this.state.isOpened}>

@@ -63,16 +63,16 @@ class Size extends Component {
           </Help>
         </Wrapper>
         <Options>
-          {sizes.map((size, index) =>
-            (<SizeButton
+          {sizes.map((size, index) => (
+            <SizeButton
               id={index}
               name={size}
               type="button"
               onClick={e => this.onActiveSize(e)}
               isActive={this.state.selectSizeIndex === index}
               key={index.toString()}
-            />),
-          )}
+            />
+          ))}
         </Options>
       </div>
     );

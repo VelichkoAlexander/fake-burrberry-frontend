@@ -60,8 +60,8 @@ const Img = styled.img`
   display: block;
 `;
 
-export default () =>
-  (<Xl>
+export default () => (
+  <Xl>
     <Menu>
       <div className="container">
         <div className="row">
@@ -101,4 +101,5 @@ export default () =>
         </div>
       </div>
     </Menu>
-  </Xl>);
+  </Xl>
+);

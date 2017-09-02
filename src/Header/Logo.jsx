@@ -3,9 +3,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import logo from '../images/logo.svg';
 
-const LogoLink = styled(Link)`
-  margin: auto;
-`;
+const LogoLink = styled(Link)`margin: auto;`;
 
 const Logo = styled.img`
   display: block;
@@ -16,7 +14,8 @@ const Logo = styled.img`
   }
 `;
 
-export default () =>
-  (<LogoLink to="/">
+export default () => (
+  <LogoLink to="/">
     <Logo src={logo} alt="logo" />
-  </LogoLink>);
+  </LogoLink>
+);

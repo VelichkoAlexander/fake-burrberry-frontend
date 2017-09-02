@@ -20,27 +20,28 @@ const Page = styled.div`
   overflow: ${props => (props.isMenuOpened ? 'hidden' : 'visible')};
 `;
 
-const Wrapper = styled.div `
+const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
   min-height: 100vh;
   transition: transform 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
-    ${props => props.isMenuOpened && `
+  ${props =>
+    props.isMenuOpened &&
+    `
     height: 100vh;
     overflow: hidden;
     transform: translateX(274px);
-    `}
-   &::after {
-  content: '';
-  position: absolute;
-  display: ${props => (props.isMenuOpened ? 'block' : 'none')};
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #transparent;
-  z-index:9999;
+    `} &::after {
+    content: '';
+    position: absolute;
+    display: ${props => (props.isMenuOpened ? 'block' : 'none')};
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #transparent;
+    z-index: 9999;
   }
 `;
 
@@ -48,7 +49,6 @@ const supportedLanguages = [
   { name: 'Russian Federation (₽)', value: 'ru' },
   { name: 'United Kingdom (£)', value: 'en' },
 ];
-
 
 class App extends Component {
   constructor() {
@@ -96,7 +96,8 @@ class App extends Component {
                 </XsOnly>
                 <Wrapper
                   isMenuOpened={this.state.isMenuOpened}
-                  onClick={() => (this.state.isMenuOpened && this.toggleMobileMenu())}
+                  onClick={() =>
+                    this.state.isMenuOpened && this.toggleMobileMenu()}
                 >
                   <Header
                     localeId={this.state.localeId}
@@ -106,7 +107,10 @@ class App extends Component {
                   />
                   <Route exact path="/" component={List} />
                   <Route exact path="/mens-clothing" component={List} />
-                  <Route path="/mens-clothing/:categoryName/:id" component={Show} />
+                  <Route
+                    path="/mens-clothing/:categoryName/:id"
+                    component={Show}
+                  />
                   <Footer />
                 </Wrapper>
               </Page>
