@@ -29,16 +29,14 @@ const Button = styled.div`
   text-align: center;
 `;
 
-const Select = (props) => {
+const Select = ({ options, handleLocalChange, localeId }) => {
   const handleChange = (event) => {
-    props.handleLocalChange(event.target.selectedIndex);
+    handleLocalChange(event.target.selectedIndex);
   };
-
-  const { options } = props;
 
   return (
     <ButtonSelectStyled>
-      <Button>{options[props.localeId].name}</Button>
+      <Button>{options[localeId].name}</Button>
       <SelectButton onChange={handleChange}>
         {options.map((option, index) => (
           <option value={index} key={index.toString()}>
