@@ -66,7 +66,7 @@ class App extends Component {
   }
 
   toggleMobileMenu() {
-    this.setState({ isMenuOpened: !this.state.isMenuOpened });
+    this.setState(prevState => ({ isMenuOpened: !prevState.isMenuOpened }));
   }
 
   render() {
