@@ -121,7 +121,7 @@ export const MobileMenuNavigation = [
       'https://assets.burberry.com/is/image/Burberryltd/d68dce82ea0a299febf5a35de882c78f0d70ad7d.jpg?$BBY_V2_BASIC$',
     links: [
       { title: 'New Arrivals', url: '/men/new-arrivals' },
-      { title: 'Clothing', url: '/men/clothing' },
+      { title: 'Clothing', url: 'mens-clothing' },
       { title: 'Scarves', url: '/men/scarves' },
       { title: 'Accessories', url: '/men/accessories' },
       { title: 'Shoes', url: '/men/shoes' },

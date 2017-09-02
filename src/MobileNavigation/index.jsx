@@ -82,6 +82,10 @@ const SectionButton = styled.button`
     }
 `;
 
+const LogoLink = styled(NavLink) `
+  display: block;
+`;
+
 const Buttons = Block.extend`margin-top: -.25rem;`;
 
 
@@ -111,9 +115,9 @@ class MobileNavigation extends Component {
     return (
       <SideNavigationStyled isMenuOpened={this.props.isMenuOpened}>
         <MainNavigation isShiftedLeft={this.state.isSubMenuOpened}>
-          <NavLink to="/">
+          <LogoLink to="/">
             <Logo alt="Logo" src={logo} />
-          </NavLink>
+          </LogoLink>
           <Block>
             {MobileMenuNavigation.map((navItem, index) =>
               (<SectionButton

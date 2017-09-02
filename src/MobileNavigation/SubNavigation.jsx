@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import arrowIcon from '../images/arrow.svg';
 
@@ -11,14 +11,10 @@ const SubNavigationStyled = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  transform: translate3d(274px, 0, 0);
+  transform: translateX(-17.125rem);
   transition: .25s cubic-bezier(0.165, 0.84, 0.44, 1);
   background: #fff;
-  ${props =>
-    props.isOpened &&
-  css`
-    transform: translate3d(0, 0, 0);
-  `};
+  ${props => props.isOpened && 'transform: translateX(0)'};
 `;
 
 const BackButton = styled.button`
@@ -50,10 +46,8 @@ const Header = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  height: 169px;
-  background: url(${props => props.image});
-    no-repeat;
-  background-position: left center;
+  height: 10.5625rem;
+  background: url(${props => props.image}) left center no-repeat;
   background-size: cover;
 `;
 
@@ -78,7 +72,7 @@ const Link = styled(NavLink)`
   font-size: .875rem;
   font-weight: 400;
   font-family: Raleway, sans-serif;
-  line-heigth: 1rem;
+  line-height: 1rem;
   color: #171717;
   text-decoration: none;
   &.active {
