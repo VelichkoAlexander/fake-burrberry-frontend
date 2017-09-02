@@ -100,8 +100,8 @@ class MobileNavigation extends Component {
   toggleSubNav(subSectionIndex) {
     this.setState(prevState => ({
       isSubMenuOpened: !prevState.isSubMenuOpened,
-      categoryId: subSectionIndex }
-    ));
+      categoryId: subSectionIndex,
+    }));
   }
 
   closeSubMenu() {
