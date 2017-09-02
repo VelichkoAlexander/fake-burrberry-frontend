@@ -111,7 +111,9 @@ class MobileNavigation extends Component {
     return (
       <SideNavigationStyled isMenuOpened={this.props.isMenuOpened}>
         <MainNavigation isShiftedLeft={this.state.isSubMenuOpened}>
-          <Logo alt="Logo" src={logo} />
+          <NavLink to="/">
+            <Logo alt="Logo" src={logo} />
+          </NavLink>
           <Block>
             {MobileMenuNavigation.map((navItem, index) =>
               (<SectionButton
