@@ -34,7 +34,7 @@ const Select = (props) => {
     props.handleLocalChange(event.target.selectedIndex);
   };
 
-  const options = props.options;
+  const { options } = props;
 
   return (
     <ButtonSelectStyled>
