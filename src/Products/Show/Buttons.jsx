@@ -30,7 +30,7 @@ const Button = styled.button`
   margin-bottom: 1rem;
   padding-top: 1rem;
   padding-bottom: 1rem;
-  font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Raleway', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 0.75rem;
   line-height: 0.875rem;
   font-weight: 400;
@@ -58,11 +58,11 @@ const Help = styled.button`
   color: #171717;
   padding: 0;
   border: 0;
-  font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Raleway', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 `;
 
-export default () =>
-  (<Wrap>
+export default () => (
+  <Wrap>
     <Sm>
       <Button type="button" primary>
         Select a size
@@ -82,4 +82,5 @@ export default () =>
     <XsOnly>
       <Help type="button">Need size help?</Help>
     </XsOnly>
-  </Wrap>);
+  </Wrap>
+);

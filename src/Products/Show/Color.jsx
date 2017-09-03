@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import Button from './ColorButton';
+import ColorButton from './ColorButton';
 
 const Wrapper = styled.div`
   @media (min-width: 48rem) {
@@ -33,22 +33,50 @@ const Options = styled.div`
 
 const Name = styled.span`font-weight: 700;`;
 
-export default function Color(props) {
-  return (
-    <Wrapper>
-      <Current>
-        Colour: <Name>{props.currentColor}</Name>
-      </Current>
-      <Options>
-        <Button name="black" color="#232122" />
-        <Button name="honey" color="#cfa880" active />
-      </Options>
-    </Wrapper>
-  );
+const colors = [
+  { name: 'Honey', color: '#cfa880', img: '1' },
+  { name: 'Black', color: '#232122', img: '2' },
+];
+
+class Color extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { selectedColorIndex: 0 };
+    this.handleColorChange = this.handleColorChange.bind(this);
+  }
+
+  handleColorChange(e) {
+    const id = Number(e.target.id);
+    this.setState({ selectedColorIndex: id });
+    this.props.handleColorChange(colors[id].img);
+  }
+
+  render() {
+    return (
+      <Wrapper>
+        <Current>
+          Colour: <Name>{colors[this.state.selectedColorIndex].name}</Name>
+        </Current>
+        <Options>
+          {colors.map((color, index) => (
+            <ColorButton
+              isActive={this.state.selectedColorIndex === index}
+              color={color.color}
+              key={index.toString()}
+              id={index}
+              onClick={e => this.handleColorChange(e)}
+            >
+              {color.name}
+            </ColorButton>
+          ))}
+        </Options>
+      </Wrapper>
+    );
+  }
 }
+
 Color.propTypes = {
-  currentColor: PropTypes.string,
+  handleColorChange: PropTypes.func.isRequired,
 };
-Color.defaultProps = {
-  currentColor: 'Honey',
-};
+
+export default Color;

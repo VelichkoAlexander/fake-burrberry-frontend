@@ -1,13 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
-import Menu from '../common/Menu';
+import PropTypes from 'prop-types';
+
 import { XsOnly, Xl } from '../common/Responsive';
-
 import hamburger from '../images/hamburger.svg';
-import arrow from '../images/arrow.svg';
-import Logo from './Logo';
 
-const Header = styled.header`
+import Menu from '../common/Menu';
+import Logo from './Logo';
+import Select from './Select';
+
+const Wrap = styled.header`
   position: relative;
   padding-top: 1.125rem;
   padding-bottom: 1.125rem;
@@ -36,44 +38,24 @@ const Hamburger = styled.button`
   background: url(${hamburger}) center no-repeat;
 `;
 
-const CountrySelect = styled.button`
-  padding: 0;
-  padding-right: 1.4375rem;
-  display: block;
-  border: none;
-  position: relative;
-  background-color: transparent;
-  font-size: 0.75rem;
-  font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  line-height: 1rem;
-  font-weight: 500;
-  color: #999999;
-  white-space: nowrap;
-  &::after {
-    content: '';
-    position: absolute;
-    right: 0;
-    top: 50%;
-    width: 0.75rem;
-    height: 0.375rem;
-    transform: translateY(-50%);
-    background: url(${arrow}) center no-repeat;
-  }
-`;
-
-export default () =>
-  (<div>
-    <Header>
+const Header = props => (
+  <div>
+    <Wrap>
       <div className="container">
         <div className="row">
           <div className="col-xs-12">
             <div className="row middle-xs">
               <div className="col-xs-2 col-md-4">
                 <XsOnly>
-                  <Hamburger type="button" />
+                  <Hamburger type="button" onClick={props.toggleMobileMenu} />
                 </XsOnly>
                 <Xl>
-                  <CountrySelect>Shopping in: United Kingdom (£)</CountrySelect>
+                  <Select
+                    label="Shopping in"
+                    localeId={props.localeId}
+                    handleLocalChange={props.handleLocalChange}
+                    options={props.options}
+                  />
                 </Xl>
               </div>
               <div className="col-xs-8 col-md-4">
@@ -83,7 +65,7 @@ export default () =>
           </div>
         </div>
       </div>
-    </Header>
+    </Wrap>
     <div className="container">
       <div className="row">
         <Xl>
@@ -91,4 +73,23 @@ export default () =>
         </Xl>
       </div>
     </div>
-  </div>);
+  </div>
+);
+
+Header.propTypes = {
+  localeId: PropTypes.number,
+  handleLocalChange: PropTypes.func.isRequired,
+  toggleMobileMenu: PropTypes.func.isRequired,
+  options: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      value: PropTypes.string.isRequired,
+    }),
+  ).isRequired,
+};
+
+Header.defaultProps = {
+  localeId: 0,
+};
+
+export default Header;

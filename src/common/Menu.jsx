@@ -19,16 +19,16 @@ const Link = styled(NavLink)`
   text-decoration: none;
   line-height: 1rem;
   letter-spacing: 0.09375rem;
-  border-bottom: 1px solid transparent ;
+  border-bottom: 1px solid transparent;
   color: #999999;
-  transition: color .15s ease-in-out, border-color .15s ease-in-out;
+  transition: color 0.15s ease-in-out, border-color 0.15s ease-in-out;
   &:hover {
     color: #171717;
-    border-bottom: 1px  #171717 solid;
+    border-bottom: 1px #171717 solid;
   }
-  &.active{
+  &.active {
     color: #171717;
-    border-bottom: 1px  #171717 solid;
+    border-bottom: 1px #171717 solid;
   }
 `;
 

@@ -10,7 +10,7 @@ const Title = styled.h2`
   position: relative;
   margin: 0;
   margin-bottom: 1rem;
-  font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Raleway', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 1rem;
   line-height: 1.188rem;
   font-weight: 500;
@@ -22,7 +22,7 @@ const NavLink = styled(Link)`
   display: block;
   margin: 0 0 1rem;
   font-size: 0.875rem;
-  font-family: "Lora", serif;
+  font-family: 'Lora', serif;
   font-style: italic;
   line-height: 1.063rem;
   text-decoration: none;
@@ -32,12 +32,13 @@ const NavLink = styled(Link)`
   }
 `;
 
-export default () =>
-  (<XsOnly>
+export default () => (
+  <XsOnly>
     <Section>
       <Title>More for you</Title>
       <NavLink to="/">Men’s Black Trench Coats</NavLink>
       <NavLink to="/">Men’s Short Trench Coats</NavLink>
       <NavLink to="/">Men’s Long Trench Coats</NavLink>
     </Section>
-  </XsOnly>);
+  </XsOnly>
+);

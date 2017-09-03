@@ -5,7 +5,7 @@ const Title = styled.h2`
   margin: 0;
   padding: 0;
   margin-bottom: 1rem;
-  font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Raleway', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 1rem;
   line-height: 1.188rem;
   font-weight: bold;
@@ -16,7 +16,7 @@ const Title = styled.h2`
 
 const Link = styled.a`
   display: block;
-  font-family: "Lora", serif;
+  font-family: 'Lora', serif;
   font-size: 0.875rem;
   line-height: 1.063rem;
   font-style: italic;
@@ -25,8 +25,9 @@ const Link = styled.a`
   text-align: center;
 `;
 
-export default () =>
-  (<div>
+export default () => (
+  <div>
     <Title>Need help?</Title>
     <Link href="/">Find out more and contact us</Link>
-  </div>);
+  </div>
+);

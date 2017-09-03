@@ -48,13 +48,12 @@ export default function Info(props) {
         />
       </Price>
       <Sm>
-        <Id>
-          Item {props.id}
-        </Id>
+        <Id>Item {props.id}</Id>
       </Sm>
     </Wraper>
   );
 }
+
 Info.propTypes = {
   price: PropTypes.number,
   id: PropTypes.number,

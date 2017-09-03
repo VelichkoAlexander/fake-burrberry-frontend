@@ -11,26 +11,37 @@ const Button = styled.button`
   font-size: 0;
   border-radius: 50%;
   border: solid 0.0625rem transparent;
-  background: ${props => props.value};
+  background: ${props => props.color};
   border-color: ${props => (props.active ? '#232122' : 'transparent')};
+  transition: border-color 0.2s linear;
+  cursor: pointer;
 `;
 
 export default function ColorButton(props) {
   return (
-    <Button type="button" active={props.active} value={props.color}>
+    <Button
+      onClick={props.onClick}
+      type="button"
+      active={props.isActive}
+      color={props.color}
+      id={props.id}
+    >
       Color {props.name}
     </Button>
   );
 }
 
 ColorButton.propTypes = {
-  active: PropTypes.bool,
+  onClick: PropTypes.func.isRequired,
+  isActive: PropTypes.bool,
   name: PropTypes.string,
   color: PropTypes.string,
+  id: PropTypes.number,
 };
 
 ColorButton.defaultProps = {
-  active: false,
+  isActive: false,
   name: 'black',
   color: '#232122',
+  id: 0,
 };

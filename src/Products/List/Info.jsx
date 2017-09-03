@@ -1,14 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { Xl } from '../../common/Responsive';
 
-import Menu from './Filters';
+import { Xl } from '../../common/Responsive';
 
 const Wraper = styled.div`
   background-color: #f3f3f3;
   padding-top: 2rem;
   color: #171717;
+  z-index: 9999;
   @media (min-width: 48rem) {
     padding-top: 4rem;
   }
@@ -17,14 +17,14 @@ const Wraper = styled.div`
 const Title = styled.h1`
   margin: 0;
   margin-bottom: 1rem;
-  font-family: "Lora", serif;
+  font-family: 'Lora', serif;
   font-size: 1.625rem;
   line-height: 2rem;
   font-weight: 400;
 `;
 
 const Content = styled.div`
-  margin-bottom: 0.5rem;
+  padding-bottom: 0.5rem;
   font-size: 0.75em;
   line-height: 1.25rem;
   & a {
@@ -33,7 +33,7 @@ const Content = styled.div`
   }
 
   @media (min-width: 48rem) {
-    margin-bottom: 1rem;
+    padding-bottom: 1rem;
     max-width: 37.75rem;
     & a {
       border-bottom: 1px solid #171717;
@@ -48,8 +48,8 @@ const More = styled(Link)`
   line-height: 1.25rem;
 `;
 
-export default () =>
-  (<Wraper>
+export default () => (
+  <Wraper>
     <div className="container">
       <Title>Men’s Clothing</Title>
       <Content>
@@ -59,6 +59,6 @@ export default () =>
           <More to="/products">More</More>
         </Xl>
       </Content>
-      <Menu />
     </div>
-  </Wraper>);
+  </Wraper>
+);

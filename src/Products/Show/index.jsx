@@ -28,8 +28,8 @@ const Wraper = styled.div`
   }
 `;
 
-export default () =>
-  (<div>
+export default () => (
+  <div>
     <Header />
     <Wraper className="container">
       <div className="row">
@@ -76,4 +76,5 @@ export default () =>
         </div>
       </div>
     </div>
-  </div>);
+  </div>
+);

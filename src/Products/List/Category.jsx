@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-import Card from '../ProductCard';
+import Card from '../Card';
 
 const Wraper = styled.div`
   padding-top: 2rem;
@@ -19,7 +19,7 @@ const Wraper = styled.div`
 const Title = styled.h2`
   margin: 0;
   margin-bottom: 1rem;
-  font-family: "Lora", serif;
+  font-family: 'Lora', serif;
   font-weight: 400;
   font-size: 1rem;
   line-height: 1.1875rem;
@@ -31,26 +31,22 @@ const Title = styled.h2`
 `;
 
 export default function Category(props) {
-  const list = props.data.map((item, i) =>
-    (<div className="col-xs-6 col-md-3" key={i.toString()}>
+  const list = props.data.map((item, i) => (
+    <div className="col-xs-6 col-md-3" key={i.toString()}>
       <Card
         src={item.src}
         title={item.title}
         colors={item.colors}
         price={item.price}
       />
-    </div>),
-  );
+    </div>
+  ));
 
   return (
     <Wraper>
       <div className="container">
-        <Title>
-          {props.title}
-        </Title>
-        <div className="row">
-          {list}
-        </div>
+        <Title>{props.title}</Title>
+        <div className="row">{list}</div>
       </div>
     </Wraper>
   );
