@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-
+import { coloursCount } from '../../common/helpers';
 import Card from '../Card';
 
 const Wraper = styled.div`
@@ -34,10 +34,12 @@ export default function Category(props) {
   const list = props.data.map((item, i) => (
     <div className="col-xs-6 col-md-3" key={i.toString()}>
       <Card
-        src={item.src}
+        image={item.images[0]}
         title={item.title}
-        colors={item.colors}
-        price={item.price}
+        colours={coloursCount(item.colours.length)}
+        slug={item.slug}
+        price={item.multiCurrencyPrices[props.currency] / 100}
+        currency={props.currency}
       />
     </div>
   ));
@@ -54,10 +56,12 @@ export default function Category(props) {
 
 Category.propTypes = {
   title: PropTypes.string,
-  data: PropTypes.arrayOf(PropTypes.object),
+  data: PropTypes.shape.isRequired,
+  currency: PropTypes.shape.isRequired,
 };
 
 Category.defaultProps = {
   title: 'Category',
   data: [],
+  currency: {},
 };

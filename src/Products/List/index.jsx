@@ -1,24 +1,13 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 import Filter from './Filter';
 import Category from './Category';
 import More from './ViewMore';
 import Info from './Info';
 
-import { dataSet1, dataSet2 } from '../../data/Data';
-
-const Line = styled.hr`
-  margin: 0;
-  margin-bottom: 1rem;
-  height: 1px;
-  border: none;
-  background-color: #c6c6c6;
-  @media (min-width: 48rem) {
-    margin-top: 0.125rem;
-    margin-bottom: 0;
-  }
-`;
+import { get } from '../../data/Data';
 
 const Wrapper = styled.div`
   display: flex;
@@ -57,18 +46,40 @@ const ProductsWrapper = styled.div`
 class Filters extends Component {
   constructor(props) {
     super(props);
-    this.state = { isDropdown: false };
+    this.state = {
+      isDropdown: false,
+      data: { items: [] },
+    };
     this.handleDropdown = this.handleDropdown.bind(this);
+    this.handleMore = this.handleMore.bind(this);
+  }
+
+
+  componentDidMount() {
+    get('v1/products/men/suits?limit=8').then((data) => { this.setState({ data }); });
   }
 
   handleDropdown() {
     this.setState({ isDropdown: !this.state.isDropdown });
   }
 
+  handleMore() {
+    const data = { ...this.state.data };
+    const state = this.state.data;
+    get(`v1/products/men/suits?limit=8&offset=${state.total - state.offset >= 8 ? state.offset + 8 : state.total - state.offset}`).then((response) => {
+      data.total = response.total;
+      data.limit = response.limit;
+      data.offset = response.offset;
+      data.items = [...data.items, ...response.items];
+      this.setState({ data });
+    });
+  }
+
   render() {
+    const productsData = this.state.data;
     return (
       <div>
-        <Info />
+        <Info title={productsData.title} description={productsData.description} />
         <Wrapper>
           <div className="container">
             <Inner overflowShow={this.state.isDropdown}>
@@ -111,18 +122,36 @@ class Filters extends Component {
         <ProductsWrapper overflowShow={this.state.isDropdown}>
           <div className="container">
             <div className="row">
-              <Category title="Heritage Trench Coats" data={dataSet1} />
-              <div className="col-md-12">
-                <Line />
-              </div>
-              <Category title="Single Breasted Trench Coats" data={dataSet2} />
+              <Category
+                title="Heritage Trench Coats"
+                data={this.state.data.items}
+                currency={this.props.currency}
+              />
             </div>
           </div>
-          <More />
+          { this.state.data.items.length !== this.state.data.total &&
+            (
+              <More
+                limit={this.state.data.items.length}
+                total={this.state.data.total}
+                moreFunction={this.handleMore}
+              />
+            )
+          }
+
         </ProductsWrapper>
       </div>
     );
   }
 }
+
+Filters.propTypes = {
+  currency: PropTypes.string,
+};
+
+Filters.defaultProps = {
+  currency: '',
+};
+
 
 export default Filters;

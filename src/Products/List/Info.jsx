@@ -1,8 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-
-import { Xl } from '../../common/Responsive';
+import PropTypes from 'prop-types';
 
 const Wraper = styled.div`
   background-color: #f3f3f3;
@@ -41,24 +39,25 @@ const Content = styled.div`
   }
 `;
 
-const More = styled(Link)`
-  font-size: 0.75rem;
-  font-weight: 500;
-  text-decoration: underline;
-  line-height: 1.25rem;
-`;
-
-export default () => (
+const Info = props => (
   <Wraper>
     <div className="container">
-      <Title>Men’s Clothing</Title>
+      <Title>{props.title}</Title>
       <Content>
-        Explore our menswear collection for the season. Sculptural knitwear,{' '}
-        <a href="/sweatshirts">sweatshirts</a>, artist overalls and oversized
-        cabans feature alongside our signature trench coat in both heritage.<Xl>
-          <More to="/products">More</More>
-        </Xl>
+        {props.description}
       </Content>
     </div>
   </Wraper>
 );
+
+Info.propTypes = {
+  title: PropTypes.string,
+  description: PropTypes.string,
+};
+
+Info.defaultProps = {
+  title: '',
+  description: '',
+};
+
+export default Info;

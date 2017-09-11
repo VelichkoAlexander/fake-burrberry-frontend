@@ -46,8 +46,8 @@ const Wrapper = styled.div`
 `;
 
 const supportedLanguages = [
-  { name: 'Russian Federation (₽)', value: 'ru' },
-  { name: 'United Kingdom (£)', value: 'en' },
+  { name: 'Russian Federation (₽)', value: 'ru', currency: 'RUB' },
+  { name: 'United Kingdom (£)', value: 'en', currency: 'GBP' },
 ];
 
 class App extends Component {
@@ -105,7 +105,15 @@ class App extends Component {
                     toggleMobileMenu={this.toggleMobileMenu}
                     options={supportedLanguages}
                   />
-                  <Route exact path="/" component={List} />
+                  <Route
+                    exact
+                    path="/"
+                    render={() => (
+                      <List
+                        currency={supportedLanguages[this.state.localeId].currency}
+                      />
+                    )}
+                  />
                   <Route exact path="/mens-clothing" component={List} />
                   <Route
                     path="/mens-clothing/:categoryName/:id"

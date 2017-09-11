@@ -6,13 +6,7 @@ import PropTypes from 'prop-types';
 import { FormattedNumber } from 'react-intl';
 import { Link } from 'react-router-dom';
 import LikeIcon from './LikeIcon';
-
-import {
-  imageUrl,
-  imageLg,
-  imageMd,
-  imageXs,
-} from '../../common/ImageResponsive';
+import { imageProportion } from '../../common/helpers';
 
 const Wraper = styled.div`
   display: flex;
@@ -27,7 +21,7 @@ const NavLink = styled(Link)`
   margin-bottom: 1rem;
 `;
 
-const Img = styled.img`
+const ProductImage = styled.img`
   width: 100%;
   height: auto;
   display: block;
@@ -44,6 +38,7 @@ const Type = styled.div`
   font-size: 0.75rem;
   line-height: 1rem;
 `;
+
 
 const Title = styled(Link)`
   margin: 0;
@@ -78,39 +73,25 @@ const ColorLink = styled(Link)`
 
 const Card = props => (
   <Wraper>
-    <NavLink to={`/mens-clothing/mens-coats/${props.id}`}>
-      <picture>
-        <source
-          media="(min-width: 62rem)"
-          srcSet={`${imageUrl}${props.src}.jpg${imageLg} 1x`}
-        />
-        <source
-          media="(min-width: 48rem)"
-          srcSet={`${imageUrl}${props.src}.jpg${imageMd} 1x`}
-        />
-        <source
-          media="(min-width: 20rem)"
-          srcSet={`${imageUrl}${props.src}.jpg${imageXs} 1x`}
-        />
-        <Img src={`${imageUrl}${props.src}.jpg${imageLg}`} alt={props.title} />
-      </picture>
+    <NavLink to={`/mens-clothing/mens-coats/${props.slug}`}>
+      <ProductImage src={imageProportion(props.image)} alt={props.title} />
     </NavLink>
     <Inner>
       <Type>{props.type}</Type>
       <LikeIcon width="14" height="14" />
     </Inner>
-    <Title to={`/mens-clothing/mens-coats/${props.id}`}>{props.title}</Title>
+    <Title to={`/mens-clothing/mens-coats/${props.slug}`}>{props.title}</Title>
     <Availability>
       Available in{' '}
-      <ColorLink to={`/mens-clothing/mens-coats/${props.id}`}>
-        {props.colors} colours
+      <ColorLink to={`/mens-clothing/mens-coats/${props.slug}`}>
+        {props.colours}
       </ColorLink>
     </Availability>
     <Price>
       <FormattedNumber
         value={props.price}
         style="currency"
-        currency="RUB"
+        currency={props.currency}
         minimumFractionDigits={0}
       />
     </Price>
@@ -118,21 +99,23 @@ const Card = props => (
 );
 
 Card.propTypes = {
-  id: PropTypes.number,
-  src: PropTypes.string,
+  slug: PropTypes.string,
+  image: PropTypes.string,
   type: PropTypes.string,
   title: PropTypes.string,
   price: PropTypes.number,
-  colors: PropTypes.number,
+  colours: PropTypes.string,
+  currency: PropTypes.string,
 };
 
 Card.defaultProps = {
-  id: 1,
-  src: '',
+  slug: '',
+  image: '',
   type: 'Relaxed fit',
   title: 'title',
   price: 0,
-  colors: 3,
+  colours: [],
+  currency: '',
 };
 
 export default Card;
