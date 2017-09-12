@@ -64,14 +64,16 @@ class Filters extends Component {
   }
 
   handleMore() {
-    const data = { ...this.state.data };
     const state = this.state.data;
     get(`v1/products/men/suits?limit=8&offset=${state.total - state.offset >= 8 ? state.offset + 8 : state.total - state.offset}`).then((response) => {
-      data.total = response.total;
-      data.limit = response.limit;
-      data.offset = response.offset;
-      data.items = [...data.items, ...response.items];
-      this.setState({ data });
+      this.setState(prevState => ({ data: {
+        ...prevState.data,
+        total: response.total,
+        limit: response.limit,
+        offset: response.offset,
+        items: [...prevState.data.items, ...response.items],
+      },
+      }));
     });
   }
 
