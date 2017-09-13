@@ -78,10 +78,10 @@ class Filters extends Component {
   }
 
   render() {
-    const productsData = this.state.data;
+    const { title, description, total } = this.state.data;
     return (
       <div>
-        <Info title={productsData.title} description={productsData.description} />
+        <Info title={title} description={description} />
         <Wrapper>
           <div className="container">
             <Inner overflowShow={this.state.isDropdown}>
@@ -125,7 +125,8 @@ class Filters extends Component {
           <div className="container">
             <div className="row">
               <Category
-                title="Heritage Trench Coats"
+                title={title}
+                total={total}
                 data={this.state.data.items}
                 currency={this.props.currency}
               />

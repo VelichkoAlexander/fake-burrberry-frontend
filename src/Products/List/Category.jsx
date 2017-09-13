@@ -30,6 +30,11 @@ const Title = styled.h2`
   }
 `;
 
+const Available = styled.span`
+  font-family: 'Lora', serif;
+  font-size: 0.875rem;
+`;
+
 export default function Category(props) {
   const list = props.data.map((item, i) => (
     <div className="col-xs-6 col-md-3" key={i.toString()}>
@@ -47,7 +52,11 @@ export default function Category(props) {
   return (
     <Wraper>
       <div className="container">
-        <Title>{props.title}</Title>
+        <Title>{props.title}
+          {props.total !== 0 &&
+            (<Available> — {props.total} available</Available>)
+          }
+        </Title>
         <div className="row">{list}</div>
       </div>
     </Wraper>
@@ -56,12 +65,14 @@ export default function Category(props) {
 
 Category.propTypes = {
   title: PropTypes.string,
+  total: PropTypes.number,
   data: PropTypes.shape.isRequired,
   currency: PropTypes.shape.isRequired,
 };
 
 Category.defaultProps = {
   title: 'Category',
+  total: 0,
   data: [],
   currency: {},
 };
