@@ -1,6 +1,6 @@
 /* eslint-disable react/style-prop-object */
 
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { FormattedNumber } from 'react-intl';
@@ -14,6 +14,8 @@ const Wraper = styled.div`
   margin-bottom: 2rem;
   font-size: 0.75rem;
   line-height: 1rem;
+  opacity: ${props => (props.show ? '1' : '0')};
+  transition: opacity .3s linear;
 `;
 
 const NavLink = styled(Link)`
@@ -66,37 +68,54 @@ const Availability = styled.div`margin-bottom: 0.3125rem;`;
 const ColorLink = styled(Link)`
   color: #171717;
   line-height: 1rem;
-
   border-bottom: 1px solid #171717;
   text-decoration: none;
 `;
 
-const Card = props => (
-  <Wraper>
-    <NavLink to={`/mens-clothing/mens-coats/${props.slug}`}>
-      <ProductImage src={imageProportion(props.image)} alt={props.title} />
-    </NavLink>
-    <Inner>
-      <Type>{props.type}</Type>
-      <LikeIcon width="14" height="14" />
-    </Inner>
-    <Title to={`/mens-clothing/mens-coats/${props.slug}`}>{props.title}</Title>
-    <Availability>
-      Available in{' '}
-      <ColorLink to={`/mens-clothing/mens-coats/${props.slug}`}>
-        {props.colours}
-      </ColorLink>
-    </Availability>
-    <Price>
-      <FormattedNumber
-        value={props.price}
-        style="currency"
-        currency={props.currency}
-        minimumFractionDigits={0}
-      />
-    </Price>
-  </Wraper>
-);
+class Card extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { isImageLoaded: false };
+    this.handleImageLoaded = this.handleImageLoaded.bind(this);
+  }
+
+  handleImageLoaded() {
+    this.setState({ isImageLoaded: true });
+  }
+
+  render() {
+    return (
+      <Wraper show={this.state.isImageLoaded}>
+        <NavLink to={`/mens-clothing/mens-coats/${this.props.slug}`}>
+          <ProductImage
+            src={imageProportion(this.props.image)}
+            alt={this.props.title}
+            onLoad={this.handleImageLoaded}
+          />
+        </NavLink>
+        <Inner>
+          <Type>{this.props.type}</Type>
+          <LikeIcon width="14" height="14" />
+        </Inner>
+        <Title to={`/mens-clothing/mens-coats/${this.props.slug}`}>{this.props.title}</Title>
+        <Availability>
+            Available in{' '}
+          <ColorLink to={`/mens-clothing/mens-coats/${this.props.slug}`}>
+            {this.props.colours}
+          </ColorLink>
+        </Availability>
+        <Price>
+          <FormattedNumber
+            value={this.props.price}
+            style="currency"
+            currency={this.props.currency}
+            minimumFractionDigits={0}
+          />
+        </Price>
+      </Wraper>);
+  }
+}
+
 
 Card.propTypes = {
   slug: PropTypes.string,

@@ -35,6 +35,11 @@ const Button = styled.button`
   border: solid 1px #171717;
   background-color: transparent;
   cursor: pointer;
+  transition: all 0.2s linear;
+  &:hover{
+    background-color:#171717;
+    color: #fff;
+  }
 `;
 
 const ViewMore = props => (
