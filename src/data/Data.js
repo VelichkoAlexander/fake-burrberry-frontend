@@ -59,7 +59,7 @@ export const MobileMenuNavigation = [
 ];
 export const languages = ['Russian', 'English'];
 
-function readResponsAsJson(response) {
+function readResponseToJson(response) {
   if (!response.ok) {
     throw Error(response.statusText);
   }
@@ -68,6 +68,6 @@ function readResponsAsJson(response) {
 
 export const get = url => (
   fetch(mainUrl + url)
-    .then(readResponsAsJson)
+    .then(readResponseToJson)
 );
 
