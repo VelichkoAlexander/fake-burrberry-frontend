@@ -79,6 +79,7 @@ class Filters extends Component {
 
   render() {
     const { title, description, total } = this.state.data;
+    const isMoreButtonShow = this.state.data.items.length !== this.state.data.total;
     return (
       <div>
         <Info title={title} description={description} />
@@ -132,7 +133,7 @@ class Filters extends Component {
               />
             </div>
           </div>
-          { this.state.data.items.length !== this.state.data.total &&
+          { isMoreButtonShow &&
             (
               <More
                 limit={this.state.data.items.length}
