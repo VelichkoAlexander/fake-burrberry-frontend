@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import { descriptionCut } from '../../common/helpers';
 
 const Wraper = styled.div`
   background-color: #f3f3f3;
@@ -39,16 +40,46 @@ const Content = styled.div`
   }
 `;
 
-const Info = props => (
-  <Wraper>
-    <div className="container">
-      <Title>{props.title}</Title>
-      <Content>
-        {props.description}
-      </Content>
-    </div>
-  </Wraper>
-);
+const More = styled.button`
+  font-size: 0.75rem;
+  font-weight: 500;
+  font-family: 'Lora', serif;
+  text-decoration: underline;
+  line-height: 1.25rem;
+  background:transparent;
+  border: none;
+  cursor: pointer;
+`;
+
+class Info extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { isShowMore: false };
+    this.onShow = this.onShow.bind(this);
+  }
+  onShow() {
+    this.setState({ isShowMore: true });
+  }
+
+  render() {
+    const isDescriptionCut = this.props.description.length > 190 && !this.state.isShowMore;
+    return (
+      <Wraper>
+        <div className="container">
+          <Title>{this.props.title}</Title>
+          <Content>
+            { isDescriptionCut ?
+              descriptionCut(this.props.description)
+              :
+              this.props.description
+            }
+            {isDescriptionCut && <More onClick={this.onShow}>More</More>}
+          </Content>
+        </div>
+      </Wraper>
+    );
+  }
+}
 
 Info.propTypes = {
   title: PropTypes.string,
@@ -57,7 +88,7 @@ Info.propTypes = {
 
 Info.defaultProps = {
   title: '',
-  description: '',
+  description: ' ',
 };
 
 export default Info;
