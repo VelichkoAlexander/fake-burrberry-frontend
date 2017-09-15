@@ -82,7 +82,6 @@ class Header extends Component {
       alt={this.propstitle}
       key={index.toString()}
     />));
-
     return (
       <Wrapper>
         <div className="container">
@@ -94,7 +93,9 @@ class Header extends Component {
               <Lg>
                 <Slider hero>
                   <Image
-                    src={this.props.colours && this.props.colours[this.state.colorId].heroSrc}
+                    src={this.props.colours &&
+                    this.props.colours[this.state.colorId].heroSrc
+                    }
                     alt={this.props.title}
                     hero
                   />
@@ -145,16 +146,32 @@ class Header extends Component {
 Header.propTypes = {
   title: PropTypes.string,
   id: PropTypes.string,
-  price: PropTypes.shape.isRequired,
-  images: PropTypes.shape.isRequired,
-  sizes: PropTypes.shape.isRequired,
-  colours: PropTypes.shape.isRequired,
-  currency: PropTypes.shape.isRequired,
+  price: PropTypes.number.isRequired,
+  images: PropTypes.arrayOf(
+    PropTypes.string,
+  ).isRequired,
+  sizes: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string,
+      id: PropTypes.string,
+    }),
+  ).isRequired,
+  colours: PropTypes.arrayOf(
+    PropTypes.shape({
+      heroSrc: PropTypes.string,
+      value: PropTypes.string,
+      src: PropTypes.string,
+    })),
+  currency: PropTypes.string.isRequired,
 };
 
 Header.defaultProps = {
   title: '',
   id: '',
+  price: 0,
+  images: [],
+  sizes: [],
+  colours: [{}],
 };
 
 

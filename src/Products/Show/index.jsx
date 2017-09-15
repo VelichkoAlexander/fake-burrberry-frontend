@@ -66,7 +66,8 @@ class Show extends Component {
             <div className="col-xs-12 col-sm-12 col-md-12 col-lg-4">
               <InfoBlock
                 title="Description"
-                content={description + details}
+                description={description}
+                details={details}
               />
             </div>
             {images && images.map((image, index) => {
@@ -83,7 +84,7 @@ class Show extends Component {
                 );
               } else if (index >= 2 && index <= 4) {
                 return (
-                  <div className="col-lg-4" >
+                  <div className="col-lg-4" key={index.toString()}>
                     <Lg>
                       <Image src={image} />
                     </Lg>
@@ -119,8 +120,17 @@ class Show extends Component {
 
 
 Show.propTypes = {
-  currency: PropTypes.shape.isRequired,
-  match: PropTypes.shape.isRequired,
+  currency: PropTypes.string.isRequired,
+  match: PropTypes.shape({
+    isExact: PropTypes.bool,
+    params: PropTypes.shape({
+      id: PropTypes.string,
+      section: PropTypes.string,
+      subsection: PropTypes.string,
+    }),
+    path: PropTypes.string,
+    url: PropTypes.string,
+  }).isRequired,
 };
 
 

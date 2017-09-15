@@ -73,7 +73,7 @@ class Suggest extends Component {
 }
 
 Suggest.propTypes = {
-  currency: PropTypes.shape.isRequired,
+  currency: PropTypes.string.isRequired,
 };
 
 export default Suggest;

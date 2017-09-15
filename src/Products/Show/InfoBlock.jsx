@@ -80,11 +80,13 @@ class InfoBlock extends Component {
     this.state = { isOpened: false };
     this.handleClick = this.handleClick.bind(this);
   }
+
   handleClick() {
     this.setState(prevState => ({ isOpened: !prevState.isOpened }));
   }
 
   render() {
+    const content = this.props.description + this.props.details;
     return (
       <Info hide={this.props.hide}>
         <Header
@@ -97,22 +99,25 @@ class InfoBlock extends Component {
 
         <Body
           opened={this.state.isOpened}
-          dangerouslySetInnerHTML={{ __html: this.props.content }}
+          dangerouslySetInnerHTML={{ __html: content }}
         />
       </Info>
     );
   }
 }
+
 InfoBlock.propTypes = {
   title: PropTypes.string,
-  content: PropTypes.string,
+  description: PropTypes.string,
+  details: PropTypes.string,
   hide: PropTypes.bool,
 };
 
 InfoBlock.defaultProps = {
   title: 'Description',
-  content: '',
   hide: false,
+  description: '',
+  details: '',
 };
 
 export default InfoBlock;

@@ -85,7 +85,12 @@ class Size extends Component {
 }
 
 Size.propTypes = {
-  sizes: PropTypes.shape.isRequired,
+  sizes: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string,
+      id: PropTypes.string,
+    }),
+  ).isRequired,
 };
 
 export default Size;

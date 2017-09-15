@@ -17,7 +17,10 @@ const smallImgProps = '?$BBY_V2_ML_3X4$&wid=432&hei=576';
 class SliderItem extends Component {
   constructor(props) {
     super(props);
-    this.state = { isImageLoaded: false };
+    this.state = {
+      isImageLoaded: false,
+      src: '',
+    };
     this.handleImageLoaded = this.handleImageLoaded.bind(this);
   }
 
