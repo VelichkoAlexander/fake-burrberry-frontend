@@ -33,7 +33,7 @@ const Inner = styled.div`
   display: flex;
   margin-bottom: 0.5rem;
   justify-content: space-between;
-  align-items:  ${props => (props.isLabel ? 'center' : 'flex-start')};
+  align-items:  ${props => (props.isLabel ? 'center' : '')};
   flex-direction: ${props => (props.isLabel ? 'row' : 'row-reverse;')};
   
 `;

@@ -77,7 +77,7 @@ const Dropdown = styled.div`
   }
 `;
 
-const Content = styled.p`
+const Content = styled.div`
   margin: 0;
   padding: 0;
 `;
@@ -145,14 +145,13 @@ class Filter extends Component {
 Filter.propTypes = {
   isDropdown: PropTypes.func.isRequired,
   name: PropTypes.string,
-  children: PropTypes.element.isRequired,
+  children: PropTypes.arrayOf(PropTypes.element).isRequired,
   right: PropTypes.bool,
   active: PropTypes.bool,
 };
 
 Filter.defaultProps = {
   name: 'MenuItem',
-  content: 'content',
   right: false,
   active: false,
 };

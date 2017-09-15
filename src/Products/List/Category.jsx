@@ -66,13 +66,43 @@ export default function Category(props) {
 Category.propTypes = {
   title: PropTypes.string,
   total: PropTypes.number,
-  data: PropTypes.shape.isRequired,
-  currency: PropTypes.shape.isRequired,
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string,
+      id: PropTypes.string,
+      slug: PropTypes.string,
+      multiCurrencyPrices: PropTypes.objectOf(
+        PropTypes.string,
+      ),
+      colours: PropTypes.arrayOf(
+        PropTypes.shape({
+          heroSrc: PropTypes.string,
+          value: PropTypes.string,
+          src: PropTypes.string,
+        }),
+      ),
+      sizes: PropTypes.arrayOf(
+        PropTypes.shape({
+          title: PropTypes.string,
+          id: PropTypes.string,
+        }),
+      ),
+      description: PropTypes.string,
+      details: PropTypes.string,
+      images: PropTypes.arrayOf(
+        PropTypes.string,
+      ),
+      linkedProductIds: PropTypes.arrayOf(
+        PropTypes.string,
+      ),
+    }),
+  ).isRequired,
+  currency: PropTypes.string,
 };
 
 Category.defaultProps = {
   title: 'Category',
   total: 0,
   data: [],
-  currency: {},
+  currency: 'RUB',
 };
