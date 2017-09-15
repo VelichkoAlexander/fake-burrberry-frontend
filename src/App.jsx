@@ -56,13 +56,20 @@ class App extends Component {
     this.state = {
       localeId: 0,
       isMenuOpened: false,
+      title: '',
     };
     this.handleLocalChange = this.handleLocalChange.bind(this);
     this.toggleMobileMenu = this.toggleMobileMenu.bind(this);
+    this.handleTitleChange = this.handleTitleChange.bind(this);
   }
 
   handleLocalChange(id) {
     this.setState({ localeId: id });
+  }
+
+  handleTitleChange(title) {
+    console.log(title);
+    this.setState({ title });
   }
 
   toggleMobileMenu() {
@@ -76,7 +83,7 @@ class App extends Component {
           <ScrollToTop>
             <div className="App">
               <Helmet>
-                <title>Men’s Clothing | Burberry</title>
+                <title>{this.state.title}| Burberry</title>
                 <meta
                   name="description"
                   content="Shop from the current men’s clothing collection.
@@ -111,6 +118,7 @@ class App extends Component {
                     render={() => (
                       <List
                         currency={supportedLanguages[this.state.localeId].currency}
+                        handleTitleChange={this.handleTitleChange}
                       />
                     )}
                   />
@@ -121,6 +129,7 @@ class App extends Component {
                       <Show
                         {...props}
                         currency={supportedLanguages[this.state.localeId].currency}
+                        handleTitleChange={this.handleTitleChange}
                       />
                     )}
                   />

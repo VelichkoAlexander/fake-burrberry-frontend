@@ -56,7 +56,10 @@ class Filters extends Component {
 
 
   componentDidMount() {
-    get('v1/products/men/suits?limit=8').then((data) => { this.setState({ data }); });
+    get('v1/products/men/suits?limit=8').then((data) => {
+      this.setState({ data });
+      this.props.handleTitleChange(data.title);
+    });
   }
 
   handleDropdown() {
@@ -151,6 +154,7 @@ class Filters extends Component {
 
 Filters.propTypes = {
   currency: PropTypes.string,
+  handleTitleChange: PropTypes.func.isRequired,
 };
 
 Filters.defaultProps = {

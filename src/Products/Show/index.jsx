@@ -37,7 +37,10 @@ class Show extends Component {
   }
 
   componentDidMount() {
-    get(`v1/products/men/suits/${this.props.match.params.id}`).then((data) => { this.setState({ data }); });
+    get(`v1/products/men/suits/${this.props.match.params.id}`).then((data) => {
+      this.setState({ data });
+      this.props.handleTitleChange(data.title);
+    });
   }
 
   render() {
@@ -131,6 +134,7 @@ Show.propTypes = {
     path: PropTypes.string,
     url: PropTypes.string,
   }).isRequired,
+  handleTitleChange: PropTypes.func.isRequired,
 };
 
 
