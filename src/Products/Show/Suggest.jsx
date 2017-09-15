@@ -1,5 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
+import { get } from '../../data/Data';
+import { coloursCount } from '../../common/helpers';
 
 import Card from '../Card';
 
@@ -30,48 +33,47 @@ const Title = styled.h2`
   }
 `;
 
-export default () => (
-  <Section>
-    <div className="container">
-      <Title>We recommend</Title>
-      <div className="row">
-        <div className="col-xs-6 col-md-3">
-          <Card
-            src="995466e7e1113f3b2f6484ceb090072e1c9062dc"
-            title="The Westminster – Long Heritage Trench Coat"
-            type="Relaxed fit"
-            colors={3}
-            price={120000}
-          />
+class Suggest extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      data: {},
+    };
+  }
+
+  componentDidMount() {
+    get('v1/products/men/suits?limit=3').then((data) => { this.setState({ data }); });
+  }
+
+  render() {
+    const { items } = this.state.data;
+    const list = items && items.map((item, i) => (
+      <div className="col-xs-6 col-md-3" key={i.toString()}>
+        <Card
+          image={item.images[0]}
+          title={item.title}
+          colours={coloursCount(item.colours.length)}
+          slug={item.slug}
+          price={item.multiCurrencyPrices[this.props.currency] / 100}
+          currency={this.props.currency}
+        />
+      </div>));
+
+    return (
+      <Section>
+        <div className="container">
+          <Title>We recommend</Title>
+          <div className="row">
+            {list}
+          </div>
         </div>
-        <div className="col-xs-6 col-md-3">
-          <Card
-            src="995466e7e1113f3b2f6484ceb090072e1c9062dc"
-            title="The Westminster – Long Heritage Trench Coat"
-            type="Relaxed fit"
-            colors={3}
-            price={120000}
-          />
-        </div>
-        <div className="col-xs-6 col-md-3">
-          <Card
-            src="995466e7e1113f3b2f6484ceb090072e1c9062dc"
-            title="The Westminster – Long Heritage Trench Coat"
-            type="Relaxed fit"
-            colors={3}
-            price={120000}
-          />
-        </div>
-        <div className="col-xs-6 col-md-3">
-          <Card
-            src="995466e7e1113f3b2f6484ceb090072e1c9062dc"
-            title="The Westminster – Long Heritage Trench Coat"
-            type="Relaxed fit"
-            colors={3}
-            price={120000}
-          />
-        </div>
-      </div>
-    </div>
-  </Section>
-);
+      </Section>
+    );
+  }
+}
+
+Suggest.propTypes = {
+  currency: PropTypes.shape.isRequired,
+};
+
+export default Suggest;

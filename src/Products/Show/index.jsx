@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 import { XsOnly, Xl, Lg } from '../../common/Responsive';
+import { get } from '../../data/Data';
 
 import Header from './Header';
 import Image from './InfoImage';
@@ -28,53 +30,98 @@ const Wraper = styled.div`
   }
 `;
 
-export default () => (
-  <div>
-    <Header />
-    <Wraper className="container">
-      <div className="row">
-        <div className="col-xs-12 col-sm-12 col-md-12 col-lg-4">
-          <InfoBlock title="Description" />
+class Show extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { data: {} };
+  }
+
+  componentDidMount() {
+    get(`v1/products/men/suits/${this.props.match.params.id}`).then((data) => { this.setState({ data }); });
+  }
+
+  render() {
+    const { title,
+      id,
+      colours,
+      sizes,
+      images,
+      description,
+      details,
+      multiCurrencyPrices,
+    } = this.state.data;
+    return (
+      <div>
+        <Header
+          title={title}
+          id={id}
+          colours={colours}
+          sizes={sizes}
+          currency={this.props.currency}
+          price={multiCurrencyPrices && multiCurrencyPrices[this.props.currency] / 100}
+          images={images}
+        />
+        <Wraper className="container">
+          <div className="row">
+            <div className="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+              <InfoBlock
+                title="Description"
+                content={description + details}
+              />
+            </div>
+            {images && images.map((image, index) => {
+              if (index === 1) {
+                return (
+                  <div className="col-lg-8" key={index.toString()}>
+                    <Lg>
+                      <Image
+                        src={image}
+                        big
+                      />
+                    </Lg>
+                  </div>
+                );
+              } else if (index >= 2 && index <= 4) {
+                return (
+                  <div className="col-lg-4" >
+                    <Lg>
+                      <Image src={image} />
+                    </Lg>
+                  </div>
+                );
+              }
+              return false;
+            })}
+          </div>
+        </Wraper>
+        <Line />
+        <div className="container">
+          <XsOnly>
+            <InfoBlock title="Delivery" />
+          </XsOnly>
         </div>
-        <div className="col-lg-8">
-          <Lg>
-            <Image nameItem="1" />
-          </Lg>
-        </div>
-        <div className="col-lg-4">
-          <Lg>
-            <Image nameItem="2" />
-          </Lg>
-        </div>
-        <div className="col-lg-4">
-          <Lg>
-            <Image nameItem="3" />
-          </Lg>
-        </div>
-        <div className="col-lg-4">
-          <Lg>
-            <Image nameItem="4" />
-          </Lg>
+        <Line />
+        <Xl>
+          <Delivery />
+        </Xl>
+        <Suggest currency={this.props.currency} />
+        <div className="container">
+          <div className="row">
+            <div className="col-xs-12">
+              <More />
+            </div>
+          </div>
         </div>
       </div>
-    </Wraper>
-    <Line />
-    <div className="container">
-      <XsOnly>
-        <InfoBlock title="Delivery" />
-      </XsOnly>
-    </div>
-    <Line />
-    <Xl>
-      <Delivery />
-    </Xl>
-    <Suggest />
-    <div className="container">
-      <div className="row">
-        <div className="col-xs-12">
-          <More />
-        </div>
-      </div>
-    </div>
-  </div>
-);
+    );
+  }
+}
+
+
+Show.propTypes = {
+  currency: PropTypes.shape.isRequired,
+  match: PropTypes.shape.isRequired,
+};
+
+
+export default Show;

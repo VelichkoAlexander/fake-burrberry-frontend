@@ -43,7 +43,7 @@ export default function Info(props) {
         <FormattedNumber
           value={props.price}
           style="currency"
-          currency="RUB"
+          currency={props.currency}
           minimumFractionDigits={0}
         />
       </Price>
@@ -56,10 +56,12 @@ export default function Info(props) {
 
 Info.propTypes = {
   price: PropTypes.number,
-  id: PropTypes.number,
+  id: PropTypes.string,
+  currency: PropTypes.string,
 };
 
 Info.defaultProps = {
   price: 0,
-  id: 1,
+  id: '1',
+  currency: '',
 };

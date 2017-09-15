@@ -33,7 +33,9 @@ const Inner = styled.div`
   display: flex;
   margin-bottom: 0.5rem;
   justify-content: space-between;
-  align-items: center;
+  align-items:  ${props => (props.isLabel ? 'center' : 'flex-start')};
+  flex-direction: ${props => (props.isLabel ? 'row' : 'row-reverse;')};
+  
 `;
 
 const Type = styled.div`
@@ -84,6 +86,7 @@ class Card extends Component {
   }
 
   render() {
+    const label = (<Type>{this.props.type}</Type>);
     return (
       <Wraper show={this.state.isImageLoaded}>
         <NavLink to={`/mens-clothing/mens-coats/${this.props.slug}`}>
@@ -93,11 +96,11 @@ class Card extends Component {
             onLoad={this.handleImageLoaded}
           />
         </NavLink>
-        <Inner>
-          <Type>{this.props.type}</Type>
+        <Inner isLabel={this.props.type}>
+          {this.props.type && label}
           <LikeIcon width="14" height="14" />
+          <Title to={`/mens-clothing/mens-coats/${this.props.slug}`}>{this.props.title}</Title>
         </Inner>
-        <Title to={`/mens-clothing/mens-coats/${this.props.slug}`}>{this.props.title}</Title>
         <Availability>
             Available in{' '}
           <ColorLink to={`/mens-clothing/mens-coats/${this.props.slug}`}>
@@ -130,7 +133,7 @@ Card.propTypes = {
 Card.defaultProps = {
   slug: '',
   image: '',
-  type: 'Relaxed fit',
+  type: '',
   title: 'title',
   price: 0,
   colours: [],

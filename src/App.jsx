@@ -117,7 +117,12 @@ class App extends Component {
                   <Route exact path="/mens-clothing" component={List} />
                   <Route
                     path="/mens-clothing/:categoryName/:id"
-                    component={Show}
+                    render={props => (
+                      <Show
+                        {...props}
+                        currency={supportedLanguages[this.state.localeId].currency}
+                      />
+                    )}
                   />
                   <Footer />
                 </Wrapper>

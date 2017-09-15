@@ -38,6 +38,7 @@ const Button = styled.button`
   text-transform: uppercase;
   border-radius: 0.125rem;
   border: solid 0.0625rem #999999;
+  cursor: pointer;
   background: ${props => (props.primary ? '#171717' : 'transparent')};
   color: ${props => (props.primary ? 'white' : '#000')};
   border-color: ${props => (props.primary ? '#171717' : '#999999')};
@@ -59,6 +60,7 @@ const Help = styled.button`
   padding: 0;
   border: 0;
   font-family: 'Raleway', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  cursor: pointer;
 `;
 
 export default () => (

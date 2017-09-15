@@ -8,10 +8,11 @@ const Button = styled.button`
   width: 2.5rem;
   height: 2.5rem;
   margin-right: 1rem;
+  margin-bottom: 1rem;
   font-size: 0;
   border-radius: 50%;
   border: solid 0.0625rem transparent;
-  background: ${props => props.color};
+  background: url(${props => props.color}?$BBY_V2_BASIC$&wid=40) center no-repeat;
   border-color: ${props => (props.active ? '#232122' : 'transparent')};
   transition: border-color 0.2s linear;
   cursor: pointer;
@@ -20,7 +21,7 @@ const Button = styled.button`
 export default function ColorButton(props) {
   return (
     <Button
-      onClick={props.onClick}
+      onClick={!props.isActive && props.onClick}
       type="button"
       active={props.isActive}
       color={props.color}
