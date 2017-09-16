@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { Helmet } from 'react-helmet';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { IntlProvider, addLocaleData } from 'react-intl';
 import styled from 'styled-components';
 import ruLocaleData from 'react-intl/locale-data/ru';
 import enLocaleData from 'react-intl/locale-data/en';
 import { XsOnly } from './common/Responsive';
+import Title from './common/Title';
 
 import Header from './Header';
 import MobileNavigation from './MobileNavigation';
@@ -60,16 +60,10 @@ class App extends Component {
     };
     this.handleLocalChange = this.handleLocalChange.bind(this);
     this.toggleMobileMenu = this.toggleMobileMenu.bind(this);
-    this.handleTitleChange = this.handleTitleChange.bind(this);
   }
 
   handleLocalChange(id) {
     this.setState({ localeId: id });
-  }
-
-  handleTitleChange(title) {
-    console.log(title);
-    this.setState({ title });
   }
 
   toggleMobileMenu() {
@@ -82,15 +76,12 @@ class App extends Component {
         <Router>
           <ScrollToTop>
             <div className="App">
-              <Helmet>
-                <title>{this.state.title}| Burberry</title>
-                <meta
-                  name="description"
-                  content="Shop from the current men’s clothing collection.
-                       Sartorial suits, shirts and trousers feature as well as casual T-shirts,
-                        polos and jeans."
-                />
-              </Helmet>
+              <Title
+                title="Burberry | Iconic British Luxury Brand Est. 1856"
+                content="A tradition of craftsmanship, design and innovation.
+                Discover trench coats, luxury clothing,
+                leather bags, cashmere scarves and more."
+              />
               <Page isMenuOpened={this.state.isMenuOpened}>
                 <XsOnly>
                   <MobileNavigation
@@ -115,23 +106,23 @@ class App extends Component {
                   <Route
                     exact
                     path="/"
-                    render={() => (
-                      <List
-                        currency={supportedLanguages[this.state.localeId].currency}
-                        handleTitleChange={this.handleTitleChange}
-                      />
-                    )}
+                    render={() =>
+                      (<List
+                        currency={
+                          supportedLanguages[this.state.localeId].currency
+                        }
+                      />)}
                   />
                   <Route exact path="/mens-clothing" component={List} />
                   <Route
                     path="/mens-clothing/:categoryName/:id"
-                    render={props => (
-                      <Show
+                    render={props =>
+                      (<Show
                         {...props}
-                        currency={supportedLanguages[this.state.localeId].currency}
-                        handleTitleChange={this.handleTitleChange}
-                      />
-                    )}
+                        currency={
+                          supportedLanguages[this.state.localeId].currency
+                        }
+                      />)}
                   />
                   <Footer />
                 </Wrapper>

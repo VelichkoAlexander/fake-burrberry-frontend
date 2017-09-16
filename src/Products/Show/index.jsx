@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 import { XsOnly, Xl, Lg } from '../../common/Responsive';
+import { titleDescriptionCut } from '../../common/helpers';
 import { get } from '../../data/Data';
 
 import Header from './Header';
@@ -11,6 +12,7 @@ import InfoBlock from './InfoBlock';
 import Delivery from './Delivery';
 import Suggest from './Suggest';
 import More from './More';
+import Title from '../../common/Title';
 
 const Line = styled.hr`
   margin: 0;
@@ -33,18 +35,22 @@ const Wraper = styled.div`
 class Show extends Component {
   constructor(props) {
     super(props);
-    this.state = { data: {} };
+    this.state = {
+      data: {
+        title: '',
+      },
+    };
   }
 
   componentDidMount() {
     get(`v1/products/men/suits/${this.props.match.params.id}`).then((data) => {
       this.setState({ data });
-      this.props.handleTitleChange(data.title);
     });
   }
 
   render() {
-    const { title,
+    const {
+      title,
       id,
       colours,
       sizes,
@@ -53,15 +59,20 @@ class Show extends Component {
       details,
       multiCurrencyPrices,
     } = this.state.data;
+    const titleDescription = description && titleDescriptionCut(description);
     return (
       <div>
+        <Title title={title} content={titleDescription} />
         <Header
           title={title}
           id={id}
           colours={colours}
           sizes={sizes}
           currency={this.props.currency}
-          price={multiCurrencyPrices && multiCurrencyPrices[this.props.currency] / 100}
+          price={
+            multiCurrencyPrices &&
+            multiCurrencyPrices[this.props.currency] / 100
+          }
           images={images}
         />
         <Wraper className="container">
@@ -73,29 +84,27 @@ class Show extends Component {
                 details={details}
               />
             </div>
-            {images && images.map((image, index) => {
-              if (index === 1) {
-                return (
-                  <div className="col-lg-8" key={index.toString()}>
-                    <Lg>
-                      <Image
-                        src={image}
-                        big
-                      />
-                    </Lg>
-                  </div>
-                );
-              } else if (index >= 2 && index <= 4) {
-                return (
-                  <div className="col-lg-4" key={index.toString()}>
-                    <Lg>
-                      <Image src={image} />
-                    </Lg>
-                  </div>
-                );
-              }
-              return false;
-            })}
+            {images &&
+              images.map((image, index) => {
+                if (index === 1) {
+                  return (
+                    <div className="col-lg-8" key={index.toString()}>
+                      <Lg>
+                        <Image src={image} big />
+                      </Lg>
+                    </div>
+                  );
+                } else if (index >= 2 && index <= 4) {
+                  return (
+                    <div className="col-lg-4" key={index.toString()}>
+                      <Lg>
+                        <Image src={image} />
+                      </Lg>
+                    </div>
+                  );
+                }
+                return false;
+              })}
           </div>
         </Wraper>
         <Line />
@@ -121,7 +130,6 @@ class Show extends Component {
   }
 }
 
-
 Show.propTypes = {
   currency: PropTypes.string.isRequired,
   match: PropTypes.shape({
@@ -134,8 +142,6 @@ Show.propTypes = {
     path: PropTypes.string,
     url: PropTypes.string,
   }).isRequired,
-  handleTitleChange: PropTypes.func.isRequired,
 };
-
 
 export default Show;
