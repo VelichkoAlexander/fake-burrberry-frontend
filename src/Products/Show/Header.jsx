@@ -76,10 +76,11 @@ class Header extends Component {
     const sliderImages =
       this.props.images &&
       this.props.images.map((image, index) =>
-        <Image src={image} alt={this.propstitle} key={index.toString()} />,
+        <Image src={image} alt={this.props.title} key={index.toString()} />,
       );
-    const heroSrc =
-      this.props.colours && this.props.colours[this.state.colorId].heroSrc;
+
+    const { heroSrc } = this.props.colours && this.props.colours[this.state.colorId];
+
     return (
       <Wrapper>
         <div className="container">
