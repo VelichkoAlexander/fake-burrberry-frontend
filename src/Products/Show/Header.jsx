@@ -43,7 +43,7 @@ const Slider = styled.div`
   overflow-x: ${props => (props.hero ? 'hidden' : 'auto')};
   @media (min-width: 48rem) {
     margin: 0;
-   }
+  }
 `;
 const Caption = styled.h3`
   margin: 0 0 0.3125rem;
@@ -59,11 +59,7 @@ const Text = styled.p`
   line-height: 1.33;
 `;
 
-const Wrapper = styled.div`
-  @media (min-width: 62rem) {
-    margin-bottom: 4rem;
-  }
-`;
+const Wrapper = styled.div`@media (min-width: 62rem) {margin-bottom: 4rem;}`;
 
 class Header extends Component {
   constructor() {
@@ -77,28 +73,26 @@ class Header extends Component {
   }
 
   render() {
-    const sliderImages = this.props.images && this.props.images.map((image, index) => (<Image
-      src={image}
-      alt={this.propstitle}
-      key={index.toString()}
-    />));
+    const sliderImages =
+      this.props.images &&
+      this.props.images.map((image, index) =>
+        <Image src={image} alt={this.propstitle} key={index.toString()} />,
+      );
+    const heroSrc =
+      this.props.colours && this.props.colours[this.state.colorId].heroSrc;
     return (
       <Wrapper>
         <div className="container">
           <Sm>
-            <Title>{this.props.title}</Title>
+            <Title>
+              {this.props.title}
+            </Title>
           </Sm>
           <div className="row">
             <div className="col-xs-12 col-sm-6">
               <Lg>
                 <Slider hero>
-                  <Image
-                    src={this.props.colours &&
-                    this.props.colours[this.state.colorId].heroSrc
-                    }
-                    alt={this.props.title}
-                    hero
-                  />
+                  <Image src={heroSrc} alt={this.props.title} hero />
                 </Slider>
               </Lg>
               <Sm>
@@ -120,7 +114,10 @@ class Header extends Component {
               />
               <div className="row">
                 <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6">
-                  <Color colours={this.props.colours} handleColorChange={this.handleColorChange} />
+                  <Color
+                    colours={this.props.colours}
+                    handleColorChange={this.handleColorChange}
+                  />
                 </div>
                 <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6">
                   <Lg>
@@ -147,9 +144,7 @@ Header.propTypes = {
   title: PropTypes.string,
   id: PropTypes.string,
   price: PropTypes.number.isRequired,
-  images: PropTypes.arrayOf(
-    PropTypes.string,
-  ).isRequired,
+  images: PropTypes.arrayOf(PropTypes.string).isRequired,
   sizes: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string,
@@ -161,7 +156,8 @@ Header.propTypes = {
       heroSrc: PropTypes.string,
       value: PropTypes.string,
       src: PropTypes.string,
-    })),
+    }),
+  ),
   currency: PropTypes.string.isRequired,
 };
 
@@ -173,6 +169,5 @@ Header.defaultProps = {
   sizes: [],
   colours: [{}],
 };
-
 
 export default Header;

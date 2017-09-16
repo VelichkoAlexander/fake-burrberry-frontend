@@ -62,7 +62,10 @@ class Filters extends Component {
   }
 
   componentDidMount() {
-    get('v1/products/men/suits?limit=8').then((data) => {
+    get(
+      `v1/products/${this.props.match.params.category}/${this.props.match.params
+        .subcategory}?limit=8`,
+    ).then((data) => {
       this.setState({ data });
       this.setState({ isLoading: false });
     });
@@ -75,7 +78,8 @@ class Filters extends Component {
   handleMore() {
     const state = this.state.data;
     get(
-      `v1/products/men/suits?limit=8&offset=${state.total - state.offset >= 8
+      `v1/products/${this.props.match.params.category}/${this.props.match.params
+        .subcategory}?limit=8&offset=${state.total - state.offset >= 8
         ? state.offset + 8
         : state.total - state.offset}`,
     ).then((response) => {
