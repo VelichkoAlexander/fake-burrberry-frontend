@@ -31,10 +31,15 @@ const ProductImage = styled.img`
 
 const Inner = styled.div`
   display: flex;
+  flex-direction: column;
   margin-bottom: 0.5rem;
   justify-content: space-between;
-  align-items: ${props => (props.isLabel ? 'center' : '')};
-  flex-direction: ${props => (props.isLabel ? 'row' : 'row-reverse;')};
+  @media (min-width: 48rem) {
+    max-width: 8.5rem;
+  }
+  @media (min-width: 62rem) {
+    max-width: 12.5rem;
+  }
 `;
 
 const Type = styled.div`
@@ -51,15 +56,13 @@ const Title = styled(Link)`
   font-weight: 600;
   color: #171717;
   @media (min-width: 48rem) {
-    max-width: 8.5rem;
     font-size: 0.875rem;
     line-height: 1.25rem;
   }
-
   @media (min-width: 62rem) {
     font-size: 1rem;
     line-height: 1.25rem;
-    max-width: 12.5rem;
+    
   }
 `;
 
@@ -70,6 +73,15 @@ const ColorLink = styled(Link)`
   line-height: 1rem;
   border-bottom: 1px solid #171717;
   text-decoration: none;
+`;
+
+const Info = styled.div`
+  display: flex;
+`;
+
+const LikeWrap = styled.div`
+  margin-left: auto;
+  padding-top: 0.1875rem;
 `;
 
 class Card extends Component {
@@ -98,27 +110,32 @@ class Card extends Component {
             onLoad={this.handleImageLoaded}
           />
         </NavLink>
-        <Inner isLabel={this.props.type}>
-          {this.props.type && label}
-          <LikeIcon width="14" height="14" />
-          <Title to={`${this.props.to}${this.props.slug}`}>
-            {this.props.title}
-          </Title>
-        </Inner>
-        <Availability>
+        <Info>
+          <Inner>
+            {this.props.type && label}
+            <Title to={`${this.props.to}${this.props.slug}`}>
+              {this.props.title}
+            </Title>
+
+            <Availability>
           Available in{' '}
-          <ColorLink to={`${this.props.to}${this.props.slug}`}>
-            {this.props.colours}
-          </ColorLink>
-        </Availability>
-        <Price>
-          <FormattedNumber
-            value={this.props.price}
-            style="currency"
-            currency={this.props.currency}
-            minimumFractionDigits={0}
-          />
-        </Price>
+              <ColorLink to={`${this.props.to}${this.props.slug}`}>
+                {this.props.colours}
+              </ColorLink>
+            </Availability>
+            <Price>
+              <FormattedNumber
+                value={this.props.price}
+                style="currency"
+                currency={this.props.currency}
+                minimumFractionDigits={0}
+              />
+            </Price>
+          </Inner>
+          <LikeWrap>
+            <LikeIcon width="14" height="14" />
+          </LikeWrap>
+        </Info>
       </Wraper>
     );
   }
