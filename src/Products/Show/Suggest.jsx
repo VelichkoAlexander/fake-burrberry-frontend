@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
 import { get } from '../../data/Data';
 import { coloursCount } from '../../common/helpers';
 
@@ -58,8 +57,7 @@ class Suggest extends Component {
             title={item.title}
             colours={coloursCount(item.colours.length)}
             to={`/men/suits/${item.slug}`}
-            price={item.multiCurrencyPrices[this.props.currency] / 100}
-            currency={this.props.currency}
+            price={item.multiCurrencyPrices}
           />
         </div>),
       );
@@ -76,9 +74,5 @@ class Suggest extends Component {
     );
   }
 }
-
-Suggest.propTypes = {
-  currency: PropTypes.string.isRequired,
-};
 
 export default Suggest;

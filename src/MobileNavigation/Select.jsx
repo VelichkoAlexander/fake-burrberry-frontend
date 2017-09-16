@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
 
 const ButtonSelectStyled = styled.div`
   position: relative;
@@ -29,38 +30,52 @@ const Button = styled.div`
   text-align: center;
 `;
 
-const Select = ({ options, handleLocalChange, localeId }) => {
+const Select = (props) => {
   const handleChange = (event) => {
-    handleLocalChange(event.target.selectedIndex);
+    props.onAddLocaleID(event.target.selectedIndex);
   };
 
+  const { lang } = props.localStore;
+  const { localeId } = props.localStore;
   return (
     <ButtonSelectStyled>
-      <Button>{options[localeId].name}</Button>
+      <Button>
+        {lang[localeId].name}
+      </Button>
       <SelectButton onChange={handleChange}>
-        {options.map((option, index) => (
-          <option value={index} key={index.toString()}>
+        {lang.map((option, index) =>
+          (<option key={index.toString()}>
             {option.name}
-          </option>
-        ))}
+          </option>),
+        )}
       </SelectButton>
     </ButtonSelectStyled>
   );
 };
 
 Select.propTypes = {
-  localeId: PropTypes.number,
-  handleLocalChange: PropTypes.func.isRequired,
-  options: PropTypes.arrayOf(
+  localStore: PropTypes.objectOf(
     PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      value: PropTypes.string.isRequired,
+      lang: PropTypes.arrayOf(
+        PropTypes.shape({
+          name: PropTypes.string,
+          value: PropTypes.string,
+          currency: PropTypes.string,
+        }),
+      ),
+      localeId: PropTypes.number,
     }),
   ).isRequired,
+  onAddLocaleID: PropTypes.func.isRequired,
 };
 
-Select.defaultProps = {
-  localeId: 0,
-};
-
-export default Select;
+export default connect(
+  state => ({
+    localStore: state,
+  }),
+  dispatch => ({
+    onAddLocaleID: (localeId) => {
+      dispatch({ type: 'ADD_LOCALE_ID', payload: localeId });
+    },
+  }),
+)(Select);

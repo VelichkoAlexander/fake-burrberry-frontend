@@ -2,6 +2,7 @@
 
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { FormattedNumber } from 'react-intl';
 import { Link } from 'react-router-dom';
@@ -99,6 +100,9 @@ class Card extends Component {
         {this.props.type}
       </Type>
     );
+    const { currency } = this.props.localStore.lang[
+      this.props.localStore.localeId
+    ];
     return (
       <Wraper show={this.state.isImageLoaded}>
         <NavLink to={this.props.to}>
@@ -121,9 +125,9 @@ class Card extends Component {
             </Availability>
             <Price>
               <FormattedNumber
-                value={this.props.price}
+                value={this.props.price[currency] / 100}
                 style="currency"
-                currency={this.props.currency}
+                currency={currency}
                 minimumFractionDigits={0}
               />
             </Price>
@@ -141,20 +145,32 @@ Card.propTypes = {
   image: PropTypes.string,
   type: PropTypes.string,
   title: PropTypes.string,
-  price: PropTypes.number,
   colours: PropTypes.string,
-  currency: PropTypes.string,
   to: PropTypes.string,
+  price: PropTypes.objectOf(PropTypes.string),
+  localStore: PropTypes.objectOf(
+    PropTypes.shape({
+      lang: PropTypes.arrayOf(
+        PropTypes.shape({
+          name: PropTypes.string,
+          value: PropTypes.string,
+          currency: PropTypes.string,
+        }),
+      ),
+      localeId: PropTypes.number,
+    }),
+  ).isRequired,
 };
 
 Card.defaultProps = {
   image: '',
   type: '',
   title: 'title',
-  price: 0,
+  price: [],
   colours: [],
-  currency: '',
   to: '',
 };
 
-export default Card;
+export default connect(state => ({
+  localStore: state,
+}))(Card);

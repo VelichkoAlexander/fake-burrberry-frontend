@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 import arrow from '../images/arrow.svg';
 
@@ -54,22 +55,22 @@ const CountryButton = styled.button`
 
 const Select = (props) => {
   const handleChange = (event) => {
-    props.handleLocalChange(event.target.selectedIndex);
+    props.onAddLocaleID(event.target.selectedIndex);
   };
 
-  const options = props.options;
-
+  const { lang } = props.localStore;
+  const { localeId } = props.localStore;
   return (
     <SelectWrapper>
       <CountryButton>
-        {props.label}: {options[props.localeId].name}
+        {props.label}: {lang[localeId].name}
       </CountryButton>
       <CountrySelect onChange={handleChange}>
-        {options.map((option, index) => (
-          <option value={index} key={index.toString()}>
+        {lang.map((option, index) =>
+          (<option value={index} key={index.toString()}>
             {props.label}: {option.name}
-          </option>
-        ))}
+          </option>),
+        )}
       </CountrySelect>
     </SelectWrapper>
   );
@@ -77,20 +78,32 @@ const Select = (props) => {
 
 Select.propTypes = {
   label: PropTypes.string,
-  localeId: PropTypes.number,
-  handleLocalChange: PropTypes.func.isRequired,
-  options: PropTypes.arrayOf(
+  localStore: PropTypes.objectOf(
     PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      value: PropTypes.string.isRequired,
+      lang: PropTypes.arrayOf(
+        PropTypes.shape({
+          name: PropTypes.string,
+          value: PropTypes.string,
+          currency: PropTypes.string,
+        }),
+      ),
+      localeId: PropTypes.number,
     }),
   ).isRequired,
+  onAddLocaleID: PropTypes.func.isRequired,
 };
 
 Select.defaultProps = {
   label: 'Language',
-  options: [],
-  localeId: 0,
 };
 
-export default Select;
+export default connect(
+  state => ({
+    localStore: state,
+  }),
+  dispatch => ({
+    onAddLocaleID: (localeId) => {
+      dispatch({ type: 'ADD_LOCALE_ID', payload: localeId });
+    },
+  }),
+)(Select);

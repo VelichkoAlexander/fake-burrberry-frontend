@@ -79,7 +79,8 @@ class Header extends Component {
         <Image src={image} alt={this.props.title} key={index.toString()} />,
       );
 
-    const { heroSrc } = this.props.colours && this.props.colours[this.state.colorId];
+    const { heroSrc } =
+      this.props.colours && this.props.colours[this.state.colorId];
 
     return (
       <Wrapper>
@@ -108,11 +109,7 @@ class Header extends Component {
                   {this.props.title}
                 </Title>
               </Lg>
-              <Info
-                price={this.props.price}
-                currency={this.props.currency}
-                id={this.props.id}
-              />
+              <Info price={this.props.price} id={this.props.id} />
               <div className="row">
                 <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6">
                   <Color
@@ -144,7 +141,7 @@ class Header extends Component {
 Header.propTypes = {
   title: PropTypes.string,
   id: PropTypes.string,
-  price: PropTypes.number.isRequired,
+  price: PropTypes.objectOf(PropTypes.string).isRequired,
   images: PropTypes.arrayOf(PropTypes.string).isRequired,
   sizes: PropTypes.arrayOf(
     PropTypes.shape({
@@ -159,7 +156,6 @@ Header.propTypes = {
       src: PropTypes.string,
     }),
   ),
-  currency: PropTypes.string.isRequired,
 };
 
 Header.defaultProps = {

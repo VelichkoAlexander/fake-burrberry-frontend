@@ -7,7 +7,10 @@ import {
 } from 'react-router-dom';
 import { IntlProvider, addLocaleData } from 'react-intl';
 import styled from 'styled-components';
+
 import { Helmet } from 'react-helmet';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
 import ruLocaleData from 'react-intl/locale-data/ru';
 import enLocaleData from 'react-intl/locale-data/en';
 import { XsOnly } from './common/Responsive';
@@ -50,25 +53,36 @@ const Wrapper = styled.div`
   }
 `;
 
-const supportedLanguages = [
-  { name: 'Russian Federation (₽)', value: 'ru', currency: 'RUB' },
-  { name: 'United Kingdom (£)', value: 'en', currency: 'GBP' },
-];
+const initialState = {
+  lang: [
+    { name: 'Russian Federation (₽)', value: 'ru', currency: 'RUB' },
+    { name: 'United Kingdom (£)', value: 'en', currency: 'GBP' },
+  ],
+  localeId: 0,
+};
+
+function dataTransfer(state = initialState, action) {
+  if (action.type === 'ADD_LOCALE_ID') {
+    const newState = state;
+    newState.localeId = action.payload;
+
+    return {
+      ...state,
+      newState,
+    };
+  }
+  return state;
+}
+const store = createStore(dataTransfer);
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      localeId: 0,
       isMenuOpened: false,
       title: '',
     };
-    this.handleLocalChange = this.handleLocalChange.bind(this);
     this.toggleMobileMenu = this.toggleMobileMenu.bind(this);
-  }
-
-  handleLocalChange(id) {
-    this.setState({ localeId: id });
   }
 
   toggleMobileMenu() {
@@ -77,71 +91,57 @@ class App extends Component {
 
   render() {
     return (
-      <IntlProvider locale={supportedLanguages[this.state.localeId].value}>
-        <Router>
-          <ScrollToTop>
-            <div className="App">
-              <Helmet>
-                <title>Burberry | Iconic British Luxury Brand Est. 1856</title>
-                <meta
-                  name="description"
-                  content="A tradition of craftsmanship, design and innovation.
+      <Provider store={store}>
+        <IntlProvider
+          locale={store.getState().lang[store.getState().localeId].value}
+        >
+          <Router>
+            <ScrollToTop>
+              <div className="App">
+                <Helmet>
+                  <title>
+                    Burberry | Iconic British Luxury Brand Est. 1856
+                  </title>
+                  <meta
+                    name="description"
+                    content="A tradition of craftsmanship, design and innovation.
                 Discover trench coats, luxury clothing,
                 leather bags, cashmere scarves and more."
-                />
-              </Helmet>
-              <Page isMenuOpened={this.state.isMenuOpened}>
-                <XsOnly>
-                  <MobileNavigation
+                  />
+                </Helmet>
+                <Page isMenuOpened={this.state.isMenuOpened}>
+                  <XsOnly>
+                    <MobileNavigation
+                      isMenuOpened={this.state.isMenuOpened}
+                      toggleMobileMenu={this.toggleMobileMenu}
+                    />
+                  </XsOnly>
+                  <Wrapper
                     isMenuOpened={this.state.isMenuOpened}
-                    toggleMobileMenu={this.toggleMobileMenu}
-                    localeId={this.state.localeId}
-                    handleLocalChange={this.handleLocalChange}
-                    options={supportedLanguages}
-                  />
-                </XsOnly>
-                <Wrapper
-                  isMenuOpened={this.state.isMenuOpened}
-                  onClick={() =>
-                    this.state.isMenuOpened && this.toggleMobileMenu()}
-                >
-                  <Header
-                    localeId={this.state.localeId}
-                    handleLocalChange={this.handleLocalChange}
-                    toggleMobileMenu={this.toggleMobileMenu}
-                    options={supportedLanguages}
-                  />
-                  <Switch>
-                    <Route
-                      exact
-                      path="/:category/:subcategory"
-                      render={props =>
-                        (<List
-                          {...props}
-                          currency={
-                            supportedLanguages[this.state.localeId].currency
-                          }
-                        />)}
-                    />
-                    <Route
-                      path="/:category/:subcategory/:id"
-                      render={props =>
-                        (<Show
-                          {...props}
-                          currency={
-                            supportedLanguages[this.state.localeId].currency
-                          }
-                        />)}
-                    />
-                    <Redirect from="/" to="/men/suits" />
-                  </Switch>
-                  <Footer />
-                </Wrapper>
-              </Page>
-            </div>
-          </ScrollToTop>
-        </Router>
-      </IntlProvider>
+                    onClick={() =>
+                      this.state.isMenuOpened && this.toggleMobileMenu()}
+                  >
+                    <Header toggleMobileMenu={this.toggleMobileMenu} />
+                    <Switch>
+                      <Route
+                        exact
+                        path="/:category/:subcategory"
+                        render={props => <List {...props} />}
+                      />
+                      <Route
+                        path="/:category/:subcategory/:id"
+                        render={props => <Show {...props} />}
+                      />
+                      <Redirect from="/" to="/men/suits" />
+                    </Switch>
+                    <Footer />
+                  </Wrapper>
+                </Page>
+              </div>
+            </ScrollToTop>
+          </Router>
+        </IntlProvider>
+      </Provider>
     );
   }
 }

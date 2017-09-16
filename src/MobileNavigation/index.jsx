@@ -8,7 +8,7 @@ import CountrySelect from './Select';
 import LangugeSelect from './SelectLanguage';
 import SubNavigation from './SubNavigation';
 
-import { MobileMenuNavigation, languages } from '../data/Data';
+import { MobileMenuNavigation } from '../data/Data';
 
 const SideNavigationStyled = styled.section`
   position: absolute;
@@ -116,16 +116,16 @@ class MobileNavigation extends Component {
             <Logo alt="Logo" src={logo} />
           </LogoLink>
           <Block>
-            {MobileMenuNavigation.map((navItem, index) => (
-              <SectionButton
+            {MobileMenuNavigation.map((navItem, index) =>
+              (<SectionButton
                 key={index.toString()}
                 onClick={() => {
                   this.toggleSubNav(index);
                 }}
               >
                 {navItem.title}
-              </SectionButton>
-            ))}
+              </SectionButton>),
+            )}
           </Block>
           <Block>
             <Subtitle>Customer service</Subtitle>
@@ -152,12 +152,8 @@ class MobileNavigation extends Component {
             </nav>
           </Block>
           <Buttons>
-            <CountrySelect
-              localeId={this.props.localeId}
-              handleLocalChange={this.props.handleLocalChange}
-              options={this.props.options}
-            />
-            <LangugeSelect options={languages} />
+            <CountrySelect />
+            <LangugeSelect />
           </Buttons>
         </MainNavigation>
         <SubNavigation
@@ -172,20 +168,8 @@ class MobileNavigation extends Component {
 }
 
 MobileNavigation.propTypes = {
-  localeId: PropTypes.number,
-  handleLocalChange: PropTypes.func.isRequired,
-  options: PropTypes.arrayOf(
-    PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      value: PropTypes.string.isRequired,
-    }),
-  ).isRequired,
   isMenuOpened: PropTypes.bool.isRequired,
   toggleMobileMenu: PropTypes.func.isRequired,
-};
-
-MobileNavigation.defaultProps = {
-  localeId: 0,
 };
 
 export default MobileNavigation;

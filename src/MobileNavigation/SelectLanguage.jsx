@@ -1,6 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { languages } from '../data/Data';
 
 const ButtonSelectStyled = styled.div`
   position: relative;
@@ -29,23 +29,23 @@ const Button = styled.div`
   text-align: center;
 `;
 
-const SelectLanguage = (props) => {
-  const options = props.options;
+const SelectLanguage = () => {
+  const options = languages;
 
   return (
     <ButtonSelectStyled>
-      <Button>{options[0]}</Button>
+      <Button>
+        {options[0]}
+      </Button>
       <SelectButton>
-        {options.map((option, index) => (
-          <option key={index.toString()}>{option}</option>
-        ))}
+        {options.map((option, index) =>
+          (<option key={index.toString()}>
+            {option}
+          </option>),
+        )}
       </SelectButton>
     </ButtonSelectStyled>
   );
-};
-
-SelectLanguage.propTypes = {
-  options: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 export default SelectLanguage;

@@ -83,11 +83,7 @@ class Show extends Component {
               id={id}
               colours={colours}
               sizes={sizes}
-              currency={this.props.currency}
-              price={
-                multiCurrencyPrices &&
-                  multiCurrencyPrices[this.props.currency] / 100
-              }
+              price={multiCurrencyPrices}
               images={images}
             />
             <Wraper className="container">
@@ -132,7 +128,7 @@ class Show extends Component {
             <Xl>
               <Delivery />
             </Xl>
-            <Suggest currency={this.props.currency} />
+            <Suggest />
             <div className="container">
               <div className="row">
                 <div className="col-xs-12">
@@ -147,7 +143,6 @@ class Show extends Component {
 }
 
 Show.propTypes = {
-  currency: PropTypes.string.isRequired,
   match: PropTypes.shape({
     isExact: PropTypes.bool,
     params: PropTypes.shape({

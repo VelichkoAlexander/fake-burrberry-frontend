@@ -43,8 +43,7 @@ export default function Category(props) {
         title={product.title}
         colours={coloursCount(product.colours.length)}
         to={`${props.to}${product.slug}`}
-        price={product.multiCurrencyPrices[props.currency] / 100}
-        currency={props.currency}
+        price={product.multiCurrencyPrices}
       />
     </div>),
   );
@@ -95,7 +94,6 @@ Category.propTypes = {
       linkedProductIds: PropTypes.arrayOf(PropTypes.string),
     }),
   ).isRequired,
-  currency: PropTypes.string,
   to: PropTypes.string.isRequired,
 };
 

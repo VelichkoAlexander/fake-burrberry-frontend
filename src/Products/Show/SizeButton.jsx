@@ -21,9 +21,6 @@ const Button = styled.button`
   &:last-child {
     margin-right: 0;
   }
-  &:hover {
-    //font-weight: 700;
-  }
 `;
 
 export default function SizeButton(props) {
