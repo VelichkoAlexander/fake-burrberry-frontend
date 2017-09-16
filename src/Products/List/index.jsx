@@ -7,6 +7,7 @@ import Category from './Category';
 import More from './ViewMore';
 import Info from './Info';
 import Title from '../../common/Title';
+import Spinner from '../../common/Spinner';
 
 import { get } from '../../data/Data';
 
@@ -49,6 +50,7 @@ class Filters extends Component {
     super(props);
     this.state = {
       isDropdown: false,
+      isLoading: true,
       data: {
         title: '',
         desitems: '',
@@ -62,6 +64,7 @@ class Filters extends Component {
   componentDidMount() {
     get('v1/products/men/suits?limit=8').then((data) => {
       this.setState({ data });
+      this.setState({ isLoading: false });
     });
   }
 
@@ -94,65 +97,71 @@ class Filters extends Component {
       this.state.data.items.length !== this.state.data.total;
     return (
       <div>
-        <Title title={title} content={description} />
-        <Info title={title} description={description} />
-        <Wrapper>
-          <div className="container">
-            <Inner overflowShow={this.state.isDropdown}>
-              <Filter
-                isDropdown={this.handleDropdown}
-                name="Category"
-                active={this.state.isDropdown}
-              >
-                <p>Category content</p>
-                <button>Click me</button>
-              </Filter>
-              <Filter
-                isDropdown={this.handleDropdown}
-                name="Colour"
-                active={this.state.isDropdown}
-              >
-                <p>Colour content</p>
-                <button>Click me</button>
-              </Filter>
-              <Filter
-                isDropdown={this.handleDropdown}
-                name="Size"
-                active={this.state.isDropdown}
-              >
-                <p>Size content</p>
-                <button>Click me</button>
-              </Filter>
-              <Filter
-                isDropdown={this.handleDropdown}
-                name="Sort by price"
-                active={this.state.isDropdown}
-                right
-              >
-                <p>Sort by price content</p>
-                <button>Click me</button>
-              </Filter>
-            </Inner>
-          </div>
-        </Wrapper>
-        <ProductsWrapper overflowShow={this.state.isDropdown}>
-          <div className="container">
-            <div className="row">
-              <Category
-                title={title}
-                total={total}
-                data={this.state.data.items}
-                currency={this.props.currency}
-              />
-            </div>
-          </div>
-          {isMoreButtonShow &&
-            <More
-              limit={this.state.data.items.length}
-              total={this.state.data.total}
-              moreFunction={this.handleMore}
-            />}
-        </ProductsWrapper>
+        {this.state.isLoading
+          ? <Spinner />
+          : <section>
+            <Title title={title} content={description} />
+            <Info title={title} description={description} />
+            <Wrapper>
+              <div className="container">
+                <Inner overflowShow={this.state.isDropdown}>
+                  <Filter
+                    isDropdown={this.handleDropdown}
+                    name="Category"
+                    active={this.state.isDropdown}
+                  >
+                    <p>Category content</p>
+                    <button>Click me</button>
+                  </Filter>
+                  <Filter
+                    isDropdown={this.handleDropdown}
+                    name="Colour"
+                    active={this.state.isDropdown}
+                  >
+                    <p>Colour content</p>
+                    <button>Click me</button>
+                  </Filter>
+                  <Filter
+                    isDropdown={this.handleDropdown}
+                    name="Size"
+                    active={this.state.isDropdown}
+                  >
+                    <p>Size content</p>
+                    <button>Click me</button>
+                  </Filter>
+                  <Filter
+                    isDropdown={this.handleDropdown}
+                    name="Sort by price"
+                    active={this.state.isDropdown}
+                    right
+                  >
+                    <p>Sort by price content</p>
+                    <button>Click me</button>
+                  </Filter>
+                </Inner>
+              </div>
+            </Wrapper>
+            <ProductsWrapper overflowShow={this.state.isDropdown}>
+              <div className="container">
+                <div className="row">
+                  <Category
+                    title={title}
+                    total={total}
+                    data={this.state.data.items}
+                    currency={this.props.currency}
+                    to={`/${this.props.match.params.category}/${this.props
+                      .match.params.subcategory}/`}
+                  />
+                </div>
+              </div>
+              {isMoreButtonShow &&
+              <More
+                limit={this.state.data.items.length}
+                total={this.state.data.total}
+                moreFunction={this.handleMore}
+              />}
+            </ProductsWrapper>
+          </section>}
       </div>
     );
   }
@@ -160,6 +169,16 @@ class Filters extends Component {
 
 Filters.propTypes = {
   currency: PropTypes.string,
+  match: PropTypes.shape({
+    isExact: PropTypes.bool,
+    params: PropTypes.shape({
+      id: PropTypes.string,
+      category: PropTypes.string,
+      subcategory: PropTypes.string,
+    }),
+    path: PropTypes.string,
+    url: PropTypes.string,
+  }).isRequired,
 };
 
 Filters.defaultProps = {

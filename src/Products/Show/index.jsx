@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import { XsOnly, Xl, Lg } from '../../common/Responsive';
 import { titleDescriptionCut } from '../../common/helpers';
 import { get } from '../../data/Data';
+import Spinner from '../../common/Spinner';
 
 import Header from './Header';
 import Image from './InfoImage';
@@ -36,6 +37,7 @@ class Show extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      isLoading: true,
       data: {
         title: '',
       },
@@ -45,6 +47,7 @@ class Show extends Component {
   componentDidMount() {
     get(`v1/products/men/suits/${this.props.match.params.id}`).then((data) => {
       this.setState({ data });
+      this.setState({ isLoading: false });
     });
   }
 
@@ -59,72 +62,77 @@ class Show extends Component {
       details,
       multiCurrencyPrices,
     } = this.state.data;
+    const headTitle = `${title} - ${this.props.match.params.category}`;
     const titleDescription = description && titleDescriptionCut(description);
     return (
       <div>
-        <Title title={title} content={titleDescription} />
-        <Header
-          title={title}
-          id={id}
-          colours={colours}
-          sizes={sizes}
-          currency={this.props.currency}
-          price={
-            multiCurrencyPrices &&
-            multiCurrencyPrices[this.props.currency] / 100
-          }
-          images={images}
-        />
-        <Wraper className="container">
-          <div className="row">
-            <div className="col-xs-12 col-sm-12 col-md-12 col-lg-4">
-              <InfoBlock
-                title="Description"
-                description={description}
-                details={details}
-              />
+        {this.state.isLoading
+          ? <Spinner />
+          : <section>
+            <Title title={headTitle} content={titleDescription} />
+            <Header
+              title={title}
+              id={id}
+              colours={colours}
+              sizes={sizes}
+              currency={this.props.currency}
+              price={
+                multiCurrencyPrices &&
+                  multiCurrencyPrices[this.props.currency] / 100
+              }
+              images={images}
+            />
+            <Wraper className="container">
+              <div className="row">
+                <div className="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+                  <InfoBlock
+                    title="Description"
+                    description={description}
+                    details={details}
+                  />
+                </div>
+                {images &&
+                    images.map((image, index) => {
+                      if (index === 1) {
+                        return (
+                          <div className="col-lg-8" key={index.toString()}>
+                            <Lg>
+                              <Image src={image} big />
+                            </Lg>
+                          </div>
+                        );
+                      } else if (index >= 2 && index <= 4) {
+                        return (
+                          <div className="col-lg-4" key={index.toString()}>
+                            <Lg>
+                              <Image src={image} />
+                            </Lg>
+                          </div>
+                        );
+                      }
+                      return false;
+                    })}
+              </div>
+            </Wraper>
+            <Line />
+            <div className="container">
+              <XsOnly>
+                <InfoBlock title="Delivery" />
+              </XsOnly>
             </div>
-            {images &&
-              images.map((image, index) => {
-                if (index === 1) {
-                  return (
-                    <div className="col-lg-8" key={index.toString()}>
-                      <Lg>
-                        <Image src={image} big />
-                      </Lg>
-                    </div>
-                  );
-                } else if (index >= 2 && index <= 4) {
-                  return (
-                    <div className="col-lg-4" key={index.toString()}>
-                      <Lg>
-                        <Image src={image} />
-                      </Lg>
-                    </div>
-                  );
-                }
-                return false;
-              })}
-          </div>
-        </Wraper>
-        <Line />
-        <div className="container">
-          <XsOnly>
-            <InfoBlock title="Delivery" />
-          </XsOnly>
-        </div>
-        <Line />
-        <Xl>
-          <Delivery />
-        </Xl>
-        <Suggest currency={this.props.currency} />
-        <div className="container">
-          <div className="row">
-            <div className="col-xs-12">
-              <More />
+            <Line />
+            <Xl>
+              <Delivery />
+            </Xl>
+            <Suggest currency={this.props.currency} />
+            <div className="container">
+              <div className="row">
+                <div className="col-xs-12">
+                  <More />
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
+          </section>}
       </div>
     );
   }
@@ -136,8 +144,8 @@ Show.propTypes = {
     isExact: PropTypes.bool,
     params: PropTypes.shape({
       id: PropTypes.string,
-      section: PropTypes.string,
-      subsection: PropTypes.string,
+      category: PropTypes.string,
+      subcategory: PropTypes.string,
     }),
     path: PropTypes.string,
     url: PropTypes.string,

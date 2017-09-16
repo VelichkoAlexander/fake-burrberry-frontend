@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Route,
+  Redirect,
+  Switch,
+} from 'react-router-dom';
 import { IntlProvider, addLocaleData } from 'react-intl';
 import styled from 'styled-components';
 import ruLocaleData from 'react-intl/locale-data/ru';
@@ -103,27 +108,30 @@ class App extends Component {
                     toggleMobileMenu={this.toggleMobileMenu}
                     options={supportedLanguages}
                   />
-                  <Route
-                    exact
-                    path="/"
-                    render={() =>
-                      (<List
-                        currency={
-                          supportedLanguages[this.state.localeId].currency
-                        }
-                      />)}
-                  />
-                  <Route exact path="/mens-clothing" component={List} />
-                  <Route
-                    path="/mens-clothing/:categoryName/:id"
-                    render={props =>
-                      (<Show
-                        {...props}
-                        currency={
-                          supportedLanguages[this.state.localeId].currency
-                        }
-                      />)}
-                  />
+                  <Switch>
+                    <Route
+                      exact
+                      path="/:category/:subcategory"
+                      render={props =>
+                        (<List
+                          {...props}
+                          currency={
+                            supportedLanguages[this.state.localeId].currency
+                          }
+                        />)}
+                    />
+                    <Route
+                      path="/:category/:subcategory/:id"
+                      render={props =>
+                        (<Show
+                          {...props}
+                          currency={
+                            supportedLanguages[this.state.localeId].currency
+                          }
+                        />)}
+                    />
+                    <Redirect from="/" to="/men/suits" />
+                  </Switch>
                   <Footer />
                 </Wrapper>
               </Page>

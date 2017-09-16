@@ -33,16 +33,14 @@ const Inner = styled.div`
   display: flex;
   margin-bottom: 0.5rem;
   justify-content: space-between;
-  align-items:  ${props => (props.isLabel ? 'center' : '')};
+  align-items: ${props => (props.isLabel ? 'center' : '')};
   flex-direction: ${props => (props.isLabel ? 'row' : 'row-reverse;')};
-  
 `;
 
 const Type = styled.div`
   font-size: 0.75rem;
   line-height: 1rem;
 `;
-
 
 const Title = styled(Link)`
   margin: 0;
@@ -86,10 +84,14 @@ class Card extends Component {
   }
 
   render() {
-    const label = (<Type>{this.props.type}</Type>);
+    const label = (
+      <Type>
+        {this.props.type}
+      </Type>
+    );
     return (
       <Wraper show={this.state.isImageLoaded}>
-        <NavLink to={`/mens-clothing/mens-coats/${this.props.slug}`}>
+        <NavLink to={`${this.props.to}${this.props.slug}`}>
           <ProductImage
             src={imageProportion(this.props.image)}
             alt={this.props.title}
@@ -99,11 +101,13 @@ class Card extends Component {
         <Inner isLabel={this.props.type}>
           {this.props.type && label}
           <LikeIcon width="14" height="14" />
-          <Title to={`/mens-clothing/mens-coats/${this.props.slug}`}>{this.props.title}</Title>
+          <Title to={`${this.props.to}${this.props.slug}`}>
+            {this.props.title}
+          </Title>
         </Inner>
         <Availability>
-            Available in{' '}
-          <ColorLink to={`/mens-clothing/mens-coats/${this.props.slug}`}>
+          Available in{' '}
+          <ColorLink to={`${this.props.to}${this.props.slug}`}>
             {this.props.colours}
           </ColorLink>
         </Availability>
@@ -115,10 +119,10 @@ class Card extends Component {
             minimumFractionDigits={0}
           />
         </Price>
-      </Wraper>);
+      </Wraper>
+    );
   }
 }
-
 
 Card.propTypes = {
   slug: PropTypes.string,
@@ -128,6 +132,7 @@ Card.propTypes = {
   price: PropTypes.number,
   colours: PropTypes.string,
   currency: PropTypes.string,
+  to: PropTypes.string.isRequired,
 };
 
 Card.defaultProps = {

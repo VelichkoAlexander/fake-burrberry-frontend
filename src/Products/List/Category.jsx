@@ -36,28 +36,33 @@ const Available = styled.span`
 `;
 
 export default function Category(props) {
-  const list = props.data.map((item, i) => (
-    <div className="col-xs-6 col-md-3" key={i.toString()}>
+  const list = props.data.map((product, i) =>
+    (<div className="col-xs-6 col-md-3" key={i.toString()}>
       <Card
-        image={item.images[0]}
-        title={item.title}
-        colours={coloursCount(item.colours.length)}
-        slug={item.slug}
-        price={item.multiCurrencyPrices[props.currency] / 100}
+        image={product.images[0]}
+        title={product.title}
+        colours={coloursCount(product.colours.length)}
+        slug={product.slug}
+        to={props.to}
+        price={product.multiCurrencyPrices[props.currency] / 100}
         currency={props.currency}
       />
-    </div>
-  ));
+    </div>),
+  );
 
   return (
     <Wraper>
       <div className="container">
-        <Title>{props.title}
+        <Title>
+          {props.title}
           {props.total !== 0 &&
-            (<Available> — {props.total} available</Available>)
-          }
+            <Available>
+              {' '}— {props.total} available
+            </Available>}
         </Title>
-        <div className="row">{list}</div>
+        <div className="row">
+          {list}
+        </div>
       </div>
     </Wraper>
   );
@@ -71,9 +76,7 @@ Category.propTypes = {
       title: PropTypes.string,
       id: PropTypes.string,
       slug: PropTypes.string,
-      multiCurrencyPrices: PropTypes.objectOf(
-        PropTypes.string,
-      ),
+      multiCurrencyPrices: PropTypes.objectOf(PropTypes.string),
       colours: PropTypes.arrayOf(
         PropTypes.shape({
           heroSrc: PropTypes.string,
@@ -89,15 +92,12 @@ Category.propTypes = {
       ),
       description: PropTypes.string,
       details: PropTypes.string,
-      images: PropTypes.arrayOf(
-        PropTypes.string,
-      ),
-      linkedProductIds: PropTypes.arrayOf(
-        PropTypes.string,
-      ),
+      images: PropTypes.arrayOf(PropTypes.string),
+      linkedProductIds: PropTypes.arrayOf(PropTypes.string),
     }),
   ).isRequired,
   currency: PropTypes.string,
+  to: PropTypes.string.isRequired,
 };
 
 Category.defaultProps = {
