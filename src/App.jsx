@@ -7,10 +7,10 @@ import {
 } from 'react-router-dom';
 import { IntlProvider, addLocaleData } from 'react-intl';
 import styled from 'styled-components';
+import { Helmet } from 'react-helmet';
 import ruLocaleData from 'react-intl/locale-data/ru';
 import enLocaleData from 'react-intl/locale-data/en';
 import { XsOnly } from './common/Responsive';
-import Title from './common/Title';
 
 import Header from './Header';
 import MobileNavigation from './MobileNavigation';
@@ -81,12 +81,15 @@ class App extends Component {
         <Router>
           <ScrollToTop>
             <div className="App">
-              <Title
-                title="Burberry | Iconic British Luxury Brand Est. 1856"
-                content="A tradition of craftsmanship, design and innovation.
+              <Helmet>
+                <title>Burberry | Iconic British Luxury Brand Est. 1856</title>
+                <meta
+                  name="description"
+                  content="A tradition of craftsmanship, design and innovation.
                 Discover trench coats, luxury clothing,
                 leather bags, cashmere scarves and more."
-              />
+                />
+              </Helmet>
               <Page isMenuOpened={this.state.isMenuOpened}>
                 <XsOnly>
                   <MobileNavigation

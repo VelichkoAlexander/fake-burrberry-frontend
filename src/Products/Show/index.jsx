@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import { Helmet } from 'react-helmet';
 
 import { XsOnly, Xl, Lg } from '../../common/Responsive';
 import { titleDescriptionCut } from '../../common/helpers';
@@ -13,7 +14,6 @@ import InfoBlock from './InfoBlock';
 import Delivery from './Delivery';
 import Suggest from './Suggest';
 import More from './More';
-import Title from '../../common/Title';
 
 const Line = styled.hr`
   margin: 0;
@@ -72,7 +72,12 @@ class Show extends Component {
         {this.state.isLoading
           ? <Spinner />
           : <section>
-            <Title title={headTitle} content={titleDescription} />
+            <Helmet>
+              <title>
+                {headTitle} | Burberry
+              </title>
+              <meta name="description" content={titleDescription} />
+            </Helmet>
             <Header
               title={title}
               id={id}

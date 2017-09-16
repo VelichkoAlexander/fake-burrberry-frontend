@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import { Helmet } from 'react-helmet';
 
 import Filter from './Filter';
 import Category from './Category';
 import More from './ViewMore';
 import Info from './Info';
-import Title from '../../common/Title';
 import Spinner from '../../common/Spinner';
 
 import { get } from '../../data/Data';
@@ -102,7 +102,12 @@ class Filters extends Component {
         {this.state.isLoading
           ? <Spinner />
           : <section>
-            <Title title={title} content={description} />
+            <Helmet>
+              <title>
+                {title} | Burberry
+              </title>
+              <meta name="description" content={description} />
+            </Helmet>
             <Info title={title} description={description} />
             <Wrapper>
               <div className="container">
