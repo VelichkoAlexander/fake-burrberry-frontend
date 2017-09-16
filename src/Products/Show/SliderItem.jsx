@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { imageRetina2 } from '../../common/ImageResponsive';
+import { imageRetina } from '../../common/ImageResponsive';
 
 const Img = styled.img`
   display: block;
-  margin-left: ${props => (props.hero ? '-145px' : '0')} ;
+  margin-left: ${props => (props.hero ? '-145px' : '0')};
   opacity: ${props => (props.show ? '1' : '0')};
   transition: opacity .3s linear;
 `;
@@ -42,18 +42,21 @@ class SliderItem extends Component {
       <picture>
         <source
           media="(min-width: 62rem)"
-          srcSet={`${this.props.src + (this.props.hero ? heroImgProps : smallImgProps)} 1x,
-      ${this.props.src + imageRetina2(this.props.hero ? heroImgProps : smallImgProps)} 2x`}
+          srcSet={`${this.props.src +
+            (this.props.hero ? heroImgProps : smallImgProps)} 1x,
+      ${this.props.src +
+        imageRetina(this.props.hero ? heroImgProps : smallImgProps, 2)} 2x`}
         />
         <Img
-          src={this.props.src + (this.props.hero ? heroImgProps : smallImgProps)}
+          src={
+            this.props.src + (this.props.hero ? heroImgProps : smallImgProps)
+          }
           alt={this.props.alt}
           hero={this.props.hero}
           onLoad={this.handleImageLoaded}
           show={this.state.isImageLoaded}
         />
       </picture>
-
     );
   }
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { imageRetina2, imageRetina3 } from '../../common/ImageResponsive';
+import { imageRetina } from '../../common/ImageResponsive';
 
 const Img = styled.img`
   display: block;
@@ -18,12 +18,10 @@ export default function InfoImage(props) {
       <source
         media="(min-width: 62rem)"
         srcSet={`${props.src + (props.big ? bigImg : smallImg)} 1x,
-      ${props.src + imageRetina2(props.big ? bigImg : smallImg)} 2x,
-      ${props.src + imageRetina3(props.big ? bigImg : smallImg)} 3x`}
+      ${props.src + imageRetina(props.big ? bigImg : smallImg, 2)} 2x,
+      ${props.src + imageRetina(props.big ? bigImg : smallImg, 3)} 3x`}
       />
-      <Img
-        src={props.src + props.big ? bigImg : smallImg}
-      />
+      <Img src={props.src + props.big ? bigImg : smallImg} />
     </picture>
   );
 }
