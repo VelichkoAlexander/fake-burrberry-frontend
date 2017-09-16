@@ -42,22 +42,27 @@ class Suggest extends Component {
   }
 
   componentDidMount() {
-    get('v1/products/men/suits?limit=3').then((data) => { this.setState({ data }); });
+    get('v1/products/men/suits?limit=3').then((data) => {
+      this.setState({ data });
+    });
   }
 
   render() {
     const { items } = this.state.data;
-    const list = items && items.map((item, i) => (
-      <div className="col-xs-6 col-md-3" key={i.toString()}>
-        <Card
-          image={item.images[0]}
-          title={item.title}
-          colours={coloursCount(item.colours.length)}
-          slug={item.slug}
-          price={item.multiCurrencyPrices[this.props.currency] / 100}
-          currency={this.props.currency}
-        />
-      </div>));
+    const list =
+      items &&
+      items.map((item, i) =>
+        (<div className="col-xs-6 col-md-3" key={i.toString()}>
+          <Card
+            image={item.images[0]}
+            title={item.title}
+            colours={coloursCount(item.colours.length)}
+            to={`/men/suits/${item.slug}`}
+            price={item.multiCurrencyPrices[this.props.currency] / 100}
+            currency={this.props.currency}
+          />
+        </div>),
+      );
 
     return (
       <Section>

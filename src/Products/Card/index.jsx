@@ -75,9 +75,7 @@ const ColorLink = styled(Link)`
   text-decoration: none;
 `;
 
-const Info = styled.div`
-  display: flex;
-`;
+const Info = styled.div`display: flex;`;
 
 const LikeWrap = styled.div`
   margin-left: auto;
@@ -103,7 +101,7 @@ class Card extends Component {
     );
     return (
       <Wraper show={this.state.isImageLoaded}>
-        <NavLink to={`${this.props.to}${this.props.slug}`}>
+        <NavLink to={this.props.to}>
           <ProductImage
             src={imageProportion(this.props.image)}
             alt={this.props.title}
@@ -113,15 +111,13 @@ class Card extends Component {
         <Info>
           <Inner>
             {this.props.type && label}
-            <Title to={`${this.props.to}${this.props.slug}`}>
+            <Title to={this.props.to}>
               {this.props.title}
             </Title>
 
             <Availability>
-          Available in{' '}
-              <ColorLink to={`${this.props.to}${this.props.slug}`}>
-                {this.props.colours}
-              </ColorLink>
+              Available in{' '}
+              <ColorLink to={this.props.to}>{this.props.colours}</ColorLink>
             </Availability>
             <Price>
               <FormattedNumber
@@ -142,24 +138,23 @@ class Card extends Component {
 }
 
 Card.propTypes = {
-  slug: PropTypes.string,
   image: PropTypes.string,
   type: PropTypes.string,
   title: PropTypes.string,
   price: PropTypes.number,
   colours: PropTypes.string,
   currency: PropTypes.string,
-  to: PropTypes.string.isRequired,
+  to: PropTypes.string,
 };
 
 Card.defaultProps = {
-  slug: '',
   image: '',
   type: '',
   title: 'title',
   price: 0,
   colours: [],
   currency: '',
+  to: '',
 };
 
 export default Card;

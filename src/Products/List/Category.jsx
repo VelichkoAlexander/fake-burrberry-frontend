@@ -42,8 +42,7 @@ export default function Category(props) {
         image={product.images[0]}
         title={product.title}
         colours={coloursCount(product.colours.length)}
-        slug={product.slug}
-        to={props.to}
+        to={`${props.to}${product.slug}`}
         price={product.multiCurrencyPrices[props.currency] / 100}
         currency={props.currency}
       />

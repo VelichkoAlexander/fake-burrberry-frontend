@@ -53,7 +53,6 @@ class Filters extends Component {
       isLoading: true,
       data: {
         title: '',
-        desitems: '',
         items: [],
       },
     };
@@ -66,8 +65,7 @@ class Filters extends Component {
       `v1/products/${this.props.match.params.category}/${this.props.match.params
         .subcategory}?limit=8`,
     ).then((data) => {
-      this.setState({ data });
-      this.setState({ isLoading: false });
+      this.setState({ data, isLoading: false });
     });
   }
 
