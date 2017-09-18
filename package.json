@@ -23,6 +23,8 @@
     "react-router-dom": "^4.1.2",
     "react-scripts": "1.0.10",
     "redux": "^3.7.2",
+    "redux-actions": "^2.2.1",
+    "redux-logger": "^3.0.6",
     "styled-components": "^2.1.2"
   },
   "lint-staged": {

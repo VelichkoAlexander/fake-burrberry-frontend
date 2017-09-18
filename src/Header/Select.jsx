@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { supportedLanguages } from '../data/Data';
+import { changeLocaleId } from '../actionTypes';
 
 import arrow from '../images/arrow.svg';
 
@@ -53,22 +55,20 @@ const CountryButton = styled.button`
   }
 `;
 
-const Select = (props) => {
+const Select = ({ label, localeId, dispatch }) => {
   const handleChange = (event) => {
-    props.onAddLocaleID(event.target.selectedIndex);
+    dispatch(changeLocaleId(event.target.selectedIndex));
   };
 
-  const { lang } = props.localStore;
-  const { localeId } = props.localStore;
   return (
     <SelectWrapper>
       <CountryButton>
-        {props.label}: {lang[localeId].name}
+        {label}: {supportedLanguages[localeId].name}
       </CountryButton>
       <CountrySelect onChange={handleChange}>
-        {lang.map((option, index) =>
+        {supportedLanguages.map((option, index) =>
           (<option value={index} key={index.toString()}>
-            {props.label}: {option.name}
+            {label}: {option.name}
           </option>),
         )}
       </CountrySelect>
@@ -78,32 +78,13 @@ const Select = (props) => {
 
 Select.propTypes = {
   label: PropTypes.string,
-  localStore: PropTypes.objectOf(
-    PropTypes.shape({
-      lang: PropTypes.arrayOf(
-        PropTypes.shape({
-          name: PropTypes.string,
-          value: PropTypes.string,
-          currency: PropTypes.string,
-        }),
-      ),
-      localeId: PropTypes.number,
-    }),
-  ).isRequired,
-  onAddLocaleID: PropTypes.func.isRequired,
+  localeId: PropTypes.number,
+  dispatch: PropTypes.func.isRequired,
 };
 
 Select.defaultProps = {
   label: 'Language',
+  localeId: 0,
 };
 
-export default connect(
-  state => ({
-    localStore: state,
-  }),
-  dispatch => ({
-    onAddLocaleID: (localeId) => {
-      dispatch({ type: 'ADD_LOCALE_ID', payload: localeId });
-    },
-  }),
-)(Select);
+export default connect(state => ({ localeId: state.localeId }))(Select);

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { FormattedNumber } from 'react-intl';
 import { connect } from 'react-redux';
-
+import { supportedLanguages } from '../../data/Data';
 import { Sm } from '../../common/Responsive';
 
 const Wraper = styled.div`
@@ -38,7 +38,7 @@ const Id = styled.p`
 `;
 
 const Info = (props) => {
-  const currency = props.localStore.lang[props.localStore.localeId].currency;
+  const currency = supportedLanguages[props.localeId].currency;
   return (
     <Wraper>
       <Price>
@@ -61,24 +61,12 @@ const Info = (props) => {
 Info.propTypes = {
   price: PropTypes.objectOf(PropTypes.string).isRequired,
   id: PropTypes.string,
-  localStore: PropTypes.objectOf(
-    PropTypes.shape({
-      lang: PropTypes.arrayOf(
-        PropTypes.shape({
-          name: PropTypes.string,
-          value: PropTypes.string,
-          currency: PropTypes.string,
-        }),
-      ),
-      localeId: PropTypes.number,
-    }),
-  ).isRequired,
+  localeId: PropTypes.number,
 };
 
 Info.defaultProps = {
   id: '1',
+  localeId: 0,
 };
 
-export default connect(state => ({
-  localStore: state,
-}))(Info);
+export default connect(state => ({ localeId: state.localeId }))(Info);

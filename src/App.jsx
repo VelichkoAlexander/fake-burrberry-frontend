@@ -10,9 +10,11 @@ import styled from 'styled-components';
 
 import { Helmet } from 'react-helmet';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { applyMiddleware, createStore } from 'redux';
+import logger from 'redux-logger';
 import ruLocaleData from 'react-intl/locale-data/ru';
 import enLocaleData from 'react-intl/locale-data/en';
+import reducer from './reducers';
 import { XsOnly } from './common/Responsive';
 
 import Header from './Header';
@@ -21,6 +23,7 @@ import Show from './Products/Show';
 import List from './Products/List';
 import Footer from './Footer';
 import ScrollToTop from './common/ScrollToTop';
+import { supportedLanguages } from './data/Data';
 
 addLocaleData([...ruLocaleData, ...enLocaleData]);
 
@@ -53,27 +56,7 @@ const Wrapper = styled.div`
   }
 `;
 
-const initialState = {
-  lang: [
-    { name: 'Russian Federation (₽)', value: 'ru', currency: 'RUB' },
-    { name: 'United Kingdom (£)', value: 'en', currency: 'GBP' },
-  ],
-  localeId: 0,
-};
-
-function dataTransfer(state = initialState, action) {
-  if (action.type === 'ADD_LOCALE_ID') {
-    const newState = state;
-    newState.localeId = action.payload;
-
-    return {
-      ...state,
-      newState,
-    };
-  }
-  return state;
-}
-const store = createStore(dataTransfer);
+const store = createStore(reducer, applyMiddleware(logger));
 
 class App extends Component {
   constructor() {
@@ -93,7 +76,7 @@ class App extends Component {
     return (
       <Provider store={store}>
         <IntlProvider
-          locale={store.getState().lang[store.getState().localeId].value}
+          locale={supportedLanguages[store.getState().localeId].value}
         >
           <Router>
             <ScrollToTop>
@@ -126,11 +109,11 @@ class App extends Component {
                       <Route
                         exact
                         path="/:category/:subcategory"
-                        render={props => <List {...props} />}
+                        component={List}
                       />
                       <Route
                         path="/:category/:subcategory/:id"
-                        render={props => <Show {...props} />}
+                        component={Show}
                       />
                       <Redirect from="/" to="/men/suits" />
                     </Switch>

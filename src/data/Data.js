@@ -57,6 +57,12 @@ export const MobileMenuNavigation = [
     ],
   },
 ];
+
+export const supportedLanguages = [
+  { name: 'Russian Federation (₽)', value: 'ru', currency: 'RUB' },
+  { name: 'United Kingdom (£)', value: 'en', currency: 'GBP' },
+];
+
 export const languages = ['Russian', 'English'];
 
 function readResponseToJson(response) {
@@ -66,8 +72,4 @@ function readResponseToJson(response) {
   return response.json();
 }
 
-export const get = url => (
-  fetch(mainUrl + url)
-    .then(readResponseToJson)
-);
-
+export const get = url => fetch(mainUrl + url).then(readResponseToJson);

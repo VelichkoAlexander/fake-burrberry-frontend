@@ -8,6 +8,7 @@ import { FormattedNumber } from 'react-intl';
 import { Link } from 'react-router-dom';
 import LikeIcon from './LikeIcon';
 import { imageProportion } from '../../common/helpers';
+import { supportedLanguages } from '../../data/Data';
 
 const Wraper = styled.div`
   display: flex;
@@ -100,9 +101,7 @@ class Card extends Component {
         {this.props.type}
       </Type>
     );
-    const { currency } = this.props.localStore.lang[
-      this.props.localStore.localeId
-    ];
+    const { currency } = supportedLanguages[this.props.localeId];
     return (
       <Wraper show={this.state.isImageLoaded}>
         <NavLink to={this.props.to}>
@@ -148,18 +147,7 @@ Card.propTypes = {
   colours: PropTypes.string,
   to: PropTypes.string,
   price: PropTypes.objectOf(PropTypes.string),
-  localStore: PropTypes.objectOf(
-    PropTypes.shape({
-      lang: PropTypes.arrayOf(
-        PropTypes.shape({
-          name: PropTypes.string,
-          value: PropTypes.string,
-          currency: PropTypes.string,
-        }),
-      ),
-      localeId: PropTypes.number,
-    }),
-  ).isRequired,
+  localeId: PropTypes.number,
 };
 
 Card.defaultProps = {
@@ -169,8 +157,7 @@ Card.defaultProps = {
   price: [],
   colours: [],
   to: '',
+  localeId: 0,
 };
 
-export default connect(state => ({
-  localStore: state,
-}))(Card);
+export default connect(state => ({ localeId: state.localeId }))(Card);
