@@ -4,4 +4,4 @@ const changeLocaleId = createAction('ADD_LOCALE_ID', localeId => ({
   localeId,
 }));
 
-export default changeLocaleId;
+export { changeLocaleId as default };

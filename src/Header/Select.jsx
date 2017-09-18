@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { supportedLanguages } from '../data/Data';
-import { changeLocaleId } from '../actionTypes';
+import changeLocaleId from '../actionTypes';
 
 import arrow from '../images/arrow.svg';
 
