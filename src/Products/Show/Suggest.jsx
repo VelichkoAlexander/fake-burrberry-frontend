@@ -47,20 +47,18 @@ class Suggest extends Component {
   }
 
   render() {
-    const { items } = this.state.data;
-    const list =
-      items &&
-      items.map((item, i) =>
-        (<div className="col-xs-6 col-md-3" key={i.toString()}>
-          <Card
-            image={item.images[0]}
-            title={item.title}
-            colours={coloursCount(item.colours.length)}
-            to={`/men/suits/${item.slug}`}
-            price={item.multiCurrencyPrices}
-          />
-        </div>),
-      );
+    const { items = [] } = this.state.data;
+    const list = items.map((item, i) =>
+      (<div className="col-xs-6 col-md-3" key={i.toString()}>
+        <Card
+          image={item.images[0]}
+          title={item.title}
+          colours={coloursCount(item.colours.length)}
+          to={`/men/suits/${item.slug}`}
+          price={item.multiCurrencyPrices}
+        />
+      </div>),
+    );
 
     return (
       <Section>
