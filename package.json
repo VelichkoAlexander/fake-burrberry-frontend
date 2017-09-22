@@ -28,6 +28,7 @@
     "styled-components": "^2.1.2"
   },
   "lint-staged": {
+    "src/**/**/*.{js,jsx,json,css}": "prettier --single-quote --trailing-comma es5 --write",
     "src/**/**/*.{js,jsx}": [
       "eslint --fix",
       "git add"
@@ -36,7 +37,7 @@
   "scripts": {
     "eslint": "eslint --ext .jsx,.js src/",
     "precommit": "lint-staged",
-    "prepush": "yarn eslint --fix",
+    "prepush": "yarn eslint",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
