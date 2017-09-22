@@ -46,15 +46,15 @@ class Show extends Component {
   }
 
   componentDidMount() {
-    if (this.props.items[this.props.currentProductId] || this.state.data) {
-      get(
-        `v1/products/${this.props.match.params.category}/${this.props.match
-          .params.subcategory}/${this.props.match.params.id}`,
-      ).then((data) => {
+    get(
+      `v1/products/${this.props.match.params.category}/${this.props.match
+        .params.subcategory}/${this.props.match.params.id}`,
+    ).then((data) => {
+      if (!this.props.items[this.props.currentProductId]) {
         this.setState({ data });
-        this.setState({ isLoading: false });
-      });
-    }
+      }
+      this.setState({ isLoading: false });
+    });
   }
 
   render() {
