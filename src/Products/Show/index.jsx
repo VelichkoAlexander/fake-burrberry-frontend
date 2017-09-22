@@ -46,7 +46,7 @@ class Show extends Component {
   }
 
   componentDidMount() {
-    const $ = this;
+    const This = this;
     if (!this.props.items[this.props.currentProductId]) {
       get(
         `v1/products/${this.props.match.params.category}/${this.props.match
@@ -57,7 +57,7 @@ class Show extends Component {
       });
     } else {
       setTimeout(() => {
-        $.setState({ isLoading: false });
+        This.setState({ isLoading: false });
       }, 1);
     }
   }

@@ -37,7 +37,7 @@
   "scripts": {
     "eslint": "eslint --ext .jsx,.js src/",
     "precommit": "lint-staged",
-    "prepush": "yarn eslint",
+    "prepush": "yarn eslint --fix",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
