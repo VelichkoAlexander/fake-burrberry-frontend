@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
+import { connect } from 'react-redux';
+import { addListData } from '../../Products/actionTypes';
 
 import Filter from './Filter';
 import Category from './Category';
@@ -53,7 +55,6 @@ class Filters extends Component {
       isLoading: true,
       data: {
         title: '',
-        items: [],
       },
     };
     this.handleDropdown = this.handleDropdown.bind(this);
@@ -65,6 +66,9 @@ class Filters extends Component {
       `v1/products/${this.props.match.params.category}/${this.props.match.params
         .subcategory}?limit=8`,
     ).then((data) => {
+      if (this.props.items.length === 0) {
+        this.props.dispatch(addListData(data.items));
+      }
       this.setState({ data, isLoading: false });
     });
   }
@@ -81,13 +85,13 @@ class Filters extends Component {
         ? state.offset + 8
         : state.total - state.offset}`,
     ).then((response) => {
+      this.props.dispatch(addListData(response.items));
       this.setState(prevState => ({
         data: {
           ...prevState.data,
           total: response.total,
           limit: response.limit,
           offset: response.offset,
-          items: [...prevState.data.items, ...response.items],
         },
       }));
     });
@@ -95,8 +99,7 @@ class Filters extends Component {
 
   render() {
     const { title, description, total } = this.state.data;
-    const isMoreButtonShow =
-      this.state.data.items.length !== this.state.data.total;
+    const isMoreButtonShow = this.props.items.length !== this.state.data.total;
     return (
       <div>
         {this.state.isLoading
@@ -154,7 +157,7 @@ class Filters extends Component {
                   <Category
                     title={title}
                     total={total}
-                    data={this.state.data.items}
+                    data={this.props.items}
                     currency={this.props.currency}
                     to={`/${this.props.match.params.category}/${this.props
                       .match.params.subcategory}/`}
@@ -186,10 +189,15 @@ Filters.propTypes = {
     path: PropTypes.string,
     url: PropTypes.string,
   }).isRequired,
+  dispatch: PropTypes.func.isRequired,
+  items: PropTypes.shape.isRequired,
 };
 
 Filters.defaultProps = {
   currency: '',
 };
 
-export default Filters;
+export default connect(state => ({
+  localeId: state.localeId,
+  items: state.listProducts,
+}))(Filters);

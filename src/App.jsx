@@ -14,7 +14,7 @@ import { applyMiddleware, createStore } from 'redux';
 import logger from 'redux-logger';
 import ruLocaleData from 'react-intl/locale-data/ru';
 import enLocaleData from 'react-intl/locale-data/en';
-import reducer from './reducers';
+import reducer from './Products/reducers';
 import { XsOnly } from './common/Responsive';
 
 import Header from './Header';

@@ -1,7 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { coloursCount } from '../../common/helpers';
+import { changeProductId } from '../actionTypes';
 import Card from '../Card';
 
 const Wraper = styled.div`
@@ -35,14 +37,23 @@ const Available = styled.span`
   font-size: 0.875rem;
 `;
 
-export default function Category(props) {
+const Category = (props) => {
+  const handleProductId = (event) => {
+    props.dispatch(changeProductId(event.currentTarget.dataset.id));
+  };
   const list = props.data.map((product, i) =>
-    (<div className="col-xs-6 col-md-3" key={i.toString()}>
+    (<div
+      className="col-xs-6 col-md-3"
+      onClick={handleProductId}
+      data-id={i}
+      role="presentation"
+      key={i.toString()}
+    >
       <Card
         image={product.images[0]}
         title={product.title}
         colours={coloursCount(product.colours.length)}
-        to={`${props.to}${product.slug}`}
+        to={`${props.to}${product.id}`}
         price={product.multiCurrencyPrices}
       />
     </div>),
@@ -64,7 +75,7 @@ export default function Category(props) {
       </div>
     </Wraper>
   );
-}
+};
 
 Category.propTypes = {
   title: PropTypes.string,
@@ -95,6 +106,7 @@ Category.propTypes = {
     }),
   ).isRequired,
   to: PropTypes.string.isRequired,
+  dispatch: PropTypes.func.isRequired,
 };
 
 Category.defaultProps = {
@@ -103,3 +115,5 @@ Category.defaultProps = {
   data: [],
   currency: 'RUB',
 };
+
+export default connect()(Category);

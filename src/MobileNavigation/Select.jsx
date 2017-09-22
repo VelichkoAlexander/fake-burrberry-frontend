@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { supportedLanguages } from '../data/Data';
-import changeLocaleId from '../actionTypes';
+import changeLocaleId from '../Products/actionTypes';
 
 const ButtonSelectStyled = styled.div`
   position: relative;

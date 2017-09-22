@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
+import { connect } from 'react-redux';
 
 import { XsOnly, Xl, Lg } from '../../common/Responsive';
 import { titleDescriptionCut } from '../../common/helpers';
@@ -45,13 +46,15 @@ class Show extends Component {
   }
 
   componentDidMount() {
-    get(
-      `v1/products/${this.props.match.params.category}/${this.props.match.params
-        .subcategory}/${this.props.match.params.id}`,
-    ).then((data) => {
-      this.setState({ data });
-      this.setState({ isLoading: false });
-    });
+    if (this.props.items[this.props.currentProductId] || this.state.data) {
+      get(
+        `v1/products/${this.props.match.params.category}/${this.props.match
+          .params.subcategory}/${this.props.match.params.id}`,
+      ).then((data) => {
+        this.setState({ data });
+        this.setState({ isLoading: false });
+      });
+    }
   }
 
   render() {
@@ -64,7 +67,8 @@ class Show extends Component {
       description,
       details,
       multiCurrencyPrices,
-    } = this.state.data;
+    } =
+      this.props.items[this.props.currentProductId] || this.state.data;
     const headTitle = `${title} - ${this.props.match.params.category}`;
     const titleDescription = description && titleDescriptionCut(description);
     return (
@@ -153,6 +157,11 @@ Show.propTypes = {
     path: PropTypes.string,
     url: PropTypes.string,
   }).isRequired,
+  items: PropTypes.shape.isRequired,
+  currentProductId: PropTypes.number.isRequired,
 };
 
-export default Show;
+export default connect(state => ({
+  items: state.listProducts,
+  currentProductId: state.currentProductId,
+}))(Show);
