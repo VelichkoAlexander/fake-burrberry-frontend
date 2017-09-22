@@ -46,14 +46,19 @@ class Show extends Component {
   }
 
   componentDidMount() {
+    const $ = this;
     if (!this.props.items[this.props.currentProductId]) {
       get(
         `v1/products/${this.props.match.params.category}/${this.props.match
-          .params.subcategory}/${this.props.match.params.id}`,
-      ).then((data) => {
+          .params.subcategory}/${this.props.match.params.id}`
+      ).then(data => {
         this.setState({ data });
         this.setState({ isLoading: false });
       });
+    } else {
+      setTimeout(() => {
+        $.setState({ isLoading: false });
+      }, 1);
     }
   }
 
@@ -76,30 +81,30 @@ class Show extends Component {
         {this.state.isLoading
           ? <Spinner />
           : <section>
-            <Helmet>
-              <title>
-                {headTitle} | Burberry
-              </title>
-              <meta name="description" content={titleDescription} />
-            </Helmet>
-            <Header
-              title={title}
-              id={id}
-              colours={colours}
-              sizes={sizes}
-              price={multiCurrencyPrices}
-              images={images}
-            />
-            <Wraper className="container">
-              <div className="row">
-                <div className="col-xs-12 col-sm-12 col-md-12 col-lg-4">
-                  <InfoBlock
-                    title="Description"
-                    description={description}
-                    details={details}
-                  />
-                </div>
-                {images &&
+              <Helmet>
+                <title>
+                  {headTitle} | Burberry
+                </title>
+                <meta name="description" content={titleDescription} />
+              </Helmet>
+              <Header
+                title={title}
+                id={id}
+                colours={colours}
+                sizes={sizes}
+                price={multiCurrencyPrices}
+                images={images}
+              />
+              <Wraper className="container">
+                <div className="row">
+                  <div className="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+                    <InfoBlock
+                      title="Description"
+                      description={description}
+                      details={details}
+                    />
+                  </div>
+                  {images &&
                     images.map((image, index) => {
                       if (index === 1) {
                         return (
@@ -120,27 +125,27 @@ class Show extends Component {
                       }
                       return false;
                     })}
+                </div>
+              </Wraper>
+              <Line />
+              <div className="container">
+                <XsOnly>
+                  <InfoBlock title="Delivery" />
+                </XsOnly>
               </div>
-            </Wraper>
-            <Line />
-            <div className="container">
-              <XsOnly>
-                <InfoBlock title="Delivery" />
-              </XsOnly>
-            </div>
-            <Line />
-            <Xl>
-              <Delivery />
-            </Xl>
-            <Suggest />
-            <div className="container">
-              <div className="row">
-                <div className="col-xs-12">
-                  <More />
+              <Line />
+              <Xl>
+                <Delivery />
+              </Xl>
+              <Suggest />
+              <div className="container">
+                <div className="row">
+                  <div className="col-xs-12">
+                    <More />
+                  </div>
                 </div>
               </div>
-            </div>
-          </section>}
+            </section>}
       </div>
     );
   }
