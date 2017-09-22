@@ -1,10 +1,20 @@
 import React, { Component } from 'react';
-import { Helmet } from 'react-helmet';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Route,
+  Redirect,
+  Switch,
+} from 'react-router-dom';
 import { IntlProvider, addLocaleData } from 'react-intl';
 import styled from 'styled-components';
+
+import { Helmet } from 'react-helmet';
+import { Provider } from 'react-redux';
+import { applyMiddleware, createStore } from 'redux';
+import logger from 'redux-logger';
 import ruLocaleData from 'react-intl/locale-data/ru';
 import enLocaleData from 'react-intl/locale-data/en';
+import reducer from './Products/reducers';
 import { XsOnly } from './common/Responsive';
 
 import Header from './Header';
@@ -13,6 +23,7 @@ import Show from './Products/Show';
 import List from './Products/List';
 import Footer from './Footer';
 import ScrollToTop from './common/ScrollToTop';
+import { supportedLanguages } from './data/Data';
 
 addLocaleData([...ruLocaleData, ...enLocaleData]);
 
@@ -45,24 +56,16 @@ const Wrapper = styled.div`
   }
 `;
 
-const supportedLanguages = [
-  { name: 'Russian Federation (₽)', value: 'ru' },
-  { name: 'United Kingdom (£)', value: 'en' },
-];
+const store = createStore(reducer, applyMiddleware(logger));
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      localeId: 0,
       isMenuOpened: false,
+      title: '',
     };
-    this.handleLocalChange = this.handleLocalChange.bind(this);
     this.toggleMobileMenu = this.toggleMobileMenu.bind(this);
-  }
-
-  handleLocalChange(id) {
-    this.setState({ localeId: id });
   }
 
   toggleMobileMenu() {
@@ -71,53 +74,57 @@ class App extends Component {
 
   render() {
     return (
-      <IntlProvider locale={supportedLanguages[this.state.localeId].value}>
-        <Router>
-          <ScrollToTop>
-            <div className="App">
-              <Helmet>
-                <title>Men’s Clothing | Burberry</title>
-                <meta
-                  name="description"
-                  content="Shop from the current men’s clothing collection.
-                       Sartorial suits, shirts and trousers feature as well as casual T-shirts,
-                        polos and jeans."
-                />
-              </Helmet>
-              <Page isMenuOpened={this.state.isMenuOpened}>
-                <XsOnly>
-                  <MobileNavigation
+      <Provider store={store}>
+        <IntlProvider
+          locale={supportedLanguages[store.getState().localeId].value}
+        >
+          <Router>
+            <ScrollToTop>
+              <div className="App">
+                <Helmet>
+                  <title>
+                    Burberry | Iconic British Luxury Brand Est. 1856
+                  </title>
+                  <meta
+                    name="description"
+                    content="A tradition of craftsmanship, design and innovation.
+                Discover trench coats, luxury clothing,
+                leather bags, cashmere scarves and more."
+                  />
+                </Helmet>
+                <Page isMenuOpened={this.state.isMenuOpened}>
+                  <XsOnly>
+                    <MobileNavigation
+                      isMenuOpened={this.state.isMenuOpened}
+                      toggleMobileMenu={this.toggleMobileMenu}
+                    />
+                  </XsOnly>
+                  <Wrapper
                     isMenuOpened={this.state.isMenuOpened}
-                    toggleMobileMenu={this.toggleMobileMenu}
-                    localeId={this.state.localeId}
-                    handleLocalChange={this.handleLocalChange}
-                    options={supportedLanguages}
-                  />
-                </XsOnly>
-                <Wrapper
-                  isMenuOpened={this.state.isMenuOpened}
-                  onClick={() =>
-                    this.state.isMenuOpened && this.toggleMobileMenu()}
-                >
-                  <Header
-                    localeId={this.state.localeId}
-                    handleLocalChange={this.handleLocalChange}
-                    toggleMobileMenu={this.toggleMobileMenu}
-                    options={supportedLanguages}
-                  />
-                  <Route exact path="/" component={List} />
-                  <Route exact path="/mens-clothing" component={List} />
-                  <Route
-                    path="/mens-clothing/:categoryName/:id"
-                    component={Show}
-                  />
-                  <Footer />
-                </Wrapper>
-              </Page>
-            </div>
-          </ScrollToTop>
-        </Router>
-      </IntlProvider>
+                    onClick={() =>
+                      this.state.isMenuOpened && this.toggleMobileMenu()}
+                  >
+                    <Header toggleMobileMenu={this.toggleMobileMenu} />
+                    <Switch>
+                      <Route
+                        exact
+                        path="/:category/:subcategory"
+                        component={List}
+                      />
+                      <Route
+                        path="/:category/:subcategory/:id"
+                        component={Show}
+                      />
+                      <Redirect from="/" to="/men/suits" />
+                    </Switch>
+                    <Footer />
+                  </Wrapper>
+                </Page>
+              </div>
+            </ScrollToTop>
+          </Router>
+        </IntlProvider>
+      </Provider>
     );
   }
 }

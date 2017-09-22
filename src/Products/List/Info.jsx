@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-
-import { Xl } from '../../common/Responsive';
+import PropTypes from 'prop-types';
+import { descriptionCut } from '../../common/helpers';
 
 const Wraper = styled.div`
   background-color: #f3f3f3;
@@ -41,24 +40,55 @@ const Content = styled.div`
   }
 `;
 
-const More = styled(Link)`
+const More = styled.button`
   font-size: 0.75rem;
   font-weight: 500;
+  font-family: 'Lora', serif;
   text-decoration: underline;
   line-height: 1.25rem;
+  background:transparent;
+  border: none;
+  cursor: pointer;
 `;
 
-export default () => (
-  <Wraper>
-    <div className="container">
-      <Title>Men’s Clothing</Title>
-      <Content>
-        Explore our menswear collection for the season. Sculptural knitwear,{' '}
-        <a href="/sweatshirts">sweatshirts</a>, artist overalls and oversized
-        cabans feature alongside our signature trench coat in both heritage.<Xl>
-          <More to="/products">More</More>
-        </Xl>
-      </Content>
-    </div>
-  </Wraper>
-);
+class Info extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { isShowMore: false };
+    this.onShow = this.onShow.bind(this);
+  }
+  onShow() {
+    this.setState({ isShowMore: true });
+  }
+
+  render() {
+    const isDescriptionCut = this.props.description.length > 190 && !this.state.isShowMore;
+    return (
+      <Wraper>
+        <div className="container">
+          <Title>{this.props.title}</Title>
+          <Content>
+            { isDescriptionCut ?
+              descriptionCut(this.props.description)
+              :
+              this.props.description
+            }
+            {isDescriptionCut && <More onClick={this.onShow}>More</More>}
+          </Content>
+        </div>
+      </Wraper>
+    );
+  }
+}
+
+Info.propTypes = {
+  title: PropTypes.string,
+  description: PropTypes.string,
+};
+
+Info.defaultProps = {
+  title: '',
+  description: ' ',
+};
+
+export default Info;

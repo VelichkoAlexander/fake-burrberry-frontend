@@ -21,6 +21,7 @@ const Current = styled.p`
 
 const Options = styled.div`
   display: flex;
+  flex-wrap: wrap;
   padding-bottom: 2rem;
   margin-bottom: 2rem;
   border-bottom: solid 0.0625rem #c6c6c6;
@@ -33,10 +34,6 @@ const Options = styled.div`
 
 const Name = styled.span`font-weight: 700;`;
 
-const colors = [
-  { name: 'Honey', color: '#cfa880', img: '1' },
-  { name: 'Black', color: '#232122', img: '2' },
-];
 
 class Color extends Component {
   constructor(props) {
@@ -48,20 +45,21 @@ class Color extends Component {
   handleColorChange(e) {
     const id = Number(e.target.id);
     this.setState({ selectedColorIndex: id });
-    this.props.handleColorChange(colors[id].img);
+    this.props.handleColorChange(id);
   }
 
   render() {
+    const colors = this.props.colours || [];
     return (
       <Wrapper>
         <Current>
-          Colour: <Name>{colors[this.state.selectedColorIndex].name}</Name>
+          Colour: <Name>{colors.length > 0 && colors[this.state.selectedColorIndex].value}</Name>
         </Current>
         <Options>
           {colors.map((color, index) => (
             <ColorButton
               isActive={this.state.selectedColorIndex === index}
-              color={color.color}
+              color={color.src}
               key={index.toString()}
               id={index}
               onClick={e => this.handleColorChange(e)}
@@ -77,6 +75,7 @@ class Color extends Component {
 
 Color.propTypes = {
   handleColorChange: PropTypes.func.isRequired,
+  colours: PropTypes.arrayOf(PropTypes.shape).isRequired,
 };
 
 export default Color;

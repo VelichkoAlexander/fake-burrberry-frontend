@@ -1,6 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { supportedLanguages } from '../data/Data';
+import changeLocaleId from '../Products/actionTypes';
 
 import arrow from '../images/arrow.svg';
 
@@ -52,24 +55,22 @@ const CountryButton = styled.button`
   }
 `;
 
-const Select = (props) => {
+const Select = ({ label, localeId, dispatch }) => {
   const handleChange = (event) => {
-    props.handleLocalChange(event.target.selectedIndex);
+    dispatch(changeLocaleId(event.target.selectedIndex));
   };
-
-  const options = props.options;
 
   return (
     <SelectWrapper>
       <CountryButton>
-        {props.label}: {options[props.localeId].name}
+        {label}: {supportedLanguages[localeId].name}
       </CountryButton>
       <CountrySelect onChange={handleChange}>
-        {options.map((option, index) => (
-          <option value={index} key={index.toString()}>
-            {props.label}: {option.name}
-          </option>
-        ))}
+        {supportedLanguages.map((option, index) =>
+          (<option value={index} key={index.toString()}>
+            {label}: {option.name}
+          </option>),
+        )}
       </CountrySelect>
     </SelectWrapper>
   );
@@ -78,19 +79,12 @@ const Select = (props) => {
 Select.propTypes = {
   label: PropTypes.string,
   localeId: PropTypes.number,
-  handleLocalChange: PropTypes.func.isRequired,
-  options: PropTypes.arrayOf(
-    PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      value: PropTypes.string.isRequired,
-    }),
-  ).isRequired,
+  dispatch: PropTypes.func.isRequired,
 };
 
 Select.defaultProps = {
   label: 'Language',
-  options: [],
   localeId: 0,
 };
 
-export default Select;
+export default connect(state => ({ localeId: state.localeId }))(Select);

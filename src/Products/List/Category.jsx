@@ -1,7 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-
+import { connect } from 'react-redux';
+import { coloursCount } from '../../common/helpers';
+import { changeProductId } from '../actionTypes';
 import Card from '../Card';
 
 const Wraper = styled.div`
@@ -30,34 +32,88 @@ const Title = styled.h2`
   }
 `;
 
-export default function Category(props) {
-  const list = props.data.map((item, i) => (
-    <div className="col-xs-6 col-md-3" key={i.toString()}>
+const Available = styled.span`
+  font-family: 'Lora', serif;
+  font-size: 0.875rem;
+`;
+
+const Category = (props) => {
+  const handleProductId = (event) => {
+    props.dispatch(changeProductId(event.currentTarget.dataset.id));
+  };
+  const list = props.data.map((product, i) =>
+    (<div
+      className="col-xs-6 col-md-3"
+      onClick={handleProductId}
+      data-id={i}
+      role="presentation"
+      key={i.toString()}
+    >
       <Card
-        src={item.src}
-        title={item.title}
-        colors={item.colors}
-        price={item.price}
+        image={product.images[0]}
+        title={product.title}
+        colours={coloursCount(product.colours.length)}
+        to={`${props.to}${product.slug}`}
+        price={product.multiCurrencyPrices}
       />
-    </div>
-  ));
+    </div>),
+  );
 
   return (
     <Wraper>
       <div className="container">
-        <Title>{props.title}</Title>
-        <div className="row">{list}</div>
+        <Title>
+          {props.title}
+          {props.total !== 0 &&
+            <Available>
+              {' '}— {props.total} available
+            </Available>}
+        </Title>
+        <div className="row">
+          {list}
+        </div>
       </div>
     </Wraper>
   );
-}
+};
 
 Category.propTypes = {
   title: PropTypes.string,
-  data: PropTypes.arrayOf(PropTypes.object),
+  total: PropTypes.number,
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string,
+      id: PropTypes.string,
+      slug: PropTypes.string,
+      multiCurrencyPrices: PropTypes.objectOf(PropTypes.string),
+      colours: PropTypes.arrayOf(
+        PropTypes.shape({
+          heroSrc: PropTypes.string,
+          value: PropTypes.string,
+          src: PropTypes.string,
+        }),
+      ),
+      sizes: PropTypes.arrayOf(
+        PropTypes.shape({
+          title: PropTypes.string,
+          id: PropTypes.string,
+        }),
+      ),
+      description: PropTypes.string,
+      details: PropTypes.string,
+      images: PropTypes.arrayOf(PropTypes.string),
+      linkedProductIds: PropTypes.arrayOf(PropTypes.string),
+    }),
+  ).isRequired,
+  to: PropTypes.string.isRequired,
+  dispatch: PropTypes.func.isRequired,
 };
 
 Category.defaultProps = {
   title: 'Category',
+  total: 0,
   data: [],
+  currency: 'RUB',
 };
+
+export default connect()(Category);

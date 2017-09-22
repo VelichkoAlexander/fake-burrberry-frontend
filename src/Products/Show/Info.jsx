@@ -4,7 +4,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { FormattedNumber } from 'react-intl';
-
+import { connect } from 'react-redux';
+import { supportedLanguages } from '../../data/Data';
 import { Sm } from '../../common/Responsive';
 
 const Wraper = styled.div`
@@ -36,30 +37,36 @@ const Id = styled.p`
   color: #171717;
 `;
 
-export default function Info(props) {
+const Info = (props) => {
+  const currency = supportedLanguages[props.localeId].currency;
   return (
     <Wraper>
       <Price>
         <FormattedNumber
-          value={props.price}
+          value={props.price[currency] / 100}
           style="currency"
-          currency="RUB"
+          currency={currency}
           minimumFractionDigits={0}
         />
       </Price>
       <Sm>
-        <Id>Item {props.id}</Id>
+        <Id>
+          Item {props.id}
+        </Id>
       </Sm>
     </Wraper>
   );
-}
+};
 
 Info.propTypes = {
-  price: PropTypes.number,
-  id: PropTypes.number,
+  price: PropTypes.objectOf(PropTypes.string).isRequired,
+  id: PropTypes.string,
+  localeId: PropTypes.number,
 };
 
 Info.defaultProps = {
-  price: 0,
-  id: 1,
+  id: '1',
+  localeId: 0,
 };
+
+export default connect(state => ({ localeId: state.localeId }))(Info);

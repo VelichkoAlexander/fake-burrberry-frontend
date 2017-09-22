@@ -2,37 +2,36 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+import { imageRetina } from '../../common/ImageResponsive';
+
 const Img = styled.img`
   display: block;
   width: 100%;
   height: auto;
   margin-bottom: 4rem;
 `;
-
+const bigImg = '?$BBY_V2_ML_3X4$&wid=905&hei=800';
+const smallImg = '?$BBY_V2_ML_3X4$&wid=545&hei=727';
 export default function InfoImage(props) {
   return (
     <picture>
       <source
         media="(min-width: 62rem)"
-        srcSet={`${process.env
-          .PUBLIC_URL}/images/content/product/desktop/${props.nameItem}.jpg 1x,
-                          ${process.env
-      .PUBLIC_URL}/images/content/product/desktop/${props.nameItem}.jpg@2x.jpg 2x,
-                          ${process.env
-      .PUBLIC_URL}/images/content/product/desktop/${props.nameItem}.jpg@3x.jpg 3x`}
+        srcSet={`${props.src + (props.big ? bigImg : smallImg)} 1x,
+      ${props.src + imageRetina(props.big ? bigImg : smallImg, 2)} 2x,
+      ${props.src + imageRetina(props.big ? bigImg : smallImg, 3)} 3x`}
       />
-      <Img
-        src={`${process.env
-          .PUBLIC_URL}/images/content/product/desktop/${props.nameItem}.jpg`}
-      />
+      <Img src={props.src + props.big ? bigImg : smallImg} />
     </picture>
   );
 }
 
 InfoImage.propTypes = {
-  nameItem: PropTypes.string,
+  src: PropTypes.string,
+  big: PropTypes.bool,
 };
 
 InfoImage.defaultProps = {
-  nameItem: '2',
+  src: '',
+  big: false,
 };

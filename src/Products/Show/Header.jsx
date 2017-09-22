@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 import Image from './SliderItem';
 import Info from './Info';
@@ -39,7 +40,7 @@ const Slider = styled.div`
   margin: 0;
   padding: 0;
   margin: 0 -0.5rem;
-  overflow-x: auto;
+  overflow-x: ${props => (props.hero ? 'hidden' : 'auto')};
   @media (min-width: 48rem) {
     margin: 0;
   }
@@ -58,17 +59,12 @@ const Text = styled.p`
   line-height: 1.33;
 `;
 
-const Wrapper = styled.div`
-  @media (min-width: 62rem) {
-    background: #d4bdad;
-    margin-bottom: 4rem;
-  }
-`;
+const Wrapper = styled.div`@media (min-width: 62rem) {margin-bottom: 4rem;}`;
 
 class Header extends Component {
   constructor() {
     super();
-    this.state = { colorId: 1 };
+    this.state = { colorId: 0 };
     this.handleColorChange = this.handleColorChange.bind(this);
   }
 
@@ -77,57 +73,53 @@ class Header extends Component {
   }
 
   render() {
+    const sliderImages =
+      this.props.images &&
+      this.props.images.map((image, index) =>
+        <Image src={image} alt={this.props.title} key={index.toString()} />,
+      );
+
+    const { heroSrc } =
+      this.props.colours && this.props.colours[this.state.colorId];
+
     return (
       <Wrapper>
         <div className="container">
           <Sm>
-            <Title>Long Cotton Gabardine Car Coat</Title>
+            <Title>
+              {this.props.title}
+            </Title>
           </Sm>
           <div className="row">
-            <div className="col-xs-12 col-sm-7">
+            <div className="col-xs-12 col-sm-6">
               <Lg>
-                <Slider className="product-slider">
-                  <Image
-                    nameItem="front"
-                    alt="Long Cotton Gabardine Car Coat - front"
-                  />
+                <Slider hero>
+                  <Image src={heroSrc} alt={this.props.title} hero />
                 </Slider>
               </Lg>
               <Sm>
-                <Slider className="product-slider">
-                  <Image
-                    nameItem="front"
-                    alt="Long Cotton Gabardine Car Coat - front"
-                  />
-                  <Image
-                    nameItem="detail1"
-                    alt="Long Cotton Gabardine Car Coat - collar detail 1"
-                  />
-                  <Image
-                    nameItem="detail2"
-                    alt="Long Cotton Gabardine Car Coat - collar detail 2"
-                  />
-                  <Image
-                    nameItem="back"
-                    alt="Long Cotton Gabardine Car Coat - back"
-                  />
+                <Slider>
+                  {sliderImages}
                 </Slider>
               </Sm>
             </div>
-            <div className="col-xs-12 col-sm-5">
+            <div className="col-xs-12 col-sm-6">
               <Lg>
                 <Title>
-                  Long Cotton Gabardine Car Coat Coat Coat Coat Coat
+                  {this.props.title}
                 </Title>
               </Lg>
-              <Info price={110000} id={39428531} />
+              <Info price={this.props.price} id={this.props.id} />
               <div className="row">
                 <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6">
-                  <Color handleColorChange={this.handleColorChange} />
+                  <Color
+                    colours={this.props.colours}
+                    handleColorChange={this.handleColorChange}
+                  />
                 </div>
                 <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6">
                   <Lg>
-                    <Size />
+                    <Size sizes={this.props.sizes} />
                   </Lg>
                 </div>
               </div>
@@ -145,5 +137,34 @@ class Header extends Component {
     );
   }
 }
+
+Header.propTypes = {
+  title: PropTypes.string,
+  id: PropTypes.string,
+  price: PropTypes.objectOf(PropTypes.string).isRequired,
+  images: PropTypes.arrayOf(PropTypes.string).isRequired,
+  sizes: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string,
+      id: PropTypes.string,
+    }),
+  ).isRequired,
+  colours: PropTypes.arrayOf(
+    PropTypes.shape({
+      heroSrc: PropTypes.string,
+      value: PropTypes.string,
+      src: PropTypes.string,
+    }),
+  ),
+};
+
+Header.defaultProps = {
+  title: '',
+  id: '',
+  price: 0,
+  images: [],
+  sizes: [],
+  colours: [{}],
+};
 
 export default Header;

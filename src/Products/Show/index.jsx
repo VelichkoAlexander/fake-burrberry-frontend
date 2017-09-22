@@ -1,7 +1,13 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
+import { Helmet } from 'react-helmet';
+import { connect } from 'react-redux';
 
 import { XsOnly, Xl, Lg } from '../../common/Responsive';
+import { titleDescriptionCut } from '../../common/helpers';
+import { get } from '../../data/Data';
+import Spinner from '../../common/Spinner';
 
 import Header from './Header';
 import Image from './InfoImage';
@@ -28,53 +34,139 @@ const Wraper = styled.div`
   }
 `;
 
-export default () => (
-  <div>
-    <Header />
-    <Wraper className="container">
-      <div className="row">
-        <div className="col-xs-12 col-sm-12 col-md-12 col-lg-4">
-          <InfoBlock title="Description" />
-        </div>
-        <div className="col-lg-8">
-          <Lg>
-            <Image nameItem="1" />
-          </Lg>
-        </div>
-        <div className="col-lg-4">
-          <Lg>
-            <Image nameItem="2" />
-          </Lg>
-        </div>
-        <div className="col-lg-4">
-          <Lg>
-            <Image nameItem="3" />
-          </Lg>
-        </div>
-        <div className="col-lg-4">
-          <Lg>
-            <Image nameItem="4" />
-          </Lg>
-        </div>
+class Show extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isLoading: true,
+      data: {
+        title: '',
+      },
+    };
+  }
+
+  componentDidMount() {
+    const This = this;
+    if (!this.props.items[this.props.currentProductId]) {
+      get(
+        `v1/products/${this.props.match.params.category}/${this.props.match
+          .params.subcategory}/${this.props.match.params.id}`,
+      ).then((data) => {
+        this.setState({ data });
+        this.setState({ isLoading: false });
+      });
+    } else {
+      setTimeout(() => {
+        This.setState({ isLoading: false });
+      }, 1);
+    }
+  }
+
+  render() {
+    const {
+      title,
+      id,
+      colours,
+      sizes,
+      images,
+      description,
+      details,
+      multiCurrencyPrices,
+    } =
+      this.props.items[this.props.currentProductId] || this.state.data;
+    const headTitle = `${title} - ${this.props.match.params.category}`;
+    const titleDescription = description && titleDescriptionCut(description);
+    return (
+      <div>
+        {this.state.isLoading
+          ? <Spinner />
+          : <section>
+            <Helmet>
+              <title>
+                {headTitle} | Burberry
+              </title>
+              <meta name="description" content={titleDescription} />
+            </Helmet>
+            <Header
+              title={title}
+              id={id}
+              colours={colours}
+              sizes={sizes}
+              price={multiCurrencyPrices}
+              images={images}
+            />
+            <Wraper className="container">
+              <div className="row">
+                <div className="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+                  <InfoBlock
+                    title="Description"
+                    description={description}
+                    details={details}
+                  />
+                </div>
+                {images &&
+                    images.map((image, index) => {
+                      if (index === 1) {
+                        return (
+                          <div className="col-lg-8" key={index.toString()}>
+                            <Lg>
+                              <Image src={image} big />
+                            </Lg>
+                          </div>
+                        );
+                      } else if (index >= 2 && index <= 4) {
+                        return (
+                          <div className="col-lg-4" key={index.toString()}>
+                            <Lg>
+                              <Image src={image} />
+                            </Lg>
+                          </div>
+                        );
+                      }
+                      return false;
+                    })}
+              </div>
+            </Wraper>
+            <Line />
+            <div className="container">
+              <XsOnly>
+                <InfoBlock title="Delivery" />
+              </XsOnly>
+            </div>
+            <Line />
+            <Xl>
+              <Delivery />
+            </Xl>
+            <Suggest />
+            <div className="container">
+              <div className="row">
+                <div className="col-xs-12">
+                  <More />
+                </div>
+              </div>
+            </div>
+          </section>}
       </div>
-    </Wraper>
-    <Line />
-    <div className="container">
-      <XsOnly>
-        <InfoBlock title="Delivery" />
-      </XsOnly>
-    </div>
-    <Line />
-    <Xl>
-      <Delivery />
-    </Xl>
-    <Suggest />
-    <div className="container">
-      <div className="row">
-        <div className="col-xs-12">
-          <More />
-        </div>
-      </div>
-    </div>
-  </div>
-);
+    );
+  }
+}
+
+Show.propTypes = {
+  match: PropTypes.shape({
+    isExact: PropTypes.bool,
+    params: PropTypes.shape({
+      id: PropTypes.string,
+      category: PropTypes.string,
+      subcategory: PropTypes.string,
+    }),
+    path: PropTypes.string,
+    url: PropTypes.string,
+  }).isRequired,
+  items: PropTypes.shape.isRequired,
+  currentProductId: PropTypes.number.isRequired,
+};
+
+export default connect(state => ({
+  items: state.listProducts,
+  currentProductId: state.currentProductId,
+}))(Show);

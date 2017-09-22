@@ -17,11 +17,9 @@ const Button = styled.button`
   border-radius: 2px;
   cursor: pointer;
   transition: all 0.2s linear;
+  margin-bottom: 0.5rem;
   &:last-child {
     margin-right: 0;
-  }
-  &:hover {
-    //font-weight: 700;
   }
 `;
 
@@ -39,14 +37,13 @@ export default function SizeButton(props) {
 }
 
 SizeButton.propTypes = {
-  onClick: PropTypes.func,
+  onClick: PropTypes.func.isRequired,
   isActive: PropTypes.bool,
   name: PropTypes.string,
   id: PropTypes.number,
 };
 
 SizeButton.defaultProps = {
-  onClick: () => '',
   isActive: false,
   name: 'L',
   id: 0,

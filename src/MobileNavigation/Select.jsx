@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
+import { supportedLanguages } from '../data/Data';
+import changeLocaleId from '../Products/actionTypes';
 
 const ButtonSelectStyled = styled.div`
   position: relative;
@@ -29,20 +32,22 @@ const Button = styled.div`
   text-align: center;
 `;
 
-const Select = ({ options, handleLocalChange, localeId }) => {
+const Select = ({ localeId, dispatch }) => {
   const handleChange = (event) => {
-    handleLocalChange(event.target.selectedIndex);
+    dispatch(changeLocaleId(event.target.selectedIndex));
   };
 
   return (
     <ButtonSelectStyled>
-      <Button>{options[localeId].name}</Button>
+      <Button>
+        {supportedLanguages[localeId].name}
+      </Button>
       <SelectButton onChange={handleChange}>
-        {options.map((option, index) => (
-          <option value={index} key={index.toString()}>
+        {supportedLanguages.map((option, index) =>
+          (<option key={index.toString()}>
             {option.name}
-          </option>
-        ))}
+          </option>),
+        )}
       </SelectButton>
     </ButtonSelectStyled>
   );
@@ -50,17 +55,11 @@ const Select = ({ options, handleLocalChange, localeId }) => {
 
 Select.propTypes = {
   localeId: PropTypes.number,
-  handleLocalChange: PropTypes.func.isRequired,
-  options: PropTypes.arrayOf(
-    PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      value: PropTypes.string.isRequired,
-    }),
-  ).isRequired,
+  dispatch: PropTypes.func.isRequired,
 };
 
 Select.defaultProps = {
   localeId: 0,
 };
 
-export default Select;
+export default connect(state => ({ localeId: state.localeId }))(Select);

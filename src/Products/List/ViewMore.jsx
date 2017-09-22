@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const Wrapper = styled.div`
   display: flex;
@@ -34,11 +35,36 @@ const Button = styled.button`
   border: solid 1px #171717;
   background-color: transparent;
   cursor: pointer;
+  transition: all 0.2s linear;
+  &:hover{
+    background-color:#171717;
+    color: #fff;
+  }
 `;
 
-export default () => (
+const ViewMore = props => (
   <Wrapper>
-    <Showing>Showing 8 of 17</Showing>
-    <Button type="button">View 9 more</Button>
+    <Showing>Showing {props.limit } of {props.total}</Showing>
+    <Button
+      onClick={props.moreFunction}
+      type="button"
+    >
+      View {props.total - props.limit} more
+    </Button>
   </Wrapper>
 );
+
+
+ViewMore.propTypes = {
+  limit: PropTypes.number,
+  total: PropTypes.number,
+  moreFunction: PropTypes.func.isRequired,
+};
+
+ViewMore.defaultProps = {
+  limit: 0,
+  total: 0,
+};
+
+
+export default ViewMore;

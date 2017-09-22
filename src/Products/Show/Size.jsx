@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 import SizeButton from './SizeButton';
 
@@ -23,7 +24,7 @@ const Help = styled.button`
   color: #171717;
   background-color: transparent;
   border: none;
-
+  cursor: pointer;
   @media only screen and (min-width: 48rem) {
     margin-left: 0;
     margin-right: 0;
@@ -34,29 +35,33 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
 `;
-const Options = styled.div`display: flex;`;
+
+const Options = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+`;
 
 const Name = styled.span`font-weight: 700;`;
-
-const sizes = ['S', 'M', 'L', 'XL'];
 
 class Size extends Component {
   constructor(props) {
     super(props);
-    this.state = { selectSizeIndex: 2 };
+    this.state = { selectSizeIndex: 0 };
     this.onActiveSize = this.onActiveSize.bind(this);
   }
 
-  onActiveSize(e) {
-    this.setState({ selectSizeIndex: +e.target.id });
+  onActiveSize(event) {
+    this.setState({ selectSizeIndex: Number(event.target.id) });
   }
 
   render() {
+    const sizes = this.props.sizes || [];
     return (
       <div>
         <Wrapper>
           <Current>
-            Size: <Name>{sizes[this.state.selectSizeIndex]}</Name>
+            Size: <Name>{sizes.length > 0 && sizes[this.state.selectSizeIndex].title}</Name>
           </Current>
           <Help help type="button">
             Need Size Help?
@@ -66,7 +71,7 @@ class Size extends Component {
           {sizes.map((size, index) => (
             <SizeButton
               id={index}
-              name={size}
+              name={size.title}
               type="button"
               onClick={e => this.onActiveSize(e)}
               isActive={this.state.selectSizeIndex === index}
@@ -78,5 +83,14 @@ class Size extends Component {
     );
   }
 }
+
+Size.propTypes = {
+  sizes: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string,
+      id: PropTypes.string,
+    }),
+  ).isRequired,
+};
 
 export default Size;

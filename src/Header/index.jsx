@@ -38,8 +38,8 @@ const Hamburger = styled.button`
   background: url(${hamburger}) center no-repeat;
 `;
 
-const Header = props => (
-  <div>
+const Header = props =>
+  (<div>
     <Wrap>
       <div className="container">
         <div className="row">
@@ -50,12 +50,7 @@ const Header = props => (
                   <Hamburger type="button" onClick={props.toggleMobileMenu} />
                 </XsOnly>
                 <Xl>
-                  <Select
-                    label="Shopping in"
-                    localeId={props.localeId}
-                    handleLocalChange={props.handleLocalChange}
-                    options={props.options}
-                  />
+                  <Select label="Shopping in" />
                 </Xl>
               </div>
               <div className="col-xs-8 col-md-4">
@@ -73,23 +68,10 @@ const Header = props => (
         </Xl>
       </div>
     </div>
-  </div>
-);
+  </div>);
 
 Header.propTypes = {
-  localeId: PropTypes.number,
-  handleLocalChange: PropTypes.func.isRequired,
   toggleMobileMenu: PropTypes.func.isRequired,
-  options: PropTypes.arrayOf(
-    PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      value: PropTypes.string.isRequired,
-    }),
-  ).isRequired,
-};
-
-Header.defaultProps = {
-  localeId: 0,
 };
 
 export default Header;
