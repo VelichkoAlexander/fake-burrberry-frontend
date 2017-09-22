@@ -53,7 +53,7 @@ const Category = (props) => {
         image={product.images[0]}
         title={product.title}
         colours={coloursCount(product.colours.length)}
-        to={`${props.to}${product.id}`}
+        to={`${props.to}${product.slug}`}
         price={product.multiCurrencyPrices}
       />
     </div>),
